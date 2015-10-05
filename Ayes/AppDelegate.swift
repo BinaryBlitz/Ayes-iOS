@@ -8,6 +8,8 @@
 
 import UIKit
 
+let SIDE_BAR_WIDTH: CGFloat = 50
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,8 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
+    setUpNavigationBar()
     return true
+  }
+  
+  private func setUpNavigationBar() {
+    UINavigationBar.appearance().barTintColor = UIColor(red: 53/255, green: 43/255, blue: 67/255, alpha: 1)
+    UINavigationBar.appearance().translucent = true
+    UINavigationBar.appearance().tintColor = UIColor.whiteColor()
   }
 
   func applicationWillResignActive(application: UIApplication) {
