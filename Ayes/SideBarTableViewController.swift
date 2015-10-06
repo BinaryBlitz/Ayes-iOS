@@ -12,9 +12,8 @@ import UIKit
 class SideBarTableViewController: UITableViewController {
   
   override func viewDidLoad() {
-    let footer = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-    footer.backgroundColor = UIColor.blueColor()
-    tableView.tableFooterView = footer
-    
+//    let footer = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+//    footer.backgroundColor = UIColor.blueColor()
+//    tableView.tableFooterView = footer
   }
 }
