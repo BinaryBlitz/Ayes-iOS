@@ -20,3 +20,5 @@ DerivedData
 .localized
 .DS_Store
 
+# Pods
+Pods/
