@@ -4,4 +4,5 @@ use_frameworks!
 pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'SWRevealViewController'
+pod 'MagicalRecord/Shorthand'
 #pod 'HanekeSwift'

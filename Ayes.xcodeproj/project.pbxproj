@@ -64,6 +64,7 @@
 		37C44A661BC31FDD001A6340 /* Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		37E2A0EC1BC7E7E700FA7A6B /* Ayes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ayes.xcdatamodel; sourceTree = "<group>"; };
 		37E2A0EF1BC7EBA800FA7A6B /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		37E2A0F21BC8033300FA7A6B /* Ayes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ayes-Bridging-Header.h"; sourceTree = "<group>"; };
 		E1039A30CDBD040BCB15D08E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DEA0F79349071E6297C527 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +186,7 @@
 			children = (
 				372657D61BC27520003383D1 /* AppDelegate.swift */,
 				372657E21BC27520003383D1 /* Info.plist */,
+				37E2A0F21BC8033300FA7A6B /* Ayes-Bridging-Header.h */,
 			);
 			name = "Supporting files";
 			sourceTree = "<group>";
@@ -253,6 +255,7 @@
 		372657CB1BC27520003383D1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = BinaryBlitz;
 				TargetAttributes = {
@@ -532,11 +535,14 @@
 			baseConfigurationReference = 2D5A5610BF6A85A5D1D0B98A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Ayes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.binaryblitz.Ayes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Ayes/Ayes-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -545,11 +551,13 @@
 			baseConfigurationReference = E8DEA0F79349071E6297C527 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Ayes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.binaryblitz.Ayes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Ayes/Ayes-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MagicalRecord
 
 let SIDE_BAR_WIDTH: CGFloat = 50
 
@@ -17,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    MagicalRecord.setupCoreDataStack()
     setUpNavigationBar()
     return true
   }
