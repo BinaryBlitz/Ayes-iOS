@@ -1,5 +1,5 @@
 //
-//  QuestionnaireTableViewController.swift
+//  HomeTableViewController.swift
 //  Ayes
 //
 //  Created by Dan Shevlyuk on 06/10/15.
@@ -7,18 +7,18 @@
 //
 
 import UIKit
-import SWRevealViewController
 
-class QuestionnaireTableViewController: UITableViewController {
+class HomeTableViewController: UITableViewController {
 
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
+  var questions = [String]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     let title = UILabel(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
     title.textAlignment = .Left
-    title.text = "Анкета пользователя"
+    title.text = "Список вопросов"
     title.textColor = UIColor.whiteColor()
     navigationItem.titleView = title
     
@@ -28,7 +28,21 @@ class QuestionnaireTableViewController: UITableViewController {
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
       revealViewController.rearViewRevealWidth = SIDE_BAR_WIDTH
     }
-
   }
+  
+  // MARK: UITAbleViewDataSource
+  
+  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return questions.count
+  }
+  
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCellWithIdentifier("questionCell", forIndexPath: indexPath) as?  else {
+      return UITableViewCell()
+    }
+    
+    
+  }
+  
+  
 }
-
