@@ -11,9 +11,15 @@ import UIKit
 
 class SideBarViewController: UIViewController {
   
+  @IBOutlet var buttons: [UIButton]!
+  
   override func viewDidLoad() {
-//    let footer = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-//    footer.backgroundColor = UIColor.blueColor()
-//    tableView.tableFooterView = footer
+    view.backgroundColor = UIColor.darkVioletPrimaryColor()
+    
+    for button in buttons {
+      button.tintColor = UIColor.whiteColor()
+      button.titleLabel?.font  = UIFont.systemFontOfSize(14)
+      button.titleEdgeInsets = UIEdgeInsets(top: 35, left: 0, bottom: 0, right: 0)
+    }
   }
 }
