@@ -1,5 +1,5 @@
 //
-//  SideBarTableViewController.swift
+//  SideBarViewController.swift
 //  Ayes
 //
 //  Created by Dan Shevlyuk on 06/10/15.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SideBarTableViewController: UITableViewController {
+class SideBarViewController: UIViewController {
   
   override func viewDidLoad() {
 //    let footer = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))

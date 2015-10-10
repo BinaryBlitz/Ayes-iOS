@@ -24,7 +24,7 @@ class Favorites: UITableViewController {
       menuBarButtonItem.target = revealViewController
       menuBarButtonItem.action = "revealToggle:"
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
-      revealViewController.rearViewRevealWidth = 50
+      revealViewController.rearViewRevealWidth = SIDE_BAR_WIDTH
     }
   }
 }

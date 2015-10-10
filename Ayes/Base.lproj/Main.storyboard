@@ -3,6 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Reveal View Controller-->
@@ -19,100 +22,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="brE-QL-BbT" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="6ba-5S-KwF"/>
                         <segue destination="ju0-y5-qnA" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="MV3-gY-uBT"/>
                         <segue destination="hZT-qV-awm" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="M3n-Sx-8l1"/>
                         <segue destination="Mw5-Ta-Hsc" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="HTg-wR-bZL"/>
                         <segue destination="Sq3-5K-Y1u" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="CRv-hc-7Hd"/>
                         <segue destination="wWP-kL-RXj" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="X6k-ab-6Be"/>
+                        <segue destination="zme-9T-CyD" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="GO8-HM-feM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-        </scene>
-        <!--Side Bar Table View Controller-->
-        <scene sceneID="IVV-G7-h7z">
-            <objects>
-                <tableViewController id="brE-QL-BbT" customClass="SideBarTableViewController" customModule="Ayes" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OBN-mA-hQz">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="vR3-O2-Qst">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nN0-Dl-Nes">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nN0-Dl-Nes" id="Nxm-V6-0Lq">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.56357435150000001" blue="0.79589521159999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="ju0-y5-qnA" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Cb1-pC-fq7"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Baw-g3-2uz">
-                                        <rect key="frame" x="0.0" y="44" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Baw-g3-2uz" id="sXf-1S-vyU">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.28799065465926899" green="1" blue="0.89732435469223226" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="hZT-qV-awm" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="4vD-NN-0RG"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aE0-5l-ri9">
-                                        <rect key="frame" x="0.0" y="88" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aE0-5l-ri9" id="5nn-V2-Ssk">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.6224891507440099" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="Mw5-Ta-Hsc" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="PZB-va-KT4"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="trA-Dv-Nuf">
-                                        <rect key="frame" x="0.0" y="132" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="trA-Dv-Nuf" id="0wB-HX-5IS">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.044337609414844326" green="1" blue="0.20277014258323067" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="Sq3-5K-Y1u" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="vtY-Uy-6fL"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yuS-4M-6qA">
-                                        <rect key="frame" x="0.0" y="176" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yuS-4M-6qA" id="Odu-IN-AWF">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.97258538600250344" blue="0.94038672643633281" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="wWP-kL-RXj" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="2Fx-ob-4MG"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="brE-QL-BbT" id="kPD-oV-p4B"/>
-                            <outlet property="delegate" destination="brE-QL-BbT" id="7yC-U3-JrU"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lB8-T9-0dt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="245" y="1114"/>
         </scene>
         <!--Questionnaire-->
         <scene sceneID="6fi-oA-cEo">
@@ -172,6 +91,180 @@
             </objects>
             <point key="canvasLocation" x="831.5" y="1026"/>
         </scene>
+        <!--Side Bar Table View Controller-->
+        <scene sceneID="qGR-eq-90S">
+            <objects>
+                <viewController id="zme-9T-CyD" customClass="SideBarTableViewController" customModule="Ayes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jrG-gU-nk1"/>
+                        <viewControllerLayoutGuide type="bottom" id="7KZ-PI-w9h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vaw-cB-uvc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tce-wU-7na">
+                                <rect key="frame" x="-8" y="481" width="100" height="67"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xz8-TG-alY">
+                                        <rect key="frame" x="34" y="19" width="33" height="30"/>
+                                        <state key="normal" title="Ayes"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="Bf8-hb-dZY"/>
+                                    <constraint firstAttribute="height" constant="81" id="Z1b-jE-EoV"/>
+                                    <constraint firstItem="xz8-TG-alY" firstAttribute="centerY" secondItem="Tce-wU-7na" secondAttribute="centerY" id="tVz-YE-wqV"/>
+                                    <constraint firstItem="xz8-TG-alY" firstAttribute="centerX" secondItem="Tce-wU-7na" secondAttribute="centerX" id="vZc-dL-998"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Bf8-hb-dZY"/>
+                                        <exclude reference="Z1b-jE-EoV"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSf-uR-cjm">
+                                <rect key="frame" x="-4" y="197" width="100" height="67"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Vb-21-ojw">
+                                        <rect key="frame" x="11" y="19" width="78" height="30"/>
+                                        <state key="normal" title="Настройки"/>
+                                        <connections>
+                                            <segue destination="Mw5-Ta-Hsc" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="vcZ-D3-XJd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="1T1-iC-0cb"/>
+                                    <constraint firstAttribute="width" constant="82" id="fIi-4g-kkf"/>
+                                    <constraint firstItem="4Vb-21-ojw" firstAttribute="centerY" secondItem="xSf-uR-cjm" secondAttribute="centerY" id="fbn-sA-bEd"/>
+                                    <constraint firstItem="4Vb-21-ojw" firstAttribute="centerX" secondItem="xSf-uR-cjm" secondAttribute="centerX" id="olE-ML-bfs"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1T1-iC-0cb"/>
+                                        <exclude reference="fIi-4g-kkf"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5U-wD-50M">
+                                <rect key="frame" x="-4" y="272" width="100" height="67"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xjf-t0-41X">
+                                        <rect key="frame" x="10" y="19" width="80" height="30"/>
+                                        <state key="normal" title="Версия Pro"/>
+                                        <connections>
+                                            <segue destination="Sq3-5K-Y1u" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="oxD-uM-AwO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Xjf-t0-41X" firstAttribute="centerX" secondItem="z5U-wD-50M" secondAttribute="centerX" id="1UB-CZ-81C"/>
+                                    <constraint firstAttribute="width" constant="82" id="Sc0-1l-elp"/>
+                                    <constraint firstAttribute="height" constant="83" id="Xqp-1D-ODY"/>
+                                    <constraint firstItem="Xjf-t0-41X" firstAttribute="centerY" secondItem="z5U-wD-50M" secondAttribute="centerY" id="rFG-xo-OVK"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Sc0-1l-elp"/>
+                                        <exclude reference="Xqp-1D-ODY"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-Le-fnA">
+                                <rect key="frame" x="-4" y="47" width="100" height="67"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0r-UL-Ys6">
+                                        <rect key="frame" x="25" y="19" width="50" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="eSp-sf-Rdm"/>
+                                        </constraints>
+                                        <state key="normal" title="Анкета"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="eSp-sf-Rdm"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <segue destination="ju0-y5-qnA" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSeguePushController" id="X8b-BV-hKp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="L0r-UL-Ys6" firstAttribute="centerX" secondItem="hxA-Le-fnA" secondAttribute="centerX" id="Gty-Ey-USn"/>
+                                    <constraint firstAttribute="height" constant="83" id="JSg-W4-AOo"/>
+                                    <constraint firstAttribute="width" secondItem="hxA-Le-fnA" secondAttribute="height" multiplier="3:2" id="W5f-Jo-y04"/>
+                                    <constraint firstItem="L0r-UL-Ys6" firstAttribute="centerY" secondItem="hxA-Le-fnA" secondAttribute="centerY" id="agR-d1-vaa"/>
+                                    <constraint firstAttribute="width" constant="100" id="y95-9o-T3Q"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="JSg-W4-AOo"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6M-K9-pCZ">
+                                <rect key="frame" x="-4" y="122" width="100" height="67"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkj-Cr-mn7">
+                                        <rect key="frame" x="10" y="19" width="80" height="30"/>
+                                        <state key="normal" title="Избранное"/>
+                                        <connections>
+                                            <segue destination="hZT-qV-awm" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="DxD-IV-tOv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="qkj-Cr-mn7" firstAttribute="centerY" secondItem="B6M-K9-pCZ" secondAttribute="centerY" id="7Qr-oz-LuS"/>
+                                    <constraint firstItem="qkj-Cr-mn7" firstAttribute="centerX" secondItem="B6M-K9-pCZ" secondAttribute="centerX" id="DlI-DP-H5t"/>
+                                    <constraint firstAttribute="height" constant="83" id="bDj-Qv-GvM"/>
+                                    <constraint firstAttribute="width" constant="82" id="cui-tG-RUy"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bDj-Qv-GvM"/>
+                                        <exclude reference="cui-tG-RUy"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hxA-Le-fnA" firstAttribute="leading" secondItem="vaw-cB-uvc" secondAttribute="leadingMargin" constant="-20" id="5Ja-mf-AM8"/>
+                            <constraint firstItem="z5U-wD-50M" firstAttribute="leading" secondItem="vaw-cB-uvc" secondAttribute="leadingMargin" constant="-20" id="6ZC-td-s3q"/>
+                            <constraint firstItem="B6M-K9-pCZ" firstAttribute="leading" secondItem="vaw-cB-uvc" secondAttribute="leadingMargin" constant="-20" id="7U7-8m-xS6"/>
+                            <constraint firstItem="7KZ-PI-w9h" firstAttribute="top" secondItem="Tce-wU-7na" secondAttribute="bottom" constant="20" id="EAC-o5-pp8"/>
+                            <constraint firstItem="xSf-uR-cjm" firstAttribute="width" secondItem="hxA-Le-fnA" secondAttribute="width" id="EzH-kL-KR5"/>
+                            <constraint firstItem="z5U-wD-50M" firstAttribute="top" secondItem="xSf-uR-cjm" secondAttribute="bottom" constant="8" id="I6X-Nd-D4n"/>
+                            <constraint firstItem="xSf-uR-cjm" firstAttribute="height" secondItem="hxA-Le-fnA" secondAttribute="height" id="IUD-f7-WgU"/>
+                            <constraint firstItem="xSf-uR-cjm" firstAttribute="top" secondItem="B6M-K9-pCZ" secondAttribute="bottom" constant="8" id="K2E-UI-ydm"/>
+                            <constraint firstItem="Tce-wU-7na" firstAttribute="width" secondItem="hxA-Le-fnA" secondAttribute="width" id="LcB-GV-3GF"/>
+                            <constraint firstItem="Tce-wU-7na" firstAttribute="height" secondItem="hxA-Le-fnA" secondAttribute="height" id="NUW-Ow-ZUB"/>
+                            <constraint firstItem="hxA-Le-fnA" firstAttribute="width" secondItem="vaw-cB-uvc" secondAttribute="width" multiplier="1:2.6" id="OcZ-Au-chj"/>
+                            <constraint firstItem="z5U-wD-50M" firstAttribute="width" secondItem="hxA-Le-fnA" secondAttribute="width" id="Vey-l5-BYL"/>
+                            <constraint firstItem="B6M-K9-pCZ" firstAttribute="height" secondItem="hxA-Le-fnA" secondAttribute="height" id="aDz-eH-izp"/>
+                            <constraint firstItem="B6M-K9-pCZ" firstAttribute="top" secondItem="hxA-Le-fnA" secondAttribute="bottom" constant="8" id="nla-A2-lAa"/>
+                            <constraint firstItem="xSf-uR-cjm" firstAttribute="leading" secondItem="vaw-cB-uvc" secondAttribute="leadingMargin" constant="-20" id="r24-gy-LnN"/>
+                            <constraint firstItem="7KZ-PI-w9h" firstAttribute="top" secondItem="Tce-wU-7na" secondAttribute="bottom" id="uAI-ss-EFG"/>
+                            <constraint firstItem="hxA-Le-fnA" firstAttribute="top" secondItem="jrG-gU-nk1" secondAttribute="bottom" constant="27" id="vbf-kN-k4c"/>
+                            <constraint firstItem="B6M-K9-pCZ" firstAttribute="width" secondItem="hxA-Le-fnA" secondAttribute="width" id="wOA-Od-Ggw"/>
+                            <constraint firstItem="Tce-wU-7na" firstAttribute="leading" secondItem="vaw-cB-uvc" secondAttribute="leadingMargin" constant="-24" id="ynN-GP-1Yv"/>
+                            <constraint firstItem="z5U-wD-50M" firstAttribute="height" secondItem="hxA-Le-fnA" secondAttribute="height" id="zhI-j5-D1b"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OcZ-Au-chj"/>
+                                <exclude reference="uAI-ss-EFG"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lMa-FU-IVC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="386" y="1064"/>
+        </scene>
         <!--Pro-->
         <scene sceneID="Kmc-FR-RRr">
             <objects>
@@ -200,10 +293,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MV3-gY-uBT"/>
-        <segue reference="M3n-Sx-8l1"/>
-        <segue reference="HTg-wR-bZL"/>
-        <segue reference="CRv-hc-7Hd"/>
-        <segue reference="X6k-ab-6Be"/>
+        <segue reference="X8b-BV-hKp"/>
+        <segue reference="oxD-uM-AwO"/>
+        <segue reference="DxD-IV-tOv"/>
+        <segue reference="vcZ-D3-XJd"/>
     </inferredMetricsTieBreakers>
 </document>

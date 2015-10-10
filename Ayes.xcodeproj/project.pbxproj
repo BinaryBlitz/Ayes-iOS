@@ -23,7 +23,7 @@
 		37C44A571BC319E8001A6340 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C44A551BC319E8001A6340 /* Favorites.storyboard */; settings = {ASSET_TAGS = (); }; };
 		37C44A5A1BC31AD2001A6340 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C44A581BC31AD2001A6340 /* Settings.storyboard */; settings = {ASSET_TAGS = (); }; };
 		37C44A5D1BC31C17001A6340 /* Pro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C44A5B1BC31C17001A6340 /* Pro.storyboard */; settings = {ASSET_TAGS = (); }; };
-		37C44A5F1BC31D95001A6340 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C44A5E1BC31D95001A6340 /* SideBarTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		37C44A5F1BC31D95001A6340 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37C44A671BC31FDD001A6340 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C44A661BC31FDD001A6340 /* Favorites.swift */; settings = {ASSET_TAGS = (); }; };
 		37E2A0ED1BC7E7E700FA7A6B /* Ayes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EB1BC7E7E700FA7A6B /* Ayes.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EF1BC7EBA800FA7A6B /* Question.swift */; settings = {ASSET_TAGS = (); }; };
@@ -60,7 +60,7 @@
 		37C44A561BC319E8001A6340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorites.storyboard; sourceTree = "<group>"; };
 		37C44A591BC31AD2001A6340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		37C44A5C1BC31C17001A6340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Pro.storyboard; sourceTree = "<group>"; };
-		37C44A5E1BC31D95001A6340 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
+		37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		37C44A661BC31FDD001A6340 /* Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		37E2A0EC1BC7E7E700FA7A6B /* Ayes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ayes.xcdatamodel; sourceTree = "<group>"; };
 		37E2A0EF1BC7EBA800FA7A6B /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 			children = (
 				372657D81BC27520003383D1 /* QuestionnaireTableViewController.swift */,
 				37C44A661BC31FDD001A6340 /* Favorites.swift */,
-				37C44A5E1BC31D95001A6340 /* SideBarTableViewController.swift */,
+				37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */,
 				37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */,
 			);
 			name = Controllers;
@@ -371,7 +371,7 @@
 				37E2A0ED1BC7E7E700FA7A6B /* Ayes.xcdatamodeld in Sources */,
 				37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */,
 				37C44A671BC31FDD001A6340 /* Favorites.swift in Sources */,
-				37C44A5F1BC31D95001A6340 /* SideBarTableViewController.swift in Sources */,
+				37C44A5F1BC31D95001A6340 /* SideBarViewController.swift in Sources */,
 				372657D71BC27520003383D1 /* AppDelegate.swift in Sources */,
 				37BB0F691BC3DE8400DFFDED /* QuestionTableViewCell.swift in Sources */,
 			);

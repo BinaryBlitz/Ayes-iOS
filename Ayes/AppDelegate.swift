@@ -9,7 +9,7 @@
 import UIKit
 import MagicalRecord
 
-let SIDE_BAR_WIDTH: CGFloat = 50
+let SIDE_BAR_WIDTH: CGFloat = 100
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
