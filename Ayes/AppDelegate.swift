@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   private func setUpNavigationBar() {
-    UINavigationBar.appearance().barTintColor = UIColor.primaryVioletColor()
+    UINavigationBar.appearance().barTintColor = UIColor.violetPrimaryColor()
     UINavigationBar.appearance().translucent = true
     UINavigationBar.appearance().tintColor = UIColor.whiteColor()
     UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
