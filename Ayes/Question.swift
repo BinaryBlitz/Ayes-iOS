@@ -10,16 +10,17 @@ import Foundation
 import CoreData
 
 class Question: NSManagedObject {
-
-  @NSManaged var id: NSNumber?
-  @NSManaged var state: NSNumber?
-  @NSManaged var dateCreated: NSDate?
-  @NSManaged var content: String?
-  @NSManaged var yesStatistic: NSNumber?
-  @NSManaged var noStatistic: NSNumber?
-  @NSManaged var skipStatistic: NSNumber?
-  @NSManaged var isFavorite: NSNumber?
-
   
-
+  var state: QuestionState {
+    get {
+      if let questionState = QuestionState(rawValue: Int(rawState ?? 0)) {
+        return questionState
+      }
+      
+      return  QuestionState.NoAnswer
+    }
+    set {
+      rawState = newValue.rawValue
+    }
+  }
 }

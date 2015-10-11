@@ -25,8 +25,10 @@
 		37C44A5D1BC31C17001A6340 /* Pro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C44A5B1BC31C17001A6340 /* Pro.storyboard */; settings = {ASSET_TAGS = (); }; };
 		37C44A5F1BC31D95001A6340 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37C44A671BC31FDD001A6340 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C44A661BC31FDD001A6340 /* Favorites.swift */; settings = {ASSET_TAGS = (); }; };
+		37C578491BCA966A005B4723 /* QuestionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C578481BCA966A005B4723 /* QuestionState.swift */; settings = {ASSET_TAGS = (); }; };
 		37E2A0ED1BC7E7E700FA7A6B /* Ayes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EB1BC7E7E700FA7A6B /* Ayes.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EF1BC7EBA800FA7A6B /* Question.swift */; settings = {ASSET_TAGS = (); }; };
+		37EF0C1C1BCAC66800BA88EA /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		66699200EF1CEDD69171B3EB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1039A30CDBD040BCB15D08E /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -62,9 +64,11 @@
 		37C44A5C1BC31C17001A6340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Pro.storyboard; sourceTree = "<group>"; };
 		37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		37C44A661BC31FDD001A6340 /* Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		37C578481BCA966A005B4723 /* QuestionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionState.swift; sourceTree = "<group>"; };
 		37E2A0EC1BC7E7E700FA7A6B /* Ayes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ayes.xcdatamodel; sourceTree = "<group>"; };
 		37E2A0EF1BC7EBA800FA7A6B /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		37E2A0F21BC8033300FA7A6B /* Ayes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ayes-Bridging-Header.h"; sourceTree = "<group>"; };
+		37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1039A30CDBD040BCB15D08E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DEA0F79349071E6297C527 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,7 +160,9 @@
 		37C44A611BC31E5C001A6340 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */,
 				37E2A0EF1BC7EBA800FA7A6B /* Question.swift */,
+				37C578481BCA966A005B4723 /* QuestionState.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -370,6 +376,8 @@
 				37BB0F621BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */,
 				37E2A0ED1BC7E7E700FA7A6B /* Ayes.xcdatamodeld in Sources */,
 				37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */,
+				37EF0C1C1BCAC66800BA88EA /* Question+CoreDataProperties.swift in Sources */,
+				37C578491BCA966A005B4723 /* QuestionState.swift in Sources */,
 				37C44A671BC31FDD001A6340 /* Favorites.swift in Sources */,
 				37C44A5F1BC31D95001A6340 /* SideBarViewController.swift in Sources */,
 				372657D71BC27520003383D1 /* AppDelegate.swift in Sources */,

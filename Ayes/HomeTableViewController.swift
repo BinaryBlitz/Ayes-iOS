@@ -11,16 +11,10 @@ import UIKit
 class HomeTableViewController: UITableViewController {
 
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
-  var questions = [String]()
+  var questions = [Question]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    let title = UILabel(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
-    title.textAlignment = .Left
-    title.text = "Список вопросов"
-    title.textColor = UIColor.whiteColor()
-    navigationItem.titleView = title
     
     if let revealViewController = revealViewController() {
       menuBarButtonItem.target = revealViewController
@@ -28,9 +22,18 @@ class HomeTableViewController: UITableViewController {
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
       revealViewController.rearViewRevealWidth = SIDE_BAR_WIDTH
     }
+    
+    tableView.registerNib(UINib(nibName: "QuestionTableViewCell", bundle: nil),
+        forCellReuseIdentifier: "questionCell")
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = CGFloat(100)
+    tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
+    tableView.separatorStyle =  .None
+    
+    questions = Question.findAll() as! [Question]
   }
   
-  // MARK: UITAbleViewDataSource
+  // MARK: UITableViewDataSource
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return questions.count
@@ -41,8 +44,30 @@ class HomeTableViewController: UITableViewController {
       return UITableViewCell()
     }
     
-    return UITableViewCell()
+    let question = questions[indexPath.row]
+    cell.idLabel.text = "\(question.id ?? 0)"
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "dd.MM.yyyy"
+    cell.dateLabel.text = dateFormatter.stringFromDate(question.dateCreated ?? NSDate())
+    cell.contentTextView.text = question.content
+    cell.contentTextView.font = UIFont.systemFontOfSize(18)
+    cell.questionStateIndicator.backgroundColor = question.state.getAccentColor()
+    switch question.state {
+    case .NoAnswer, .Skip:
+      cell.questionStatusLabel.text = "Новый"
+      cell.questionStatusLabel.textColor = UIColor.blueAccentColor()
+    default:
+      cell.questionStatusLabel.text = "Вы ответили"
+      cell.questionStatusLabel.textColor = UIColor.blackColor()
+    }
+    
+    return cell
   }
   
+  //MARK: - UITableViewDelegate
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+  }
   
 }

@@ -17,10 +17,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <segue destination="ju0-y5-qnA" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="MV3-gY-uBT"/>
                         <segue destination="hZT-qV-awm" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="M3n-Sx-8l1"/>
@@ -41,7 +42,7 @@
             </objects>
             <point key="canvasLocation" x="831" y="807"/>
         </scene>
-        <!--Home Table View Controller-->
+        <!--Список вопросов-->
         <scene sceneID="i0r-8o-84s">
             <objects>
                 <tableViewController id="x6J-uj-tfW" customClass="HomeTableViewController" customModule="Ayes" customModuleProvider="target" sceneMemberID="viewController">
@@ -64,7 +65,7 @@
                             <outlet property="delegate" destination="x6J-uj-tfW" id="QuP-2M-fjX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="DX0-cK-CJ6">
+                    <navigationItem key="navigationItem" title="Список вопросов" id="DX0-cK-CJ6">
                         <barButtonItem key="leftBarButtonItem" title="menu" id="W7c-ho-EDR"/>
                     </navigationItem>
                     <connections>
@@ -100,11 +101,11 @@
                         <viewControllerLayoutGuide type="bottom" id="7KZ-PI-w9h"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vaw-cB-uvc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tce-wU-7na">
-                                <rect key="frame" x="-1" y="481" width="100" height="67"/>
+                                <rect key="frame" x="3" y="513" width="100" height="67"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xz8-TG-alY">
                                         <rect key="frame" x="28" y="16" width="44" height="36"/>
@@ -112,6 +113,9 @@
                                         <state key="normal" title="Ayes">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="wWP-kL-RXj" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="eMb-Ns-GXd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -120,7 +124,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSf-uR-cjm">
-                                <rect key="frame" x="-1" y="197" width="100" height="67"/>
+                                <rect key="frame" x="3" y="197" width="100" height="67"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Vb-21-ojw">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="67"/>
@@ -147,7 +151,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5U-wD-50M">
-                                <rect key="frame" x="-1" y="272" width="100" height="67"/>
+                                <rect key="frame" x="3" y="272" width="100" height="67"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SampleIcon" translatesAutoresizingMaskIntoConstraints="NO" id="MBN-8z-ko9">
                                         <rect key="frame" x="39" y="9" width="22" height="22"/>
@@ -174,7 +178,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-Le-fnA">
-                                <rect key="frame" x="-1" y="47" width="100" height="67"/>
+                                <rect key="frame" x="3" y="47" width="100" height="67"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SampleIcon" translatesAutoresizingMaskIntoConstraints="NO" id="d4j-fi-TQ7">
                                         <rect key="frame" x="39" y="9" width="22" height="22"/>
@@ -203,7 +207,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6M-K9-pCZ">
-                                <rect key="frame" x="-1" y="122" width="100" height="67"/>
+                                <rect key="frame" x="3" y="122" width="100" height="67"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkj-Cr-mn7">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="67"/>
@@ -260,7 +264,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outletCollection property="buttons" destination="4Vb-21-ojw" collectionClass="NSMutableArray" id="Xz0-a4-7jb"/>
                         <outletCollection property="buttons" destination="Xjf-t0-41X" collectionClass="NSMutableArray" id="mEq-OQ-Wev"/>
@@ -270,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMa-FU-IVC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="386" y="1064"/>
+            <point key="canvasLocation" x="282" y="1145"/>
         </scene>
         <!--Pro-->
         <scene sceneID="Kmc-FR-RRr">
@@ -303,9 +306,10 @@
         <image name="SampleIcon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L2x-oi-mUt"/>
-        <segue reference="vcZ-D3-XJd"/>
-        <segue reference="oxD-uM-AwO"/>
-        <segue reference="DxD-IV-tOv"/>
+        <segue reference="MV3-gY-uBT"/>
+        <segue reference="X6k-ab-6Be"/>
+        <segue reference="M3n-Sx-8l1"/>
+        <segue reference="HTg-wR-bZL"/>
+        <segue reference="CRv-hc-7Hd"/>
     </inferredMetricsTieBreakers>
 </document>

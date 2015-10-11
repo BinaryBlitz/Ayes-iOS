@@ -18,8 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    MagicalRecord.setupCoreDataStack()
+    MagicalRecord.setupAutoMigratingCoreDataStack()
+    MagicalRecord.enableShorthandMethods()
     setUpNavigationBar()
+    addSampleQuestions()
     return true
   }
   
@@ -27,7 +29,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UINavigationBar.appearance().barTintColor = UIColor.violetPrimaryColor()
     UINavigationBar.appearance().translucent = false
     UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+  }
+  
+  func addSampleQuestions() {
+    let q1 = Question.MR_createEntity()
+    q1.content = "Ходили ли вы за это месяц хотя бы раз на свидание?"
+    q1.id = 2301
+    q1.dateCreated = NSDate()
+    
+    let q2 = Question.MR_createEntity()
+    q2.content = "Умеете ли Вы плавать?"
+    q2.id = 2305
+    q2.dateCreated = NSDate()
+    q2.state = .No
+    
+    let q3 = Question.MR_createEntity()
+    q3.content = "очень очень очень очень очень очень очень очень очень очень очень очень очень очень длинный тест, чтобы проверить динамическую высоту"
+    q3.id = 2305
+    q3.dateCreated = NSDate()
+    q3.state = .Yes
+    
+    NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
   }
 
   func applicationWillResignActive(application: UIApplication) {
