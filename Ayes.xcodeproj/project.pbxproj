@@ -14,6 +14,7 @@
 		372657E11BC27520003383D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 372657DF1BC27520003383D1 /* LaunchScreen.storyboard */; };
 		372657EC1BC27520003383D1 /* AyesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372657EB1BC27520003383D1 /* AyesTests.swift */; };
 		373ED7581BCC273B003E7584 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373ED7571BCC273B003E7584 /* SettingsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		373ED75A1BCC295D003E7584 /* ProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373ED7591BCC295D003E7584 /* ProViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37BB0F621BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */; settings = {ASSET_TAGS = (); }; };
 		37BB0F631BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */; settings = {ASSET_TAGS = (); }; };
 		37BB0F651BC3D8BB00DFFDED /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -56,6 +57,7 @@
 		372657EB1BC27520003383D1 /* AyesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyesTests.swift; sourceTree = "<group>"; };
 		372657ED1BC27520003383D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		373ED7571BCC273B003E7584 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		373ED7591BCC295D003E7584 /* ProViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProViewController.swift; sourceTree = "<group>"; };
 		37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ayes.swift"; sourceTree = "<group>"; };
 		37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		37BB0F671BC3DE8400DFFDED /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */,
 				37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */,
 				373ED7571BCC273B003E7584 /* SettingsTableViewController.swift */,
+				373ED7591BCC295D003E7584 /* ProViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */,
 				37EF0C1C1BCAC66800BA88EA /* Question+CoreDataProperties.swift in Sources */,
 				37C578491BCA966A005B4723 /* QuestionState.swift in Sources */,
+				373ED75A1BCC295D003E7584 /* ProViewController.swift in Sources */,
 				37C44A671BC31FDD001A6340 /* FavoritesTableViewController.swift in Sources */,
 				373ED7581BCC273B003E7584 /* SettingsTableViewController.swift in Sources */,
 				37C44A5F1BC31D95001A6340 /* SideBarViewController.swift in Sources */,
