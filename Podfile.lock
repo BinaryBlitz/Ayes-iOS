@@ -1,16 +1,19 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.0.2)
   - Alamofire (2.0.2)
   - MagicalRecord (2.3.0)
   - SwiftyJSON (2.3.0)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - Alamofire
   - MagicalRecord
   - SwiftyJSON
   - SWRevealViewController
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: c183be40407b772b38d407d9825270e23bfb9b35
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   MagicalRecord: 89eb7d7ead39fb37f01c3d010665ee94d17f8dba
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
