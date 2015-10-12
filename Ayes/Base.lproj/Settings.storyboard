@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Настройки-->
         <scene sceneID="qy2-Dj-d8b">
             <objects>
-                <tableViewController id="qCo-4F-OiL" sceneMemberID="viewController">
+                <tableViewController id="qCo-4F-OiL" customClass="SettingsTableViewController" customModule="Ayes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nkF-A4-V5u">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,12 @@
                             <outlet property="delegate" destination="qCo-4F-OiL" id="7UF-XF-br1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Ljp-zr-ePt"/>
+                    <navigationItem key="navigationItem" title="Настройки" id="Ljp-zr-ePt">
+                        <barButtonItem key="leftBarButtonItem" title="menu" id="mYI-9c-bj3"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuBarButtonItem" destination="mYI-9c-bj3" id="CFj-bt-oee"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5n-3b-V61" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

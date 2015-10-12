@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="1175" y="1000"/>
         </scene>
-        <!--Favorites-->
+        <!--Избранное-->
         <scene sceneID="vtd-i2-XyI">
             <objects>
-                <tableViewController id="Oi3-h6-fQ3" customClass="Favorites" customModule="Ayes" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Oi3-h6-fQ3" customClass="FavoritesTableViewController" customModule="Ayes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nKK-Kc-Wr3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,7 +46,7 @@
                             <outlet property="delegate" destination="Oi3-h6-fQ3" id="KzN-oe-Ndp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="U5j-z8-U1l">
+                    <navigationItem key="navigationItem" title="Избранное" id="U5j-z8-U1l">
                         <barButtonItem key="leftBarButtonItem" title="menu" id="7va-cb-ZeZ"/>
                     </navigationItem>
                     <connections>
