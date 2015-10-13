@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     MagicalRecord.setupAutoMigratingCoreDataStack()
     MagicalRecord.enableShorthandMethods()
     Settings.loadFromUserDefaults()
+    LocalizeHelper.setLanguage(Settings.sharedInstance.language ?? "ru")
     setUpNavigationBar()
     addSampleQuestions()
     return true

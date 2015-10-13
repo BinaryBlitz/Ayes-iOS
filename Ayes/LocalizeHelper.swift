@@ -11,19 +11,14 @@ import Foundation
 class LocalizeHelper {
   static let sharedHelper = LocalizeHelper()
   private var myBundle: NSBundle
-  private var currentLanguage: String
+  private var currentLanguage: String {
+    return Settings.sharedInstance.language ?? ""
+  }
   var availableLanguages = ["en", "ru"]
   
   init() {
     myBundle = NSBundle.mainBundle()
-    let systemLanguages = NSLocale.preferredLanguages()
-    currentLanguage = availableLanguages.first!
-    for lang in systemLanguages {
-      for availableLang in availableLanguages where lang.containsString(availableLang) {
-        currentLanguage = availableLang
-        break
-      }
-    }
+    
   }
   
   static func localizeStringForKey(key: String) -> String? {
@@ -31,6 +26,7 @@ class LocalizeHelper {
   }
   
   static func setLanguage(lang: String) {
+    print("Change to \(lang)")
     if !sharedHelper.availableLanguages.contains(lang) {
       fatalError("Language with identifire \(lang) is not available.")
     }
@@ -38,7 +34,6 @@ class LocalizeHelper {
     if let path = NSBundle.mainBundle().pathForResource(lang, ofType: "lproj") {
       if let bundle = NSBundle(path: path) {
         sharedHelper.myBundle = bundle
-        sharedHelper.currentLanguage = lang
         return
       }
     }
@@ -49,5 +44,4 @@ class LocalizeHelper {
   static func getCurrentLanguage() -> String {
     return sharedHelper.currentLanguage
   }
-  
 }

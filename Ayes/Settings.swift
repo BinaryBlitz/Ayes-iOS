@@ -12,12 +12,25 @@ import Foundation
   
   static var sharedInstance = Settings()
   
-  var language: String
-  var region: String
+  var language: String?
+  var region: String?
   var questionTime: NSDate
   
   override init() {
-    language = "ru" 
+    
+    let systemLanguages = NSLocale.preferredLanguages()
+    var flag = false
+    for lang in systemLanguages {
+      if flag {
+        break
+      }
+      for availableLang in LocalizeHelper.sharedHelper.availableLanguages where lang.containsString(availableLang) {
+        language = availableLang
+        LocalizeHelper.setLanguage(language ?? "ru")
+        flag = true
+        break
+      }
+    }
     region = "russia" //?
     let dateComponents = NSCalendar.currentCalendar().components([.Minute, .Hour], fromDate: NSDate())
     dateComponents.hour = 19
@@ -27,8 +40,9 @@ import Foundation
   }
   
   internal required init(coder aDecoder: NSCoder) {
-    language = aDecoder.decodeObjectForKey("ayesLanguage") as! String
-    region = aDecoder.decodeObjectForKey("ayesRegion") as! String
+    language = aDecoder.decodeObjectForKey("ayesLanguage") as? String
+    LocalizeHelper.setLanguage(language ?? "ru")
+    region = aDecoder.decodeObjectForKey("ayesRegion") as? String
     questionTime = aDecoder.decodeObjectForKey("ayesQuestionTime") as! NSDate
   }
   

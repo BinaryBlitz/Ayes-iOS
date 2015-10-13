@@ -8,8 +8,8 @@
 
 import UIKit
 
-@objc protocol ChooseLanguageDelegate {
-  optional func didChoseItem(item: String)
+@objc protocol MultipleChoiceControllerDelegate {
+  optional func didChoseItem()
 }
 
 class ChooseLanguageTableViewController: UITableViewController {
@@ -18,12 +18,16 @@ class ChooseLanguageTableViewController: UITableViewController {
   @IBOutlet weak var doneBarButton: UIBarButtonItem!
   var avaliableLanguages = LocalizeHelper.sharedHelper.availableLanguages
   var selectedCell = 0
-  var delegate: ChooseLanguageDelegate?
+  var delegate: MultipleChoiceControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    doneBarButton.title = LocalizeHelper.localizeStringForKey("Done")
+    cancelBarButton.title = LocalizeHelper.localizeStringForKey("Cancel")
+    navigationItem.title = LocalizeHelper.localizeStringForKey("App Language")
     selectedCell = avaliableLanguages.indexOf(LocalizeHelper.getCurrentLanguage())!
-    tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "languageCell")
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,7 +35,7 @@ class ChooseLanguageTableViewController: UITableViewController {
   }
 
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+    let cell = tableView.dequeueReusableCellWithIdentifier("languageCell", forIndexPath: indexPath)
     
     cell.textLabel?.text = LocalizeHelper.localizeStringForKey(avaliableLanguages[indexPath.row])
     if indexPath.row == selectedCell {
@@ -55,8 +59,9 @@ class ChooseLanguageTableViewController: UITableViewController {
   
   @IBAction func doneAction(sender: AnyObject) {
     LocalizeHelper.setLanguage(avaliableLanguages[selectedCell])
+    Settings.sharedInstance.language = avaliableLanguages[selectedCell]
     if let delegate = delegate {
-      delegate.didChoseItem?(avaliableLanguages[selectedCell])
+      delegate.didChoseItem?()
     }
     
     dismissViewControllerAnimated(true, completion: nil)
