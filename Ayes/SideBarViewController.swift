@@ -12,6 +12,17 @@ import UIKit
 class SideBarViewController: UIViewController {
   
   @IBOutlet var buttons: [UIButton]!
+  @IBOutlet weak var settingsButton: UIButton!
+  @IBOutlet weak var proButton: UIButton!
+  @IBOutlet weak var questionnareButton: UIButton!
+  @IBOutlet weak var favoritesButton: UIButton!
+  
+  override func viewWillAppear(animated: Bool) {
+    settingsButton.setTitle(LocalizeHelper.localizeStringForKey("Settings"), forState: .Normal)
+    proButton.setTitle(LocalizeHelper.localizeStringForKey("Pro Version"), forState: .Normal)
+    questionnareButton.setTitle(LocalizeHelper.localizeStringForKey("Questionnaire"), forState: .Normal)
+    favoritesButton.setTitle(LocalizeHelper.localizeStringForKey("Favorites"), forState: .Normal)
+  }
   
   override func viewDidLoad() {
     view.backgroundColor = UIColor.darkVioletPrimaryColor()

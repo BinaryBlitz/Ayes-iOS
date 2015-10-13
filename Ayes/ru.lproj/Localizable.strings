@@ -6,6 +6,10 @@
   Copyright © 2015 BinaryBlitz. All rights reserved.
 */
 
+"Questionnaire" = "Моя анкета";
+"Favorites" = "Избранное";
+"Questions" = "Список вопросов";
+"Pro Version" = "Версия Pro";
 "Settings" = "Настройки";
 "ru" = "Русский";
 "en" = "Английский";

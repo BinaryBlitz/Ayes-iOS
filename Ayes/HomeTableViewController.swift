@@ -23,6 +23,8 @@ class HomeTableViewController: UITableViewController {
       revealViewController.rearViewRevealWidth = SIDE_BAR_WIDTH
     }
     
+    navigationItem.title = LocalizeHelper.localizeStringForKey("Questions")
+    
     tableView.registerNib(UINib(nibName: "QuestionTableViewCell", bundle: nil),
         forCellReuseIdentifier: "questionCell")
     tableView.rowHeight = UITableViewAutomaticDimension

@@ -21,5 +21,7 @@ class ProViewController: UIViewController {
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
       revealViewController.rearViewRevealWidth = SIDE_BAR_WIDTH
     }
+    
+    navigationItem.title = LocalizeHelper.localizeStringForKey("Pro Version")
   }
 }

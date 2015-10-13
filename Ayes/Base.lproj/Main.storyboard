@@ -265,6 +265,10 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="favoritesButton" destination="qkj-Cr-mn7" id="CsH-cD-I7j"/>
+                        <outlet property="proButton" destination="Xjf-t0-41X" id="9v6-oo-fM5"/>
+                        <outlet property="questionnareButton" destination="qi5-A9-eea" id="Ug3-1x-3oX"/>
+                        <outlet property="settingsButton" destination="4Vb-21-ojw" id="h0T-bA-qXO"/>
                         <outletCollection property="buttons" destination="4Vb-21-ojw" collectionClass="NSMutableArray" id="Xz0-a4-7jb"/>
                         <outletCollection property="buttons" destination="Xjf-t0-41X" collectionClass="NSMutableArray" id="mEq-OQ-Wev"/>
                         <outletCollection property="buttons" destination="qkj-Cr-mn7" collectionClass="NSMutableArray" id="lde-Ze-9zp"/>

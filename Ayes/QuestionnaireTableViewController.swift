@@ -22,6 +22,8 @@ class QuestionnaireTableViewController: UITableViewController {
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
       revealViewController.rearViewRevealWidth = SIDE_BAR_WIDTH
     }
+    
+    navigationItem.title = LocalizeHelper.localizeStringForKey("Questionnaire")
 
   }
 }
