@@ -25,6 +25,8 @@
 		37BB0F661BC3D8BB00DFFDED /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37BB0F691BC3DE8400DFFDED /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F671BC3DE8400DFFDED /* QuestionTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		37BB0F6A1BC3DE8400DFFDED /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37BB0F681BC3DE8400DFFDED /* QuestionTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		37BF1C061BCD742A0040B8E1 /* ChooseRegionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BF1C051BCD742A0040B8E1 /* ChooseRegionTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		37BF1C081BCD84610040B8E1 /* SetQuestionTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BF1C071BCD84610040B8E1 /* SetQuestionTimeTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37C44A541BC31861001A6340 /* Questionnaire.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C44A521BC31861001A6340 /* Questionnaire.storyboard */; settings = {ASSET_TAGS = (); }; };
 		37C44A571BC319E8001A6340 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C44A551BC319E8001A6340 /* Favorites.storyboard */; settings = {ASSET_TAGS = (); }; };
 		37C44A5A1BC31AD2001A6340 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C44A581BC31AD2001A6340 /* Settings.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -77,6 +79,8 @@
 		37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		37BB0F671BC3DE8400DFFDED /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		37BB0F681BC3DE8400DFFDED /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
+		37BF1C051BCD742A0040B8E1 /* ChooseRegionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseRegionTableViewController.swift; sourceTree = "<group>"; };
+		37BF1C071BCD84610040B8E1 /* SetQuestionTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetQuestionTimeTableViewController.swift; sourceTree = "<group>"; };
 		37C44A531BC31861001A6340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Questionnaire.storyboard; sourceTree = "<group>"; };
 		37C44A561BC319E8001A6340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorites.storyboard; sourceTree = "<group>"; };
 		37C44A591BC31AD2001A6340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 			children = (
 				373ED7571BCC273B003E7584 /* SettingsTableViewController.swift */,
 				376D13AF1BCD19F100F3EABC /* ChooseLanguageTableViewController.swift */,
+				37BF1C051BCD742A0040B8E1 /* ChooseRegionTableViewController.swift */,
+				37BF1C071BCD84610040B8E1 /* SetQuestionTimeTableViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -406,11 +412,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				37BB0F651BC3D8BB00DFFDED /* HomeTableViewController.swift in Sources */,
+				37BF1C061BCD742A0040B8E1 /* ChooseRegionTableViewController.swift in Sources */,
 				372657D91BC27520003383D1 /* QuestionnaireTableViewController.swift in Sources */,
 				37BB0F621BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */,
 				376D13AD1BCD11F000F3EABC /* LocalizeHelper.swift in Sources */,
 				37E2A0ED1BC7E7E700FA7A6B /* Ayes.xcdatamodeld in Sources */,
 				373ED75C1BCC37BA003E7584 /* Settings.swift in Sources */,
+				37BF1C081BCD84610040B8E1 /* SetQuestionTimeTableViewController.swift in Sources */,
 				37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */,
 				37EF0C1C1BCAC66800BA88EA /* Question+CoreDataProperties.swift in Sources */,
 				37C578491BCA966A005B4723 /* QuestionState.swift in Sources */,

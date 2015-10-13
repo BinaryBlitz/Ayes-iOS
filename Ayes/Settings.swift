@@ -31,7 +31,7 @@ import Foundation
         break
       }
     }
-    region = "russia" //?
+    region = "rus" //?
     let dateComponents = NSCalendar.currentCalendar().components([.Minute, .Hour], fromDate: NSDate())
     dateComponents.hour = 19
     dateComponents.minute = 0

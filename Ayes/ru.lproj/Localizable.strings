@@ -14,3 +14,10 @@
 "Cancel" = "Отмена";
 "Done" = "Готово";
 "Region" = "Регион";
+"Your Region" = "Ваш регион";
+"rus" = "Россия";
+"other" = "Остальной мир";
+"Question Time" = "Время вопроса";
+"Notifications" = "Уведомления";
+"New question notifications" = "О новом вопросе";
+"Favorite questions notifications" = "О смене распределения избранных вопросов";

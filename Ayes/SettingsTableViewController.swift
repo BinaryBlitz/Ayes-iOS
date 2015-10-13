@@ -15,10 +15,12 @@ class SettingsTableViewController: UITableViewController {
   @IBOutlet weak var languageValueLabel: UILabel!
   @IBOutlet weak var regionLabel: UILabel!
   @IBOutlet weak var regionValueLabel: UILabel!
-  @IBOutlet weak var questiontimeLabel: UILabel!
+  @IBOutlet weak var questionTimeLabel: UILabel!
+  @IBOutlet weak var questionTimeValueLabel: UILabel!
   @IBOutlet weak var notificationsLabel: UILabel!
   @IBOutlet weak var newQuestionsnotificationLabel: UILabel!
   @IBOutlet weak var favoriteQuestionsLabel: UILabel!
+  @IBOutlet var notificationsCells: [UITableViewCell]!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,12 +37,50 @@ class SettingsTableViewController: UITableViewController {
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
   }
   
+  @IBAction func notificationsSwitch(sender: AnyObject) {
+    if let switcher =  sender as? UISwitch {
+      if switcher.on {
+        for cell in notificationsCells {
+          let sw = cell.viewWithTag(2) as! UISwitch
+          sw.setOn(true, animated: true)
+          sw.enabled = true
+          cell.userInteractionEnabled = true
+          let label = cell.viewWithTag(1) as! UILabel
+          label.enabled = true
+        }
+      } else {
+        for cell in notificationsCells {
+          let sw = cell.viewWithTag(2) as! UISwitch
+          sw.setOn(false, animated: true)
+          sw.enabled = false
+          cell.userInteractionEnabled = false
+          let label = cell.viewWithTag(1) as! UILabel
+          label.enabled = false
+        }
+      }
+    }
+  }
+  
+  @IBAction func newQuestionsSwitch(sender: AnyObject) {
+  }
+  
+  @IBAction func favoriteQuestionsSwitch(sender: AnyObject) {
+  }
+  
   func reloadContent() {
     navigationItem.title = LocalizeHelper.localizeStringForKey("Settings")
     languageLabel.text = LocalizeHelper.localizeStringForKey("Language")
     languageValueLabel.text = LocalizeHelper.localizeStringForKey(LocalizeHelper.getCurrentLanguage())
     regionLabel.text = LocalizeHelper.localizeStringForKey("Region")
     regionValueLabel.text = LocalizeHelper.localizeStringForKey(Settings.sharedInstance.region ?? "")
+    questionTimeLabel.text = LocalizeHelper.localizeStringForKey("Question Time")
+    let formatter = NSDateFormatter()
+    formatter.dateFormat = "HH:mm"
+    questionTimeValueLabel.text = formatter.stringFromDate(Settings.sharedInstance.questionTime)
+    notificationsLabel.text = LocalizeHelper.localizeStringForKey("Notifications")
+    newQuestionsnotificationLabel.text = LocalizeHelper.localizeStringForKey("New question notifications")
+    favoriteQuestionsLabel.text = LocalizeHelper.localizeStringForKey("Favorite questions notifications")
+    
   }
   
   //MARK: - UITableViewDelegate
@@ -67,7 +107,16 @@ class SettingsTableViewController: UITableViewController {
       if let destination = navController.viewControllers.first as? ChooseLanguageTableViewController {
           destination.delegate = self
       }
+    } else if segue.identifier == "chooseRegion" {
+      guard let navController = segue.destinationViewController as? UINavigationController else {
+        return
+      }
+      
+      if let destination = navController.viewControllers.first as? ChooseRegionTableViewController {
+          destination.delegate = self
+      }
     }
+    
   }
 }
 
