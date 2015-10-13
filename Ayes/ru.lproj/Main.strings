@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "Настройки"; ObjectID = "4Vb-21-ojw"; */
+"4Vb-21-ojw.normalTitle" = "Настройки";
+
+/* Class = "UINavigationItem"; title = "Список вопросов"; ObjectID = "DX0-cK-CJ6"; */
+"DX0-cK-CJ6.title" = "Список вопросов";
+
+/* Class = "UIBarButtonItem"; title = "menu"; ObjectID = "W7c-ho-EDR"; */
+"W7c-ho-EDR.title" = "menu";
+
+/* Class = "UIButton"; normalTitle = "Версия Pro"; ObjectID = "Xjf-t0-41X"; */
+"Xjf-t0-41X.normalTitle" = "Версия Pro";
+
+/* Class = "UIButton"; normalTitle = "Моя aнкета"; ObjectID = "qi5-A9-eea"; */
+"qi5-A9-eea.normalTitle" = "Моя aнкета";
+
+/* Class = "UIButton"; normalTitle = "Избранное"; ObjectID = "qkj-Cr-mn7"; */
+"qkj-Cr-mn7.normalTitle" = "Избранное";
+
+/* Class = "UIButton"; normalTitle = "Ayes"; ObjectID = "xz8-TG-alY"; */
+"xz8-TG-alY.normalTitle" = "Ayes";

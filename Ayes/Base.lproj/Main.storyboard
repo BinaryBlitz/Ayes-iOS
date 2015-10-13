@@ -306,10 +306,10 @@
         <image name="SampleIcon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MV3-gY-uBT"/>
-        <segue reference="X6k-ab-6Be"/>
-        <segue reference="M3n-Sx-8l1"/>
-        <segue reference="HTg-wR-bZL"/>
-        <segue reference="CRv-hc-7Hd"/>
+        <segue reference="oxD-uM-AwO"/>
+        <segue reference="DxD-IV-tOv"/>
+        <segue reference="eMb-Ns-GXd"/>
+        <segue reference="L2x-oi-mUt"/>
+        <segue reference="vcZ-D3-XJd"/>
     </inferredMetricsTieBreakers>
 </document>

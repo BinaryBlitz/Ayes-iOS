@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "О смене распределения избранных вопросов"; ObjectID = "6hA-qw-nRq"; */
+"6hA-qw-nRq.text" = "О смене распределения избранных вопросов";
+
+/* Class = "UILabel"; text = "Время прихода вопроса"; ObjectID = "94k-M8-Wpx"; */
+"94k-M8-Wpx.text" = "Время прихода вопроса";
+
+/* Class = "UILabel"; text = "Регион"; ObjectID = "G9H-pI-1nl"; */
+"G9H-pI-1nl.text" = "Регион";
+
+/* Class = "UINavigationItem"; title = "Настройки"; ObjectID = "Ljp-zr-ePt"; */
+"Ljp-zr-ePt.title" = "Настройки";
+
+/* Class = "UILabel"; text = "О новом вопросе"; ObjectID = "X9u-6k-PfP"; */
+"X9u-6k-PfP.text" = "О новом вопросе";
+
+/* Class = "UILabel"; text = "Язык"; ObjectID = "f22-Dj-JQv"; */
+"f22-Dj-JQv.text" = "Язык";
+
+/* Class = "UILabel"; text = "Уведомления"; ObjectID = "gZJ-EW-siJ"; */
+"gZJ-EW-siJ.text" = "Уведомления";
+
+/* Class = "UIBarButtonItem"; title = "menu"; ObjectID = "mYI-9c-bj3"; */
+"mYI-9c-bj3.title" = "menu";
+
+/* Class = "UILabel"; text = "Русский"; ObjectID = "vSh-Su-n2q"; */
+"vSh-Su-n2q.text" = "Русский";

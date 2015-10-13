@@ -16,6 +16,9 @@
 		373ED7581BCC273B003E7584 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373ED7571BCC273B003E7584 /* SettingsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		373ED75A1BCC295D003E7584 /* ProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373ED7591BCC295D003E7584 /* ProViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		373ED75C1BCC37BA003E7584 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373ED75B1BCC37BA003E7584 /* Settings.swift */; settings = {ASSET_TAGS = (); }; };
+		376D13A91BCD117000F3EABC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 376D13AB1BCD117000F3EABC /* Localizable.strings */; };
+		376D13AD1BCD11F000F3EABC /* LocalizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */; settings = {ASSET_TAGS = (); }; };
+		376D13B01BCD19F100F3EABC /* ChooseLanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D13AF1BCD19F100F3EABC /* ChooseLanguageTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37BB0F621BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */; settings = {ASSET_TAGS = (); }; };
 		37BB0F631BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */; settings = {ASSET_TAGS = (); }; };
 		37BB0F651BC3D8BB00DFFDED /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -60,6 +63,16 @@
 		373ED7571BCC273B003E7584 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		373ED7591BCC295D003E7584 /* ProViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProViewController.swift; sourceTree = "<group>"; };
 		373ED75B1BCC37BA003E7584 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		376D13A31BCD110500F3EABC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		376D13A41BCD110500F3EABC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Questionnaire.strings; sourceTree = "<group>"; };
+		376D13A51BCD110500F3EABC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Favorites.strings; sourceTree = "<group>"; };
+		376D13A61BCD110500F3EABC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Settings.strings; sourceTree = "<group>"; };
+		376D13A71BCD110600F3EABC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Pro.strings; sourceTree = "<group>"; };
+		376D13A81BCD110600F3EABC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		376D13AA1BCD117000F3EABC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizeHelper.swift; sourceTree = "<group>"; };
+		376D13AE1BCD187B00F3EABC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		376D13AF1BCD19F100F3EABC /* ChooseLanguageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseLanguageTableViewController.swift; sourceTree = "<group>"; };
 		37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ayes.swift"; sourceTree = "<group>"; };
 		37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		37BB0F671BC3DE8400DFFDED /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
@@ -137,6 +150,7 @@
 				37C44A641BC31ECA001A6340 /* Supporting files */,
 				372657DD1BC27520003383D1 /* Assets.xcassets */,
 				37E2A0EB1BC7E7E700FA7A6B /* Ayes.xcdatamodeld */,
+				376D13AB1BCD117000F3EABC /* Localizable.strings */,
 			);
 			path = Ayes;
 			sourceTree = "<group>";
@@ -148,6 +162,15 @@
 				372657ED1BC27520003383D1 /* Info.plist */,
 			);
 			path = AyesTests;
+			sourceTree = "<group>";
+		};
+		376D13B11BCD1B1400F3EABC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				373ED7571BCC273B003E7584 /* SettingsTableViewController.swift */,
+				376D13AF1BCD19F100F3EABC /* ChooseLanguageTableViewController.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		37C44A601BC31E4F001A6340 /* UI */ = {
@@ -170,6 +193,7 @@
 				37E2A0EF1BC7EBA800FA7A6B /* Question.swift */,
 				37C578481BCA966A005B4723 /* QuestionState.swift */,
 				373ED75B1BCC37BA003E7584 /* Settings.swift */,
+				376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -181,7 +205,7 @@
 				37C44A661BC31FDD001A6340 /* FavoritesTableViewController.swift */,
 				37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */,
 				37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */,
-				373ED7571BCC273B003E7584 /* SettingsTableViewController.swift */,
+				376D13B11BCD1B1400F3EABC /* Settings */,
 				373ED7591BCC295D003E7584 /* ProViewController.swift */,
 			);
 			name = Controllers;
@@ -311,6 +335,7 @@
 				372657DE1BC27520003383D1 /* Assets.xcassets in Resources */,
 				37C44A541BC31861001A6340 /* Questionnaire.storyboard in Resources */,
 				37C44A5A1BC31AD2001A6340 /* Settings.storyboard in Resources */,
+				376D13A91BCD117000F3EABC /* Localizable.strings in Resources */,
 				372657DC1BC27520003383D1 /* Main.storyboard in Resources */,
 				37BB0F6A1BC3DE8400DFFDED /* QuestionTableViewCell.xib in Resources */,
 				37C44A5D1BC31C17001A6340 /* Pro.storyboard in Resources */,
@@ -383,6 +408,7 @@
 				37BB0F651BC3D8BB00DFFDED /* HomeTableViewController.swift in Sources */,
 				372657D91BC27520003383D1 /* QuestionnaireTableViewController.swift in Sources */,
 				37BB0F621BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */,
+				376D13AD1BCD11F000F3EABC /* LocalizeHelper.swift in Sources */,
 				37E2A0ED1BC7E7E700FA7A6B /* Ayes.xcdatamodeld in Sources */,
 				373ED75C1BCC37BA003E7584 /* Settings.swift in Sources */,
 				37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */,
@@ -393,6 +419,7 @@
 				373ED7581BCC273B003E7584 /* SettingsTableViewController.swift in Sources */,
 				37C44A5F1BC31D95001A6340 /* SideBarViewController.swift in Sources */,
 				372657D71BC27520003383D1 /* AppDelegate.swift in Sources */,
+				376D13B01BCD19F100F3EABC /* ChooseLanguageTableViewController.swift in Sources */,
 				37BB0F691BC3DE8400DFFDED /* QuestionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +449,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				372657DB1BC27520003383D1 /* Base */,
+				376D13A31BCD110500F3EABC /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -430,14 +458,25 @@
 			isa = PBXVariantGroup;
 			children = (
 				372657E01BC27520003383D1 /* Base */,
+				376D13A81BCD110600F3EABC /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		376D13AB1BCD117000F3EABC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				376D13AA1BCD117000F3EABC /* ru */,
+				376D13AE1BCD187B00F3EABC /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		37C44A521BC31861001A6340 /* Questionnaire.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				37C44A531BC31861001A6340 /* Base */,
+				376D13A41BCD110500F3EABC /* ru */,
 			);
 			name = Questionnaire.storyboard;
 			sourceTree = "<group>";
@@ -446,6 +485,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				37C44A561BC319E8001A6340 /* Base */,
+				376D13A51BCD110500F3EABC /* ru */,
 			);
 			name = Favorites.storyboard;
 			sourceTree = "<group>";
@@ -454,6 +494,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				37C44A591BC31AD2001A6340 /* Base */,
+				376D13A61BCD110500F3EABC /* ru */,
 			);
 			name = Settings.storyboard;
 			sourceTree = "<group>";
@@ -462,6 +503,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				37C44A5C1BC31C17001A6340 /* Base */,
+				376D13A71BCD110600F3EABC /* ru */,
 			);
 			name = Pro.storyboard;
 			sourceTree = "<group>";

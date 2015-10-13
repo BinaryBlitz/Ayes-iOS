@@ -17,7 +17,7 @@ import Foundation
   var questionTime: NSDate
   
   override init() {
-    language = "rus" //?
+    language = "ru" 
     region = "russia" //?
     let dateComponents = NSCalendar.currentCalendar().components([.Minute, .Hour], fromDate: NSDate())
     dateComponents.hour = 19

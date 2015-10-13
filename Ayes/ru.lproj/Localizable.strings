@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Ayes
+
+  Created by Dan Shevlyuk on 13/10/15.
+  Copyright © 2015 BinaryBlitz. All rights reserved.
+*/
+
+"Settings" = "Настройки";
+"ru" = "Русский";
+"en" = "Английский";
+"Language" = "Язык";
