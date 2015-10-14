@@ -26,6 +26,7 @@ class QuestionTableViewCell: UITableViewCell {
     questionStateIndicator.backgroundColor = UIColor.redAccentColor()
     contentTextView.textContainer.maximumNumberOfLines = 4
     contentTextView.textContainer.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+    contentTextView.userInteractionEnabled = false
     
     contentView.backgroundColor = UIColor.lightGreenBackgroundColor()
   }
