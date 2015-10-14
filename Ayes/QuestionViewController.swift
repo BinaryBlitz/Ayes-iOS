@@ -29,20 +29,42 @@ class QuestionViewController: UIViewController {
     questionDateLabel.text = formatter.stringFromDate(question.dateCreated ?? NSDate())
     
     questionIdLabel.text = "\(question.id ?? 0)"
-//    navigationItem.leftBarButtonItem?.title = "Back"
     warningLabel.text = LocalizeHelper.localizeStringForKey("SkipWarning")
     
     print(question.content)
 
   }
   
-  func backButtonAction(sender: AnyObject) {
-    navigationController?.popViewControllerAnimated(true)
-  }
-  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "controlsSetUp" {
-      print("Yeeeeeeeahhhh")
+      let destination = segue.destinationViewController as! QuestionControlsViewController
+      destination.delegate = self
+    }
+  }
+}
+
+extension QuestionViewController: QuestionControlsDelegate {
+  
+  func didAnswerTheQuestion() {
+    var controls: QuestionControlsViewController?
+    for child in childViewControllers {
+      if let controlsViewController = child as? QuestionControlsViewController {
+        controls = controlsViewController
+      }
+    }
+    
+    if let controls = controls {
+      let statViewController = storyboard!.instantiateViewControllerWithIdentifier("resultsViewController")
+      statViewController.view.frame = controls.view.frame
+      
+      controls.willMoveToParentViewController(nil)
+      addChildViewController(statViewController)
+      transitionFromViewController(controls, toViewController: statViewController,
+        duration: 0.7, options: .TransitionFlipFromBottom, animations: nil,
+        completion: { (finished) -> Void in
+            controls.removeFromParentViewController()
+            statViewController.didMoveToParentViewController(self)
+     })
     }
   }
 }

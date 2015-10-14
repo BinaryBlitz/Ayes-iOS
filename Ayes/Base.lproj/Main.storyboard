@@ -166,7 +166,7 @@
                                 <rect key="frame" x="20" y="285" width="560" height="225"/>
                                 <animations/>
                                 <connections>
-                                    <segue destination="Ovu-dp-yN0" kind="embed" id="82b-AT-Noe"/>
+                                    <segue destination="Ovu-dp-yN0" kind="embed" identifier="controlsSetUp" id="82b-AT-Noe"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -471,6 +471,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qGN-Pl-DKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1257" y="1093"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="M8A-tc-tkR">
+            <objects>
+                <viewController storyboardIdentifier="resultsViewController" id="vRI-rw-Kmq" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="45V-Gl-ieh"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Wi-vl-EIv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FQR-KW-wZR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.5249408876862427" green="0.32751164579399672" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YYj-Cb-x8i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3436" y="1161"/>
         </scene>
         <!--Question Controls View Controller-->
         <scene sceneID="I6R-gT-8Ig">

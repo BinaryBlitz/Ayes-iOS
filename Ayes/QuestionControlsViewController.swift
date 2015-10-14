@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import Crashlytics
+
+@objc protocol QuestionControlsDelegate {
+  optional func didAnswerTheQuestion()
+}
 
 class QuestionControlsViewController: UIViewController {
 
   @IBOutlet weak var skipButton: UIButton!
   @IBOutlet weak var yesButton: UIButton!
   @IBOutlet weak var noButton: UIButton!
+  var delegate: QuestionControlsDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,8 +44,11 @@ class QuestionControlsViewController: UIViewController {
 
   @IBAction func yesButtonAction(sender: AnyObject) {
   }
+  
   @IBAction func noButtonAction(sender: AnyObject) {
+    delegate?.didAnswerTheQuestion?()
   }
+  
   @IBAction func skipButtonAction(sender: AnyObject) {
   }
 }
