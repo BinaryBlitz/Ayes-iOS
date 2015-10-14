@@ -31,6 +31,8 @@ class HomeTableViewController: UITableViewController {
     tableView.estimatedRowHeight = CGFloat(100)
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     tableView.separatorStyle =  .None
+    let backItem = UIBarButtonItem(title: LocalizeHelper.localizeStringForKey("Back"), style: .Plain, target: nil, action: nil)
+    navigationItem.backBarButtonItem = backItem
     
     questions = Question.findAll() as! [Question]
   }
@@ -69,7 +71,15 @@ class HomeTableViewController: UITableViewController {
   //MARK: - UITableViewDelegate
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    performSegueWithIdentifier("showQuestion", sender: questions[indexPath.row])
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if let question = sender as? Question where segue.identifier == "showQuestion" {
+      let destination = segue.destinationViewController as! QuestionViewController
+      destination.question = question
+    }
   }
   
 }

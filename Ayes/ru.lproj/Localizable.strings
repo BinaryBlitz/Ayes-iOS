@@ -25,3 +25,8 @@
 "Notifications" = "Уведомления";
 "New question notifications" = "О новом вопросе";
 "Favorite questions notifications" = "О смене распределения избранных вопросов";
+"Yes" = "Да";
+"No" = "Нет";
+"Skip" = "Пропустить";
+"Back" = "Назад";
+"SkipWarning" = "Если вы пропустите вопрос, то не сможете ответить на него позже.";
