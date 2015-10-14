@@ -37,7 +37,7 @@
 		37E2A0ED1BC7E7E700FA7A6B /* Ayes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EB1BC7E7E700FA7A6B /* Ayes.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EF1BC7EBA800FA7A6B /* Question.swift */; settings = {ASSET_TAGS = (); }; };
 		37EF0C1C1BCAC66800BA88EA /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		66699200EF1CEDD69171B3EB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1039A30CDBD040BCB15D08E /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		66699200EF1CEDD69171B3EB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1039A30CDBD040BCB15D08E /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +266,7 @@
 				372657D11BC27520003383D1 /* Resources */,
 				D5E719478193E80997B3A873 /* Embed Pods Frameworks */,
 				04B4BFDDA6A28FB7CDE372BA /* Copy Pods Resources */,
+				371AAE551BCE9202007AC0F4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -373,6 +374,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		371AAE551BCE9202007AC0F4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 886de8c1d524dbaa9dfdbd457b8c8469ecafdfd4 fe43661af277625de578631f794d9557e38adacd6b02682d23b328918ca7fbf6";
 		};
 		CD43DFB4C65C91DD6B5C1603 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

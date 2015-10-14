@@ -8,6 +8,8 @@
 
 import UIKit
 import MagicalRecord
+import Fabric
+import Crashlytics
 
 let SIDE_BAR_WIDTH: CGFloat = 100
 
@@ -22,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     MagicalRecord.enableShorthandMethods()
     Settings.loadFromUserDefaults()
     LocalizeHelper.setLanguage(Settings.sharedInstance.language ?? "ru")
+    Fabric.with([Crashlytics.self])
     setUpNavigationBar()
     addSampleQuestions()
     return true
