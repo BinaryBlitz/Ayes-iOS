@@ -18,6 +18,7 @@ class QuestionControlsViewController: UIViewController {
   @IBOutlet weak var skipButton: UIButton!
   @IBOutlet weak var yesButton: UIButton!
   @IBOutlet weak var noButton: UIButton!
+  var question: Question!
   var delegate: QuestionControlsDelegate?
   
   override func viewDidLoad() {
@@ -43,12 +44,17 @@ class QuestionControlsViewController: UIViewController {
   }
 
   @IBAction func yesButtonAction(sender: AnyObject) {
+    question.updateState(.Yes)
+    delegate?.didAnswerTheQuestion?()
   }
   
   @IBAction func noButtonAction(sender: AnyObject) {
+    question.updateState(.No)
     delegate?.didAnswerTheQuestion?()
   }
   
   @IBAction func skipButtonAction(sender: AnyObject) {
+    question.updateState(.Skip)
+    delegate?.didAnswerTheQuestion?()
   }
 }

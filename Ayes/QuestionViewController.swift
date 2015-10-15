@@ -11,12 +11,14 @@ import UIKit
 class QuestionViewController: UIViewController {
   
   @IBOutlet weak var controlsContainer: UIView!
-  var question: Question!
-
   @IBOutlet weak var warningLabel: UILabel!
   @IBOutlet weak var contentTextView: UITextView!
   @IBOutlet weak var questionDateLabel: UILabel!
   @IBOutlet weak var questionIdLabel: UILabel!
+  
+  var question: Question!
+  var delegate: QuestionControlsDelegate?
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -33,21 +35,20 @@ class QuestionViewController: UIViewController {
     questionIdLabel.text = "\(question.id ?? 0)"
     warningLabel.text = LocalizeHelper.localizeStringForKey("SkipWarning")
     
-    print(question.content)
-
+    if question.state != .NoAnswer {
+      showResults(false)
+    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "controlsSetUp" {
       let destination = segue.destinationViewController as! QuestionControlsViewController
       destination.delegate = self
+      destination.question = question
     }
   }
-}
-
-extension QuestionViewController: QuestionControlsDelegate {
   
-  func didAnswerTheQuestion() {
+  func showResults(animated: Bool) {
     var controls: QuestionControlsViewController?
     for child in childViewControllers {
       if let controlsViewController = child as? QuestionControlsViewController {
@@ -62,12 +63,24 @@ extension QuestionViewController: QuestionControlsDelegate {
       
       controls.willMoveToParentViewController(nil)
       addChildViewController(statViewController)
+      let duration = animated ? 0.7 : 0
       transitionFromViewController(controls, toViewController: statViewController,
-        duration: 0.7, options: UIViewAnimationOptions.TransitionFlipFromRight, animations: nil,
-        completion: { (finished) -> Void in
+          duration: duration,
+          options: .TransitionFlipFromRight, animations: nil)
+        { (finished) -> Void in
             controls.removeFromParentViewController()
             statViewController.didMoveToParentViewController(self)
-     })
+      }
     }
+  }
+}
+
+extension QuestionViewController: QuestionControlsDelegate {
+  
+  func didAnswerTheQuestion() {
+    print(question.state)
+    NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
+    delegate?.didAnswerTheQuestion?()
+    showResults(true)
   }
 }

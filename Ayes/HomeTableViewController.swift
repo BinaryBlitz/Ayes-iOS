@@ -78,8 +78,15 @@ class HomeTableViewController: UITableViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let question = sender as? Question where segue.identifier == "showQuestion" {
       let destination = segue.destinationViewController as! QuestionViewController
+      destination.delegate = self
       destination.question = question
     }
   }
-  
+}
+
+extension HomeTableViewController: QuestionControlsDelegate {
+  func didAnswerTheQuestion() {
+    print("Hey")
+    tableView.reloadData()
+  }
 }

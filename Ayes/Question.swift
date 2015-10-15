@@ -68,4 +68,20 @@ class Question: NSManagedObject {
     return (no / totalYesNo) * 100
   }
   
+  func updateState(state: QuestionState) {
+    self.state = state
+    switch state {
+    case .No:
+      noAnswers = NSNumber(integer: (noAnswers ?? 0).integerValue + 1)
+      totalAnswers = NSNumber(integer: (totalAnswers ?? 0).integerValue + 1)
+    case .Yes:
+      yesAnswers = NSNumber(integer: (yesAnswers ?? 0).integerValue + 1)
+      totalAnswers = NSNumber(integer: (totalAnswers ?? 0).integerValue + 1)
+    case .Skip:
+      totalAnswers = NSNumber(integer: (totalAnswers ?? 0).integerValue + 1)
+    case .NoAnswer:
+      fatalError("You cannot change state to noAnswer")
+    }
+  }
+  
 }

@@ -26,7 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     LocalizeHelper.setLanguage(Settings.sharedInstance.language ?? "ru")
     Fabric.with([Crashlytics.self])
     setUpNavigationBar()
-    addSampleQuestions()
+    
+    if let _ = NSUserDefaults.standardUserDefaults().objectForKey("sampleDateFlag") as? String {
+      //stuff
+    } else {
+      self.addSampleQuestions()
+      NSUserDefaults.standardUserDefaults().setObject("stuff", forKey: "sampleDateFlag")
+    }
+    
     return true
   }
   
@@ -51,7 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     q2.content = "Умеете ли Вы плавать?"
     q2.id = 2305
     q2.dateCreated = NSDate()
-    q2.state = .No
     q2.yesAnswers = 4
     q2.noAnswers = 17
     q2.totalAnswers = 30
@@ -60,7 +66,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     q3.content = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation Lorem  ad minim veniam, quis nostrud exercitation Lorem Lorem"
     q3.id = 2305
     q3.dateCreated = NSDate()
-    q3.state = .Yes
     q3.yesAnswers = 20
     q3.noAnswers = 0
     q3.totalAnswers = 40
