@@ -32,24 +32,22 @@ class QuestionResultsViewController: UIViewController {
     noColorMarkView.backgroundColor = UIColor.redAccentColor()
     
     skipStatLabel.textColor = UIColor.whiteColor()
-//    skipStatLabel.text = LocalizeHelper.localizeStringForKey("Abstain") + " \(question.get)"
+    skipStatLabel.text = LocalizeHelper.localizeStringForKey("Abstain")! + " \(Int(question.abstainPercent))%"
     
     chartContainerView.backgroundColor = nil
-    setUpPieChartWithYesAnswers(CGFloat(question.yesStatistic ?? 0), noAnswers: CGFloat(question.noStatistic ?? 0))
+    setUpPieChartWithYesAnswers(question.yes, noAnswers: question.no)
     setUpPercentageLabel()
   }
   
   func setUpPercentageLabel() {
     percentageLabel.textColor = UIColor.whiteColor()
     percentageLabel.format = "%d%%"
-    let yes = Int(question.yesStatistic ?? 1)
-    let total = (Int(question.yesStatistic ?? 1) + Int(question.noStatistic ?? 1))
-    let yesStat = (yes * 100) / total
-    percentageLabel.countFrom(0, to: Float(yesStat), withDuration: pieChart.duration)
+    percentageLabel.countFrom(0, to: question.yesPercent, withDuration: pieChart.duration)
   }
   
-  func setUpPieChartWithYesAnswers(yesAnswers: CGFloat, noAnswers: CGFloat) {
-    let items = [PNPieChartDataItem(value: noAnswers, color: UIColor.redAccentColor()), PNPieChartDataItem(value: yesAnswers, color: UIColor.greenAccentColor())]
+  func setUpPieChartWithYesAnswers(yesAnswers: Float, noAnswers: Float) {
+    let items = [PNPieChartDataItem(value: noAnswers, color: UIColor.redAccentColor()),
+        PNPieChartDataItem(value: yesAnswers, color: UIColor.greenAccentColor())]
   
     pieChart = ResultsPieChart(frame: CGRect(), items: items)
     addContent(pieChart, toView: chartContainerView)
@@ -59,7 +57,6 @@ class QuestionResultsViewController: UIViewController {
     pieChart.circleThickness = 10
     pieChart.shouldHighlightSectorOnTouch = false
     pieChart.labelPercentageCutoff = 100
-//    pieChart.sele
     pieChart.strokeChart()
   }
   

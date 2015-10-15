@@ -18,9 +18,9 @@ extension Question {
     @NSManaged var dateCreated: NSDate?
     @NSManaged var id: NSNumber?
     @NSManaged var isFavorite: NSNumber?
-    @NSManaged var noStatistic: NSNumber?
+    @NSManaged var noAnswers: NSNumber?
     @NSManaged var rawState: NSNumber?
-    @NSManaged var skipStatistic: NSNumber?
-    @NSManaged var yesStatistic: NSNumber?
+    @NSManaged var totalAnswers: NSNumber?
+    @NSManaged var yesAnswers: NSNumber?
 
 }

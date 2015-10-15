@@ -15,7 +15,6 @@
 		372657DC1BC27520003383D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 372657DA1BC27520003383D1 /* Main.storyboard */; };
 		372657DE1BC27520003383D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 372657DD1BC27520003383D1 /* Assets.xcassets */; };
 		372657E11BC27520003383D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 372657DF1BC27520003383D1 /* LaunchScreen.storyboard */; };
-		372657EC1BC27520003383D1 /* AyesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372657EB1BC27520003383D1 /* AyesTests.swift */; };
 		373ED7581BCC273B003E7584 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373ED7571BCC273B003E7584 /* SettingsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		373ED75A1BCC295D003E7584 /* ProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373ED7591BCC295D003E7584 /* ProViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		373ED75C1BCC37BA003E7584 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373ED75B1BCC37BA003E7584 /* Settings.swift */; settings = {ASSET_TAGS = (); }; };
@@ -26,7 +25,6 @@
 		37BB0F621BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */; settings = {ASSET_TAGS = (); }; };
 		37BB0F631BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */; settings = {ASSET_TAGS = (); }; };
 		37BB0F651BC3D8BB00DFFDED /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		37BB0F661BC3D8BB00DFFDED /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37BB0F691BC3DE8400DFFDED /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F671BC3DE8400DFFDED /* QuestionTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		37BB0F6A1BC3DE8400DFFDED /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37BB0F681BC3DE8400DFFDED /* QuestionTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		37BF1C061BCD742A0040B8E1 /* ChooseRegionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BF1C051BCD742A0040B8E1 /* ChooseRegionTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -38,8 +36,10 @@
 		37C44A5F1BC31D95001A6340 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37C44A671BC31FDD001A6340 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C44A661BC31FDD001A6340 /* FavoritesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37C578491BCA966A005B4723 /* QuestionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C578481BCA966A005B4723 /* QuestionState.swift */; settings = {ASSET_TAGS = (); }; };
+		37D4F5331BD044BE003516A7 /* QuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D4F5321BD044BE003516A7 /* QuestionTests.swift */; settings = {ASSET_TAGS = (); }; };
 		37E2A0ED1BC7E7E700FA7A6B /* Ayes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EB1BC7E7E700FA7A6B /* Ayes.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EF1BC7EBA800FA7A6B /* Question.swift */; settings = {ASSET_TAGS = (); }; };
+		37E9D1DC1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E9D1DB1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift */; settings = {ASSET_TAGS = (); }; };
 		37EF0C1C1BCAC66800BA88EA /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
 		66699200EF1CEDD69171B3EB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1039A30CDBD040BCB15D08E /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -67,7 +67,6 @@
 		372657E01BC27520003383D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		372657E21BC27520003383D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		372657E71BC27520003383D1 /* AyesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AyesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		372657EB1BC27520003383D1 /* AyesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyesTests.swift; sourceTree = "<group>"; };
 		372657ED1BC27520003383D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		373ED7571BCC273B003E7584 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		373ED7591BCC295D003E7584 /* ProViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProViewController.swift; sourceTree = "<group>"; };
@@ -96,9 +95,11 @@
 		37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		37C44A661BC31FDD001A6340 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		37C578481BCA966A005B4723 /* QuestionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionState.swift; sourceTree = "<group>"; };
+		37D4F5321BD044BE003516A7 /* QuestionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTests.swift; sourceTree = "<group>"; };
 		37E2A0EC1BC7E7E700FA7A6B /* Ayes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ayes.xcdatamodel; sourceTree = "<group>"; };
 		37E2A0EF1BC7EBA800FA7A6B /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		37E2A0F21BC8033300FA7A6B /* Ayes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ayes-Bridging-Header.h"; sourceTree = "<group>"; };
+		37E9D1DB1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PNPieChartDataItem+Float.swift"; sourceTree = "<group>"; };
 		37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1039A30CDBD040BCB15D08E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DEA0F79349071E6297C527 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,8 +171,8 @@
 		372657EA1BC27520003383D1 /* AyesTests */ = {
 			isa = PBXGroup;
 			children = (
-				372657EB1BC27520003383D1 /* AyesTests.swift */,
 				372657ED1BC27520003383D1 /* Info.plist */,
+				37D4F5321BD044BE003516A7 /* QuestionTests.swift */,
 			);
 			path = AyesTests;
 			sourceTree = "<group>";
@@ -219,6 +220,7 @@
 				37C578481BCA966A005B4723 /* QuestionState.swift */,
 				373ED75B1BCC37BA003E7584 /* Settings.swift */,
 				376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */,
+				37E9D1DB1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -460,6 +462,7 @@
 				37154B881BCFC3A900639A8D /* QuestionResultsViewController.swift in Sources */,
 				37EF0C1C1BCAC66800BA88EA /* Question+CoreDataProperties.swift in Sources */,
 				37C578491BCA966A005B4723 /* QuestionState.swift in Sources */,
+				37E9D1DC1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift in Sources */,
 				373ED75A1BCC295D003E7584 /* ProViewController.swift in Sources */,
 				37C44A671BC31FDD001A6340 /* FavoritesTableViewController.swift in Sources */,
 				373ED7581BCC273B003E7584 /* SettingsTableViewController.swift in Sources */,
@@ -475,9 +478,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37BB0F661BC3D8BB00DFFDED /* HomeTableViewController.swift in Sources */,
-				372657EC1BC27520003383D1 /* AyesTests.swift in Sources */,
 				37BB0F631BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */,
+				37D4F5331BD044BE003516A7 /* QuestionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
