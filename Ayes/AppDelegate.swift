@@ -12,6 +12,7 @@ import Fabric
 import Crashlytics
 
 let SIDE_BAR_WIDTH: CGFloat = 100
+var SIDE_BAR_BUTTONS_WIDTH: CGFloat = 100
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     LocalizeHelper.setLanguage(Settings.sharedInstance.language ?? "ru")
     Fabric.with([Crashlytics.self])
     setUpNavigationBar()
+    if UIScreen.mainScreen().bounds.height == 480 {
+      SIDE_BAR_BUTTONS_WIDTH = 80
+    }
+//    print(UIScreen.mainScreen().bounds.height)
     
     if let _ = NSUserDefaults.standardUserDefaults().objectForKey("sampleDateFlag") as? String {
       //stuff
