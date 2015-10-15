@@ -43,18 +43,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     q1.content = "Ходили ли вы за это месяц хотя бы раз на свидание?"
     q1.id = 2301
     q1.dateCreated = NSDate()
+    q1.yesStatistic = 70
+    q1.noStatistic = 30
+    q1.skipStatistic = 10
     
     let q2 = Question.MR_createEntity()
     q2.content = "Умеете ли Вы плавать?"
     q2.id = 2305
     q2.dateCreated = NSDate()
     q2.state = .No
+    q2.yesStatistic = 4
+    q2.noStatistic = 17
+    q2.skipStatistic = 0
     
     let q3 = Question.MR_createEntity()
-    q3.content = "очень очень очень очень очень очень очень очень очень очень очень очень очень очень длинный тест, чтобы проверить динамическую высоту"
+    q3.content = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation Lorem  ad minim veniam, quis nostrud exercitation Lorem Lorem"
     q3.id = 2305
     q3.dateCreated = NSDate()
     q3.state = .Yes
+    q3.yesStatistic = 20
+    q3.noStatistic = 0
+    q3.skipStatistic = 40
     
     NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
   }

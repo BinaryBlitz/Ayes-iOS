@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37154B881BCFC3A900639A8D /* QuestionResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37154B871BCFC3A900639A8D /* QuestionResultsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		37154B8C1BCFF23800639A8D /* ResultsPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37154B8B1BCFF23800639A8D /* ResultsPieChart.swift */; settings = {ASSET_TAGS = (); }; };
 		371AAE571BCEA84F007AC0F4 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371AAE561BCEA84F007AC0F4 /* QuestionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		372657D71BC27520003383D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372657D61BC27520003383D1 /* AppDelegate.swift */; };
 		372657D91BC27520003383D1 /* QuestionnaireTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372657D81BC27520003383D1 /* QuestionnaireTableViewController.swift */; };
@@ -54,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		2D5A5610BF6A85A5D1D0B98A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		37154B871BCFC3A900639A8D /* QuestionResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionResultsViewController.swift; sourceTree = "<group>"; };
+		37154B8B1BCFF23800639A8D /* ResultsPieChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsPieChart.swift; sourceTree = "<group>"; };
 		371AAE561BCEA84F007AC0F4 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		372657D31BC27520003383D1 /* Ayes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ayes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		372657D61BC27520003383D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */,
 				371AAE561BCEA84F007AC0F4 /* QuestionViewController.swift */,
 				375423AF1BCEBAA1001CA639 /* QuestionControlsViewController.swift */,
+				37154B871BCFC3A900639A8D /* QuestionResultsViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 			children = (
 				37BB0F671BC3DE8400DFFDED /* QuestionTableViewCell.swift */,
 				37BB0F681BC3DE8400DFFDED /* QuestionTableViewCell.xib */,
+				37154B8B1BCFF23800639A8D /* ResultsPieChart.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 				TargetAttributes = {
 					372657D21BC27520003383D1 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 4WGG8V34K4;
 					};
 					372657E61BC27520003383D1 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -450,12 +457,14 @@
 				373ED75C1BCC37BA003E7584 /* Settings.swift in Sources */,
 				37BF1C081BCD84610040B8E1 /* SetQuestionTimeTableViewController.swift in Sources */,
 				37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */,
+				37154B881BCFC3A900639A8D /* QuestionResultsViewController.swift in Sources */,
 				37EF0C1C1BCAC66800BA88EA /* Question+CoreDataProperties.swift in Sources */,
 				37C578491BCA966A005B4723 /* QuestionState.swift in Sources */,
 				373ED75A1BCC295D003E7584 /* ProViewController.swift in Sources */,
 				37C44A671BC31FDD001A6340 /* FavoritesTableViewController.swift in Sources */,
 				373ED7581BCC273B003E7584 /* SettingsTableViewController.swift in Sources */,
 				37C44A5F1BC31D95001A6340 /* SideBarViewController.swift in Sources */,
+				37154B8C1BCFF23800639A8D /* ResultsPieChart.swift in Sources */,
 				372657D71BC27520003383D1 /* AppDelegate.swift in Sources */,
 				376D13B01BCD19F100F3EABC /* ChooseLanguageTableViewController.swift in Sources */,
 				37BB0F691BC3DE8400DFFDED /* QuestionTableViewCell.swift in Sources */,
@@ -636,6 +645,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Ayes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
@@ -653,6 +663,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Ayes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;

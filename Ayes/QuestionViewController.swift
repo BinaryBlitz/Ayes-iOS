@@ -22,8 +22,10 @@ class QuestionViewController: UIViewController {
     
     view.backgroundColor = UIColor.violetPrimaryColor()
     contentTextView.text = question.content
-    contentTextView.font = UIFont.systemFontOfSize(18)
+    contentTextView.font = UIFont.systemFontOfSize(17)
     contentTextView.textColor = UIColor.whiteColor()
+    contentTextView.scrollEnabled = false
+    contentTextView.textContainer.lineBreakMode = .ByTruncatingTail
     let formatter = NSDateFormatter()
     formatter.dateFormat = "dd.MM.yyyy"
     questionDateLabel.text = formatter.stringFromDate(question.dateCreated ?? NSDate())
@@ -54,13 +56,14 @@ extension QuestionViewController: QuestionControlsDelegate {
     }
     
     if let controls = controls {
-      let statViewController = storyboard!.instantiateViewControllerWithIdentifier("resultsViewController")
+      let statViewController = storyboard!.instantiateViewControllerWithIdentifier("resultsViewController") as! QuestionResultsViewController
+      statViewController.question = question
       statViewController.view.frame = controls.view.frame
       
       controls.willMoveToParentViewController(nil)
       addChildViewController(statViewController)
       transitionFromViewController(controls, toViewController: statViewController,
-        duration: 0.7, options: .TransitionFlipFromBottom, animations: nil,
+        duration: 0.7, options: UIViewAnimationOptions.TransitionFlipFromRight, animations: nil,
         completion: { (finished) -> Void in
             controls.removeFromParentViewController()
             statViewController.didMoveToParentViewController(self)

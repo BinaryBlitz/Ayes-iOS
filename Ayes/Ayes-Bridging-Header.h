@@ -3,4 +3,6 @@
 //
 
 
-#import <MagicalRecord/MagicalRecord.h>
+@import MagicalRecord;
+@import PNChart;
+@import UICountingLabel;
