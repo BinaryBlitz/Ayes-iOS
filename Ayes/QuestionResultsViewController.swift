@@ -32,7 +32,12 @@ class QuestionResultsViewController: UIViewController {
     noColorMarkView.backgroundColor = UIColor.redAccentColor()
     
     skipStatLabel.textColor = UIColor.whiteColor()
-    skipStatLabel.text = LocalizeHelper.localizeStringForKey("Abstain")! + " \(Int(question.abstainPercent))%"
+    if Int(question.abstainPercent) == 0 {
+      skipStatLabel.hidden = true
+    } else {
+      skipStatLabel.hidden = false
+      skipStatLabel.text = LocalizeHelper.localizeStringForKey("Abstain")! + " \(Int(question.abstainPercent))%"
+    }
     
     chartContainerView.backgroundColor = nil
     setUpPieChartWithYesAnswers(question.yes, noAnswers: question.no)
