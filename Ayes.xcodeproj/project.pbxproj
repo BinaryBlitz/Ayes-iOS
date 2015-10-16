@@ -223,7 +223,6 @@
 				37C578481BCA966A005B4723 /* QuestionState.swift */,
 				373ED75B1BCC37BA003E7584 /* Settings.swift */,
 				376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */,
-				37E9D1DB1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -231,12 +230,12 @@
 		37C44A621BC31E63001A6340 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				372657D81BC27520003383D1 /* QuestionnaireTableViewController.swift */,
-				37C44A661BC31FDD001A6340 /* FavoritesTableViewController.swift */,
-				37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */,
 				375423B11BCEBAA7001CA639 /* Home */,
 				376D13B11BCD1B1400F3EABC /* Settings */,
+				37C44A661BC31FDD001A6340 /* FavoritesTableViewController.swift */,
+				372657D81BC27520003383D1 /* QuestionnaireTableViewController.swift */,
 				373ED7591BCC295D003E7584 /* ProViewController.swift */,
+				37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -264,6 +263,7 @@
 		37C44A651BC31F10001A6340 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				37E9D1DB1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift */,
 				37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */,
 			);
 			name = Extensions;

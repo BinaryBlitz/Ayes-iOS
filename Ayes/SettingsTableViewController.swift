@@ -38,26 +38,17 @@ class SettingsTableViewController: UITableViewController {
   }
   
   @IBAction func notificationsSwitch(sender: AnyObject) {
-    if let switcher =  sender as? UISwitch {
-      if switcher.on {
-        for cell in notificationsCells {
-          let sw = cell.viewWithTag(2) as! UISwitch
-          sw.setOn(true, animated: true)
-          sw.enabled = true
-          cell.userInteractionEnabled = true
-          let label = cell.viewWithTag(1) as! UILabel
-          label.enabled = true
-        }
-      } else {
-        for cell in notificationsCells {
-          let sw = cell.viewWithTag(2) as! UISwitch
-          sw.setOn(false, animated: true)
-          sw.enabled = false
-          cell.userInteractionEnabled = false
-          let label = cell.viewWithTag(1) as! UILabel
-          label.enabled = false
-        }
-      }
+    guard let switcher = sender as? UISwitch else {
+      return
+    }
+    
+    for cell in notificationsCells {
+      let sw = cell.viewWithTag(2) as! UISwitch
+      sw.setOn(switcher.on, animated: true)
+      sw.enabled = switcher.on
+      cell.userInteractionEnabled = switcher.on
+      let label = cell.viewWithTag(1) as! UILabel
+      label.enabled = switcher.on
     }
   }
   
