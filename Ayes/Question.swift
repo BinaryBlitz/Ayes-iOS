@@ -68,6 +68,14 @@ class Question: NSManagedObject {
     return (no / totalYesNo) * 100
   }
   
+  var favorite: Bool {
+    guard let favorite = isFavorite else {
+      return false
+    }
+    
+    return favorite.boolValue
+  }
+  
   func updateState(state: QuestionState) {
     self.state = state
     switch state {

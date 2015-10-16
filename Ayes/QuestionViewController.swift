@@ -10,8 +10,11 @@ import UIKit
 
 class QuestionViewController: UIViewController {
   
+  @IBOutlet weak var sameAsMeButton: UIButton!
+  @IBOutlet weak var otherUsersButton: UIButton!
   @IBOutlet weak var controlsContainer: UIView!
   @IBOutlet weak var warningLabel: UILabel!
+  @IBOutlet weak var warningIcon: UIImageView!
   @IBOutlet weak var contentTextView: UITextView!
   @IBOutlet weak var questionDateLabel: UILabel!
   @IBOutlet weak var questionIdLabel: UILabel!
@@ -34,6 +37,15 @@ class QuestionViewController: UIViewController {
     
     questionIdLabel.text = "\(question.id ?? 0)"
     warningLabel.text = LocalizeHelper.localizeStringForKey("SkipWarning")
+    
+    otherUsersButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+    otherUsersButton.setTitle(LocalizeHelper.localizeStringForKey("Other users"), forState: .Normal)
+    
+    otherUsersButton.hidden = true
+    
+    sameAsMeButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+    sameAsMeButton.setTitle(LocalizeHelper.localizeStringForKey("Same as me"), forState: .Normal)
+    sameAsMeButton.hidden = true
     
     if question.state != .NoAnswer {
       showResults(false)
@@ -60,10 +72,27 @@ class QuestionViewController: UIViewController {
   func favoriteButtonAction(sender: AnyObject) {
     if let starButton = navigationItem.titleView as? UIButton {
       starButton.selected = !starButton.selected
+      question.isFavorite = NSNumber(bool: starButton.selected)
     }
   }
   
+  @IBAction func sameAsMeButtonAction(sender: AnyObject) {
+    
+  }
+  
+  @IBAction func otherUsersButtonAction(sender: AnyObject) {
+   let alert = UIAlertController(title: nil, message: LocalizeHelper.localizeStringForKey("This function will be paid soon!"), preferredStyle: .Alert)
+    alert.addAction(UIAlertAction(title: "ОК", style: .Default, handler: nil))
+    presentViewController(alert, animated: true, completion: nil)
+  }
+  
   func showResults(animated: Bool) {
+    UIView.animateWithDuration(animated ? 0.7 : 0) { () -> Void in
+      self.warningIcon.hidden = true
+      self.warningLabel.hidden = true
+      self.sameAsMeButton.hidden = false
+      self.otherUsersButton.hidden = false
+    }
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "shareButtonAction:")
     let starButton = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
     starButton.imageView?.image = UIImage(named: "Favorite")
@@ -73,6 +102,7 @@ class QuestionViewController: UIViewController {
     starButton.setImage(filledImage, forState: UIControlState.Selected)
     starButton.addTarget(self, action: "favoriteButtonAction:", forControlEvents: .TouchUpInside)
     navigationItem.titleView = starButton
+    starButton.selected = question.favorite
     
     var controls: QuestionControlsViewController?
     for child in childViewControllers {

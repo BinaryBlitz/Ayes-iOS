@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2PV-kA-1Ql" id="WeL-wb-xiD">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -65,8 +65,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.11.2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXf-qC-hro">
-                                <rect key="frame" x="503" y="77" width="80" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="22.11.2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXf-qC-hro">
+                                <rect key="frame" x="503" y="78" width="80" height="20"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -88,7 +88,7 @@
                                     <constraint firstAttribute="height" constant="1" id="eli-mz-fW3"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SampleIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yrq-Uy-bxI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SampleIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yrq-Uy-bxI">
                                 <rect key="frame" x="475" y="78" width="20" height="20"/>
                                 <animations/>
                                 <constraints>
@@ -136,6 +136,24 @@
                                     <segue destination="Ovu-dp-yN0" kind="embed" identifier="controlsSetUp" id="82b-AT-Noe"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wcm-Rr-9ZD">
+                                <rect key="frame" x="300" y="535" width="290" height="65"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="otherUsersButtonAction:" destination="Wuj-zH-GND" eventType="touchUpInside" id="ovi-eg-3Uj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCk-7Z-igs">
+                                <rect key="frame" x="10" y="535" width="290" height="65"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="sameAsMeButtonAction:" destination="Wuj-zH-GND" eventType="touchUpInside" id="ts1-z9-FYE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,6 +163,7 @@
                             <constraint firstItem="USi-6z-tbJ" firstAttribute="top" secondItem="NkO-mx-T4M" secondAttribute="bottom" id="4fZ-HB-XXH"/>
                             <constraint firstAttribute="leadingMargin" secondItem="TEn-R5-vfb" secondAttribute="leading" id="8aO-9L-bkm"/>
                             <constraint firstItem="YO1-5z-KBt" firstAttribute="height" secondItem="rVj-jP-aDs" secondAttribute="height" multiplier="1:4" id="8v6-Sg-v5z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wcm-Rr-9ZD" secondAttribute="trailing" constant="-10" id="D6v-HN-11l"/>
                             <constraint firstItem="USi-6z-tbJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0w3-m3-sdW" secondAttribute="bottom" id="DHq-Q7-mqh"/>
                             <constraint firstItem="0w3-m3-sdW" firstAttribute="top" secondItem="YO1-5z-KBt" secondAttribute="bottom" id="DqE-gW-N4f"/>
                             <constraint firstItem="YO1-5z-KBt" firstAttribute="top" secondItem="c7m-TE-fDQ" secondAttribute="bottom" id="Gdq-GW-avt"/>
@@ -152,6 +171,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="RXf-qC-hro" secondAttribute="trailing" constant="-3" id="IKg-JA-fNZ"/>
                             <constraint firstItem="USi-6z-tbJ" firstAttribute="top" secondItem="j5K-oE-QNs" secondAttribute="bottom" constant="65" id="OOo-Fc-mbX"/>
                             <constraint firstItem="YO1-5z-KBt" firstAttribute="height" secondItem="rVj-jP-aDs" secondAttribute="height" multiplier="6:20" id="PtA-WK-2Dc"/>
+                            <constraint firstItem="Wcm-Rr-9ZD" firstAttribute="leading" secondItem="dCk-7Z-igs" secondAttribute="trailing" id="Ruk-Cm-1gV"/>
                             <constraint firstItem="USi-6z-tbJ" firstAttribute="top" secondItem="TEn-R5-vfb" secondAttribute="bottom" constant="11" id="VXd-8Z-Wot"/>
                             <constraint firstItem="ECh-8n-orb" firstAttribute="leading" secondItem="rVj-jP-aDs" secondAttribute="leadingMargin" constant="-2" id="XA6-NH-n80"/>
                             <constraint firstItem="TEn-R5-vfb" firstAttribute="centerY" secondItem="NkO-mx-T4M" secondAttribute="centerY" id="XtK-To-BTs"/>
@@ -159,6 +179,7 @@
                             <constraint firstItem="0w3-m3-sdW" firstAttribute="height" secondItem="YO1-5z-KBt" secondAttribute="height" multiplier="8:4" id="Yla-Wk-xXG"/>
                             <constraint firstItem="YO1-5z-KBt" firstAttribute="top" secondItem="c7m-TE-fDQ" secondAttribute="bottom" constant="-1" id="a5t-4L-1ci"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YO1-5z-KBt" secondAttribute="trailing" id="bF1-V6-88s"/>
+                            <constraint firstItem="Wcm-Rr-9ZD" firstAttribute="top" secondItem="j5K-oE-QNs" secondAttribute="bottom" id="cYT-S5-r0j"/>
                             <constraint firstItem="TEn-R5-vfb" firstAttribute="top" secondItem="j5K-oE-QNs" secondAttribute="bottom" constant="10" id="dFm-ma-ACc"/>
                             <constraint firstItem="YO1-5z-KBt" firstAttribute="centerX" secondItem="rVj-jP-aDs" secondAttribute="centerX" id="dfA-ds-dZ9"/>
                             <constraint firstItem="yrq-Uy-bxI" firstAttribute="centerY" secondItem="RXf-qC-hro" secondAttribute="centerY" id="eMr-MY-Fln"/>
@@ -168,13 +189,18 @@
                             <constraint firstItem="0w3-m3-sdW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YO1-5z-KBt" secondAttribute="bottom" id="fd5-QD-fKa"/>
                             <constraint firstItem="NkO-mx-T4M" firstAttribute="leading" secondItem="j5K-oE-QNs" secondAttribute="trailing" constant="-552" id="hm4-oJ-hZH"/>
                             <constraint firstAttribute="leadingMargin" secondItem="YO1-5z-KBt" secondAttribute="leading" id="iIX-UF-9iy"/>
+                            <constraint firstItem="dCk-7Z-igs" firstAttribute="top" secondItem="j5K-oE-QNs" secondAttribute="bottom" id="iOq-dS-94X"/>
                             <constraint firstItem="YO1-5z-KBt" firstAttribute="leading" secondItem="c7m-TE-fDQ" secondAttribute="trailing" id="jxI-9H-Iy9"/>
                             <constraint firstItem="NkO-mx-T4M" firstAttribute="leading" secondItem="TEn-R5-vfb" secondAttribute="trailing" constant="8" id="lge-Kt-iL1"/>
                             <constraint firstItem="NkO-mx-T4M" firstAttribute="top" secondItem="j5K-oE-QNs" secondAttribute="bottom" id="mlN-oB-gFr"/>
                             <constraint firstItem="ECh-8n-orb" firstAttribute="top" secondItem="gFr-dX-eJ8" secondAttribute="bottom" constant="8" id="p6Q-ue-kqq"/>
+                            <constraint firstItem="dCk-7Z-igs" firstAttribute="leading" secondItem="rVj-jP-aDs" secondAttribute="leadingMargin" constant="-10" id="qgb-Xo-a7g"/>
+                            <constraint firstItem="USi-6z-tbJ" firstAttribute="top" secondItem="Wcm-Rr-9ZD" secondAttribute="bottom" id="qxk-6q-fPF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="c7m-TE-fDQ" secondAttribute="trailing" constant="-20" id="s2E-LH-WhJ"/>
                             <constraint firstItem="RXf-qC-hro" firstAttribute="centerY" secondItem="ECh-8n-orb" secondAttribute="centerY" id="utn-U1-J3A"/>
                             <constraint firstItem="c7m-TE-fDQ" firstAttribute="top" secondItem="ECh-8n-orb" secondAttribute="bottom" constant="9" id="viC-dh-hiB"/>
+                            <constraint firstItem="USi-6z-tbJ" firstAttribute="top" secondItem="dCk-7Z-igs" secondAttribute="bottom" id="wiZ-pp-afX"/>
+                            <constraint firstItem="dCk-7Z-igs" firstAttribute="width" secondItem="Wcm-Rr-9ZD" secondAttribute="width" id="xdr-Vo-n8i"/>
                             <constraint firstItem="j5K-oE-QNs" firstAttribute="leading" secondItem="rVj-jP-aDs" secondAttribute="leadingMargin" constant="-20" id="zHi-my-eph"/>
                         </constraints>
                         <variation key="default">
@@ -195,8 +221,11 @@
                     <connections>
                         <outlet property="contentTextView" destination="YO1-5z-KBt" id="Haw-va-kau"/>
                         <outlet property="controlsContainer" destination="0w3-m3-sdW" id="TtF-6X-sN2"/>
+                        <outlet property="otherUsersButton" destination="Wcm-Rr-9ZD" id="jEw-DX-B4Z"/>
                         <outlet property="questionDateLabel" destination="RXf-qC-hro" id="WJE-Fm-z9M"/>
                         <outlet property="questionIdLabel" destination="ECh-8n-orb" id="BdY-mo-0V7"/>
+                        <outlet property="sameAsMeButton" destination="dCk-7Z-igs" id="XrM-K5-mgP"/>
+                        <outlet property="warningIcon" destination="TEn-R5-vfb" id="CPW-gz-IVi"/>
                         <outlet property="warningLabel" destination="NkO-mx-T4M" id="LBF-I5-uRU"/>
                     </connections>
                 </viewController>
