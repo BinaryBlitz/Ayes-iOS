@@ -31,11 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       SIDE_BAR_BUTTONS_WIDTH = 80
     }
     
-    if let _ = NSUserDefaults.standardUserDefaults().objectForKey("sampleDateFlag") as? String {
+    if let _ = NSUserDefaults.standardUserDefaults().objectForKey("sssampleDateFlag") as? String {
       //stuff
     } else {
       self.addSampleQuestions()
-      NSUserDefaults.standardUserDefaults().setObject("stuff", forKey: "sampleDateFlag")
+      NSUserDefaults.standardUserDefaults().setObject("stuff", forKey: "sssampleDateFlag")
     }
     
     return true
@@ -50,6 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func addSampleQuestions() {
+    let questions = Question.findAll()
+    for q in questions {
+      q.MR_deleteEntity()
+    }
     let q1 = Question.MR_createEntity()
     q1.content = "Ходили ли вы за это месяц хотя бы раз на свидание?"
     q1.id = 2301
@@ -62,17 +66,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     q2.content = "Умеете ли Вы плавать?"
     q2.id = 2305
     q2.dateCreated = NSDate()
-    q2.yesAnswers = 4
-    q2.noAnswers = 17
-    q2.totalAnswers = 30
+    q2.yesAnswers = 40
+    q2.noAnswers = 15
+    q2.totalAnswers = 80
     
     let q3 = Question.MR_createEntity()
-    q3.content = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation Lorem  ad minim veniam, quis nostrud exercitation Lorem Lorem"
-    q3.id = 2305
+    q3.content = "Вы выбрасываете мусор в окно?"
+    q3.id = 2306
     q3.dateCreated = NSDate()
-    q3.yesAnswers = 20
-    q3.noAnswers = 0
-    q3.totalAnswers = 40
+    q3.yesAnswers = 80
+    q3.noAnswers = 30
+    q3.totalAnswers = 150
+    
+    let q4 = Question.MR_createEntity()
+    q4.content = "Вы давно последний раз меняли телефон?"
+    q4.id = 2390
+    q4.dateCreated = NSDate()
+    q4.yesAnswers = 80
+    q4.noAnswers = 90
+    q4.totalAnswers = 200
+    
+    let q5 = Question.MR_createEntity()
+    q5.content = "Вам нарвится новый iPhone?"
+    q5.id = 2400
+    q5.dateCreated = NSDate()
+    q5.yesAnswers = 500
+    q5.noAnswers = 120
+    q5.totalAnswers = 700
     
     NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
   }

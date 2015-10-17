@@ -86,7 +86,6 @@ class HomeTableViewController: UITableViewController {
 
 extension HomeTableViewController: QuestionControlsDelegate {
   func didAnswerTheQuestion() {
-    print("Hey")
     tableView.reloadData()
   }
 }

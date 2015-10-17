@@ -38,7 +38,6 @@
 
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
-  NSLog(@"%lu ... %lu", (unsigned long)range.location, (unsigned long)range.location);
     NSString *textAfterChange = [textView.text stringByReplacingCharactersInRange:range withString:text];
     
     int fontSize = [self fontSizeToFitText:textAfterChange withMinimumFontSize:self.minimumFontSizeInPoints andMaximumFontSize:self.maximumFontSizeInPoints];
