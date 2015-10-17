@@ -96,7 +96,7 @@
                                     <constraint firstAttribute="height" constant="20" id="rBX-37-tAx"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YO1-5z-KBt">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YO1-5z-KBt" customClass="ResizableTextView">
                                 <rect key="frame" x="20" y="112" width="560" height="180"/>
                                 <animations/>
                                 <constraints>
@@ -219,7 +219,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="contentTextView" destination="YO1-5z-KBt" id="Haw-va-kau"/>
+                        <outlet property="contentTextView" destination="YO1-5z-KBt" id="KTZ-dm-cd9"/>
                         <outlet property="controlsContainer" destination="0w3-m3-sdW" id="TtF-6X-sN2"/>
                         <outlet property="otherUsersButton" destination="Wcm-Rr-9ZD" id="jEw-DX-B4Z"/>
                         <outlet property="questionDateLabel" destination="RXf-qC-hro" id="WJE-Fm-z9M"/>

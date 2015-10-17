@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if UIScreen.mainScreen().bounds.height == 480 {
       SIDE_BAR_BUTTONS_WIDTH = 80
     }
-//    print(UIScreen.mainScreen().bounds.height)
     
     if let _ = NSUserDefaults.standardUserDefaults().objectForKey("sampleDateFlag") as? String {
       //stuff

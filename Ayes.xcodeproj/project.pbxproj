@@ -29,6 +29,7 @@
 		37BB0F6A1BC3DE8400DFFDED /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37BB0F681BC3DE8400DFFDED /* QuestionTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		37BF1C061BCD742A0040B8E1 /* ChooseRegionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BF1C051BCD742A0040B8E1 /* ChooseRegionTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37BF1C081BCD84610040B8E1 /* SetQuestionTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BF1C071BCD84610040B8E1 /* SetQuestionTimeTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		37C02DA91BD2B974004AD482 /* ResizableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C02DA81BD2B974004AD482 /* ResizableTextView.m */; settings = {ASSET_TAGS = (); }; };
 		37C44A541BC31861001A6340 /* Questionnaire.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C44A521BC31861001A6340 /* Questionnaire.storyboard */; settings = {ASSET_TAGS = (); }; };
 		37C44A571BC319E8001A6340 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C44A551BC319E8001A6340 /* Favorites.storyboard */; settings = {ASSET_TAGS = (); }; };
 		37C44A5A1BC31AD2001A6340 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C44A581BC31AD2001A6340 /* Settings.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -83,6 +84,8 @@
 		37BB0F681BC3DE8400DFFDED /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
 		37BF1C051BCD742A0040B8E1 /* ChooseRegionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseRegionTableViewController.swift; sourceTree = "<group>"; };
 		37BF1C071BCD84610040B8E1 /* SetQuestionTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetQuestionTimeTableViewController.swift; sourceTree = "<group>"; };
+		37C02DA71BD2B974004AD482 /* ResizableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResizableTextView.h; sourceTree = "<group>"; };
+		37C02DA81BD2B974004AD482 /* ResizableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResizableTextView.m; sourceTree = "<group>"; };
 		37C44A531BC31861001A6340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Questionnaire.storyboard; sourceTree = "<group>"; };
 		37C44A561BC319E8001A6340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorites.storyboard; sourceTree = "<group>"; };
 		37C44A591BC31AD2001A6340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
@@ -195,6 +198,15 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		37C02DAA1BD2B978004AD482 /* ResizableTextView */ = {
+			isa = PBXGroup;
+			children = (
+				37C02DA71BD2B974004AD482 /* ResizableTextView.h */,
+				37C02DA81BD2B974004AD482 /* ResizableTextView.m */,
+			);
+			name = ResizableTextView;
+			sourceTree = "<group>";
+		};
 		37C44A601BC31E4F001A6340 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +249,7 @@
 		37C44A631BC31E6C001A6340 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				37C02DAA1BD2B978004AD482 /* ResizableTextView */,
 				37BB0F671BC3DE8400DFFDED /* QuestionTableViewCell.swift */,
 				37BB0F681BC3DE8400DFFDED /* QuestionTableViewCell.xib */,
 				37154B8B1BCFF23800639A8D /* ResultsPieChart.swift */,
@@ -469,6 +482,7 @@
 				372657D71BC27520003383D1 /* AppDelegate.swift in Sources */,
 				376D13B01BCD19F100F3EABC /* ChooseLanguageTableViewController.swift in Sources */,
 				37BB0F691BC3DE8400DFFDED /* QuestionTableViewCell.swift in Sources */,
+				37C02DA91BD2B974004AD482 /* ResizableTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

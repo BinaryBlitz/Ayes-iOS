@@ -15,7 +15,7 @@ class QuestionViewController: UIViewController {
   @IBOutlet weak var controlsContainer: UIView!
   @IBOutlet weak var warningLabel: UILabel!
   @IBOutlet weak var warningIcon: UIImageView!
-  @IBOutlet weak var contentTextView: UITextView!
+  @IBOutlet weak var contentTextView: ResizableTextView!
   @IBOutlet weak var questionDateLabel: UILabel!
   @IBOutlet weak var questionIdLabel: UILabel!
   
@@ -26,11 +26,22 @@ class QuestionViewController: UIViewController {
     super.viewDidLoad()
     
     view.backgroundColor = UIColor.violetPrimaryColor()
-    contentTextView.text = question.content
-    contentTextView.font = UIFont.systemFontOfSize(17)
-    contentTextView.textColor = UIColor.whiteColor()
-    contentTextView.scrollEnabled = false
-    contentTextView.textContainer.lineBreakMode = .ByTruncatingTail
+    contentTextView.minimumFontSizeInPoints = 5
+    contentTextView.maximumFontSizeInPoints = 25
+    contentTextView.text = question.content!
+    
+    if UIScreen.mainScreen().bounds.height == 480
+      && question.content?.characters.count >= 190 {
+        contentTextView.font = UIFont.systemFontOfSize(13)
+    } else if UIScreen.mainScreen().bounds.height == 568 {
+      if question.content?.characters.count > 210 {
+        contentTextView.font = UIFont.systemFontOfSize(14)
+      } else if question.content?.characters.count > 190 {
+        contentTextView.font = UIFont.systemFontOfSize(15)
+      }
+    }
+    
+    contentTextView.userInteractionEnabled  = false
     let formatter = NSDateFormatter()
     formatter.dateFormat = "dd.MM.yyyy"
     questionDateLabel.text = formatter.stringFromDate(question.dateCreated ?? NSDate())
