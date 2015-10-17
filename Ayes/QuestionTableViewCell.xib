@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="192" id="KGk-i7-Jjw" customClass="QuestionTableViewCell" customModule="Ayes" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="192" id="KGk-i7-Jjw" customClass="QuestionTableViewCell" customModule="Ayes" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="408" height="192"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="408" height="192"/>
+                <rect key="frame" x="0.0" y="0.0" width="408" height="191.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBc-ga-pvN">
@@ -116,6 +116,7 @@
                 <outlet property="contentTextView" destination="7dI-vv-27B" id="spz-XK-HR5"/>
                 <outlet property="dateLabel" destination="8Em-iD-gjs" id="fsh-VU-q50"/>
                 <outlet property="idLabel" destination="p03-hS-zp3" id="ps9-6V-iMY"/>
+                <outlet property="questionIndicatorIcon" destination="KLo-FE-WUw" id="bi8-l6-Zmb"/>
                 <outlet property="questionStateIndicator" destination="K3r-ah-pu8" id="0JM-77-sT5"/>
                 <outlet property="questionStatusLabel" destination="8P2-mi-Aur" id="gwA-yW-7KM"/>
                 <outlet property="separatorLineHeightConstraint" destination="fiZ-XM-5jb" id="wO3-gY-Azi"/>

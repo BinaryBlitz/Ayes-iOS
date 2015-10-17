@@ -10,6 +10,7 @@ import UIKit
 
 class QuestionTableViewCell: UITableViewCell {
 
+  @IBOutlet weak var questionIndicatorIcon: UIImageView!
   @IBOutlet weak var contentTextView: UITextView!
   @IBOutlet weak var questionStatusLabel: UILabel!
   @IBOutlet weak var idLabel: UILabel!

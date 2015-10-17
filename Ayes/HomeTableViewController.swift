@@ -84,8 +84,9 @@ class HomeTableViewController: UITableViewController {
   }
 }
 
-extension HomeTableViewController: QuestionControlsDelegate {
-  func didAnswerTheQuestion() {
+extension HomeTableViewController: QuestionChangesDelegate {
+  
+  func didAnswerTheQuestion(question: Question) {
     tableView.reloadData()
   }
 }

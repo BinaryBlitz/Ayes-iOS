@@ -30,12 +30,13 @@
 		37BF1C061BCD742A0040B8E1 /* ChooseRegionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BF1C051BCD742A0040B8E1 /* ChooseRegionTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37BF1C081BCD84610040B8E1 /* SetQuestionTimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BF1C071BCD84610040B8E1 /* SetQuestionTimeTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37C02DA91BD2B974004AD482 /* ResizableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C02DA81BD2B974004AD482 /* ResizableTextView.m */; settings = {ASSET_TAGS = (); }; };
+		37C02DAF1BD2E25A004AD482 /* QuestionChangesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C02DAE1BD2E25A004AD482 /* QuestionChangesDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		37C44A541BC31861001A6340 /* Questionnaire.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C44A521BC31861001A6340 /* Questionnaire.storyboard */; settings = {ASSET_TAGS = (); }; };
 		37C44A571BC319E8001A6340 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C44A551BC319E8001A6340 /* Favorites.storyboard */; settings = {ASSET_TAGS = (); }; };
 		37C44A5A1BC31AD2001A6340 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C44A581BC31AD2001A6340 /* Settings.storyboard */; settings = {ASSET_TAGS = (); }; };
 		37C44A5D1BC31C17001A6340 /* Pro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C44A5B1BC31C17001A6340 /* Pro.storyboard */; settings = {ASSET_TAGS = (); }; };
 		37C44A5F1BC31D95001A6340 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		37C44A671BC31FDD001A6340 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C44A661BC31FDD001A6340 /* FavoritesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		37C44A671BC31FDD001A6340 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C44A661BC31FDD001A6340 /* FavoritesViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37C578491BCA966A005B4723 /* QuestionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C578481BCA966A005B4723 /* QuestionState.swift */; settings = {ASSET_TAGS = (); }; };
 		37D4F5331BD044BE003516A7 /* QuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D4F5321BD044BE003516A7 /* QuestionTests.swift */; settings = {ASSET_TAGS = (); }; };
 		37D4F5361BD06549003516A7 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D4F5341BD06549003516A7 /* Home.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -86,12 +87,13 @@
 		37BF1C071BCD84610040B8E1 /* SetQuestionTimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetQuestionTimeTableViewController.swift; sourceTree = "<group>"; };
 		37C02DA71BD2B974004AD482 /* ResizableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResizableTextView.h; sourceTree = "<group>"; };
 		37C02DA81BD2B974004AD482 /* ResizableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResizableTextView.m; sourceTree = "<group>"; };
+		37C02DAE1BD2E25A004AD482 /* QuestionChangesDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionChangesDelegate.swift; sourceTree = "<group>"; };
 		37C44A531BC31861001A6340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Questionnaire.storyboard; sourceTree = "<group>"; };
 		37C44A561BC319E8001A6340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorites.storyboard; sourceTree = "<group>"; };
 		37C44A591BC31AD2001A6340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		37C44A5C1BC31C17001A6340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Pro.storyboard; sourceTree = "<group>"; };
 		37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
-		37C44A661BC31FDD001A6340 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		37C44A661BC31FDD001A6340 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		37C578481BCA966A005B4723 /* QuestionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionState.swift; sourceTree = "<group>"; };
 		37D4F5321BD044BE003516A7 /* QuestionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTests.swift; sourceTree = "<group>"; };
 		37D4F5351BD06549003516A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				371AAE561BCEA84F007AC0F4 /* QuestionViewController.swift */,
 				375423AF1BCEBAA1001CA639 /* QuestionControlsViewController.swift */,
 				37154B871BCFC3A900639A8D /* QuestionResultsViewController.swift */,
+				37C02DAE1BD2E25A004AD482 /* QuestionChangesDelegate.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -238,7 +241,7 @@
 			children = (
 				375423B11BCEBAA7001CA639 /* Home */,
 				376D13B11BCD1B1400F3EABC /* Settings */,
-				37C44A661BC31FDD001A6340 /* FavoritesTableViewController.swift */,
+				37C44A661BC31FDD001A6340 /* FavoritesViewController.swift */,
 				372657D81BC27520003383D1 /* QuestionnaireTableViewController.swift */,
 				373ED7591BCC295D003E7584 /* ProViewController.swift */,
 				37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */,
@@ -474,8 +477,9 @@
 				37EF0C1C1BCAC66800BA88EA /* Question+CoreDataProperties.swift in Sources */,
 				37C578491BCA966A005B4723 /* QuestionState.swift in Sources */,
 				37E9D1DC1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift in Sources */,
+				37C02DAF1BD2E25A004AD482 /* QuestionChangesDelegate.swift in Sources */,
 				373ED75A1BCC295D003E7584 /* ProViewController.swift in Sources */,
-				37C44A671BC31FDD001A6340 /* FavoritesTableViewController.swift in Sources */,
+				37C44A671BC31FDD001A6340 /* FavoritesViewController.swift in Sources */,
 				373ED7581BCC273B003E7584 /* SettingsTableViewController.swift in Sources */,
 				37C44A5F1BC31D95001A6340 /* SideBarViewController.swift in Sources */,
 				37154B8C1BCFF23800639A8D /* ResultsPieChart.swift in Sources */,

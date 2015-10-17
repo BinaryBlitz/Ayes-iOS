@@ -20,7 +20,7 @@ class QuestionViewController: UIViewController {
   @IBOutlet weak var questionIdLabel: UILabel!
   
   var question: Question!
-  var delegate: QuestionControlsDelegate?
+  var delegate: QuestionChangesDelegate?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -84,6 +84,8 @@ class QuestionViewController: UIViewController {
     if let starButton = navigationItem.titleView as? UIButton {
       starButton.selected = !starButton.selected
       question.isFavorite = NSNumber(bool: starButton.selected)
+      NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
+      delegate?.didFavoriteTheQuestion?(question)
     }
   }
   
@@ -141,12 +143,12 @@ class QuestionViewController: UIViewController {
   }
 }
 
-extension QuestionViewController: QuestionControlsDelegate {
+extension QuestionViewController: QuestionChangesDelegate {
   
-  func didAnswerTheQuestion() {
+  func didAnswerTheQuestion(question: Question) {
     print(question.state)
     NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
-    delegate?.didAnswerTheQuestion?()
+    delegate?.didAnswerTheQuestion?(question)
     showResults(true)
   }
 }

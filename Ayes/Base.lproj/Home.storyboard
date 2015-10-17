@@ -49,7 +49,7 @@
         <!--Question View Controller-->
         <scene sceneID="xw6-0j-Yei">
             <objects>
-                <viewController id="Wuj-zH-GND" customClass="QuestionViewController" customModule="Ayes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="questionViewController" id="Wuj-zH-GND" customClass="QuestionViewController" customModule="Ayes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gFr-dX-eJ8"/>
                         <viewControllerLayoutGuide type="bottom" id="USi-6z-tbJ"/>
