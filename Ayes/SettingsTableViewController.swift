@@ -29,7 +29,7 @@ class SettingsTableViewController: UITableViewController {
       menuBarButtonItem.target = revealViewController
       menuBarButtonItem.action = "revealToggle:"
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
-      revealViewController.rearViewRevealWidth = SIDE_BAR_WIDTH
+      revealViewController.delegate = self
     }
     
     reloadContent()
@@ -115,5 +115,17 @@ extension SettingsTableViewController: MultipleChoiceControllerDelegate {
   func didChoseItem() {
     reloadContent()
     Settings.saveToUserDefaults()
+  }
+}
+
+//MARK: - SWRevealViewControllerDelegate
+
+extension SettingsTableViewController: SWRevealViewControllerDelegate {
+  func revealController(revealController: SWRevealViewController!, didMoveToPosition position: FrontViewPosition) {
+    tableView.userInteractionEnabled = position == .Left
+  }
+  
+  func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
+    tableView.userInteractionEnabled = position == .Left
   }
 }

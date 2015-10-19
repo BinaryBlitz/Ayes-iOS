@@ -6,4 +6,5 @@
 @import MagicalRecord;
 @import PNChart;
 @import UICountingLabel;
+@import SWRevealViewController;
 #import "ResizableTextView.h"

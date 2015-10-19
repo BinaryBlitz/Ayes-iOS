@@ -20,7 +20,7 @@ class HomeTableViewController: UITableViewController {
       menuBarButtonItem.target = revealViewController
       menuBarButtonItem.action = "revealToggle:"
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
-      revealViewController.rearViewRevealWidth = SIDE_BAR_WIDTH
+      revealViewController.delegate = self
     }
     
     navigationItem.title = LocalizeHelper.localizeStringForKey("Questions")
@@ -84,9 +84,23 @@ class HomeTableViewController: UITableViewController {
   }
 }
 
+//MARK: - QuestionChangesDelegate
+
 extension HomeTableViewController: QuestionChangesDelegate {
   
   func didAnswerTheQuestion(question: Question) {
     tableView.reloadData()
+  }
+}
+
+//MARK: - SWRevealViewControllerDelegate
+
+extension HomeTableViewController: SWRevealViewControllerDelegate {
+  func revealController(revealController: SWRevealViewController!, didMoveToPosition position: FrontViewPosition) {
+    tableView.userInteractionEnabled = position == .Left
+  }
+  
+  func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
+    tableView.userInteractionEnabled = position == .Left
   }
 }

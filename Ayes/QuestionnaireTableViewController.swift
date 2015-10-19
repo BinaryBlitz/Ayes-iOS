@@ -20,7 +20,7 @@ class QuestionnaireTableViewController: UITableViewController {
       menuBarButtonItem.target = revealViewController
       menuBarButtonItem.action = "revealToggle:"
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
-      revealViewController.rearViewRevealWidth = SIDE_BAR_WIDTH
+      revealViewController.delegate = self
     }
     
     navigationItem.title = LocalizeHelper.localizeStringForKey("Questionnaire")
@@ -28,3 +28,14 @@ class QuestionnaireTableViewController: UITableViewController {
   }
 }
 
+//MARK: - SWRevealViewControllerDelegate
+
+extension QuestionnaireTableViewController: SWRevealViewControllerDelegate {
+  func revealController(revealController: SWRevealViewController!, didMoveToPosition position: FrontViewPosition) {
+    tableView.userInteractionEnabled = position == .Left
+  }
+  
+  func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
+    tableView.userInteractionEnabled = position == .Left
+  }
+}

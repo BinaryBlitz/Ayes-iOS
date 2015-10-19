@@ -19,9 +19,21 @@ class ProViewController: UIViewController {
       menuBarButtonItem.target = revealViewController
       menuBarButtonItem.action = "revealToggle:"
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
-      revealViewController.rearViewRevealWidth = SIDE_BAR_WIDTH
+      revealViewController.delegate = self
     }
     
     navigationItem.title = LocalizeHelper.localizeStringForKey("Pro Version")
+  }
+}
+
+//MARK: - SWRevealViewControllerDelegate
+
+extension ProViewController: SWRevealViewControllerDelegate {
+  func revealController(revealController: SWRevealViewController!, didMoveToPosition position: FrontViewPosition) {
+    view.userInteractionEnabled = position == .Left
+  }
+  
+  func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
+    view.userInteractionEnabled = position == .Left
   }
 }

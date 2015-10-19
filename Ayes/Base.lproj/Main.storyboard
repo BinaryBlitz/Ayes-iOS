@@ -10,7 +10,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RevealViewController" customModule="Ayes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -322,10 +322,10 @@
         <image name="SampleIcon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DxD-IV-tOv"/>
-        <segue reference="WX5-z3-IEf"/>
-        <segue reference="YaE-Uh-tod"/>
-        <segue reference="oxD-uM-AwO"/>
-        <segue reference="vcZ-D3-XJd"/>
+        <segue reference="JBP-dh-Vg0"/>
+        <segue reference="yqn-lx-ZZY"/>
+        <segue reference="03M-SX-PlE"/>
+        <segue reference="X5b-Nl-ChB"/>
+        <segue reference="I7m-Aj-AHZ"/>
     </inferredMetricsTieBreakers>
 </document>
