@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     MagicalRecord.setupAutoMigratingCoreDataStack()
     MagicalRecord.enableShorthandMethods()
@@ -38,7 +37,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       NSUserDefaults.standardUserDefaults().setObject("stuff", forKey: "sssampleDateFlag")
     }
     
+    loadAPIToken()
+    
     return true
+  }
+  
+  func loadAPIToken() {
+    if let token = NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String {
+      ServerManager.sharedInstance.apiToken = token
+    } else {
+      ServerManager.sharedInstance.createUser(nil)
+    }
+    
   }
   
   private func setUpNavigationBar() {

@@ -10,6 +10,8 @@
 		37154B881BCFC3A900639A8D /* QuestionResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37154B871BCFC3A900639A8D /* QuestionResultsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37154B8C1BCFF23800639A8D /* ResultsPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37154B8B1BCFF23800639A8D /* ResultsPieChart.swift */; settings = {ASSET_TAGS = (); }; };
 		371AAE571BCEA84F007AC0F4 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371AAE561BCEA84F007AC0F4 /* QuestionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		37202B561BD6C0AF00FCD1DB /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37202B551BD6C0AF00FCD1DB /* ServerManager.swift */; settings = {ASSET_TAGS = (); }; };
+		37202B581BD6CE6B00FCD1DB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37202B571BD6CE6B00FCD1DB /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		372657D71BC27520003383D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372657D61BC27520003383D1 /* AppDelegate.swift */; };
 		372657D91BC27520003383D1 /* QuestionnaireTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372657D81BC27520003383D1 /* QuestionnaireTableViewController.swift */; };
 		372657DC1BC27520003383D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 372657DA1BC27520003383D1 /* Main.storyboard */; };
@@ -63,6 +65,8 @@
 		37154B871BCFC3A900639A8D /* QuestionResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionResultsViewController.swift; sourceTree = "<group>"; };
 		37154B8B1BCFF23800639A8D /* ResultsPieChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsPieChart.swift; sourceTree = "<group>"; };
 		371AAE561BCEA84F007AC0F4 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		37202B551BD6C0AF00FCD1DB /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		37202B571BD6CE6B00FCD1DB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		372657D31BC27520003383D1 /* Ayes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ayes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		372657D61BC27520003383D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		372657D81BC27520003383D1 /* QuestionnaireTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionnaireTableViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +238,8 @@
 				37C578481BCA966A005B4723 /* QuestionState.swift */,
 				373ED75B1BCC37BA003E7584 /* Settings.swift */,
 				376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */,
+				37202B551BD6C0AF00FCD1DB /* ServerManager.swift */,
+				37202B571BD6CE6B00FCD1DB /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -485,11 +491,13 @@
 				37C44A671BC31FDD001A6340 /* FavoritesViewController.swift in Sources */,
 				373ED7581BCC273B003E7584 /* SettingsTableViewController.swift in Sources */,
 				37C44A5F1BC31D95001A6340 /* SideBarViewController.swift in Sources */,
+				37202B581BD6CE6B00FCD1DB /* User.swift in Sources */,
 				37154B8C1BCFF23800639A8D /* ResultsPieChart.swift in Sources */,
 				37A812011BD4DB3900811FD4 /* RevealViewController.swift in Sources */,
 				372657D71BC27520003383D1 /* AppDelegate.swift in Sources */,
 				376D13B01BCD19F100F3EABC /* ChooseLanguageTableViewController.swift in Sources */,
 				37BB0F691BC3DE8400DFFDED /* QuestionTableViewCell.swift in Sources */,
+				37202B561BD6C0AF00FCD1DB /* ServerManager.swift in Sources */,
 				37C02DA91BD2B974004AD482 /* ResizableTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
