@@ -61,6 +61,12 @@ class QuestionViewController: UIViewController {
     if question.state != .NoAnswer {
       showResults(false)
     }
+    
+    if let navBarSubviews = navigationController?.navigationBar.subviews {
+      for v in navBarSubviews {
+        v.exclusiveTouch = true
+      }
+    }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

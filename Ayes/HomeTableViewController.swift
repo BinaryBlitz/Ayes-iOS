@@ -42,6 +42,12 @@ class HomeTableViewController: UITableViewController {
     questions = Question.findAll() as! [Question]
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh:", name: QuestionsUpdateNotification, object: nil)
+    
+    if let navBarSubviews = navigationController?.navigationBar.subviews {
+      for v in navBarSubviews {
+        v.exclusiveTouch = true
+      }
+    }
   }
   
   deinit {
@@ -85,7 +91,10 @@ class HomeTableViewController: UITableViewController {
     cell.contentTextView.font = UIFont.systemFontOfSize(18)
     cell.questionStateIndicator.backgroundColor = question.state.getAccentColor()
     switch question.state {
-    case .NoAnswer, .Skip:
+    case .Skip:
+      cell.questionStatusLabel.text = "Вы пропустили"
+      cell.questionStatusLabel.textColor = UIColor.blackColor()
+    case .NoAnswer:
       cell.questionStatusLabel.text = "Новый"
       cell.questionStatusLabel.textColor = UIColor.blueAccentColor()
     default:
@@ -102,6 +111,8 @@ class HomeTableViewController: UITableViewController {
     performSegueWithIdentifier("showQuestion", sender: questions[indexPath.row])
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
+  
+  //MARK: - Navigation
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let question = sender as? Question where segue.identifier == "showQuestion" {

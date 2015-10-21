@@ -15,7 +15,9 @@ enum QuestionState: Int {
   
   func getAccentColor() -> UIColor {
     switch self {
-    case .NoAnswer, .Skip:
+    case .Skip:
+      return UIColor.lightGrayColor()
+    case .NoAnswer:
       return UIColor.blueAccentColor()
     case .No:
       return UIColor.redAccentColor()

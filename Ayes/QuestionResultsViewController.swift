@@ -51,10 +51,10 @@ class QuestionResultsViewController: UIViewController {
   }
   
   func setUpPieChartWithYesAnswers(yesAnswers: Float, noAnswers: Float) {
-    let items = [PNPieChartDataItem(value: noAnswers, color: UIColor.redAccentColor()),
-        PNPieChartDataItem(value: yesAnswers, color: UIColor.greenAccentColor())]
-  
+    let items = [PNPieChartDataItem(value: yesAnswers, color: UIColor.greenAccentColor()),
+      PNPieChartDataItem(value: noAnswers, color: UIColor.redAccentColor())]
     pieChart = ResultsPieChart(frame: CGRect(), items: items)
+    pieChart.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
     addContent(pieChart, toView: chartContainerView)
     pieChart.descriptionTextColor = UIColor.whiteColor()
     pieChart.descriptionTextFont = UIFont.systemFontOfSize(14)
