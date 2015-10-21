@@ -13,6 +13,7 @@ import Crashlytics
 
 let SIDE_BAR_WIDTH: CGFloat = 100
 var SIDE_BAR_BUTTONS_WIDTH: CGFloat = 100
+let QuestionsUpdateNotification = "QuestionsUpdateNotification"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,13 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       SIDE_BAR_BUTTONS_WIDTH = 80
     }
     
-    if let _ = NSUserDefaults.standardUserDefaults().objectForKey("sssampleDateFlag") as? String {
-      //stuff
-    } else {
-      self.addSampleQuestions()
-      NSUserDefaults.standardUserDefaults().setObject("stuff", forKey: "sssampleDateFlag")
-    }
-    
     loadAPIToken()
     
     return true
@@ -46,9 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if let token = NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String {
       ServerManager.sharedInstance.apiToken = token
     } else {
-      ServerManager.sharedInstance.createUser(nil)
+      ServerManager.sharedInstance.createUser { (success) -> Void in
+        if success {
+          NSNotificationCenter.defaultCenter().postNotificationName(QuestionsUpdateNotification, object: nil)
+        }
+      }
     }
-    
   }
   
   private func setUpNavigationBar() {

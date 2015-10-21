@@ -35,15 +35,15 @@ class ServerManager {
     return manager.request(method, url, parameters: parameters, encoding: encoding)
   }
   
-  private func get(path: String, params: [String: AnyObject]?) throws -> Request {
+  private func get(path: String, params: [String: AnyObject]? = nil) throws -> Request {
     return try request(.GET, path: path, parameters: params, encoding: .URL)
   }
   
-  private func post(path: String, params: [String: AnyObject]?) throws -> Request {
+  private func post(path: String, params: [String: AnyObject]? = nil) throws -> Request {
     return try request(.POST, path: path, parameters: params, encoding: .JSON)
   }
   
-  private func patch(path: String, params: [String: AnyObject]?) throws -> Request {
+  private func patch(path: String, params: [String: AnyObject]? = nil) throws -> Request {
     return try request(.PATCH, path: path, parameters: params, encoding: .JSON)
   }
   
@@ -51,18 +51,44 @@ class ServerManager {
     let parameters = ["user" : ["gender": ""]]
     manager.request(.POST, baseURL + "user/", parameters: parameters, encoding: .JSON)
     .responseJSON { (request, response, result) -> Void in
+      defer { complition?(success: result.isSuccess) }
+      
       guard let jsonData = result.value else {
-        complition?(success: false)
         return
       }
       
       let json = JSON(jsonData)
       if let token = json["api_token"].string {
         self.apiToken = token
-        complition?(success: true)
-      } else {
-        complition?(success: false)
       }
+    }
+  }
+  
+  func getQuestions(complition: ((questions: [Question]?) -> Void)?) -> Request? {
+    do {
+      let request = try get("questions/")
+      request.responseJSON { (_, _, result) -> Void in
+        if let jsonData = result.value {
+          let json = JSON(jsonData)
+          var questions = [Question]()
+          for (_, subJson) in json {
+            if let question = Question.createFromJSON(subJson) {
+              questions.append(question)
+            }
+          }
+          NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
+          complition?(questions: questions)
+        }
+      }
+      
+      return request
+    } catch(Errors.Unauthorized) {
+      print("Unauthorized")
+      complition?(questions: nil)
+      return nil
+    } catch {
+      complition?(questions: nil)
+      return nil
     }
   }
   

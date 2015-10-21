@@ -8,8 +8,35 @@
 
 import Foundation
 import CoreData
+import SwiftyJSON
 
 class Question: NSManagedObject {
+  
+  static func createFromJSON(json: JSON) -> Question? {
+    guard let id = json["id"].int,
+      content = json["content"].string,
+      createdAtString = json["created_at"].string else {
+        return nil
+    }
+    let questions = Question.findAllSortedBy("id", ascending: true) as! [Question]
+    for q in questions {
+      if q.id?.integerValue == id {
+        q.content = content
+        q.dateCreated = NSDate(dateString: createdAtString) ?? NSDate()
+        return q
+      }
+    }
+    
+    
+    let question = Question.MR_createEntity()
+    question.id = NSNumber(integer: id)
+    question.content = content
+    if let createdAt = NSDate(dateString: createdAtString) {
+      question.dateCreated = createdAt
+    }
+    
+    return question
+  }
   
   var state: QuestionState {
     get {

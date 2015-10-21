@@ -12,6 +12,7 @@ class HomeTableViewController: UITableViewController {
 
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
   var questions = [Question]()
+  let refreshDataControl = UIRefreshControl()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,9 +35,36 @@ class HomeTableViewController: UITableViewController {
     let backItem = UIBarButtonItem(title: LocalizeHelper.localizeStringForKey("Back"), style: .Plain, target: nil, action: nil)
     navigationItem.backBarButtonItem = backItem
     
+    refreshDataControl.addTarget(self, action: "refresh:",
+        forControlEvents: .ValueChanged)
+    tableView.addSubview(refreshDataControl)
+
     questions = Question.findAll() as! [Question]
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh:", name: QuestionsUpdateNotification, object: nil)
   }
   
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
+  
+  //MARK: - Refresh
+  func refresh(sender: AnyObject) {
+    refreshBegin {
+      self.refreshDataControl.endRefreshing()
+      self.tableView.reloadData()
+    }
+  }
+
+  func refreshBegin(refreshEnd: () -> Void) {
+    ServerManager.sharedInstance.getQuestions { (questions) -> Void in
+      defer { refreshEnd() }
+      if let questions = questions {
+        self.questions = questions
+      }
+    }
+  }
+
   // MARK: UITableViewDataSource
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
