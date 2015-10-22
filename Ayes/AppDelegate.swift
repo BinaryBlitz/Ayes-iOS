@@ -19,6 +19,7 @@ let QuestionsUpdateNotification = "QuestionsUpdateNotification"
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
+  var reachability: Reachability!
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     MagicalRecord.setupAutoMigratingCoreDataStack()
@@ -33,7 +34,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     loadAPIToken()
     
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "networkChanged:", name: kReachabilityChangedNotification, object: nil)
+    reachability = Reachability.reachabilityForInternetConnection()
+    reachability.startNotifier()
+    
     return true
+  }
+  
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
+  
+  func networkChanged(notification: NSNotification) {
+    let remoteHostStatus = reachability.currentReachabilityStatus()
+    switch remoteHostStatus {
+    case NotReachable:
+      print("ooops")
+    case ReachableViaWWAN:
+      print("wwan")
+    default:
+      print("other stuff")
+    }
   }
   
   func loadAPIToken() {

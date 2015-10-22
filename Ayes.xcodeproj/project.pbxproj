@@ -25,6 +25,7 @@
 		376D13A91BCD117000F3EABC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 376D13AB1BCD117000F3EABC /* Localizable.strings */; };
 		376D13AD1BCD11F000F3EABC /* LocalizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		376D13B01BCD19F100F3EABC /* ChooseLanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D13AF1BCD19F100F3EABC /* ChooseLanguageTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		377A0F5B1BD96CF500EDAF02 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A0F5A1BD96CF500EDAF02 /* Reachability.m */; settings = {ASSET_TAGS = (); }; };
 		37A812011BD4DB3900811FD4 /* RevealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A812001BD4DB3900811FD4 /* RevealViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		37BB0F621BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */; settings = {ASSET_TAGS = (); }; };
 		37BB0F631BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */; settings = {ASSET_TAGS = (); }; };
@@ -86,6 +87,8 @@
 		376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizeHelper.swift; sourceTree = "<group>"; };
 		376D13AE1BCD187B00F3EABC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		376D13AF1BCD19F100F3EABC /* ChooseLanguageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseLanguageTableViewController.swift; sourceTree = "<group>"; };
+		377A0F591BD96CF500EDAF02 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		377A0F5A1BD96CF500EDAF02 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		37A812001BD4DB3900811FD4 /* RevealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevealViewController.swift; sourceTree = "<group>"; };
 		37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ayes.swift"; sourceTree = "<group>"; };
 		37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +212,15 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		377A0F5C1BD96D0600EDAF02 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				377A0F591BD96CF500EDAF02 /* Reachability.h */,
+				377A0F5A1BD96CF500EDAF02 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		37C02DAA1BD2B978004AD482 /* ResizableTextView */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +247,7 @@
 		37C44A611BC31E5C001A6340 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				377A0F5C1BD96D0600EDAF02 /* Reachability */,
 				37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */,
 				37E2A0EF1BC7EBA800FA7A6B /* Question.swift */,
 				37C578481BCA966A005B4723 /* QuestionState.swift */,
@@ -478,6 +491,7 @@
 				37BB0F651BC3D8BB00DFFDED /* HomeTableViewController.swift in Sources */,
 				375423B01BCEBAA1001CA639 /* QuestionControlsViewController.swift in Sources */,
 				37BF1C061BCD742A0040B8E1 /* ChooseRegionTableViewController.swift in Sources */,
+				377A0F5B1BD96CF500EDAF02 /* Reachability.m in Sources */,
 				372657D91BC27520003383D1 /* QuestionnaireTableViewController.swift in Sources */,
 				37BB0F621BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */,
 				376D13AD1BCD11F000F3EABC /* LocalizeHelper.swift in Sources */,
