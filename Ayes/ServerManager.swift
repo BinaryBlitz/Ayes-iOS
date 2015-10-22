@@ -92,4 +92,34 @@ class ServerManager {
     }
   }
   
+  func submitAnswer(questionId: Int, answer: QuestionState, complition: ((_:Bool) -> Void)?) -> Request? {
+    do {
+      let value: Bool?
+      switch answer {
+      case .No:
+        value = false
+      case .Yes:
+        value = true
+      case .Skip:
+        value = nil
+      default:
+        fatalError("You cannot submit question without an answer!")
+      }
+      
+      let request = try post("questions/\(questionId)/answers/", params: ["value": value ?? NSNull()])
+      request.responseJSON { (_, _, result) -> Void in
+        complition?(result.isSuccess)
+      }
+      
+      return request
+    } catch(Errors.Unauthorized) {
+      print("Unauthorized")
+      complition?(false)
+      return nil
+    } catch {
+      complition?(false)
+      return nil
+    }
+  }
+  
 }

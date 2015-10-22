@@ -35,6 +35,11 @@ class Question: NSManagedObject {
       question.dateCreated = createdAt
     }
     
+    //test test test
+    question.yesAnswers = Int(arc4random_uniform(100))
+    question.noAnswers = Int(arc4random_uniform(100))
+    question.totalAnswers = question.totalYesNo + Float(arc4random_uniform(100))
+    
     return question
   }
   

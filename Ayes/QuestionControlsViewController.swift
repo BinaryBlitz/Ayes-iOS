@@ -38,19 +38,33 @@ class QuestionControlsViewController: UIViewController {
     skipButton.tintColor = UIColor.whiteColor()
     skipButton.setTitle(LocalizeHelper.localizeStringForKey("Skip"), forState: .Normal)
   }
+  
+  func updateQuestionState(state: QuestionState) {
+    question.updateState(state)
+    guard let id = question.id?.integerValue else {
+      print("Question have no id!?!")
+      return
+    }
+    
+    ServerManager.sharedInstance.submitAnswer(id, answer: state) { (success) -> Void in
+      if success {
+        print("uploaded!")
+      }
+    }
+  }
 
   @IBAction func yesButtonAction(sender: AnyObject) {
-    question.updateState(.Yes)
+    updateQuestionState(.Yes)
     delegate?.didAnswerTheQuestion?(question)
   }
   
   @IBAction func noButtonAction(sender: AnyObject) {
-    question.updateState(.No)
+    updateQuestionState(.No)
     delegate?.didAnswerTheQuestion?(question)
   }
   
   @IBAction func skipButtonAction(sender: AnyObject) {
-    question.updateState(.Skip)
+    updateQuestionState(.Skip)
     delegate?.didAnswerTheQuestion?(question)
   }
 }

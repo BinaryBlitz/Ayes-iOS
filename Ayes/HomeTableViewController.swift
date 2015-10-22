@@ -11,7 +11,13 @@ import UIKit
 class HomeTableViewController: UITableViewController {
 
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
-  var questions = [Question]()
+  var questions = [Question]() {
+    didSet {
+      questions.sortInPlace { (q1, q2) -> Bool in
+        return q1.dateCreated?.compare(q2.dateCreated ?? NSDate()) == .OrderedDescending && (q1.id ?? 0) > (q2.id ?? 0)
+      }
+    }
+  }
   let refreshDataControl = UIRefreshControl()
   
   override func viewDidLoad() {

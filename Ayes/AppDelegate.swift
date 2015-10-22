@@ -32,6 +32,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       SIDE_BAR_BUTTONS_WIDTH = 80
     }
     
+    if let _ = NSUserDefaults.standardUserDefaults().objectForKey("stuff") {
+      //nothing
+    } else {
+      let question = Question.MR_findAll() as! [Question]
+      for q in question {
+        q.MR_deleteEntity()
+      }
+      
+      NSUserDefaults.standardUserDefaults().setObject("stuff", forKey: "stuff")
+    }
+    
     loadAPIToken()
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "networkChanged:", name: kReachabilityChangedNotification, object: nil)
