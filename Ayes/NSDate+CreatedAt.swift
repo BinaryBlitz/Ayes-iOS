@@ -9,6 +9,7 @@
 extension NSDate {
   convenience init?(dateString: String) {
     let formatter = NSDateFormatter()
+    formatter.timeZone = NSTimeZone(name: "UTC")
     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
     guard let date = formatter.dateFromString(dateString) else {
       return nil
