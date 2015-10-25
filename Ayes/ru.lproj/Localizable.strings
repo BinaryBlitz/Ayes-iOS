@@ -39,7 +39,7 @@
 "This function will be paid soon!" = "Эта функция в дальнейшем станет платной";
 "Your favorite questions will appear right here." = "Здесь вы всегда сможете найти свои избранные вопросы.";
 "birthdate" = "День рождения";
-"sex" = "Пол";
+"gender" = "Пол";
 "city" = "Город";
 "occupation" = "Род занятий";
 "income" = "Доход в месяц";

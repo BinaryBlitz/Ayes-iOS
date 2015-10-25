@@ -20,7 +20,7 @@
 "Question Time" = "Question Time";
 "SkipWarning" = "You will not be able to answer this question if you'll skip it.";
 "birthdate" = "Birthdate";
-"sex" = "Sex";
+"gender" = "Sex";
 "city" = "City";
 "occupation" = "Occupation";
 "income" = "Income";

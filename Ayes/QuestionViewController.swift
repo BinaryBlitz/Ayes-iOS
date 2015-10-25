@@ -112,8 +112,9 @@ class QuestionViewController: UIViewController {
       self.sameAsMeButton.hidden = false
       self.otherUsersButton.hidden = false
     }
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "shareButtonAction:")
-    let starButton = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Share"),
+        style: .Plain, target: self, action: "shareButtonAction:")
+    let starButton = UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 90))
     starButton.imageView?.image = UIImage(named: "Favorite")
     starButton.setImage(UIImage(named: "Favorite"), forState: .Normal)
     let filledImage = UIImage(named: "FavoriteFilled")

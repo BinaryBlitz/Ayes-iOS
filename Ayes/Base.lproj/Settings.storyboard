@@ -301,7 +301,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Настройки" id="Ljp-zr-ePt">
-                        <barButtonItem key="leftBarButtonItem" title="menu" id="mYI-9c-bj3"/>
+                        <barButtonItem key="leftBarButtonItem" image="Menu" id="mYI-9c-bj3"/>
                     </navigationItem>
                     <connections>
                         <outlet property="favoriteQuestionsLabel" destination="6hA-qw-nRq" id="BQg-6k-5j2"/>
@@ -560,4 +560,7 @@
             <point key="canvasLocation" x="2523" y="2508"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Menu" width="25" height="16"/>
+    </resources>
 </document>

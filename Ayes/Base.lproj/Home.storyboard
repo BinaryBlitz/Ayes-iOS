@@ -35,7 +35,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Список вопросов" id="DX0-cK-CJ6">
-                        <barButtonItem key="leftBarButtonItem" title="menu" id="W7c-ho-EDR"/>
+                        <barButtonItem key="leftBarButtonItem" image="Menu" id="W7c-ho-EDR"/>
                     </navigationItem>
                     <connections>
                         <outlet property="menuBarButtonItem" destination="W7c-ho-EDR" id="Uti-md-ND5"/>
@@ -59,7 +59,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2301" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECh-8n-orb">
-                                <rect key="frame" x="18" y="72" width="57" height="30"/>
+                                <rect key="frame" x="18" y="72" width="56.5" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -88,12 +88,12 @@
                                     <constraint firstAttribute="height" constant="1" id="eli-mz-fW3"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SampleIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yrq-Uy-bxI">
-                                <rect key="frame" x="475" y="78" width="20" height="20"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ClockWhite" translatesAutoresizingMaskIntoConstraints="NO" id="yrq-Uy-bxI">
+                                <rect key="frame" x="479.5" y="79.5" width="15" height="15"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="Nwf-Dc-rdc"/>
-                                    <constraint firstAttribute="height" constant="20" id="rBX-37-tAx"/>
+                                    <constraint firstAttribute="width" constant="15" id="Nwf-Dc-rdc"/>
+                                    <constraint firstAttribute="height" constant="15" id="rBX-37-tAx"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YO1-5z-KBt" customClass="ResizableTextView">
@@ -500,6 +500,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ClockWhite" width="16" height="16"/>
+        <image name="Menu" width="25" height="16"/>
         <image name="SampleIcon" width="32" height="32"/>
     </resources>
 </document>
