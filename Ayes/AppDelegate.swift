@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     LocalizeHelper.setLanguage(Settings.sharedInstance.language ?? "ru")
     Fabric.with([Crashlytics.self])
     setUpNavigationBar()
+    UIApplication.sharedApplication().statusBarHidden = false
     if UIScreen.mainScreen().bounds.height == 480 {
       sideBarButtonsWidth = 80
     }

@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="01J-lp-oVM" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
@@ -17,25 +18,103 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ayes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfF-7o-vVi">
-                                <rect key="frame" x="282" y="289.5" width="36.5" height="20.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LaunchscreenBG" translatesAutoresizingMaskIntoConstraints="NO" id="nd8-m3-H0Z">
+                                <rect key="frame" x="100" y="207" width="480" height="128"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ayes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUt-Q4-S4H">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="234" id="WmP-2m-bIt">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="200"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="WmP-2m-bIt"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="WmP-2m-bIt"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Отвечайте на наши вопросы и будет вам счастье" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hM-4T-Caa">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DfF-7o-vVi" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="KVh-Da-Nhq"/>
-                            <constraint firstItem="DfF-7o-vVi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="sPc-Kj-VE4"/>
+                            <constraint firstItem="bUt-Q4-S4H" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="6QM-iA-RP6">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="nd8-m3-H0Z" secondAttribute="bottom" constant="265" id="7Pc-ud-yah">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="5hM-4T-Caa" firstAttribute="top" secondItem="bUt-Q4-S4H" secondAttribute="bottom" constant="23" id="8VC-gz-k8V"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nd8-m3-H0Z" secondAttribute="trailing" id="GUS-r5-faP">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                            </constraint>
+                            <constraint firstItem="bUt-Q4-S4H" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="PmN-bR-sb7"/>
+                            <constraint firstItem="5hM-4T-Caa" firstAttribute="leading" secondItem="bUt-Q4-S4H" secondAttribute="leading" id="Usj-K1-fCi"/>
+                            <constraint firstItem="5hM-4T-Caa" firstAttribute="width" secondItem="bUt-Q4-S4H" secondAttribute="width" id="Yqz-Td-cB0"/>
+                            <constraint firstItem="bUt-Q4-S4H" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="al8-fK-Mfe"/>
+                            <constraint firstItem="nd8-m3-H0Z" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="80" id="gqH-qA-Cgs">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                            </constraint>
+                            <constraint firstItem="nd8-m3-H0Z" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="187" id="rxP-nC-PUX">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="bUt-Q4-S4H"/>
+                                <exclude reference="5hM-4T-Caa"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="8VC-gz-k8V"/>
+                                <exclude reference="Usj-K1-fCi"/>
+                                <exclude reference="Yqz-Td-cB0"/>
+                                <exclude reference="6QM-iA-RP6"/>
+                                <exclude reference="PmN-bR-sb7"/>
+                                <exclude reference="al8-fK-Mfe"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="bUt-Q4-S4H"/>
+                                <include reference="5hM-4T-Caa"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="8VC-gz-k8V"/>
+                                <include reference="Usj-K1-fCi"/>
+                                <include reference="Yqz-Td-cB0"/>
+                                <include reference="6QM-iA-RP6"/>
+                                <exclude reference="PmN-bR-sb7"/>
+                                <include reference="al8-fK-Mfe"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="1888.5" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LaunchscreenBG" width="639" height="827"/>
+    </resources>
 </document>
