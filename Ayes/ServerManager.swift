@@ -60,6 +60,7 @@ class ServerManager {
       let json = JSON(jsonData)
       if let token = json["api_token"].string {
         self.apiToken = token
+        UserManager.sharedManager.user = User()
       }
     }
   }

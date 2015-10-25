@@ -30,10 +30,10 @@ class SideBarViewController: UIViewController {
   
   override func viewDidLoad() {
     view.backgroundColor = UIColor.darkVioletPrimaryColor()
-    buttonWidthLayoutConstraint.constant = SIDE_BAR_BUTTONS_WIDTH
+    buttonWidthLayoutConstraint.constant = sideBarButtonsWidth
     
     for constraint in buttonsSpacingConstaraints {
-      if SIDE_BAR_BUTTONS_WIDTH < 100 {
+      if sideBarButtonsWidth < 100 {
         constraint.constant = 6
       } else {
         constraint.constant = 8
@@ -42,7 +42,7 @@ class SideBarViewController: UIViewController {
     
     for button in buttons {
       button.tintColor = UIColor.whiteColor()
-      if SIDE_BAR_BUTTONS_WIDTH < 100 {
+      if sideBarButtonsWidth < 100 {
         button.titleLabel?.font  = UIFont.systemFontOfSize(12)
       } else {
         button.titleLabel?.font  = UIFont.systemFontOfSize(14)

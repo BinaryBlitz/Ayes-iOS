@@ -11,8 +11,8 @@ import MagicalRecord
 import Fabric
 import Crashlytics
 
-let SIDE_BAR_WIDTH: CGFloat = 100
-var SIDE_BAR_BUTTONS_WIDTH: CGFloat = 100
+let sideBarWidth: CGFloat = 100
+var sideBarButtonsWidth: CGFloat = 100
 let QuestionsUpdateNotification = "QuestionsUpdateNotification"
 
 @UIApplicationMain
@@ -25,22 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     MagicalRecord.setupAutoMigratingCoreDataStack()
     MagicalRecord.enableShorthandMethods()
     Settings.loadFromUserDefaults()
+    UserManager.sharedManager.loadFromUserDefaults()
     LocalizeHelper.setLanguage(Settings.sharedInstance.language ?? "ru")
     Fabric.with([Crashlytics.self])
     setUpNavigationBar()
     if UIScreen.mainScreen().bounds.height == 480 {
-      SIDE_BAR_BUTTONS_WIDTH = 80
-    }
-    
-    if let _ = NSUserDefaults.standardUserDefaults().objectForKey("stuff") {
-      //nothing
-    } else {
-      let question = Question.MR_findAll() as! [Question]
-      for q in question {
-        q.MR_deleteEntity()
-      }
-      
-      NSUserDefaults.standardUserDefaults().setObject("stuff", forKey: "stuff")
+      sideBarButtonsWidth = 80
     }
     
     loadAPIToken()
@@ -74,6 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     } else {
       ServerManager.sharedInstance.createUser { (success) -> Void in
         if success {
+          NSUserDefaults.standardUserDefaults().setObject(ServerManager.sharedInstance.apiToken!, forKey: "apiToken")
           NSNotificationCenter.defaultCenter().postNotificationName(QuestionsUpdateNotification, object: nil)
         }
       }
@@ -144,7 +135,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationDidEnterBackground(application: UIApplication) {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    
+    UserManager.sharedManager.saveToUserDefaults()
     Settings.saveToUserDefaults()
   }
 
@@ -158,6 +149,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    UserManager.sharedManager.saveToUserDefaults()
     Settings.saveToUserDefaults()
   }
 

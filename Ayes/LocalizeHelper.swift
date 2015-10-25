@@ -11,7 +11,7 @@ import Foundation
 class LocalizeHelper {
   static let sharedHelper = LocalizeHelper()
   private var myBundle: NSBundle
-  private var currentLanguage: String {
+  var currentLanguage: String {
     return Settings.sharedInstance.language ?? ""
   }
   var availableLanguages = ["en", "ru"]
