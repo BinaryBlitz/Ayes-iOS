@@ -47,7 +47,9 @@ class ServerManager {
     return try request(.PATCH, path: path, parameters: params, encoding: .JSON)
   }
   
-  func createUser(complition: ((success: Bool) -> Void)?) {
+  //MARK: - User
+  
+  func createUser(complition: ((success: Bool) -> Void)? = nil) {
     let parameters = ["user" : ["gender": ""]]
     manager.request(.POST, baseURL + "user/", parameters: parameters, encoding: .JSON)
     .responseJSON { (request, response, result) -> Void in
@@ -65,7 +67,39 @@ class ServerManager {
     }
   }
   
-  func getQuestions(complition: ((questions: [Question]?) -> Void)?) -> Request? {
+  func updateUser(complition: ((success: Bool) -> Void)? = nil) -> Request? {
+    var fields = [String: String]()
+    for item in UserManager.sharedManager.avalableKeys {
+      fields[item] = UserManager.sharedManager.valueForKey(item)
+    }
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    if let birthDate = UserManager.sharedManager.user?.birthDate {
+      fields[kBirthDate] = dateFormatter.stringFromDate(birthDate)
+    }
+    
+    let parameters = ["user" : fields]
+    
+    do {
+      let request = try self.patch("user/", params: parameters)
+      request.responseJSON { (_, _, result) -> Void in
+        complition?(success: result.isSuccess)
+      }
+      
+      return request
+    } catch(Errors.Unauthorized) {
+      print("Unauthorized")
+      complition?(success: false)
+      return nil
+    } catch {
+      complition?(success: false)
+      return nil
+    }
+  }
+  
+  //MARK: - Questions
+  
+  func getQuestions(complition: ((questions: [Question]?) -> Void)? = nil) -> Request? {
     do {
       let request = try get("questions/")
       request.responseJSON { (_, _, result) -> Void in
@@ -93,7 +127,9 @@ class ServerManager {
     }
   }
   
-  func submitAnswer(questionId: Int, answer: QuestionState, complition: ((_:Bool) -> Void)?) -> Request? {
+  //MARK: - Answers
+  
+  func submitAnswer(questionId: Int, answer: QuestionState, complition: ((_:Bool) -> Void)? = nil) -> Request? {
     do {
       let value: Bool?
       switch answer {

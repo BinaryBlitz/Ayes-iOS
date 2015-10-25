@@ -91,6 +91,9 @@ extension QuestionnaireTableViewController: SWRevealViewControllerDelegate {
 extension QuestionnaireTableViewController: QuestionnaireDataDisplay {
   func didUpdateValues() {
     UserManager.sharedManager.saveToUserDefaults()
+    ServerManager.sharedInstance.updateUser { (success) -> Void in
+      print(success)
+    }
     tableView.reloadData()
   }
 }
