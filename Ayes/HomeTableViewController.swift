@@ -38,6 +38,7 @@ class HomeTableViewController: UITableViewController {
     tableView.estimatedRowHeight = CGFloat(100)
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     tableView.separatorStyle =  .None
+    tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 8))
     let backItem = UIBarButtonItem(title: LocalizeHelper.localizeStringForKey("Back"), style: .Plain, target: nil, action: nil)
     navigationItem.backBarButtonItem = backItem
     
@@ -94,7 +95,7 @@ class HomeTableViewController: UITableViewController {
     dateFormatter.dateFormat = "dd.MM.yyyy"
     cell.dateLabel.text = dateFormatter.stringFromDate(question.dateCreated ?? NSDate())
     cell.contentTextView.text = question.content
-    cell.contentTextView.font = UIFont.systemFontOfSize(18)
+    cell.contentTextView.font = UIFont.systemFontOfSize(19)
     cell.questionStateIndicator.backgroundColor = question.state.getAccentColor()
     switch question.state {
     case .Skip:
