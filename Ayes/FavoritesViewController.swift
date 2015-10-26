@@ -89,11 +89,14 @@ extension FavoritesViewController: UITableViewDataSource {
     cell.questionIndicatorIcon.image = UIImage(named: "FavoriteBlack")
     
     switch question.state {
-    case .NoAnswer, .Skip:
-      cell.questionStatusLabel.text = "Новый"
+    case .Skip:
+      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("Skipped")
+      cell.questionStatusLabel.textColor = UIColor.blackColor()
+    case .NoAnswer:
+      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("New")
       cell.questionStatusLabel.textColor = UIColor.blueAccentColor()
     default:
-      cell.questionStatusLabel.text = "Вы ответили"
+      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("Answered")
       cell.questionStatusLabel.textColor = UIColor.blackColor()
     }
     
