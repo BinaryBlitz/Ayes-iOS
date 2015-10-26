@@ -11,6 +11,7 @@ import UIKit
 class ProViewController: UIViewController {
 
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
+  @IBOutlet weak var backgroundImageView: UIImageView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,6 +22,9 @@ class ProViewController: UIViewController {
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
       revealViewController.delegate = self
     }
+    
+    view.backgroundColor = UIColor.darkVioletPrimaryColor()
+    backgroundImageView.alpha = 0.3
     
     navigationItem.title = LocalizeHelper.localizeStringForKey("Pro Version")
   }

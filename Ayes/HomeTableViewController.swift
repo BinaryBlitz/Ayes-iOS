@@ -99,13 +99,13 @@ class HomeTableViewController: UITableViewController {
     cell.questionStateIndicator.backgroundColor = question.state.getAccentColor()
     switch question.state {
     case .Skip:
-      cell.questionStatusLabel.text = "Вы пропустили"
+      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("Skipped")
       cell.questionStatusLabel.textColor = UIColor.blackColor()
     case .NoAnswer:
-      cell.questionStatusLabel.text = "Новый"
+      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("New")
       cell.questionStatusLabel.textColor = UIColor.blueAccentColor()
     default:
-      cell.questionStatusLabel.text = "Вы ответили"
+      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("Answered")
       cell.questionStatusLabel.textColor = UIColor.blackColor()
     }
     
