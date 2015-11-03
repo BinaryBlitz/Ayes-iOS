@@ -13,7 +13,7 @@ class ListChoiceTableViewController: UITableViewController {
   @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
   var item: String!
   var selectedIndex: Int?
-  var delegate: QuestionnaireDataDisplay?
+  weak var delegate: QuestionnaireDataDisplay?
   var options: [String] {
     return UserManager.sharedManager.optionsForKey(item)
   }

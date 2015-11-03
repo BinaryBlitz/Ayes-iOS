@@ -6,6 +6,6 @@
 //  Copyright © 2015 BinaryBlitz. All rights reserved.
 //
 
-protocol QuestionnaireDataDisplay {
+protocol QuestionnaireDataDisplay: class {
   func didUpdateValues()
 }

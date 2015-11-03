@@ -13,7 +13,7 @@ class SetQuestionTimeTableViewController: UITableViewController {
   @IBOutlet weak var timePicker: UIDatePicker!
   @IBOutlet weak var cancelBarButton: UIBarButtonItem!
   @IBOutlet weak var doneBarButton: UIBarButtonItem!
-  var delegate: MultipleChoiceControllerDelegate?
+  weak var delegate: MultipleChoiceControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()

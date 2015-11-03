@@ -14,7 +14,7 @@ class ChooseRegionTableViewController: UITableViewController {
   @IBOutlet weak var doneBarButton: UIBarButtonItem!
   var avaliableRegions = ["rus", "other"]
   var selectedCell = 0
-  var delegate: MultipleChoiceControllerDelegate?
+  weak var delegate: MultipleChoiceControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()

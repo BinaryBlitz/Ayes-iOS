@@ -6,7 +6,7 @@
 //  Copyright © 2015 BinaryBlitz. All rights reserved.
 //
 
-@objc protocol QuestionChangesDelegate {
+@objc protocol QuestionChangesDelegate: class {
   optional func didAnswerTheQuestion(question: Question)
   optional func didFavoriteTheQuestion(question: Question)
 }

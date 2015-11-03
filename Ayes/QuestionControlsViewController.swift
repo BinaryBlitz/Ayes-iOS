@@ -15,7 +15,7 @@ class QuestionControlsViewController: UIViewController {
   @IBOutlet weak var yesButton: UIButton!
   @IBOutlet weak var noButton: UIButton!
   var question: Question!
-  var delegate: QuestionChangesDelegate?
+  weak var delegate: QuestionChangesDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()

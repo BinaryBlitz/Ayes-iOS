@@ -20,7 +20,7 @@ class QuestionViewController: UIViewController {
   @IBOutlet weak var questionIdLabel: UILabel!
   
   var question: Question!
-  var delegate: QuestionChangesDelegate?
+  weak var delegate: QuestionChangesDelegate?
 
   override func viewDidLoad() {
     super.viewDidLoad()

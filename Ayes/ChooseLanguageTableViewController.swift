@@ -18,7 +18,7 @@ class ChooseLanguageTableViewController: UITableViewController {
   @IBOutlet weak var doneBarButton: UIBarButtonItem!
   var avaliableLanguages = LocalizeHelper.sharedHelper.availableLanguages
   var selectedCell = 0
-  var delegate: MultipleChoiceControllerDelegate?
+  weak var delegate: MultipleChoiceControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()

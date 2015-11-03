@@ -12,7 +12,7 @@ class DateChoiceTableViewController: UITableViewController {
 
   @IBOutlet weak var datePicker: UIDatePicker!
   @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
-  var delegate: QuestionnaireDataDisplay?
+  weak var delegate: QuestionnaireDataDisplay?
   
   override func viewDidLoad() {
     super.viewDidLoad()
