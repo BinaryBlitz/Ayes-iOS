@@ -52,6 +52,7 @@ class ServerManager {
   func createUser(complition: ((success: Bool) -> Void)? = nil) {
     let parameters = ["user" : ["gender": ""]]
     manager.request(.POST, baseURL + "user/", parameters: parameters, encoding: .JSON)
+    .validate()
     .responseJSON { (request, response, result) -> Void in
       defer { complition?(success: result.isSuccess) }
       
@@ -82,6 +83,7 @@ class ServerManager {
     
     do {
       let request = try self.patch("user/", params: parameters)
+      request.validate()
       request.responseJSON { (_, _, result) -> Void in
         complition?(success: result.isSuccess)
       }
@@ -102,6 +104,7 @@ class ServerManager {
   func getQuestions(complition: ((questions: [Question]?) -> Void)? = nil) -> Request? {
     do {
       let request = try get("questions/")
+      request.validate()
       request.responseJSON { (_, _, result) -> Void in
         if let jsonData = result.value {
           let json = JSON(jsonData)
@@ -144,6 +147,7 @@ class ServerManager {
       }
       
       let request = try post("questions/\(questionId)/answers/", params: ["value": value ?? NSNull()])
+      request.validate()
       request.responseJSON { (_, _, result) -> Void in
         complition?(result.isSuccess)
       }
