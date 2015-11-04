@@ -34,17 +34,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       sideBarButtonsWidth = 80
     }
     
-    loadAPIToken()
-    
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "networkChanged:", name: kReachabilityChangedNotification, object: nil)
     reachability = Reachability.reachabilityForInternetConnection()
     reachability.startNotifier()
     
-    UIApplication.sharedApplication()
-        .registerUserNotificationSettings(
-            UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-        )
-    UIApplication.sharedApplication().registerForRemoteNotifications()
+//    UIApplication.sharedApplication()
+//        .registerUserNotificationSettings(
+//            UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+//        )
+//    UIApplication.sharedApplication().registerForRemoteNotifications()
+//    
     
     return true
   }

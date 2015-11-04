@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -165,26 +166,26 @@
                                 <exclude reference="xjB-a7-73k"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="5dc-hG-dIT"/>
-                                <exclude reference="FBU-YO-nTI"/>
-                                <exclude reference="Fdr-CN-i9R"/>
-                                <exclude reference="W9T-N0-qcY"/>
-                                <exclude reference="bBs-hb-l2b"/>
-                                <exclude reference="hGO-2d-BwH"/>
-                                <exclude reference="g6h-SW-LXv"/>
-                                <exclude reference="keB-4K-Fwh"/>
-                                <exclude reference="rSN-ON-23P"/>
                                 <exclude reference="4cP-0B-M2F"/>
                                 <exclude reference="bte-qm-JLB"/>
                                 <exclude reference="ihS-ps-tmK"/>
-                                <exclude reference="q2V-rj-96e"/>
                                 <exclude reference="4Y5-8h-lvI"/>
                                 <exclude reference="DTb-mU-doQ"/>
                                 <exclude reference="qAn-wg-qY2"/>
                                 <exclude reference="qfE-Ue-zU0"/>
+                                <exclude reference="g6h-SW-LXv"/>
+                                <exclude reference="keB-4K-Fwh"/>
+                                <exclude reference="rSN-ON-23P"/>
+                                <exclude reference="W9T-N0-qcY"/>
+                                <exclude reference="bBs-hb-l2b"/>
+                                <exclude reference="hGO-2d-BwH"/>
                                 <exclude reference="JSl-Qq-E9n"/>
+                                <exclude reference="q2V-rj-96e"/>
                                 <exclude reference="J4U-5H-q7r"/>
                                 <exclude reference="v7q-UT-rEa"/>
+                                <exclude reference="5dc-hG-dIT"/>
+                                <exclude reference="FBU-YO-nTI"/>
+                                <exclude reference="Fdr-CN-i9R"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -197,26 +198,26 @@
                                 <include reference="xjB-a7-73k"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="5dc-hG-dIT"/>
-                                <include reference="FBU-YO-nTI"/>
-                                <include reference="Fdr-CN-i9R"/>
-                                <include reference="W9T-N0-qcY"/>
-                                <include reference="bBs-hb-l2b"/>
-                                <include reference="hGO-2d-BwH"/>
-                                <include reference="g6h-SW-LXv"/>
-                                <include reference="keB-4K-Fwh"/>
-                                <include reference="rSN-ON-23P"/>
                                 <include reference="4cP-0B-M2F"/>
                                 <include reference="bte-qm-JLB"/>
                                 <include reference="ihS-ps-tmK"/>
-                                <include reference="q2V-rj-96e"/>
                                 <include reference="4Y5-8h-lvI"/>
                                 <include reference="DTb-mU-doQ"/>
                                 <include reference="qAn-wg-qY2"/>
                                 <include reference="qfE-Ue-zU0"/>
+                                <include reference="g6h-SW-LXv"/>
+                                <include reference="keB-4K-Fwh"/>
+                                <include reference="rSN-ON-23P"/>
+                                <include reference="W9T-N0-qcY"/>
+                                <include reference="bBs-hb-l2b"/>
+                                <include reference="hGO-2d-BwH"/>
                                 <include reference="JSl-Qq-E9n"/>
+                                <include reference="q2V-rj-96e"/>
                                 <include reference="J4U-5H-q7r"/>
                                 <include reference="v7q-UT-rEa"/>
+                                <include reference="5dc-hG-dIT"/>
+                                <include reference="FBU-YO-nTI"/>
+                                <include reference="Fdr-CN-i9R"/>
                             </mask>
                         </variation>
                     </view>
@@ -253,7 +254,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AppStore" width="300" height="110"/>
+        <image name="AppStore" width="400" height="147"/>
         <image name="LaunchscreenBG" width="639" height="827"/>
         <image name="Menu" width="25" height="16"/>
     </resources>

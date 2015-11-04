@@ -114,7 +114,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FavoriteBlack" width="20" height="19"/>
+        <image name="FavoriteBlack" width="60" height="57"/>
         <image name="Menu" width="25" height="16"/>
     </resources>
 </document>

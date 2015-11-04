@@ -37,4 +37,8 @@ extension UIColor {
   static func redAccentColor() -> UIColor {
     return UIColor(r: 255, g: 76, b: 127)
   }
+  
+  static func tutorialBackgroundColor() -> UIColor {
+    return UIColor(red: 174.0/255.0, green: 167.0/255.0, blue: 184.0/255.0, alpha: 1)
+  }
 }

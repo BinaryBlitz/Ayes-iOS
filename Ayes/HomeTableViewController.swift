@@ -22,6 +22,14 @@ class HomeTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    if let token = NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String {
+      ServerManager.sharedInstance.apiToken = token
+    } else {
+      if let onboarding = UIStoryboard(name: "Onboarding", bundle: nil).instantiateInitialViewController() {
+        presentViewController(onboarding, animated: false, completion: nil)
+      }
+    }
+    
     if let revealViewController = revealViewController() {
       menuBarButtonItem.target = revealViewController
       menuBarButtonItem.action = "revealToggle:"
