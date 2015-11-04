@@ -260,7 +260,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Воздержались 10%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNI-jn-dgJ">
-                                <rect key="frame" x="204" y="260" width="153" height="20"/>
+                                <rect key="frame" x="204" y="259.5" width="153" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -292,10 +292,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGu-Bj-fH6">
-                                <rect key="frame" x="168" y="10" width="225" height="225"/>
+                                <rect key="frame" x="168" y="30" width="225.5" height="225"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLh-ZN-WNg" customClass="UICountingLabel">
-                                        <rect key="frame" x="113" y="113" width="0.0" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLh-ZN-WNg" customClass="UICountingLabel">
+                                        <rect key="frame" x="113" y="113.5" width="0.0" height="0.0"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -333,7 +333,7 @@
                             <constraint firstItem="6Wi-vl-EIv" firstAttribute="top" secondItem="HNI-jn-dgJ" secondAttribute="bottom" constant="20" id="ato-Uv-gld"/>
                             <constraint firstItem="6Wi-vl-EIv" firstAttribute="top" secondItem="AEp-eH-1ty" secondAttribute="bottom" constant="30" id="d4l-T5-TFL"/>
                             <constraint firstItem="HNI-jn-dgJ" firstAttribute="centerX" secondItem="DGu-Bj-fH6" secondAttribute="centerX" id="o13-s7-PyL"/>
-                            <constraint firstItem="DGu-Bj-fH6" firstAttribute="top" secondItem="45V-Gl-ieh" secondAttribute="bottom" constant="-10" id="u5L-Eb-aSV"/>
+                            <constraint firstItem="DGu-Bj-fH6" firstAttribute="top" secondItem="45V-Gl-ieh" secondAttribute="bottom" constant="10" id="u5L-Eb-aSV"/>
                             <constraint firstItem="AEp-eH-1ty" firstAttribute="top" secondItem="ODQ-Sv-cjH" secondAttribute="bottom" constant="8" id="zEx-FU-am9"/>
                         </constraints>
                         <variation key="default">

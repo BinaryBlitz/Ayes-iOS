@@ -78,12 +78,22 @@ class QuestionViewController: UIViewController {
   }
   
   func shareButtonAction(sender: AnyObject) {
-    let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-    actionSheet.addAction(UIAlertAction(title: LocalizeHelper.localizeStringForKey("Cancel"), style: UIAlertActionStyle.Cancel, handler: nil))
-    actionSheet.addAction(UIAlertAction(title: "Twitter", style: .Default, handler: nil))
-    actionSheet.addAction(UIAlertAction(title: "Facebook", style: .Default, handler: nil))
-    actionSheet.addAction(UIAlertAction(title: LocalizeHelper.localizeStringForKey("VK"), style: .Default, handler: nil))
-    presentViewController(actionSheet, animated: true, completion: nil)
+    guard let question = question, content = question.content else {
+      return
+    }
+    
+    let viewToShare = controlsContainer
+//    let arcivedData = NSKeyedArchiver.archivedDataWithRootObject(controlsContainer)
+//    let viewToShare = NSKeyedUnarchiver.unarchiveObjectWithData(arcivedData) as! UIView
+    viewToShare.backgroundColor = UIColor.violetPrimaryColor()
+    let originalBounds = viewToShare.bounds
+    viewToShare.bounds = CGRect(x: 0, y: 0, width: 300, height: 260)
+//    viewToShare.layoutIfNeeded()
+    let image = UIView.imageWithView(viewToShare)
+    let post = "\(content) #ayes"
+    let activityController = UIActivityViewController(activityItems: [post, image], applicationActivities: nil)
+    presentViewController(activityController, animated: true, completion: nil)
+    viewToShare.bounds = originalBounds
   }
   
   func favoriteButtonAction(sender: AnyObject) {

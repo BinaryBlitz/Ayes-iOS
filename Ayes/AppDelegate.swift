@@ -40,6 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     reachability = Reachability.reachabilityForInternetConnection()
     reachability.startNotifier()
     
+    UIApplication.sharedApplication()
+        .registerUserNotificationSettings(
+            UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        )
+    UIApplication.sharedApplication().registerForRemoteNotifications()
+    
     return true
   }
   
@@ -153,7 +159,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UserManager.sharedManager.saveToUserDefaults()
     Settings.saveToUserDefaults()
   }
-
-
+  
+  //MARK - Push notifications
+  
+  func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+    print(deviceToken)
+  }
 }
 
