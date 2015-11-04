@@ -57,6 +57,8 @@ class QuestionnaireTableViewController: UITableViewController {
     } else {
       performSegueWithIdentifier("listChoice", sender: items[indexPath.row])
     }
+    
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
   
   //MARK: - Navigation
@@ -92,7 +94,7 @@ extension QuestionnaireTableViewController: QuestionnaireDataDisplay {
   func didUpdateValues() {
     UserManager.sharedManager.saveToUserDefaults()
     ServerManager.sharedInstance.updateUser { (success) -> Void in
-      print(success)
+      print("user updated with success: \(success)")
     }
     tableView.reloadData()
   }

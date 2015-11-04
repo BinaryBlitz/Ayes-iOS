@@ -18,7 +18,6 @@ class HomeTableViewController: UITableViewController {
       }
     }
   }
-  let refreshDataControl = UIRefreshControl()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,6 +26,7 @@ class HomeTableViewController: UITableViewController {
       menuBarButtonItem.target = revealViewController
       menuBarButtonItem.action = "revealToggle:"
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
+      view.addGestureRecognizer(revealViewController.tapGestureRecognizer())
       revealViewController.delegate = self
     }
     
@@ -41,10 +41,10 @@ class HomeTableViewController: UITableViewController {
     tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 8))
     let backItem = UIBarButtonItem(title: LocalizeHelper.localizeStringForKey("Back"), style: .Plain, target: nil, action: nil)
     navigationItem.backBarButtonItem = backItem
-    
-    refreshDataControl.addTarget(self, action: "refresh:",
+   
+    refreshControl = UIRefreshControl()
+    refreshControl?.addTarget(self, action: "refresh:",
         forControlEvents: .ValueChanged)
-    tableView.addSubview(refreshDataControl)
 
     questions = Question.findAll() as! [Question]
     
@@ -64,7 +64,7 @@ class HomeTableViewController: UITableViewController {
   //MARK: - Refresh
   func refresh(sender: AnyObject) {
     refreshBegin {
-      self.refreshDataControl.endRefreshing()
+      self.refreshControl?.endRefreshing()
       self.tableView.reloadData()
     }
   }

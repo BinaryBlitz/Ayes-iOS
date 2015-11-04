@@ -34,10 +34,7 @@ class SetQuestionTimeTableViewController: UITableViewController {
   
   @IBAction func doneAction(sender: AnyObject) {
     Settings.sharedInstance.questionTime = timePicker.date
-    if let delegate = delegate {
-      delegate.didChoseItem?()
-    }
-    
+    delegate?.didChoseItem?()
     dismissViewControllerAnimated(true, completion: nil)
   }
 }

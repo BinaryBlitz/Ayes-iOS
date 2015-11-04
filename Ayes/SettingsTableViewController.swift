@@ -71,7 +71,6 @@ class SettingsTableViewController: UITableViewController {
     notificationsLabel.text = LocalizeHelper.localizeStringForKey("Notifications")
     newQuestionsnotificationLabel.text = LocalizeHelper.localizeStringForKey("New question notifications")
     favoriteQuestionsLabel.text = LocalizeHelper.localizeStringForKey("Favorite questions notifications")
-    
   }
   
   //MARK: - UITableViewDelegate
@@ -106,6 +105,14 @@ class SettingsTableViewController: UITableViewController {
       if let destination = navController.viewControllers.first as? ChooseRegionTableViewController {
           destination.delegate = self
       }
+    } else if let destinationNavController = segue.destinationViewController as? UINavigationController
+          where segue.identifier == "setQuestionTime" {
+      guard let destination = destinationNavController.viewControllers.first as?
+          SetQuestionTimeTableViewController else {
+        return
+      }
+            
+      destination.delegate = self
     }
     
   }

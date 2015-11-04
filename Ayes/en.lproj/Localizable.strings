@@ -26,3 +26,40 @@
 "income" = "Income";
 "education" = "Education";
 "relationship" = "Relationship";
+
+"male" = "Male";
+"female" = "Female";
+
+"businessman" = "Entrepreneur, owner of business";
+"top_manager" = "Senior corporate officer, executive-level position";
+"middle_manager" = "Middle-management";
+"engineer" = "White-collar worker";
+"worker" = "Blue-collar worker";
+"civil_servant" = "State/government employee, soldier/officer";
+"student" = "Student";
+"pensioner" = "Retired";
+"unemployed" = "Unemployed";
+
+"none" = "No permanent income";
+"over0" = "Less than 10k";
+"over10000" = "10к-30к";
+"over30000" = "30к-60к";
+"over60000" = "60к-80к";
+"over80000" = "80к-100к";
+"over100000" = "100к-130к";
+"over130000" = "130к-160к";
+"over160000" = "More than 160к";
+
+"lower_secondary" = "Middle school";
+"incomplete_higher" = "University (unfinished)";
+"upper_secondary" = "High school";
+"higher" = "University";
+"vocational" = "College";
+"academic" = "PhD/MD";
+
+"married" = "Married";
+"single" = "Single";
+"divorced" = "Divorced";
+"civil_union" = "Domestic partnership";
+"widow" = "Widower";
+

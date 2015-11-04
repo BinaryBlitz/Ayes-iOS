@@ -23,6 +23,7 @@ class FavoritesViewController: UIViewController {
       menuBarButtonItem.target = revealViewController
       menuBarButtonItem.action = "revealToggle:"
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
+      view.addGestureRecognizer(revealViewController.tapGestureRecognizer())
       revealViewController.delegate = self
     }
     

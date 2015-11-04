@@ -84,8 +84,8 @@ class ServerManager {
     do {
       let request = try self.patch("user/", params: parameters)
       request.validate()
-      request.responseJSON { (_, _, result) -> Void in
-        complition?(success: result.isSuccess)
+      request.response { (_, _, _, error) -> Void in
+        complition?(success: error == nil)
       }
       
       return request
