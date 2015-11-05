@@ -16,6 +16,9 @@ class FinalViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    startButton.layer.cornerRadius = 5
+    startButton.layer.borderWidth = 3
+    startButton.layer.borderColor = UIColor.greenAccentColor().CGColor
     view.backgroundColor = UIColor.darkVioletPrimaryColor()
   }
   
@@ -23,8 +26,8 @@ class FinalViewController: UIViewController {
 
     let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
     indicator.frame = CGRect(x: 0.0, y: 0.0, width: 70.0, height: 70.0)
-    indicator.layer.cornerRadius = indicator.frame.width / 2
-    indicator.backgroundColor = UIColor.blueAccentColor()
+    indicator.layer.cornerRadius = 3
+    indicator.backgroundColor = UIColor.violetPrimaryColor()
     indicator.center = view.center
     view.addSubview(indicator)
     view.bringSubviewToFront(indicator)
@@ -34,7 +37,7 @@ class FinalViewController: UIViewController {
     ServerManager.sharedInstance.createUser { (success) -> Void in
       indicator.stopAnimating()
       if success {
-//        NSUserDefaults.standardUserDefaults().setObject(ServerManager.sharedInstance.apiToken!, forKey: "apiToken")
+        NSUserDefaults.standardUserDefaults().setObject(ServerManager.sharedInstance.apiToken!, forKey: "apiToken")
         NSNotificationCenter.defaultCenter().postNotificationName(QuestionsUpdateNotification, object: nil)
         self.parentViewController?.dismissViewControllerAnimated(true, completion: nil)
       } else {
