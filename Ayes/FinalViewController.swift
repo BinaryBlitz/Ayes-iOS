@@ -23,6 +23,12 @@ class FinalViewController: UIViewController {
   }
   
   @IBAction func startButtonAction(sender: AnyObject) {
+    
+    UIApplication.sharedApplication()
+        .registerUserNotificationSettings(
+            UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        )
+    UIApplication.sharedApplication().registerForRemoteNotifications()
 
     let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
     indicator.frame = CGRect(x: 0.0, y: 0.0, width: 70.0, height: 70.0)
