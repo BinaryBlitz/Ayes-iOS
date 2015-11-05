@@ -15,12 +15,14 @@ class Question: NSManagedObject {
   static func createFromJSON(json: JSON) -> Question? {
     guard let id = json["id"].int,
       content = json["content"].string,
-      createdAtString = json["created_at"].string else {
+      createdAtString = json["created_at"].string,
+      epigraph = json["epigraph"].string else {
         return nil
     }
     let questions = Question.findAllSortedBy("id", ascending: true) as! [Question]
     for q in questions {
       if q.id?.integerValue == id {
+        q.epigraph = epigraph
         q.content = content
         q.dateCreated = NSDate(dateString: createdAtString) ?? NSDate()
         return q
@@ -31,6 +33,7 @@ class Question: NSManagedObject {
     let question = Question.MR_createEntity()
     question.id = NSNumber(integer: id)
     question.content = content
+    question.epigraph = epigraph
     if let createdAt = NSDate(dateString: createdAtString) {
       question.dateCreated = createdAt
     }

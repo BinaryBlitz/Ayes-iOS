@@ -106,6 +106,11 @@ class ServerManager {
       let request = try get("questions/")
       request.validate()
       request.responseJSON { (_, _, result) -> Void in
+        if result.isFailure {
+          complition?(questions: nil)
+          return
+        }
+        
         if let jsonData = result.value {
           let json = JSON(jsonData)
           var questions = [Question]()

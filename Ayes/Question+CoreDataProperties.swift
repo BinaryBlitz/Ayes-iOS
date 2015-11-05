@@ -2,7 +2,7 @@
 //  Question+CoreDataProperties.swift
 //  Ayes
 //
-//  Created by Dan Shevlyuk on 17/10/15.
+//  Created by Dan Shevlyuk on 06/11/15.
 //  Copyright © 2015 BinaryBlitz. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -22,5 +22,6 @@ extension Question {
     @NSManaged var rawState: NSNumber?
     @NSManaged var totalAnswers: NSNumber?
     @NSManaged var yesAnswers: NSNumber?
+    @NSManaged var epigraph: String?
 
 }
