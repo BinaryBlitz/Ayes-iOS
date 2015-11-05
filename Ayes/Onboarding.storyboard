@@ -335,10 +335,10 @@
                                 <exclude reference="ypL-eK-pQf"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="kYc-X1-zJs"/>
                                 <exclude reference="elw-xu-vYp"/>
                                 <exclude reference="nkS-Ud-iuV"/>
                                 <exclude reference="zAe-4c-w4M"/>
+                                <exclude reference="kYc-X1-zJs"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -347,10 +347,10 @@
                                 <include reference="ypL-eK-pQf"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="kYc-X1-zJs"/>
                                 <include reference="elw-xu-vYp"/>
                                 <include reference="nkS-Ud-iuV"/>
                                 <include reference="zAe-4c-w4M"/>
+                                <include reference="kYc-X1-zJs"/>
                             </mask>
                         </variation>
                     </view>

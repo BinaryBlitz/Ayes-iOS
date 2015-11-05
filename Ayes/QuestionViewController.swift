@@ -18,6 +18,7 @@ class QuestionViewController: UIViewController {
   @IBOutlet weak var contentTextView: ResizableTextView!
   @IBOutlet weak var questionDateLabel: UILabel!
   @IBOutlet weak var questionIdLabel: UILabel!
+  @IBOutlet weak var questionWithResultsView: UIView!
   
   var question: Question!
   weak var delegate: QuestionChangesDelegate?
@@ -82,18 +83,12 @@ class QuestionViewController: UIViewController {
       return
     }
     
-    let viewToShare = controlsContainer
-//    let arcivedData = NSKeyedArchiver.archivedDataWithRootObject(controlsContainer)
-//    let viewToShare = NSKeyedUnarchiver.unarchiveObjectWithData(arcivedData) as! UIView
+    let viewToShare = questionWithResultsView
     viewToShare.backgroundColor = UIColor.violetPrimaryColor()
-    let originalBounds = viewToShare.bounds
-    viewToShare.bounds = CGRect(x: 0, y: 0, width: 300, height: 260)
-//    viewToShare.layoutIfNeeded()
     let image = UIView.imageWithView(viewToShare)
     let post = "\(content) #ayes"
     let activityController = UIActivityViewController(activityItems: [post, image], applicationActivities: nil)
     presentViewController(activityController, animated: true, completion: nil)
-    viewToShare.bounds = originalBounds
   }
   
   func favoriteButtonAction(sender: AnyObject) {
