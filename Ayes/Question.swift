@@ -16,15 +16,29 @@ class Question: NSManagedObject {
     guard let id = json["id"].int,
       content = json["content"].string,
       createdAtString = json["created_at"].string,
-      epigraph = json["epigraph"].string else {
+      epigraph = json["epigraph"].string
+//      positive = json["answers"]["positive"].string,
+//      negative = json["answers"]["negative"].string,
+//      neutral = json["answers"]["neutral"].string
+      else {
         return nil
     }
+    
     let questions = Question.findAllSortedBy("id", ascending: true) as! [Question]
     for q in questions {
       if q.id?.integerValue == id {
         q.epigraph = epigraph
         q.content = content
         q.dateCreated = NSDate(dateString: createdAtString) ?? NSDate()
+        if let positive = json["answers"]["positive"].string,
+            negative = json["answers"]["negative"].string,
+            neutral = json["answers"]["neutral"].string {
+              
+          q.yesAnswers = Int(positive)
+          q.noAnswers = Int(negative)
+          q.totalAnswers = Int(q.yes + q.no) + (Int(neutral) ?? 0)
+        }
+
         return q
       }
     }
@@ -34,14 +48,24 @@ class Question: NSManagedObject {
     question.id = NSNumber(integer: id)
     question.content = content
     question.epigraph = epigraph
+    if let positive = json["answers"]["positive"].string,
+        negative = json["answers"]["negative"].string,
+        neutral = json["answers"]["neutral"].string {
+          
+      question.yesAnswers = Int(positive)
+      question.noAnswers = Int(negative)
+      question.totalAnswers = Int(question.yes + question.no) + (Int(neutral) ?? 0)
+    } else {
+    /////////////////////////////////////////
+    //test test test
+      question.yesAnswers = Int(arc4random_uniform(100))
+      question.noAnswers = Int(arc4random_uniform(100))
+      question.totalAnswers = question.totalYesNo + Float(arc4random_uniform(100))
+    }
     if let createdAt = NSDate(dateString: createdAtString) {
       question.dateCreated = createdAt
     }
     
-    //test test test
-    question.yesAnswers = Int(arc4random_uniform(100))
-    question.noAnswers = Int(arc4random_uniform(100))
-    question.totalAnswers = question.totalYesNo + Float(arc4random_uniform(100))
     
     return question
   }
