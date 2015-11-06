@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       sideBarButtonsWidth = 80
     }
     
+    loadAPIToken()
+    
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "networkChanged:", name: kReachabilityChangedNotification, object: nil)
     reachability = Reachability.reachabilityForInternetConnection()
     reachability.startNotifier()
@@ -60,12 +62,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func loadAPIToken() {
     if let token = NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String {
       ServerManager.sharedInstance.apiToken = token
+      loadAPIToken()
     } else {
       ServerManager.sharedInstance.createUser { (success) -> Void in
         if success {
           NSUserDefaults.standardUserDefaults().setObject(ServerManager.sharedInstance.apiToken!, forKey: "apiToken")
           NSNotificationCenter.defaultCenter().postNotificationName(QuestionsUpdateNotification, object: nil)
         }
+      }
+    }
+  }
+  
+  func loadDeviceToken() {
+    guard let token = NSUserDefaults.standardUserDefaults().objectForKey("deviceToken") as? String else {
+      UIApplication.sharedApplication().registerUserNotificationSettings(
+        UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+      )
+      UIApplication.sharedApplication().registerForRemoteNotifications()
+      return
+    }
+    
+    ServerManager.sharedInstance.deviceToken = token
+    
+    ServerManager.sharedInstance.updateDeviceToken(token) { (success) -> Void in
+      if success {
+        print("Device tokent updated to \(token)")
+      } else {
+        print("error with updating device token")
       }
     }
   }
@@ -156,11 +179,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   //MARK - Push notifications
   
   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+    let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+    var token = ""
+    
+    for var i = 0; i < deviceToken.length; i++ {
+      token += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+    }
+    
+    print(token)
+    NSUserDefaults.standardUserDefaults().setObject(token, forKey: "deviceToken")
+    
+    ServerManager.sharedInstance.updateDeviceToken(token) { (success) -> Void in
+      if success {
+        print("Device tokent updated to \(token)")
+      } else {
+        print("error with updating device token")
+      }
+    }
     print(deviceToken)
-  }
-  
-  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-    print(userInfo)
   }
 }
 
