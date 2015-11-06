@@ -101,7 +101,35 @@ class QuestionViewController: UIViewController {
   }
   
   @IBAction func sameAsMeButtonAction(sender: AnyObject) {
+    guard let user = UserManager.sharedManager.user else {
+      return
+    }
     
+    if user.isAllFieldsFilled() {
+      let alert = UIAlertController(title: nil, message: "Same as me", preferredStyle: .Alert)
+      alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+      presentViewController(alert, animated: true, completion: nil)
+      //TODO: request 'same as me' stuff
+    } else {
+      let alert = UIAlertController(title: LocalizeHelper.localizeStringForKey("Questionnaire"), message: LocalizeHelper.localizeStringForKey("notFilledAlert"), preferredStyle: .Alert)
+      alert.addAction(
+        UIAlertAction(title: LocalizeHelper.localizeStringForKey("Cancel"), style: .Default, handler: nil)
+      )
+      
+      alert.addAction(
+        UIAlertAction(title: LocalizeHelper.localizeStringForKey("Fix now"),
+          style: .Cancel,
+          handler: { (_) -> Void in
+            let storyboard = UIStoryboard(name: "Questionnaire", bundle: nil)
+            if let navigation = storyboard.instantiateInitialViewController() as? UINavigationController {
+              let questionnaireController  = navigation.viewControllers.first as! QuestionnaireTableViewController
+              questionnaireController.style = .Modal
+              self.presentViewController(navigation, animated: true, completion: nil)
+            }
+      }))
+      
+      presentViewController(alert, animated: true, completion: nil)
+    }
   }
   
   @IBAction func otherUsersButtonAction(sender: AnyObject) {

@@ -27,6 +27,8 @@
 "education" = "Education";
 "relationship" = "Relationship";
 
+"notFilledAlert" = "To use 'same as me' faeture you have to fill all fields in your Questionnaire.";
+
 "male" = "Male";
 "female" = "Female";
 

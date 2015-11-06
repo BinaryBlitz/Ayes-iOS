@@ -10,24 +10,50 @@ import UIKit
 import SWRevealViewController
 
 class QuestionnaireTableViewController: UITableViewController {
+  
+  enum QuestionnaireControllerStyle {
+    case Modal
+    case Normal
+  }
 
-  @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
+  var closeBarButtonItem: UIBarButtonItem?
+  var menuBarButtonItem: UIBarButtonItem?
   let items = UserManager.sharedManager.avalableKeys
+  var style: QuestionnaireControllerStyle = .Normal
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    if let revealViewController = revealViewController() {
-      menuBarButtonItem.target = revealViewController
-      menuBarButtonItem.action = "revealToggle:"
-      view.addGestureRecognizer(revealViewController.panGestureRecognizer())
-      revealViewController.delegate = self
+    switch style {
+    case .Modal:
+      closeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: "closeButtonAction:")
+      if let closeButton = closeBarButtonItem {
+        navigationItem.leftBarButtonItem = nil
+        navigationItem.rightBarButtonItem = closeButton
+      }
+    case .Normal:
+      menuBarButtonItem = UIBarButtonItem(image: UIImage(named: "Menu"), style: .Plain, target: nil, action: "")
+      if let menuButton = menuBarButtonItem {
+        navigationItem.leftBarButtonItem = menuButton
+        navigationItem.rightBarButtonItem = nil
+      }
+      
+      if let revealViewController = revealViewController() {
+        menuBarButtonItem?.target = revealViewController
+        menuBarButtonItem?.action = "revealToggle:"
+        view.addGestureRecognizer(revealViewController.panGestureRecognizer())
+        revealViewController.delegate = self
+      }
     }
     
     navigationItem.title = LocalizeHelper.localizeStringForKey("Questionnaire")
     let backItem = UIBarButtonItem(title: LocalizeHelper.localizeStringForKey("Back"), style: .Plain, target: nil, action: nil)
     navigationItem.backBarButtonItem = backItem
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
+  }
+  
+  @IBAction func closeButtonAction(sender: AnyObject) {
+    dismissViewControllerAnimated(true, completion: nil)
   }
   
   //MARK: - TableView data source

@@ -13,8 +13,16 @@ class ServerManager {
   static let sharedInstance = ServerManager()
   private let baseURL = "http://ayes.binaryblitz.ru/"
   private let manager = Manager.sharedInstance
-  var apiToken: String?
-  var deviceToken: String?
+  var apiToken: String? {
+    didSet {
+      NSLog("api token updated: \(apiToken ?? "")")
+    }
+  }
+  var deviceToken: String? {
+    didSet {
+      NSLog("device token updated: \(deviceToken ?? "")")
+    }
+  }
   
   enum Errors: ErrorType {
     case Unauthorized
@@ -171,7 +179,7 @@ class ServerManager {
   
   //MARK: - Push notifications
   
-  func updateDeviceToken(token: String, complition: ((_:Bool) -> Void)?) -> Request? {
+  func updateDeviceToken(token: String, complition: ((_:Bool) -> Void)? = nil) -> Request? {
     let parameters = ["user" : ["device_token": token]]
     
     do {

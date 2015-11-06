@@ -21,6 +21,11 @@ class User: NSObject, NSCoding {
     super.init()
   }
   
+  func isAllFieldsFilled() -> Bool {
+    return birthDate != nil && sex != nil && city != nil && occupation != nil &&
+      income != nil && education != nil && relationship != nil
+  }
+  
   //MARK: - NSCoding
   
   @objc required init(coder aDecoder: NSCoder) {

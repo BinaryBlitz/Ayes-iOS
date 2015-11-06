@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func loadAPIToken() {
     if let token = NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String {
       ServerManager.sharedInstance.apiToken = token
-      loadAPIToken()
+      loadDeviceToken()
     } else {
       ServerManager.sharedInstance.createUser { (success) -> Void in
         if success {
@@ -84,13 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     ServerManager.sharedInstance.deviceToken = token
     
-    ServerManager.sharedInstance.updateDeviceToken(token) { (success) -> Void in
-      if success {
-        print("Device tokent updated to \(token)")
-      } else {
-        print("error with updating device token")
-      }
-    }
+    ServerManager.sharedInstance.updateDeviceToken(token)
   }
   
   private func setUpNavigationBar() {
@@ -101,54 +95,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
   }
   
-  func addSampleQuestions() {
-    let questions = Question.findAll()
-    for q in questions {
-      q.MR_deleteEntity()
-    }
-    let q1 = Question.MR_createEntity()
-    q1.content = "Ходили ли вы за это месяц хотя бы раз на свидание?"
-    q1.id = 2301
-    q1.dateCreated = NSDate()
-    q1.yesAnswers = 70
-    q1.noAnswers = 30
-    q1.totalAnswers = 120
-    
-    let q2 = Question.MR_createEntity()
-    q2.content = "Умеете ли Вы плавать?"
-    q2.id = 2305
-    q2.dateCreated = NSDate()
-    q2.yesAnswers = 40
-    q2.noAnswers = 15
-    q2.totalAnswers = 80
-    
-    let q3 = Question.MR_createEntity()
-    q3.content = "Вы выбрасываете мусор в окно?"
-    q3.id = 2306
-    q3.dateCreated = NSDate()
-    q3.yesAnswers = 80
-    q3.noAnswers = 30
-    q3.totalAnswers = 150
-    
-    let q4 = Question.MR_createEntity()
-    q4.content = "Вы давно последний раз меняли телефон?"
-    q4.id = 2390
-    q4.dateCreated = NSDate()
-    q4.yesAnswers = 80
-    q4.noAnswers = 90
-    q4.totalAnswers = 200
-    
-    let q5 = Question.MR_createEntity()
-    q5.content = "Вам нарвится новый iPhone?"
-    q5.id = 2400
-    q5.dateCreated = NSDate()
-    q5.yesAnswers = 500
-    q5.noAnswers = 120
-    q5.totalAnswers = 700
-    
-    NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-  }
-
   func applicationWillResignActive(application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -186,17 +132,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       token += String(format: "%02.2hhx", arguments: [tokenChars[i]])
     }
     
-    print(token)
     NSUserDefaults.standardUserDefaults().setObject(token, forKey: "deviceToken")
     
-    ServerManager.sharedInstance.updateDeviceToken(token) { (success) -> Void in
-      if success {
-        print("Device tokent updated to \(token)")
-      } else {
-        print("error with updating device token")
-      }
-    }
-    print(deviceToken)
+    ServerManager.sharedInstance.updateDeviceToken(token)
   }
 }
 

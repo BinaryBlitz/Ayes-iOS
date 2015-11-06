@@ -50,11 +50,8 @@
                             <outlet property="delegate" destination="IBQ-Tm-WSM" id="Rby-sE-63h"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Анкета пользователя" id="ZPe-ZE-m4b">
-                        <barButtonItem key="leftBarButtonItem" image="Menu" id="PuR-gg-BiL"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Анкета пользователя" id="ZPe-ZE-m4b"/>
                     <connections>
-                        <outlet property="menuBarButtonItem" destination="PuR-gg-BiL" id="63J-Nq-V9b"/>
                         <segue destination="K93-58-bZZ" kind="show" identifier="dateChoice" id="b6g-Od-Lf3"/>
                         <segue destination="OMB-aB-wOe" kind="show" identifier="listChoice" id="EB8-Gm-x3J"/>
                     </connections>
@@ -230,7 +227,4 @@
             <point key="canvasLocation" x="1163" y="134"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Menu" width="25" height="16"/>
-    </resources>
 </document>
