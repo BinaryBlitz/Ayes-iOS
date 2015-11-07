@@ -16,10 +16,10 @@ class Question: NSManagedObject {
     guard let id = json["id"].int,
       content = json["content"].string,
       createdAtString = json["created_at"].string,
-      epigraph = json["epigraph"].string
-//      positive = json["answers"]["positive"].string,
-//      negative = json["answers"]["negative"].string,
-//      neutral = json["answers"]["neutral"].string
+      epigraph = json["epigraph"].string,
+      positive = json["answers"]["positive"].int,
+      negative = json["answers"]["negative"].int,
+      neutral = json["answers"]["neutral"].int
       else {
         return nil
     }
@@ -30,14 +30,9 @@ class Question: NSManagedObject {
         q.epigraph = epigraph
         q.content = content
         q.dateCreated = NSDate(dateString: createdAtString) ?? NSDate()
-        if let positive = json["answers"]["positive"].string,
-            negative = json["answers"]["negative"].string,
-            neutral = json["answers"]["neutral"].string {
-              
-          q.yesAnswers = Int(positive)
-          q.noAnswers = Int(negative)
-          q.totalAnswers = Int(q.yes + q.no) + (Int(neutral) ?? 0)
-        }
+        q.yesAnswers = positive
+        q.noAnswers = negative
+        q.totalAnswers = q.yes + q.no + Float(neutral)
 
         return q
       }
@@ -48,20 +43,10 @@ class Question: NSManagedObject {
     question.id = NSNumber(integer: id)
     question.content = content
     question.epigraph = epigraph
-    if let positive = json["answers"]["positive"].string,
-        negative = json["answers"]["negative"].string,
-        neutral = json["answers"]["neutral"].string {
-          
-      question.yesAnswers = Int(positive)
-      question.noAnswers = Int(negative)
-      question.totalAnswers = Int(question.yes + question.no) + (Int(neutral) ?? 0)
-    } else {
-    /////////////////////////////////////////
-    //test test test
-      question.yesAnswers = Int(arc4random_uniform(100))
-      question.noAnswers = Int(arc4random_uniform(100))
-      question.totalAnswers = question.totalYesNo + Float(arc4random_uniform(100))
-    }
+    question.yesAnswers = Int(positive)
+    question.noAnswers = Int(negative)
+    question.totalAnswers = Int(question.yes + question.no) + (Int(neutral) ?? 0)
+    
     if let createdAt = NSDate(dateString: createdAtString) {
       question.dateCreated = createdAt
     }

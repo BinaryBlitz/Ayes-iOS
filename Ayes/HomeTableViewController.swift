@@ -21,12 +21,12 @@ class HomeTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    if let token = NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String {
-      ServerManager.sharedInstance.apiToken = token
-    } else {
-      if let onboarding = UIStoryboard(name: "Onboarding", bundle: nil).instantiateInitialViewController() {
-        navigationController?.presentViewController(onboarding, animated: false, completion: nil)
+   
+    if ServerManager.sharedInstance.apiToken == nil {
+      if let token = NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String {
+        ServerManager.sharedInstance.apiToken = token
+      } else if let onboarding = UIStoryboard(name: "Onboarding", bundle: nil).instantiateInitialViewController() {
+          navigationController?.presentViewController(onboarding, animated: false, completion: nil)
       }
     }
     
