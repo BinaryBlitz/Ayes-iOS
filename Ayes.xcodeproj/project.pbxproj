@@ -37,6 +37,7 @@
 		376D13A91BCD117000F3EABC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 376D13AB1BCD117000F3EABC /* Localizable.strings */; };
 		376D13AD1BCD11F000F3EABC /* LocalizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */; };
 		376D13B01BCD19F100F3EABC /* ChooseLanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D13AF1BCD19F100F3EABC /* ChooseLanguageTableViewController.swift */; };
+		37771D861BEEA4A4005B9398 /* Regions.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 37771D851BEEA4A4005B9398 /* Regions.yaml */; };
 		377A0F5B1BD96CF500EDAF02 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A0F5A1BD96CF500EDAF02 /* Reachability.m */; };
 		378170B61BEA3B6E00EF39D9 /* UIView+ImageWithView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378170B51BEA3B6E00EF39D9 /* UIView+ImageWithView.swift */; };
 		378170B81BEA4C3F00EF39D9 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378170B71BEA4C3F00EF39D9 /* Onboarding.storyboard */; };
@@ -115,6 +116,7 @@
 		376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizeHelper.swift; sourceTree = "<group>"; };
 		376D13AE1BCD187B00F3EABC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		376D13AF1BCD19F100F3EABC /* ChooseLanguageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseLanguageTableViewController.swift; sourceTree = "<group>"; };
+		37771D851BEEA4A4005B9398 /* Regions.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Regions.yaml; sourceTree = "<group>"; };
 		377A0F591BD96CF500EDAF02 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		377A0F5A1BD96CF500EDAF02 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		378170B51BEA3B6E00EF39D9 /* UIView+ImageWithView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ImageWithView.swift"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				37C44A641BC31ECA001A6340 /* Supporting files */,
 				372657DD1BC27520003383D1 /* Assets.xcassets */,
 				37E2A0EB1BC7E7E700FA7A6B /* Ayes.xcdatamodeld */,
+				37771D851BEEA4A4005B9398 /* Regions.yaml */,
 				376D13AB1BCD117000F3EABC /* Localizable.strings */,
 			);
 			path = Ayes;
@@ -265,7 +268,7 @@
 		3745EFBC1BDBE947008E12DC /* Questionnaire */ = {
 			isa = PBXGroup;
 			children = (
-				370415031BDD208C0036A5F5 /* QuestionnaireDataDisplay.swift */,
+				37771D871BEEA4D3005B9398 /* Protocols */,
 				372657D81BC27520003383D1 /* QuestionnaireTableViewController.swift */,
 				3745EFBD1BDBE9D3008E12DC /* ListChoiceTableViewController.swift */,
 				3745EFBF1BDBE9E1008E12DC /* DateChoiceTableViewController.swift */,
@@ -276,11 +279,11 @@
 		375423B11BCEBAA7001CA639 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				37771D881BEEA4E5005B9398 /* Protocols */,
 				37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */,
 				371AAE561BCEA84F007AC0F4 /* QuestionViewController.swift */,
 				375423AF1BCEBAA1001CA639 /* QuestionControlsViewController.swift */,
 				37154B871BCFC3A900639A8D /* QuestionResultsViewController.swift */,
-				37C02DAE1BD2E25A004AD482 /* QuestionChangesDelegate.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -296,6 +299,39 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		37771D871BEEA4D3005B9398 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				370415031BDD208C0036A5F5 /* QuestionnaireDataDisplay.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		37771D881BEEA4E5005B9398 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				37C02DAE1BD2E25A004AD482 /* QuestionChangesDelegate.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		37771D891BEEA4F3005B9398 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				370D7B791BEAB23800B70D50 /* OnboardingPageContent.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		37771D8A1BEEA505005B9398 /* QuestionTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				37BB0F671BC3DE8400DFFDED /* QuestionTableViewCell.swift */,
+				37BB0F681BC3DE8400DFFDED /* QuestionTableViewCell.xib */,
+			);
+			name = QuestionTableViewCell;
+			sourceTree = "<group>";
+		};
 		377A0F5C1BD96D0600EDAF02 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,10 +344,10 @@
 		378170B91BEA4EDD00EF39D9 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				37771D891BEEA4F3005B9398 /* Protocols */,
 				378170BC1BEA50F700EF39D9 /* OnboardingViewController.swift */,
 				378170BA1BEA4EFA00EF39D9 /* PageContentViewController.swift */,
 				370D7B771BEAB13900B70D50 /* FinalViewController.swift */,
-				370D7B791BEAB23800B70D50 /* OnboardingPageContent.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -372,8 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				37C02DAA1BD2B978004AD482 /* ResizableTextView */,
-				37BB0F671BC3DE8400DFFDED /* QuestionTableViewCell.swift */,
-				37BB0F681BC3DE8400DFFDED /* QuestionTableViewCell.xib */,
+				37771D8A1BEEA505005B9398 /* QuestionTableViewCell */,
 				37154B8B1BCFF23800639A8D /* ResultsPieChart.swift */,
 			);
 			name = Views;
@@ -503,6 +538,7 @@
 				378170B81BEA4C3F00EF39D9 /* Onboarding.storyboard in Resources */,
 				372657E11BC27520003383D1 /* LaunchScreen.storyboard in Resources */,
 				37D4F5361BD06549003516A7 /* Home.storyboard in Resources */,
+				37771D861BEEA4A4005B9398 /* Regions.yaml in Resources */,
 				372657DE1BC27520003383D1 /* Assets.xcassets in Resources */,
 				37C44A541BC31861001A6340 /* Questionnaire.storyboard in Resources */,
 				37C44A5A1BC31AD2001A6340 /* Settings.storyboard in Resources */,

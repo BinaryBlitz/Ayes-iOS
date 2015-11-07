@@ -18,7 +18,7 @@ class QuestionnaireTableViewController: UITableViewController {
 
   var closeBarButtonItem: UIBarButtonItem?
   var menuBarButtonItem: UIBarButtonItem?
-  let items = UserManager.sharedManager.avalableKeys
+  var items = UserManager.sharedManager.avalableKeys
   var style: QuestionnaireControllerStyle = .Normal
   
   override func viewDidLoad() {
@@ -50,6 +50,10 @@ class QuestionnaireTableViewController: UITableViewController {
     let backItem = UIBarButtonItem(title: LocalizeHelper.localizeStringForKey("Back"), style: .Plain, target: nil, action: nil)
     navigationItem.backBarButtonItem = backItem
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
+    
+    if Settings.sharedInstance.country == Settings.Country.World {
+      items.removeAtIndex(items.indexOf(kRegion)!)
+    }
   }
   
   @IBAction func closeButtonAction(sender: AnyObject) {

@@ -11,6 +11,7 @@ PODS:
   - SwiftyJSON (2.3.0)
   - SWRevealViewController (2.3.0)
   - UICountingLabel (1.2.0)
+  - YamlSwift (1.2.1)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - SwiftyJSON
   - SWRevealViewController
   - UICountingLabel
+  - YamlSwift
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: c183be40407b772b38d407d9825270e23bfb9b35
@@ -33,5 +35,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
+  YamlSwift: 297225be9d8e342f38c566b770289507862d06a1
 
 COCOAPODS: 0.39.0

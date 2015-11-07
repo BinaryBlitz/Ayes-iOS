@@ -8,6 +8,7 @@
 
 internal let kBirthDate = "birthdate"
 internal let kSex = "gender"
+internal let kRegion = "region"
 internal let kCity = "city"
 internal let kOccupation = "occupation"
 internal let kIncome = "income"
@@ -27,7 +28,7 @@ class UserManager {
   }
   
   var avalableKeys: [String] {
-    return [kBirthDate, kSex, kCity,
+    return [kBirthDate, kSex, kRegion,
       kOccupation, kIncome,
       kEducation, kRelationship]
   }
@@ -45,8 +46,8 @@ class UserManager {
       user?.birthDate = dateFormatter.dateFromString(value)
     case kSex:
       user?.sex = User.Sex(rawValue: value)
-    case kCity:
-      user?.city = User.City(rawValue: value)
+    case kRegion:
+      user?.region = User.Region(rawValue: value)
     case kOccupation:
       user?.occupation = User.Occupation(rawValue: value)
     case kIncome:
@@ -66,8 +67,8 @@ class UserManager {
       return []
     case kSex:
       return User.Sex.optionsList
-    case kCity:
-      return User.City.optionsList
+    case kRegion:
+      return User.Region.optionsList
     case kOccupation:
       return User.Occupation.optionsList
     case kIncome:
@@ -90,8 +91,8 @@ class UserManager {
       return dateFormatter.stringFromDate(birthDate)
     case kSex:
       return user?.sex?.rawValue
-    case kCity:
-      return user?.city?.rawValue
+    case kRegion:
+      return user?.region?.rawValue
     case kOccupation:
       return user?.occupation?.rawValue
     case kIncome:

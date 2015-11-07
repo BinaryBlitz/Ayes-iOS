@@ -12,8 +12,13 @@ import Foundation
   
   static var sharedInstance = Settings()
   
+  enum Country: String {
+    case Russia
+    case World
+  }
+  
   var language: String?
-  var region: String?
+  var country: Country? = .Russia
   var questionTime: NSDate
   
   override init() {
@@ -31,7 +36,6 @@ import Foundation
         break
       }
     }
-    region = "rus" //?
     let dateComponents = NSCalendar.currentCalendar().components([.Minute, .Hour], fromDate: NSDate())
     dateComponents.hour = 19
     dateComponents.minute = 0
@@ -42,13 +46,13 @@ import Foundation
   internal required init(coder aDecoder: NSCoder) {
     language = aDecoder.decodeObjectForKey("ayesLanguage") as? String
     LocalizeHelper.setLanguage(language ?? "ru")
-    region = aDecoder.decodeObjectForKey("ayesRegion") as? String
+    country = Country(rawValue: (aDecoder.decodeObjectForKey("ayesCountry") as? String) ?? "Russia")
     questionTime = aDecoder.decodeObjectForKey("ayesQuestionTime") as! NSDate
   }
   
   func encodeWithCoder(aCoder: NSCoder) {
     aCoder.encodeObject(language, forKey: "ayesLanguage")
-    aCoder.encodeObject(region, forKey: "ayesRegion")
+    aCoder.encodeObject(country?.rawValue, forKey: "ayesCountry")
     aCoder.encodeObject(questionTime, forKey: "ayesQuestionTime")
   }
   

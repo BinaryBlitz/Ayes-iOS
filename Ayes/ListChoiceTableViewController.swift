@@ -15,7 +15,7 @@ class ListChoiceTableViewController: UITableViewController {
   var selectedIndex: Int?
   weak var delegate: QuestionnaireDataDisplay?
   var options: [String] {
-    return UserManager.sharedManager.optionsForKey(item)
+    return UserManager.sharedManager.optionsForKey(item).sort(<)
   }
 
   override func viewDidLoad() {

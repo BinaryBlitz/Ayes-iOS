@@ -12,7 +12,7 @@ class ChooseRegionTableViewController: UITableViewController {
 
   @IBOutlet weak var cancelBarButton: UIBarButtonItem!
   @IBOutlet weak var doneBarButton: UIBarButtonItem!
-  var avaliableRegions = ["rus", "other"]
+  var avaliableRegions = ["Russia", "World"]
   var selectedCell = 0
   weak var delegate: MultipleChoiceControllerDelegate?
   
@@ -22,7 +22,7 @@ class ChooseRegionTableViewController: UITableViewController {
     doneBarButton.title = LocalizeHelper.localizeStringForKey("Done")
     cancelBarButton.title = LocalizeHelper.localizeStringForKey("Cancel")
     navigationItem.title = LocalizeHelper.localizeStringForKey("Your Region")
-    selectedCell = avaliableRegions.indexOf(Settings.sharedInstance.region ?? "rus")!
+    selectedCell = avaliableRegions.indexOf(Settings.sharedInstance.country?.rawValue ?? "Russia") ?? 0
     tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "regionCell")
   }
   
@@ -54,7 +54,7 @@ class ChooseRegionTableViewController: UITableViewController {
   }
   
   @IBAction func doneAction(sender: AnyObject) {
-    Settings.sharedInstance.region = avaliableRegions[selectedCell]
+    Settings.sharedInstance.country = Settings.Country(rawValue: avaliableRegions[selectedCell])
     if let delegate = delegate {
       delegate.didChoseItem?()
     }

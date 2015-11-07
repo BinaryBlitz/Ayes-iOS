@@ -63,7 +63,7 @@ class SettingsTableViewController: UITableViewController {
     languageLabel.text = LocalizeHelper.localizeStringForKey("Language")
     languageValueLabel.text = LocalizeHelper.localizeStringForKey(LocalizeHelper.getCurrentLanguage())
     regionLabel.text = LocalizeHelper.localizeStringForKey("Region")
-    regionValueLabel.text = LocalizeHelper.localizeStringForKey(Settings.sharedInstance.region ?? "")
+    regionValueLabel.text = LocalizeHelper.localizeStringForKey(Settings.sharedInstance.country?.rawValue ?? "")
     questionTimeLabel.text = LocalizeHelper.localizeStringForKey("Question Time")
     let formatter = NSDateFormatter()
     formatter.dateFormat = "HH:mm"
