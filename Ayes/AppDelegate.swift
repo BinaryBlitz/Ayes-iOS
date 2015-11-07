@@ -50,12 +50,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func networkChanged(notification: NSNotification) {
     let remoteHostStatus = reachability.currentReachabilityStatus()
     switch remoteHostStatus {
-    case NotReachable:
-      print("ooops")
-    case ReachableViaWWAN:
-      print("wwan")
+    case ReachableViaWWAN, ReachableViaWiFi:
+      
+      // Favorites
+      let favorites = Favorite.MR_findAll() as! [Favorite]
+      print(favorites)
+      for fav in favorites {
+        ServerManager.sharedInstance.submitFavorite(fav) { (success) -> Void in
+          if success {
+            fav.MR_deleteEntity()
+          }
+        }
+      }
+      
+      // Answers 
+      let answers = Answer.findAll() as! [Answer]
+      answers.forEach { (answer) -> () in
+        ServerManager.sharedInstance.submitAnswer(answer) { (success) -> Void in
+          if success { answer.MR_deleteEntity() }
+        }
+      }
     default:
-      print("other stuff")
+      break
     }
   }
   

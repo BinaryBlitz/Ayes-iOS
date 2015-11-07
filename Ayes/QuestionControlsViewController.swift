@@ -46,9 +46,11 @@ class QuestionControlsViewController: UIViewController {
       return
     }
     
-    ServerManager.sharedInstance.submitAnswer(id, answer: state) { (success) -> Void in
-      if success {
-        print("uploaded!")
+    if let answer = Answer.createWithQuestion(question) {
+      ServerManager.sharedInstance.submitAnswer(id, answer: state) { (success) -> Void in
+        if success {
+          answer.MR_deleteEntity()
+        }
       }
     }
   }

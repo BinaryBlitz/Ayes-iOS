@@ -26,7 +26,7 @@ class HomeTableViewController: UITableViewController {
       ServerManager.sharedInstance.apiToken = token
     } else {
       if let onboarding = UIStoryboard(name: "Onboarding", bundle: nil).instantiateInitialViewController() {
-        presentViewController(onboarding, animated: false, completion: nil)
+        navigationController?.presentViewController(onboarding, animated: false, completion: nil)
       }
     }
     

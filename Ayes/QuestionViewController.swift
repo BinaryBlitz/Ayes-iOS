@@ -95,6 +95,15 @@ class QuestionViewController: UIViewController {
     if let starButton = navigationItem.titleView as? UIButton {
       starButton.selected = !starButton.selected
       question.isFavorite = NSNumber(bool: starButton.selected)
+      if let favoriteObject = Favorite.createWithQuestion(question) {
+        ServerManager.sharedInstance.submitFavorite(favoriteObject) { (success) -> Void in
+          if success {
+            favoriteObject.MR_deleteEntity()
+            NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
+          }
+        }
+      }
+      
       NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
       delegate?.didFavoriteTheQuestion?(question)
     }

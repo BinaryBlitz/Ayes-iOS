@@ -26,4 +26,15 @@ enum QuestionState: Int {
     }
   }
   
+  func toBool() -> Bool? {
+    switch self {
+    case .No:
+      return false
+    case .Yes:
+      return true
+    default:
+      return nil
+    }
+  }
+  
 }

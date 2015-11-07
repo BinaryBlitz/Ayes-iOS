@@ -70,6 +70,10 @@ class Question: NSManagedObject {
     return question
   }
   
+  var answer: Answer? {
+    return Answer.createWithQuestion(self)
+  }
+  
   var state: QuestionState {
     get {
       if let questionState = QuestionState(rawValue: Int(rawState ?? 0)) {
@@ -150,5 +154,4 @@ class Question: NSManagedObject {
       fatalError("You cannot change state to noAnswer")
     }
   }
-  
 }

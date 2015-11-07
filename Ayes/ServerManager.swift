@@ -177,6 +177,30 @@ class ServerManager {
     }
   }
   
+  func submitAnswer(answer: Answer, complition: ((_:Bool) -> Void)? = nil) -> Request? {
+    guard let question_id = answer.question_id else {
+      return nil
+    }
+    
+    do {
+      
+      let request = try post("questions/\(question_id)/answers/", params: ["value": answer.value ?? NSNull()])
+      request.validate()
+      request.responseJSON { (_, _, result) -> Void in
+        complition?(result.isSuccess)
+      }
+      
+      return request
+    } catch(Errors.Unauthorized) {
+      print("Unauthorized")
+      complition?(false)
+      return nil
+    } catch {
+      complition?(false)
+      return nil
+    }
+  }
+  
   //MARK: - Push notifications
   
   func updateDeviceToken(token: String, complition: ((_:Bool) -> Void)? = nil) -> Request? {
@@ -186,6 +210,33 @@ class ServerManager {
       let request = try self.patch("user/", params: parameters)
       request.validate()
       request.response { (_, _, _, error) -> Void in
+        complition?(error == nil)
+      }
+      
+      return request
+    } catch(Errors.Unauthorized) {
+      print("Unauthorized")
+      complition?(false)
+      return nil
+    } catch {
+      complition?(false)
+      return nil
+    }
+  }
+  
+  //MARK: - Favorite
+  
+  func submitFavorite(favorite: Favorite, complition: ((_: Bool) -> Void)? = nil) -> Request? {
+    guard let question_id = favorite.question_id?.integerValue else {
+      return nil
+    }
+    
+    let parameters = ["question_id" : question_id]
+    
+    do {
+      let request = try post("/favorites", params: parameters)
+      request.validate()
+      request.response { (_, _, _, error) in
         complition?(error == nil)
       }
       

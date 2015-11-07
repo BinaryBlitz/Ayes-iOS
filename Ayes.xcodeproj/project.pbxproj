@@ -13,6 +13,10 @@
 		370D7B7A1BEAB23800B70D50 /* OnboardingPageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370D7B791BEAB23800B70D50 /* OnboardingPageContent.swift */; };
 		37154B881BCFC3A900639A8D /* QuestionResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37154B871BCFC3A900639A8D /* QuestionResultsViewController.swift */; };
 		37154B8C1BCFF23800639A8D /* ResultsPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37154B8B1BCFF23800639A8D /* ResultsPieChart.swift */; };
+		371A0E201BEDE73100B9E955 /* Answer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A0E1C1BEDE73100B9E955 /* Answer+CoreDataProperties.swift */; };
+		371A0E211BEDE73100B9E955 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A0E1D1BEDE73100B9E955 /* Answer.swift */; };
+		371A0E221BEDE73100B9E955 /* Favorite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A0E1E1BEDE73100B9E955 /* Favorite+CoreDataProperties.swift */; };
+		371A0E231BEDE73100B9E955 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A0E1F1BEDE73100B9E955 /* Favorite.swift */; };
 		371AAE571BCEA84F007AC0F4 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371AAE561BCEA84F007AC0F4 /* QuestionViewController.swift */; };
 		37202B561BD6C0AF00FCD1DB /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37202B551BD6C0AF00FCD1DB /* ServerManager.swift */; };
 		37202B581BD6CE6B00FCD1DB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37202B571BD6CE6B00FCD1DB /* User.swift */; };
@@ -82,6 +86,10 @@
 		370D7B791BEAB23800B70D50 /* OnboardingPageContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageContent.swift; sourceTree = "<group>"; };
 		37154B871BCFC3A900639A8D /* QuestionResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionResultsViewController.swift; sourceTree = "<group>"; };
 		37154B8B1BCFF23800639A8D /* ResultsPieChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsPieChart.swift; sourceTree = "<group>"; };
+		371A0E1C1BEDE73100B9E955 /* Answer+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Answer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		371A0E1D1BEDE73100B9E955 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		371A0E1E1BEDE73100B9E955 /* Favorite+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Favorite+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		371A0E1F1BEDE73100B9E955 /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		371AAE561BCEA84F007AC0F4 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		37202B551BD6C0AF00FCD1DB /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		37202B571BD6CE6B00FCD1DB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -166,6 +174,47 @@
 				E1039A30CDBD040BCB15D08E /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		371A0E1A1BEDE6CF00B9E955 /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				371A0E241BEDE73A00B9E955 /* Answer */,
+				371A0E251BEDE74400B9E955 /* Favorite */,
+				37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */,
+				37E2A0EF1BC7EBA800FA7A6B /* Question.swift */,
+				37C578481BCA966A005B4723 /* QuestionState.swift */,
+			);
+			name = Question;
+			sourceTree = "<group>";
+		};
+		371A0E1B1BEDE6E100B9E955 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				37202B571BD6CE6B00FCD1DB /* User.swift */,
+				3745EFC11BDC2DFA008E12DC /* User+EnumFields.swift */,
+				3745EFC31BDC2E3E008E12DC /* QuestionnaireItem.swift */,
+				370415011BDD03360036A5F5 /* UserManger.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		371A0E241BEDE73A00B9E955 /* Answer */ = {
+			isa = PBXGroup;
+			children = (
+				371A0E1C1BEDE73100B9E955 /* Answer+CoreDataProperties.swift */,
+				371A0E1D1BEDE73100B9E955 /* Answer.swift */,
+			);
+			name = Answer;
+			sourceTree = "<group>";
+		};
+		371A0E251BEDE74400B9E955 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				371A0E1E1BEDE73100B9E955 /* Favorite+CoreDataProperties.swift */,
+				371A0E1F1BEDE73100B9E955 /* Favorite.swift */,
+			);
+			name = Favorite;
 			sourceTree = "<group>";
 		};
 		372657CA1BC27520003383D1 = {
@@ -295,16 +344,11 @@
 			isa = PBXGroup;
 			children = (
 				377A0F5C1BD96D0600EDAF02 /* Reachability */,
-				37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */,
-				37E2A0EF1BC7EBA800FA7A6B /* Question.swift */,
-				37C578481BCA966A005B4723 /* QuestionState.swift */,
-				373ED75B1BCC37BA003E7584 /* Settings.swift */,
+				371A0E1A1BEDE6CF00B9E955 /* Question */,
+				371A0E1B1BEDE6E100B9E955 /* User */,
 				376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */,
+				373ED75B1BCC37BA003E7584 /* Settings.swift */,
 				37202B551BD6C0AF00FCD1DB /* ServerManager.swift */,
-				37202B571BD6CE6B00FCD1DB /* User.swift */,
-				3745EFC11BDC2DFA008E12DC /* User+EnumFields.swift */,
-				370415011BDD03360036A5F5 /* UserManger.swift */,
-				3745EFC31BDC2E3E008E12DC /* QuestionnaireItem.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -545,6 +589,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				371A0E211BEDE73100B9E955 /* Answer.swift in Sources */,
+				371A0E221BEDE73100B9E955 /* Favorite+CoreDataProperties.swift in Sources */,
 				371AAE571BCEA84F007AC0F4 /* QuestionViewController.swift in Sources */,
 				37BB0F651BC3D8BB00DFFDED /* HomeTableViewController.swift in Sources */,
 				370415021BDD03360036A5F5 /* UserManger.swift in Sources */,
@@ -556,7 +602,9 @@
 				372657D91BC27520003383D1 /* QuestionnaireTableViewController.swift in Sources */,
 				37BB0F621BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */,
 				376D13AD1BCD11F000F3EABC /* LocalizeHelper.swift in Sources */,
+				371A0E201BEDE73100B9E955 /* Answer+CoreDataProperties.swift in Sources */,
 				37E2A0ED1BC7E7E700FA7A6B /* Ayes.xcdatamodeld in Sources */,
+				371A0E231BEDE73100B9E955 /* Favorite.swift in Sources */,
 				373ED75C1BCC37BA003E7584 /* Settings.swift in Sources */,
 				37BF1C081BCD84610040B8E1 /* SetQuestionTimeTableViewController.swift in Sources */,
 				378170BD1BEA50F700EF39D9 /* OnboardingViewController.swift in Sources */,
