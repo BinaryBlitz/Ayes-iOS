@@ -7,5 +7,6 @@
 @import PNChart;
 @import UICountingLabel;
 @import SWRevealViewController;
+@import CountryPicker;
 #import "ResizableTextView.h"
 #import "Reachability.h"

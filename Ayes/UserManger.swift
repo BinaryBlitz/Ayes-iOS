@@ -47,7 +47,7 @@ class UserManager {
     case kSex:
       user?.sex = User.Sex(rawValue: value)
     case kRegion:
-      user?.region = User.Region(rawValue: value)
+      user?.region = value
     case kOccupation:
       user?.occupation = User.Occupation(rawValue: value)
     case kIncome:
@@ -92,7 +92,7 @@ class UserManager {
     case kSex:
       return user?.sex?.rawValue
     case kRegion:
-      return user?.region?.rawValue
+      return user?.region
     case kOccupation:
       return user?.occupation?.rawValue
     case kIncome:

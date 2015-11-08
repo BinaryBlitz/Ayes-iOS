@@ -122,6 +122,9 @@ extension SettingsTableViewController: MultipleChoiceControllerDelegate {
   func didChoseItem() {
     reloadContent()
     Settings.saveToUserDefaults()
+    ServerManager.sharedInstance.updateSettings { (success) -> Void in
+      print("settings uploaded: \(success)")
+    }
   }
 }
 

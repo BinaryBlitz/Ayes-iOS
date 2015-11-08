@@ -51,9 +51,9 @@ class QuestionnaireTableViewController: UITableViewController {
     navigationItem.backBarButtonItem = backItem
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     
-    if Settings.sharedInstance.country == Settings.Country.World {
-      items.removeAtIndex(items.indexOf(kRegion)!)
-    }
+//    if Settings.sharedInstance.country == Settings.Country.World {
+//      items.removeAtIndex(items.indexOf(kRegion)!)
+//    }
   }
   
   @IBAction func closeButtonAction(sender: AnyObject) {
@@ -84,6 +84,8 @@ class QuestionnaireTableViewController: UITableViewController {
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     if items[indexPath.row] ==  kBirthDate {
       performSegueWithIdentifier("dateChoice", sender: nil)
+    } else if items[indexPath.row] == kRegion && Settings.sharedInstance.country == Settings.Country.World {
+      performSegueWithIdentifier("countryChoice", sender: nil)
     } else {
       performSegueWithIdentifier("listChoice", sender: items[indexPath.row])
     }
@@ -101,6 +103,9 @@ class QuestionnaireTableViewController: UITableViewController {
       destination.item = itemKey
     } else if let destination = segue.destinationViewController as? DateChoiceTableViewController
         where segue.identifier == "dateChoice" {
+      destination.delegate = self
+    } else if let destination = segue.destinationViewController as? CountryPickerTableViewController
+        where segue.identifier == "countryChoice" {
       destination.delegate = self
     }
   }

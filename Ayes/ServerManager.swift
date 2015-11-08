@@ -108,6 +108,43 @@ class ServerManager {
     }
   }
   
+  func updateSettings(complition: ((success: Bool) -> Void)? = nil) -> Request? {
+    
+    let questionTime = Settings.sharedInstance.questionTime
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "HH"
+    dateFormatter.timeZone = NSTimeZone(name: "UTC")
+    let questionTimeUTC = dateFormatter.stringFromDate(questionTime)
+    
+    var userFields = [String: AnyObject]()
+    if let hour = Int(questionTimeUTC) {
+      userFields["preferred_time"] = hour
+    }
+    
+    if let country = Settings.sharedInstance.country {
+      userFields["country"] = country.rawValue
+    }
+    
+    let parameters: [String: AnyObject] = ["user" : userFields]
+    
+    do {
+      let request = try self.patch("user/", params: parameters)
+      request.validate()
+      request.response { (_, resp, _, error) -> Void in
+        complition?(success: error == nil)
+      }
+      
+      return request
+    } catch(Errors.Unauthorized) {
+      print("Unauthorized")
+      complition?(success: false)
+      return nil
+    } catch {
+      complition?(success: false)
+      return nil
+    }
+  }
+  
   //MARK: - Questions
   
   func getQuestions(complition: ((questions: [Question]?) -> Void)? = nil) -> Request? {

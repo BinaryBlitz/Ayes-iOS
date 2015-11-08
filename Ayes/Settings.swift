@@ -18,7 +18,11 @@ import Foundation
   }
   
   var language: String?
-  var country: Country? = .Russia
+  var country: Country? = .Russia {
+    didSet {
+      UserManager.sharedManager.user?.region = nil
+    }
+  }
   var questionTime: NSDate
   
   override init() {

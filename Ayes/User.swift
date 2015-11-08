@@ -13,7 +13,7 @@ class User: NSObject, NSCoding {
   var birthDate: NSDate?
   var sex: Sex?
   
-  var region: Region?
+  var region: String?
   var occupation: Occupation?
   var income: Income?
   var education: Education?
@@ -138,7 +138,7 @@ class User: NSObject, NSCoding {
       sex = Sex(rawValue: rawSex)
     }
     if let value = aDecoder.decodeObjectForKey(kRegion) as? String {
-      region = Region(rawValue: value)
+      region = value
     }
     if let rawOccupation = aDecoder.decodeObjectForKey(kOccupation) as? String {
       occupation = Occupation(rawValue: rawOccupation)
@@ -157,7 +157,7 @@ class User: NSObject, NSCoding {
   @objc func encodeWithCoder(aCoder: NSCoder) {
     aCoder.encodeObject(birthDate, forKey: kBirthDate)
     aCoder.encodeObject(sex?.rawValue, forKey: kSex)
-    aCoder.encodeObject(region?.rawValue, forKey: kRegion)
+    aCoder.encodeObject(region, forKey: kRegion)
     aCoder.encodeObject(occupation?.rawValue, forKey: kOccupation)
     aCoder.encodeObject(income?.rawValue, forKey: kIncome)
     aCoder.encodeObject(education?.rawValue, forKey: kEducation)
