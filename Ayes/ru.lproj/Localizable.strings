@@ -6,6 +6,7 @@
   Copyright © 2015 BinaryBlitz. All rights reserved.
 */
 
+"No internet connection" = "Нет соединения с интенетом!";
 "Questionnaire" = "Моя анкета";
 "Favorites" = "Избранное";
 "Questions" = "Список вопросов";

@@ -2,7 +2,7 @@
 //  Question+CoreDataProperties.swift
 //  Ayes
 //
-//  Created by Dan Shevlyuk on 06/11/15.
+//  Created by Dan Shevlyuk on 08/11/15.
 //  Copyright © 2015 BinaryBlitz. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,12 +16,11 @@ extension Question {
 
     @NSManaged var content: String?
     @NSManaged var dateCreated: NSDate?
+    @NSManaged var epigraph: String?
     @NSManaged var id: NSNumber?
     @NSManaged var isFavorite: NSNumber?
-    @NSManaged var noAnswers: NSNumber?
     @NSManaged var rawState: NSNumber?
-    @NSManaged var totalAnswers: NSNumber?
-    @NSManaged var yesAnswers: NSNumber?
-    @NSManaged var epigraph: String?
+    @NSManaged var stat: NSManagedObject?
+    @NSManaged var similarStat: NSManagedObject?
 
 }

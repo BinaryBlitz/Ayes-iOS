@@ -22,6 +22,9 @@ class QuestionViewController: UIViewController {
   
   var question: Question!
   weak var delegate: QuestionChangesDelegate?
+  var statDelegate: StatDataDisplay?
+  
+  var statType: StatType = .Normal
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -114,11 +117,39 @@ class QuestionViewController: UIViewController {
       return
     }
     
+    if statType == .Similar {
+      sameAsMeButton.setTitle(LocalizeHelper.localizeStringForKey("Same as me"), forState: .Normal)
+      statType = .Normal
+      statDelegate?.didChangeStatType(StatType.Normal)
+      return
+    }
+    
     if user.isAllFieldsFilled() {
-      let alert = UIAlertController(title: nil, message: "Same as me", preferredStyle: .Alert)
-      alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-      presentViewController(alert, animated: true, completion: nil)
-      //TODO: request 'same as me' stuff
+      let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+      indicator.frame = CGRect(x: 0.0, y: 0.0, width: 70.0, height: 70.0)
+      indicator.layer.cornerRadius = 3
+      indicator.backgroundColor = UIColor.darkVioletPrimaryColor()
+      indicator.center = view.center
+      indicator.center.y -= 120
+      view.addSubview(indicator)
+      view.bringSubviewToFront(indicator)
+      
+      indicator.startAnimating()
+      ServerManager.sharedInstance.getSimilarAnswersForQuestion(question) { (stat) in
+        indicator.stopAnimating()
+        if let stat = stat {
+          self.question.similarStat = stat
+          NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
+          self.statType = .Similar
+          self.sameAsMeButton.setTitle(LocalizeHelper.localizeStringForKey("All"), forState: .Normal)
+          self.statDelegate?.didChangeStatType(StatType.Similar)
+        } else {
+          let alert = UIAlertController(title: nil, message: LocalizeHelper.localizeStringForKey("No internet connection"), preferredStyle: .Alert)
+          alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+          self.presentViewController(alert, animated: true, completion: nil)
+        }
+      }
+      
     } else {
       let alert = UIAlertController(title: LocalizeHelper.localizeStringForKey("Questionnaire"), message: LocalizeHelper.localizeStringForKey("notFilledAlert"), preferredStyle: .Alert)
       alert.addAction(
@@ -176,6 +207,7 @@ class QuestionViewController: UIViewController {
     if let controls = controls {
       let statViewController = storyboard!.instantiateViewControllerWithIdentifier("resultsViewController") as! QuestionResultsViewController
       statViewController.question = question
+      statDelegate = statViewController
       statViewController.view.frame = controls.view.frame
       
       controls.willMoveToParentViewController(nil)

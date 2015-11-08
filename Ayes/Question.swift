@@ -16,10 +16,7 @@ class Question: NSManagedObject {
     guard let id = json["id"].int,
       content = json["content"].string,
       createdAtString = json["created_at"].string,
-      epigraph = json["epigraph"].string,
-      positive = json["answers"]["positive"].int,
-      negative = json["answers"]["negative"].int,
-      neutral = json["answers"]["neutral"].int
+      epigraph = json["epigraph"].string
       else {
         return nil
     }
@@ -30,22 +27,19 @@ class Question: NSManagedObject {
         q.epigraph = epigraph
         q.content = content
         q.dateCreated = NSDate(dateString: createdAtString) ?? NSDate()
-        q.yesAnswers = positive
-        q.noAnswers = negative
-        q.totalAnswers = q.yes + q.no + Float(neutral)
+        if let stat = q.stat as? Stat {
+          stat.updateWithJSON(json["answers"])
+        }
 
         return q
       }
     }
     
-    
     let question = Question.MR_createEntity()
     question.id = NSNumber(integer: id)
     question.content = content
     question.epigraph = epigraph
-    question.yesAnswers = Int(positive)
-    question.noAnswers = Int(negative)
-    question.totalAnswers = Int(question.yes + question.no) + (Int(neutral) ?? 0)
+    question.stat = Stat.createFromJSON(json["answers"])
     
     if let createdAt = NSDate(dateString: createdAtString) {
       question.dateCreated = createdAt
@@ -72,50 +66,6 @@ class Question: NSManagedObject {
     }
   }
   
-  var yes: Float {
-    return Float(yesAnswers ?? 0)
-  }
-  
-  var no: Float {
-    return Float(noAnswers ?? 0)
-  }
-  
-  var total: Float {
-    return Float(totalAnswers ?? 0)
-  }
-  
-  var totalYesNo: Float {
-    return yes + no
-  }
-  
-  var abstainCount: Float {
-    return total - (yes + no)
-  }
-  
-  var abstainPercent: Float {
-    if total == 0 {
-      return 0
-    }
-    
-    return (abstainCount / total) * 100
-  }
-  
-  var yesPercent: Float {
-    if totalYesNo == 0 {
-      return 0
-    }
-    
-    return (yes / totalYesNo) * 100
-  }
-  
-  var noPercent: Float {
-    if totalYesNo == 0 {
-      return 0
-    }
-    
-    return (no / totalYesNo) * 100
-  }
-  
   var favorite: Bool {
     guard let favorite = isFavorite else {
       return false
@@ -126,15 +76,17 @@ class Question: NSManagedObject {
   
   func updateState(state: QuestionState) {
     self.state = state
+    guard let stat = stat as? Stat else {
+      return
+    }
+    
     switch state {
     case .No:
-      noAnswers = NSNumber(integer: (noAnswers ?? 0).integerValue + 1)
-      totalAnswers = NSNumber(integer: (totalAnswers ?? 0).integerValue + 1)
+      stat.negative = NSNumber(integer: stat.no + 1)
     case .Yes:
-      yesAnswers = NSNumber(integer: (yesAnswers ?? 0).integerValue + 1)
-      totalAnswers = NSNumber(integer: (totalAnswers ?? 0).integerValue + 1)
+      stat.positive = NSNumber(integer: stat.yes + 1)
     case .Skip:
-      totalAnswers = NSNumber(integer: (totalAnswers ?? 0).integerValue + 1)
+      stat.neutral = NSNumber(integer: stat.skip + 1)
     case .NoAnswer:
       fatalError("You cannot change state to noAnswer")
     }

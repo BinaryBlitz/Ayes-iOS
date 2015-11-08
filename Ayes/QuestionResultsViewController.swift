@@ -20,6 +20,7 @@ class QuestionResultsViewController: UIViewController {
   var pieChart: ResultsPieChart!
   
   var question: Question!
+  var statType: StatType = .Normal
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,28 +33,9 @@ class QuestionResultsViewController: UIViewController {
     noColorMarkView.backgroundColor = UIColor.redAccentColor()
     
     skipStatLabel.textColor = UIColor.whiteColor()
-    if Int(question.abstainPercent) == 0 {
-      skipStatLabel.hidden = true
-    } else {
-      skipStatLabel.hidden = false
-      skipStatLabel.text = LocalizeHelper.localizeStringForKey("Abstain")! + " \(Int(question.abstainPercent))%"
-    }
-    
     chartContainerView.backgroundColor = nil
-    setUpPieChartWithYesAnswers(question.yes, noAnswers: question.no)
-    setUpPercentageLabel()
-  }
-  
-  func setUpPercentageLabel() {
-    percentageLabel.textColor = UIColor.whiteColor()
-    percentageLabel.format = "%d%%"
-    percentageLabel.countFrom(0, to: question.yesPercent, withDuration: pieChart.duration)
-  }
-  
-  func setUpPieChartWithYesAnswers(yesAnswers: Float, noAnswers: Float) {
-    let items = [PNPieChartDataItem(value: yesAnswers, color: UIColor.greenAccentColor()),
-      PNPieChartDataItem(value: noAnswers, color: UIColor.redAccentColor())]
-    pieChart = ResultsPieChart(frame: CGRect(), items: items)
+    
+    pieChart = ResultsPieChart(frame: CGRect(), items: [])
     pieChart.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
     addContent(pieChart, toView: chartContainerView)
     pieChart.descriptionTextColor = UIColor.whiteColor()
@@ -62,6 +44,33 @@ class QuestionResultsViewController: UIViewController {
     pieChart.circleThickness = 10
     pieChart.shouldHighlightSectorOnTouch = false
     pieChart.labelPercentageCutoff = 100
+    pieChart.strokeChart()
+    let stat = question.stat as! Stat
+    update(stat)
+  }
+  
+  func update(stat: Stat) {
+    if stat.abstainPercent == 0 {
+      skipStatLabel.hidden = true
+    } else {
+      skipStatLabel.hidden = false
+      skipStatLabel.text = LocalizeHelper.localizeStringForKey("Abstain")! + " \(stat.abstainPercent)%"
+    }
+    
+    setUpPieChartWithYesAnswers(stat.yes, noAnswers: stat.no)
+    setUpPercentageLabel(stat.yesPercent)
+  }
+  
+  func setUpPercentageLabel(yesPercent: Int) {
+    percentageLabel.textColor = UIColor.whiteColor()
+    percentageLabel.format = "%d%%"
+    percentageLabel.countFrom(0, to: Float(yesPercent), withDuration: pieChart.duration)
+  }
+  
+  func setUpPieChartWithYesAnswers(yesAnswers: Int, noAnswers: Int) {
+    let items = [PNPieChartDataItem(value: Float(yesAnswers), color: UIColor.greenAccentColor()),
+      PNPieChartDataItem(value: Float(noAnswers), color: UIColor.redAccentColor())]
+    pieChart.updateChartData(items)
     pieChart.strokeChart()
   }
   
@@ -73,5 +82,16 @@ class QuestionResultsViewController: UIViewController {
     let trallingConstaint = NSLayoutConstraint(item: content, attribute: .Trailing, relatedBy: .Equal, toItem: contentView, attribute: .Trailing, multiplier: 1, constant: 0)
     let leadingConstraint = NSLayoutConstraint(item: content, attribute: .Leading, relatedBy: .Equal, toItem: contentView, attribute: .Leading, multiplier: 1, constant: 0)
     contentView.addConstraints([topConstraint, bottomContraint, leadingConstraint, trallingConstaint])
+  }
+}
+
+extension QuestionResultsViewController: StatDataDisplay {
+  func didChangeStatType(type: StatType) {
+    if let similarStat = question.similarStat as? Stat where type == .Similar {
+      update(similarStat)
+    } else {
+      let stat = question.stat as! Stat
+      update(stat)
+    }
   }
 }

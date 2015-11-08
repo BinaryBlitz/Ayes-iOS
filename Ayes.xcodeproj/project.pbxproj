@@ -67,6 +67,9 @@
 		37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EF1BC7EBA800FA7A6B /* Question.swift */; };
 		37E9D1DC1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E9D1DB1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift */; };
 		37EF0C1C1BCAC66800BA88EA /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */; };
+		37FF386C1BEF78A200DB485C /* Stat+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FF386A1BEF78A200DB485C /* Stat+CoreDataProperties.swift */; };
+		37FF386D1BEF78A200DB485C /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FF386B1BEF78A200DB485C /* Stat.swift */; };
+		37FF38701BEF809500DB485C /* StatDataDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FF386F1BEF809500DB485C /* StatDataDisplay.swift */; };
 		66699200EF1CEDD69171B3EB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1039A30CDBD040BCB15D08E /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +152,9 @@
 		37E2A0F21BC8033300FA7A6B /* Ayes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ayes-Bridging-Header.h"; sourceTree = "<group>"; };
 		37E9D1DB1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PNPieChartDataItem+Float.swift"; sourceTree = "<group>"; };
 		37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		37FF386A1BEF78A200DB485C /* Stat+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stat+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		37FF386B1BEF78A200DB485C /* Stat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
+		37FF386F1BEF809500DB485C /* StatDataDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatDataDisplay.swift; sourceTree = "<group>"; };
 		E1039A30CDBD040BCB15D08E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DEA0F79349071E6297C527 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +191,7 @@
 			children = (
 				371A0E241BEDE73A00B9E955 /* Answer */,
 				371A0E251BEDE74400B9E955 /* Favorite */,
+				37FF386E1BEF78B200DB485C /* Stat */,
 				37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */,
 				37E2A0EF1BC7EBA800FA7A6B /* Question.swift */,
 				37C578481BCA966A005B4723 /* QuestionState.swift */,
@@ -314,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				37C02DAE1BD2E25A004AD482 /* QuestionChangesDelegate.swift */,
+				37FF386F1BEF809500DB485C /* StatDataDisplay.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -436,6 +444,15 @@
 				378170B51BEA3B6E00EF39D9 /* UIView+ImageWithView.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		37FF386E1BEF78B200DB485C /* Stat */ = {
+			isa = PBXGroup;
+			children = (
+				37FF386A1BEF78A200DB485C /* Stat+CoreDataProperties.swift */,
+				37FF386B1BEF78A200DB485C /* Stat.swift */,
+			);
+			name = Stat;
 			sourceTree = "<group>";
 		};
 		55C74367FE105E3B2056A93E /* Pods */ = {
@@ -646,6 +663,7 @@
 				371A0E231BEDE73100B9E955 /* Favorite.swift in Sources */,
 				373ED75C1BCC37BA003E7584 /* Settings.swift in Sources */,
 				37BF1C081BCD84610040B8E1 /* SetQuestionTimeTableViewController.swift in Sources */,
+				37FF386C1BEF78A200DB485C /* Stat+CoreDataProperties.swift in Sources */,
 				378170BD1BEA50F700EF39D9 /* OnboardingViewController.swift in Sources */,
 				37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */,
 				37154B881BCFC3A900639A8D /* QuestionResultsViewController.swift in Sources */,
@@ -654,12 +672,14 @@
 				3745EFBE1BDBE9D3008E12DC /* ListChoiceTableViewController.swift in Sources */,
 				37C578491BCA966A005B4723 /* QuestionState.swift in Sources */,
 				370D7B7A1BEAB23800B70D50 /* OnboardingPageContent.swift in Sources */,
+				37FF38701BEF809500DB485C /* StatDataDisplay.swift in Sources */,
 				37E9D1DC1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift in Sources */,
 				37C02DAF1BD2E25A004AD482 /* QuestionChangesDelegate.swift in Sources */,
 				373ED75A1BCC295D003E7584 /* ProViewController.swift in Sources */,
 				37C44A671BC31FDD001A6340 /* FavoritesViewController.swift in Sources */,
 				373ED7581BCC273B003E7584 /* SettingsTableViewController.swift in Sources */,
 				37C44A5F1BC31D95001A6340 /* SideBarViewController.swift in Sources */,
+				37FF386D1BEF78A200DB485C /* Stat.swift in Sources */,
 				37771D8E1BEF5753005B9398 /* CountryPickerTableViewController.swift in Sources */,
 				37202B581BD6CE6B00FCD1DB /* User.swift in Sources */,
 				37154B8C1BCFF23800639A8D /* ResultsPieChart.swift in Sources */,
