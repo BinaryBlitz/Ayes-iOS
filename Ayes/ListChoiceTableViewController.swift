@@ -10,7 +10,7 @@ import UIKit
 
 class ListChoiceTableViewController: UITableViewController {
   
-  @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
+//  @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
   var item: String!
   var selectedIndex: Int?
   weak var delegate: QuestionnaireDataDisplay?
@@ -21,7 +21,7 @@ class ListChoiceTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    saveBarButtonItem.title = LocalizeHelper.localizeStringForKey("Save")
+//    saveBarButtonItem.title = LocalizeHelper.localizeStringForKey("Save")
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 50
@@ -32,7 +32,7 @@ class ListChoiceTableViewController: UITableViewController {
   
   //MARK: - Actions
   
-  @IBAction func saveButtonAction(sender: AnyObject) {
+  func saveAction(sender: AnyObject) {
     if let selectedIndex = selectedIndex {
       let selectedOption = options[selectedIndex]
       UserManager.sharedManager.updateKey(item, withValue: selectedOption)
@@ -75,6 +75,8 @@ class ListChoiceTableViewController: UITableViewController {
     }
     cell?.accessoryType = .Checkmark
     self.selectedIndex = indexPath.row
+    
+    saveAction(self)
   }
   
 }
