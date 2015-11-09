@@ -80,8 +80,8 @@ class HomeTableViewController: UITableViewController {
   func refreshBegin(refreshEnd: () -> Void) {
     ServerManager.sharedInstance.getQuestions { (questions) -> Void in
       defer { refreshEnd() }
-      if let questions = questions {
-        self.questions = questions
+      if let _ = questions {
+        self.questions = Question.findAll() as! [Question]
       }
     }
   }

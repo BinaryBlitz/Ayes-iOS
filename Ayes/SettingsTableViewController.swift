@@ -50,6 +50,12 @@ class SettingsTableViewController: UITableViewController {
       let label = cell.viewWithTag(1) as! UILabel
       label.enabled = switcher.on
     }
+    
+    if let token = ServerManager.sharedInstance.deviceToken where switcher.on {
+      ServerManager.sharedInstance.updateDeviceToken(token)
+    } else {
+      ServerManager.sharedInstance.updateDeviceToken("")
+    }
   }
   
   @IBAction func newQuestionsSwitch(sender: AnyObject) {
