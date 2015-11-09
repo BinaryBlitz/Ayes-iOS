@@ -12,7 +12,7 @@ class RevealViewController: SWRevealViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     rearViewRevealWidth = sideBarWidth
-    rearViewRevealDisplacement = 60
+    rearViewRevealDisplacement = 0
     toggleAnimationType = SWRevealToggleAnimationType.Spring
     toggleAnimationDuration = 0.2
     bounceBackOnOverdraw = false
