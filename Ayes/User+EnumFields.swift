@@ -90,6 +90,21 @@ extension User {
     }
   }
   
+  //MARK: - Locality
+  
+  enum Locality: String, QuestionnaireItem {
+    case Village = "village"
+    case UrbanVillage = "urban_village"
+    case Town = "town"
+    case City = "city"
+    case MillionCity = "million_city"
+    
+    static var optionsList: [String] {
+      return [Village.rawValue, UrbanVillage.rawValue, Town.rawValue,
+            City.rawValue, MillionCity.rawValue]
+    }
+  }
+  
 //  //MARK: - City
 //  
 //  enum City: String, QuestionnaireItem {

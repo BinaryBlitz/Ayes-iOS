@@ -24,6 +24,7 @@
 "income" = "Income";
 "education" = "Education";
 "relationship" = "Relationship";
+"locality" = "Locality";
 
 "notFilledAlert" = "To use 'same as me' faeture you have to fill all fields in your Questionnaire.";
 
@@ -63,6 +64,11 @@
 "civil_union" = "Domestic partnership";
 "widow" = "Widower";
 
+"village" = "Village";
+"urban_village" = "Urban village";
+"town" = "Town";
+"city" = "City";
+"million_city" = "Million city";
 
 "AD" = "Adygeya, Respublika";
 "AL" = "Altay, Respublika";

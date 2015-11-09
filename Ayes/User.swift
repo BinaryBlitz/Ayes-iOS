@@ -14,6 +14,7 @@ class User: NSObject, NSCoding {
   var sex: Sex?
   
   var region: String?
+  var locality: Locality?
   var occupation: Occupation?
   var income: Income?
   var education: Education?
@@ -126,7 +127,7 @@ class User: NSObject, NSCoding {
     RYA.rawValue, SA.rawValue, SAK.rawValue, SAM.rawValue, SAR.rawValue, SE.rawValue, SMO.rawValue, SPE.rawValue,
     STA.rawValue, SVE.rawValue, TA.rawValue, TAM.rawValue, TOM.rawValue, TUL.rawValue, TVE.rawValue, TY.rawValue, TYU.rawValue,
     UD.rawValue, ULY.rawValue, VGG.rawValue, VLA.rawValue, VLG.rawValue, VOR.rawValue, YAN.rawValue, YAR.rawValue, YEV.rawValue,
-    ZAB.rawValue]
+    ZAB.rawValue].sort()
     }
   }
   
@@ -139,6 +140,9 @@ class User: NSObject, NSCoding {
     }
     if let value = aDecoder.decodeObjectForKey(kRegion) as? String {
       region = value
+    }
+    if let rawLocality = aDecoder.decodeObjectForKey(kLocality) as? String {
+      locality = Locality(rawValue: rawLocality)
     }
     if let rawOccupation = aDecoder.decodeObjectForKey(kOccupation) as? String {
       occupation = Occupation(rawValue: rawOccupation)
@@ -158,6 +162,7 @@ class User: NSObject, NSCoding {
     aCoder.encodeObject(birthDate, forKey: kBirthDate)
     aCoder.encodeObject(sex?.rawValue, forKey: kSex)
     aCoder.encodeObject(region, forKey: kRegion)
+    aCoder.encodeObject(locality?.rawValue, forKey: kLocality)
     aCoder.encodeObject(occupation?.rawValue, forKey: kOccupation)
     aCoder.encodeObject(income?.rawValue, forKey: kIncome)
     aCoder.encodeObject(education?.rawValue, forKey: kEducation)

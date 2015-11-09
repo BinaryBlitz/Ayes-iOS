@@ -51,9 +51,10 @@ class QuestionnaireTableViewController: UITableViewController {
     navigationItem.backBarButtonItem = backItem
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     
-//    if Settings.sharedInstance.country == Settings.Country.World {
-//      items.removeAtIndex(items.indexOf(kRegion)!)
-//    }
+    if let localityIndex = items.indexOf(kLocality)
+        where Settings.sharedInstance.country == Settings.Country.World {
+      items.removeAtIndex(localityIndex)
+    }
   }
   
   @IBAction func closeButtonAction(sender: AnyObject) {
@@ -127,6 +128,18 @@ extension QuestionnaireTableViewController: SWRevealViewControllerDelegate {
 
 extension QuestionnaireTableViewController: QuestionnaireDataDisplay {
   func didUpdateValues() {
+    if let region = UserManager.sharedManager.valueForKey(kRegion),
+        localityIndex = items.indexOf(kLocality)
+        where region == "MOW" || region == "SPE" {
+      
+      items.removeAtIndex(localityIndex)
+      UserManager.sharedManager.updateKey(kLocality, withValue: "")
+    } else if let regionIndex = items.indexOf(kRegion)
+        where Settings.sharedInstance.country == Settings.Country.Russia &&
+        items.indexOf(kLocality) == nil {
+      items.insert(kLocality, atIndex: regionIndex + 1)
+    }
+    
     UserManager.sharedManager.saveToUserDefaults()
     ServerManager.sharedInstance.updateUser { (success) -> Void in
       print("user updated with success: \(success)")

@@ -9,6 +9,7 @@
 internal let kBirthDate = "birthdate"
 internal let kSex = "gender"
 internal let kRegion = "region"
+internal let kLocality = "locality"
 internal let kCity = "city"
 internal let kOccupation = "occupation"
 internal let kIncome = "income"
@@ -28,9 +29,8 @@ class UserManager {
   }
   
   var avalableKeys: [String] {
-    return [kBirthDate, kSex, kRegion,
-      kOccupation, kIncome,
-      kEducation, kRelationship]
+    return [kBirthDate, kSex, kRegion, kLocality,
+      kOccupation, kIncome, kEducation, kRelationship]
   }
   
   let dateFormatter: NSDateFormatter
@@ -48,6 +48,8 @@ class UserManager {
       user?.sex = User.Sex(rawValue: value)
     case kRegion:
       user?.region = value
+    case kLocality:
+      user?.locality = User.Locality(rawValue: value)
     case kOccupation:
       user?.occupation = User.Occupation(rawValue: value)
     case kIncome:
@@ -69,6 +71,8 @@ class UserManager {
       return User.Sex.optionsList
     case kRegion:
       return User.Region.optionsList
+    case kLocality:
+      return User.Locality.optionsList
     case kOccupation:
       return User.Occupation.optionsList
     case kIncome:
@@ -93,6 +97,8 @@ class UserManager {
       return user?.sex?.rawValue
     case kRegion:
       return user?.region
+    case kLocality:
+      return user?.locality?.rawValue
     case kOccupation:
       return user?.occupation?.rawValue
     case kIncome:
