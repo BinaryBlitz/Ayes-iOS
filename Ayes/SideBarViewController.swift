@@ -18,8 +18,8 @@ class SideBarViewController: UIViewController {
   @IBOutlet weak var favoritesButton: UIButton!
   @IBOutlet weak var homeButton: UIButton!
   @IBOutlet weak var buttonWidthLayoutConstraint: NSLayoutConstraint!
-  
   @IBOutlet var buttonsSpacingConstaraints: [NSLayoutConstraint]!
+  
   override func viewWillAppear(animated: Bool) {
     settingsButton.setTitle(LocalizeHelper.localizeStringForKey("Settings"), forState: .Normal)
     proButton.setTitle(LocalizeHelper.localizeStringForKey("Pro Version"), forState: .Normal)

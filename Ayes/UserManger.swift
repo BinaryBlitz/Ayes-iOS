@@ -16,11 +16,12 @@ internal let kIncome = "income"
 internal let kEducation = "education"
 internal let kRelationship = "relationship"
 
-/// Helps with shared user instance
+/// Helps to manage user model
 class UserManager {
   
   static let sharedManager = UserManager()
   private let kUser = "ayesUser"
+  var lastEditDate = NSDate()
   
   var user: User? {
     didSet {

@@ -22,13 +22,21 @@ class SettingsTableViewController: UITableViewController {
   @IBOutlet weak var favoriteQuestionsLabel: UILabel!
   @IBOutlet var notificationsCells: [UITableViewCell]!
   @IBOutlet weak var mainNotificationCell: UITableViewCell!
+  
+  let gesturesView = UIView()
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    // Side Bar Gestures
+    
+    gesturesView.frame = tableView.frame
+    
     if let revealViewController = revealViewController() {
       menuBarButtonItem.target = revealViewController
       menuBarButtonItem.action = "revealToggle:"
+      gesturesView.addGestureRecognizer(revealViewController.panGestureRecognizer())
+      gesturesView.addGestureRecognizer(revealViewController.tapGestureRecognizer())
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
       revealViewController.delegate = self
     }
@@ -154,14 +162,15 @@ extension SettingsTableViewController: MultipleChoiceControllerDelegate {
   }
 }
 
-//MARK: - SWRevealViewControllerDelegate
-
 extension SettingsTableViewController: SWRevealViewControllerDelegate {
-  func revealController(revealController: SWRevealViewController!, didMoveToPosition position: FrontViewPosition) {
-    tableView.userInteractionEnabled = position == .Left
-  }
   
-  func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
-    tableView.userInteractionEnabled = position == .Left
+  func revealController(revealController: SWRevealViewController!, didMoveToPosition position: FrontViewPosition) {
+    if position == .Left {
+      gesturesView.removeFromSuperview()
+      tableView.scrollEnabled = true
+    } else {
+      view.addSubview(gesturesView)
+      tableView.scrollEnabled = false
+    }
   }
 }

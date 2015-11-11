@@ -20,6 +20,7 @@ class QuestionnaireTableViewController: UITableViewController {
   var menuBarButtonItem: UIBarButtonItem?
   var items = UserManager.sharedManager.avalableKeys
   var style: QuestionnaireControllerStyle = .Normal
+  let gesturesView = UIView()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,9 +39,13 @@ class QuestionnaireTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = nil
       }
       
+      gesturesView.frame = tableView.frame
+      
       if let revealViewController = revealViewController() {
-        menuBarButtonItem?.target = revealViewController
-        menuBarButtonItem?.action = "revealToggle:"
+        menuBarButtonItem!.target = revealViewController
+        menuBarButtonItem!.action = "revealToggle:"
+        gesturesView.addGestureRecognizer(revealViewController.tapGestureRecognizer())
+        gesturesView.addGestureRecognizer(revealViewController.panGestureRecognizer())
         view.addGestureRecognizer(revealViewController.panGestureRecognizer())
         revealViewController.delegate = self
       }
@@ -112,18 +117,6 @@ class QuestionnaireTableViewController: UITableViewController {
   }
 }
 
-//MARK: - SWRevealViewControllerDelegate
-
-extension QuestionnaireTableViewController: SWRevealViewControllerDelegate {
-  func revealController(revealController: SWRevealViewController!, didMoveToPosition position: FrontViewPosition) {
-    tableView.userInteractionEnabled = position == .Left
-  }
-  
-  func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
-    tableView.userInteractionEnabled = position == .Left
-  }
-}
-
 //MARK: QuestionnaireDataDisplay 
 
 extension QuestionnaireTableViewController: QuestionnaireDataDisplay {
@@ -145,5 +138,18 @@ extension QuestionnaireTableViewController: QuestionnaireDataDisplay {
       print("user updated with success: \(success)")
     }
     tableView.reloadData()
+  }
+}
+
+extension QuestionnaireTableViewController: SWRevealViewControllerDelegate {
+  
+  func revealController(revealController: SWRevealViewController!, didMoveToPosition position: FrontViewPosition) {
+    if position == .Left {
+      gesturesView.removeFromSuperview()
+      tableView.scrollEnabled = true
+    } else {
+      view.addSubview(gesturesView)
+      tableView.scrollEnabled = false
+    }
   }
 }
