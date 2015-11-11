@@ -47,7 +47,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2301" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECh-8n-orb">
-                                <rect key="frame" x="18" y="72" width="57" height="30"/>
+                                <rect key="frame" x="18" y="72" width="56.5" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -87,26 +87,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xoN-hP-64R">
                                 <rect key="frame" x="0.0" y="112" width="600" height="422"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YO1-5z-KBt" customClass="ResizableTextView">
-                                        <rect key="frame" x="20" y="0.0" width="560" height="180"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Считаете ли вы, что ваш сосед плохо играет на своем сломаном рояле?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="YJi-O0-MMU">
+                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="DJ9-RM-be5"/>
-                                            <constraint firstAttribute="height" constant="98" id="OM1-Sd-cca"/>
-                                        </constraints>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation Lorem  ad minim veniam, quis nostrud exercitation Lorem Lorem</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="DJ9-RM-be5"/>
-                                                <exclude reference="OM1-Sd-cca"/>
-                                            </mask>
-                                        </variation>
-                                    </textView>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0w3-m3-sdW">
-                                        <rect key="frame" x="0.0" y="180" width="600" height="234"/>
+                                        <rect key="frame" x="0.0" y="210" width="600" height="204"/>
                                         <animations/>
                                         <connections>
                                             <segue destination="Ovu-dp-yN0" kind="embed" identifier="controlsSetUp" id="82b-AT-Noe"/>
@@ -117,12 +106,43 @@
                                 <constraints>
                                     <constraint firstItem="0w3-m3-sdW" firstAttribute="leading" secondItem="xoN-hP-64R" secondAttribute="leading" id="1on-t0-iQE"/>
                                     <constraint firstAttribute="bottom" secondItem="0w3-m3-sdW" secondAttribute="bottom" constant="8" id="2wY-Xf-slP"/>
-                                    <constraint firstItem="YO1-5z-KBt" firstAttribute="top" secondItem="xoN-hP-64R" secondAttribute="top" id="39j-Cx-h5m"/>
                                     <constraint firstAttribute="trailing" secondItem="0w3-m3-sdW" secondAttribute="trailing" id="4hO-ps-Kk7"/>
-                                    <constraint firstAttribute="trailing" secondItem="YO1-5z-KBt" secondAttribute="trailing" constant="20" id="73h-ZP-aHH"/>
-                                    <constraint firstItem="0w3-m3-sdW" firstAttribute="top" secondItem="YO1-5z-KBt" secondAttribute="bottom" id="Qc9-Ex-prH"/>
-                                    <constraint firstItem="YO1-5z-KBt" firstAttribute="leading" secondItem="xoN-hP-64R" secondAttribute="leading" constant="20" id="YOB-xk-Wxv"/>
+                                    <constraint firstAttribute="trailing" secondItem="YJi-O0-MMU" secondAttribute="trailing" id="SWN-kl-QyB">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                    </constraint>
+                                    <constraint firstItem="YJi-O0-MMU" firstAttribute="top" secondItem="xoN-hP-64R" secondAttribute="top" constant="8" id="XUD-2S-8fC"/>
+                                    <constraint firstItem="0w3-m3-sdW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YJi-O0-MMU" secondAttribute="bottom" constant="316" id="bbi-cV-r2m">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                    </constraint>
+                                    <constraint firstItem="YJi-O0-MMU" firstAttribute="leading" secondItem="xoN-hP-64R" secondAttribute="leading" constant="8" id="j5K-oh-WJr">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                    </constraint>
+                                    <constraint firstItem="0w3-m3-sdW" firstAttribute="height" secondItem="xoN-hP-64R" secondAttribute="height" multiplier="5:10" id="neA-A7-Bvp"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="YJi-O0-MMU"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="SWN-kl-QyB"/>
+                                        <exclude reference="XUD-2S-8fC"/>
+                                        <exclude reference="j5K-oh-WJr"/>
+                                        <exclude reference="bbi-cV-r2m"/>
+                                        <exclude reference="neA-A7-Bvp"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="YJi-O0-MMU"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="SWN-kl-QyB"/>
+                                        <include reference="XUD-2S-8fC"/>
+                                        <include reference="j5K-oh-WJr"/>
+                                        <include reference="bbi-cV-r2m"/>
+                                        <include reference="neA-A7-Bvp"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Если вы пропустите вопрос, то не сможете ответить на него позже." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkO-mx-T4M">
                                 <rect key="frame" x="48" y="535" width="516" height="65"/>
@@ -180,7 +200,6 @@
                             <constraint firstItem="yrq-Uy-bxI" firstAttribute="centerY" secondItem="RXf-qC-hro" secondAttribute="centerY" id="eMr-MY-Fln"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NkO-mx-T4M" secondAttribute="trailing" constant="16" id="ezJ-PM-srh"/>
                             <constraint firstItem="c7m-TE-fDQ" firstAttribute="leading" secondItem="rVj-jP-aDs" secondAttribute="leadingMargin" constant="-20" id="faC-8n-eVb"/>
-                            <constraint firstItem="YO1-5z-KBt" firstAttribute="height" secondItem="rVj-jP-aDs" secondAttribute="height" multiplier="6:20" id="gdC-wc-c3p"/>
                             <constraint firstItem="NkO-mx-T4M" firstAttribute="leading" secondItem="j5K-oE-QNs" secondAttribute="trailing" constant="-552" id="hm4-oJ-hZH"/>
                             <constraint firstItem="dCk-7Z-igs" firstAttribute="top" secondItem="j5K-oE-QNs" secondAttribute="bottom" id="iOq-dS-94X"/>
                             <constraint firstItem="xoN-hP-64R" firstAttribute="top" secondItem="c7m-TE-fDQ" secondAttribute="bottom" id="koh-yo-6IQ"/>
@@ -205,9 +224,9 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="contentTextView" destination="YO1-5z-KBt" id="KTZ-dm-cd9"/>
                         <outlet property="controlsContainer" destination="0w3-m3-sdW" id="TtF-6X-sN2"/>
                         <outlet property="otherUsersButton" destination="Wcm-Rr-9ZD" id="jEw-DX-B4Z"/>
+                        <outlet property="questionContentLabel" destination="YJi-O0-MMU" id="TYR-m6-Tan"/>
                         <outlet property="questionDateLabel" destination="RXf-qC-hro" id="WJE-Fm-z9M"/>
                         <outlet property="questionIdLabel" destination="ECh-8n-orb" id="BdY-mo-0V7"/>
                         <outlet property="questionWithResultsView" destination="xoN-hP-64R" id="RgW-y3-kBn"/>
@@ -218,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ekr-w2-dfv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2707" y="1093"/>
+            <point key="canvasLocation" x="2706" y="1092.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1io-zl-zab">
@@ -355,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YYj-Cb-x8i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3400" y="862"/>
+            <point key="canvasLocation" x="3654" y="858.75"/>
         </scene>
         <!--Question Controls View Controller-->
         <scene sceneID="I6R-gT-8Ig">
@@ -366,11 +385,11 @@
                         <viewControllerLayoutGuide type="bottom" id="utA-5B-OHh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JwV-d6-ZQR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="234"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="204"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOS-St-Nty">
-                                <rect key="frame" x="-2" y="0.0" width="300" height="234"/>
+                                <rect key="frame" x="-2" y="0.0" width="300" height="204"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPs-sR-02w">
                                         <rect key="frame" x="100" y="24" width="100" height="100"/>
@@ -402,14 +421,14 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T0g-tA-IRn">
-                                <rect key="frame" x="298" y="0.0" width="5" height="234"/>
+                                <rect key="frame" x="298" y="0.0" width="5" height="204"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="5" id="GpB-2K-vqF"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mez-j7-X5x">
-                                <rect key="frame" x="303" y="0.0" width="300" height="234"/>
+                                <rect key="frame" x="303" y="0.0" width="300" height="204"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVT-e0-92l">
                                         <rect key="frame" x="100" y="26" width="100" height="100"/>
@@ -483,7 +502,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYa-f9-hye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3400" y="1197"/>
+            <point key="canvasLocation" x="3594" y="1200.75"/>
         </scene>
     </scenes>
     <resources>

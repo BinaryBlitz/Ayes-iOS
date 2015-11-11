@@ -15,7 +15,7 @@ class QuestionViewController: UIViewController {
   @IBOutlet weak var controlsContainer: UIView!
   @IBOutlet weak var warningLabel: UILabel!
   @IBOutlet weak var warningIcon: UIImageView!
-  @IBOutlet weak var contentTextView: ResizableTextView!
+  @IBOutlet weak var questionContentLabel: UILabel!
   @IBOutlet weak var questionDateLabel: UILabel!
   @IBOutlet weak var questionIdLabel: UILabel!
   @IBOutlet weak var questionWithResultsView: UIView!
@@ -30,22 +30,21 @@ class QuestionViewController: UIViewController {
     super.viewDidLoad()
     
     view.backgroundColor = UIColor.violetPrimaryColor()
-    contentTextView.minimumFontSizeInPoints = 5
-    contentTextView.maximumFontSizeInPoints = 25
-    contentTextView.text = question.content!
     
-    if UIScreen.mainScreen().bounds.height == 480
-      && question.content?.characters.count >= 190 {
-        contentTextView.font = UIFont.systemFontOfSize(13)
-    } else if UIScreen.mainScreen().bounds.height == 568 {
-      if question.content?.characters.count > 210 {
-        contentTextView.font = UIFont.systemFontOfSize(14)
-      } else if question.content?.characters.count > 190 {
-        contentTextView.font = UIFont.systemFontOfSize(15)
+    if let content = question.content {
+      if let epigraph = question.epigraph where epigraph != "" {
+        let format = "%@\n\n%@"
+        let formattedString = String(format: format, epigraph, content)
+        let attributedString = NSMutableAttributedString(string: formattedString)
+        attributedString.addAttribute(NSFontAttributeName, value: UIFont.italicSystemFontOfSize(25), range: (formattedString as NSString).rangeOfString(epigraph))
+        
+        questionContentLabel.attributedText = attributedString
+      } else {
+        questionContentLabel.text = content
       }
     }
     
-    contentTextView.userInteractionEnabled  = false
+    
     let formatter = NSDateFormatter()
     formatter.dateFormat = "dd.MM.yyyy"
     questionDateLabel.text = formatter.stringFromDate(question.dateCreated ?? NSDate())
