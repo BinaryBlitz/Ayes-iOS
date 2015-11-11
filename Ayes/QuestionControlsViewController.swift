@@ -24,14 +24,14 @@ class QuestionControlsViewController: UIViewController {
     
     yesButton.setTitle(LocalizeHelper.localizeStringForKey("Yes"), forState: .Normal)
     yesButton.tintColor = UIColor.whiteColor()
-    yesButton.layer.cornerRadius = yesButton.frame.height / 2
+    yesButton.layer.cornerRadius = 45
     yesButton.backgroundColor = nil
-    yesButton.layer.borderWidth = 3
+    yesButton.layer.borderWidth = 2
     yesButton.layer.borderColor = UIColor.greenAccentColor().CGColor
     noButton.setTitle(LocalizeHelper.localizeStringForKey("No"), forState: .Normal)
-    noButton.layer.cornerRadius = noButton.frame.height / 2
+    noButton.layer.cornerRadius = 45
     noButton.backgroundColor = nil
-    noButton.layer.borderWidth = 3
+    noButton.layer.borderWidth = 2
     noButton.tintColor = UIColor.whiteColor()
     noButton.layer.borderColor = UIColor.redAccentColor().CGColor
     
