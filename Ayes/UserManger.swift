@@ -21,13 +21,15 @@ class UserManager {
   
   static let sharedManager = UserManager()
   private let kUser = "ayesUser"
-  var lastEditDate = NSDate()
   
   var user: User? {
     didSet {
       saveToUserDefaults()
     }
   }
+  
+  private var lastUpdate: NSDate?
+  var tmpUser: User?
   
   var avalableKeys: [String] {
     return [kBirthDate, kSex, kRegion, kLocality,
@@ -39,6 +41,33 @@ class UserManager {
   init() {
     dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = "dd.MM.yyyy"
+  }
+  
+  func canUpdateUser() -> Bool {
+    if let lastUpdate = lastUpdate {
+      let interval = lastUpdate.timeIntervalSinceNow
+      return interval >= 36288000
+    }
+    
+    if let tmp = tmpUser {
+      tmp.isAllFieldsFilled()
+      
+      return true
+    }
+    
+    return false
+  }
+  
+  func updateUserIfPossible() -> ((success: Bool) -> Void) {
+    if canUpdateUser() {
+      user = tmpUser
+      
+//      let complition = { (success: Bool) -> Void in
+//        if success
+//      }
+    }
+    
+    return { _ in return false }
   }
   
   func updateKey(key: String, withValue value: String) {

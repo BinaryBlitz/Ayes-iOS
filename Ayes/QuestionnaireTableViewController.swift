@@ -18,6 +18,7 @@ class QuestionnaireTableViewController: UITableViewController {
 
   var closeBarButtonItem: UIBarButtonItem?
   var menuBarButtonItem: UIBarButtonItem?
+  var saveBarButtonItem: UIBarButtonItem?
   var items = UserManager.sharedManager.avalableKeys
   var style: QuestionnaireControllerStyle = .Normal
   let gesturesView = UIView()
@@ -34,9 +35,11 @@ class QuestionnaireTableViewController: UITableViewController {
       }
     case .Normal:
       menuBarButtonItem = UIBarButtonItem(image: UIImage(named: "Menu"), style: .Plain, target: nil, action: "")
+      saveBarButtonItem = UIBarButtonItem(title: LocalizeHelper.localizeStringForKey("Save"),
+          style: .Done, target: self, action: "saveButtonAction:")
       if let menuButton = menuBarButtonItem {
         navigationItem.leftBarButtonItem = menuButton
-        navigationItem.rightBarButtonItem = nil
+        navigationItem.rightBarButtonItem = saveBarButtonItem
       }
       
       gesturesView.frame = tableView.frame
@@ -62,8 +65,35 @@ class QuestionnaireTableViewController: UITableViewController {
     }
   }
   
+  //MARK: - Actions
+  
   @IBAction func closeButtonAction(sender: AnyObject) {
     dismissViewControllerAnimated(true, completion: nil)
+  }
+  
+  func saveButtonAction(sender: AnyObject) {
+    let alert = UIAlertController(title: "Questionnaire".localize(),
+        message: "saveQuestionnaireWarning".localize(), preferredStyle: .Alert)
+    alert.addAction(UIAlertAction(title: "Save".localize(), style: UIAlertActionStyle.Default, handler: { (_) -> Void in
+      ServerManager.sharedInstance.updateUser { (success) -> Void in
+        print("user updated with success: \(success)")
+        
+        var message: String?
+        if success {
+          message = "Success!".localize()
+        } else {
+          message = "Error! Try again later.".localize()
+        }
+        
+        let complitionAlert = UIAlertController(title: nil, message: message, preferredStyle: .Alert)
+        complitionAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        self.presentViewController(complitionAlert, animated: true, completion: nil)
+      }
+    }))
+    
+    alert.addAction(UIAlertAction(title: "Cancel".localize(), style: .Cancel, handler: nil))
+    
+    presentViewController(alert, animated: true, completion: nil)
   }
   
   //MARK: - TableView data source
@@ -134,9 +164,6 @@ extension QuestionnaireTableViewController: QuestionnaireDataDisplay {
     }
     
     UserManager.sharedManager.saveToUserDefaults()
-    ServerManager.sharedInstance.updateUser { (success) -> Void in
-      print("user updated with success: \(success)")
-    }
     tableView.reloadData()
   }
 }

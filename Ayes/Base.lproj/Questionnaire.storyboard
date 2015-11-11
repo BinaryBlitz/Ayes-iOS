@@ -50,7 +50,9 @@
                             <outlet property="delegate" destination="IBQ-Tm-WSM" id="Rby-sE-63h"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Анкета пользователя" id="ZPe-ZE-m4b"/>
+                    <navigationItem key="navigationItem" title="Анкета пользователя" id="ZPe-ZE-m4b">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="1mq-3t-Ina"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="K93-58-bZZ" kind="show" identifier="dateChoice" id="b6g-Od-Lf3"/>
                         <segue destination="OMB-aB-wOe" kind="show" identifier="listChoice" id="EB8-Gm-x3J"/>

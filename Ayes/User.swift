@@ -6,7 +6,6 @@
 //  Copyright © 2015 BinaryBlitz. All rights reserved.
 //
 import SwiftyJSON
-import YamlSwift
 
 class User: NSObject, NSCoding {
   
