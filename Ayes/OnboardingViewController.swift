@@ -11,7 +11,6 @@ import UIKit
 class OnboardingViewController: UIViewController {
   
   @IBOutlet weak var pageViewControllerContainer: UIView!
-  @IBOutlet weak var skipButton: UIButton!
   
   private let numberOfPages = 4
   
@@ -33,12 +32,6 @@ class OnboardingViewController: UIViewController {
     super.viewDidLoad()
     
     view.backgroundColor = UIColor.darkVioletPrimaryColor()
-  }
-  
-  //MARK - IBActions
-  
-  @IBAction func skipButtonAction(sender: AnyObject) {
-//    dismissViewControllerAnimated(true, completion: nil)
   }
   
   //MARK: - Navigation
