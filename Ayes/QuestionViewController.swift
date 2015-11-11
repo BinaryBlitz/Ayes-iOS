@@ -20,6 +20,8 @@ class QuestionViewController: UIViewController {
   @IBOutlet weak var questionIdLabel: UILabel!
   @IBOutlet weak var questionWithResultsView: UIView!
   
+  @IBOutlet var separationLineHeightConstraints: [NSLayoutConstraint]!
+  
   var question: Question!
   weak var delegate: QuestionChangesDelegate?
   var statDelegate: StatDataDisplay?
@@ -28,6 +30,10 @@ class QuestionViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    separationLineHeightConstraints.forEach { (heightConstraint) in
+       heightConstraint.constant = 1 / UIScreen.mainScreen().scale
+    }
     
     view.backgroundColor = UIColor.violetPrimaryColor()
     
