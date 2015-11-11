@@ -105,12 +105,16 @@
                                 <animations/>
                                 <constraints>
                                     <constraint firstItem="0w3-m3-sdW" firstAttribute="leading" secondItem="xoN-hP-64R" secondAttribute="leading" id="1on-t0-iQE"/>
-                                    <constraint firstAttribute="bottom" secondItem="0w3-m3-sdW" secondAttribute="bottom" constant="8" id="2wY-Xf-slP"/>
+                                    <constraint firstAttribute="bottom" secondItem="0w3-m3-sdW" secondAttribute="bottom" constant="8" id="2wY-Xf-slP">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="1"/>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="0w3-m3-sdW" secondAttribute="trailing" id="4hO-ps-Kk7"/>
                                     <constraint firstAttribute="trailing" secondItem="YJi-O0-MMU" secondAttribute="trailing" id="SWN-kl-QyB">
                                         <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                                     </constraint>
-                                    <constraint firstItem="YJi-O0-MMU" firstAttribute="top" secondItem="xoN-hP-64R" secondAttribute="top" constant="8" id="XUD-2S-8fC"/>
+                                    <constraint firstItem="YJi-O0-MMU" firstAttribute="top" secondItem="xoN-hP-64R" secondAttribute="top" constant="8" id="XUD-2S-8fC">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="4"/>
+                                    </constraint>
                                     <constraint firstItem="0w3-m3-sdW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YJi-O0-MMU" secondAttribute="bottom" constant="316" id="bbi-cV-r2m">
                                         <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                                     </constraint>
@@ -339,19 +343,29 @@
                         </subviews>
                         <animations/>
                         <constraints>
-                            <constraint firstItem="DGu-Bj-fH6" firstAttribute="height" secondItem="FQR-KW-wZR" secondAttribute="height" multiplier="9:12" id="4Dc-W9-7Xj"/>
+                            <constraint firstItem="DGu-Bj-fH6" firstAttribute="height" secondItem="FQR-KW-wZR" secondAttribute="height" multiplier="10:12" id="4Dc-W9-7Xj"/>
                             <constraint firstItem="HNI-jn-dgJ" firstAttribute="top" secondItem="DGu-Bj-fH6" secondAttribute="bottom" constant="17" id="5QK-PW-G7F"/>
                             <constraint firstItem="c0O-SR-hVj" firstAttribute="centerX" secondItem="JTv-GV-D0i" secondAttribute="centerX" id="5ku-K2-q2N"/>
                             <constraint firstItem="DGu-Bj-fH6" firstAttribute="centerX" secondItem="FQR-KW-wZR" secondAttribute="centerX" id="BCq-qP-QOo"/>
                             <constraint firstItem="JTv-GV-D0i" firstAttribute="top" secondItem="c0O-SR-hVj" secondAttribute="bottom" constant="8" id="CFQ-lg-B90"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="JTv-GV-D0i" secondAttribute="trailing" constant="20" id="WBj-28-58g"/>
-                            <constraint firstItem="AEp-eH-1ty" firstAttribute="leading" secondItem="FQR-KW-wZR" secondAttribute="leadingMargin" constant="20" id="XjL-47-0DE"/>
-                            <constraint firstItem="6Wi-vl-EIv" firstAttribute="top" secondItem="JTv-GV-D0i" secondAttribute="bottom" constant="30" id="YWe-cF-fWT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JTv-GV-D0i" secondAttribute="trailing" constant="20" id="WBj-28-58g">
+                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="AEp-eH-1ty" firstAttribute="leading" secondItem="FQR-KW-wZR" secondAttribute="leadingMargin" constant="20" id="XjL-47-0DE">
+                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="6Wi-vl-EIv" firstAttribute="top" secondItem="JTv-GV-D0i" secondAttribute="bottom" constant="30" id="YWe-cF-fWT">
+                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                            </constraint>
                             <constraint firstItem="ODQ-Sv-cjH" firstAttribute="centerX" secondItem="AEp-eH-1ty" secondAttribute="centerX" id="a1m-7K-tA7"/>
                             <constraint firstItem="6Wi-vl-EIv" firstAttribute="top" secondItem="HNI-jn-dgJ" secondAttribute="bottom" constant="7" id="ato-Uv-gld"/>
-                            <constraint firstItem="6Wi-vl-EIv" firstAttribute="top" secondItem="AEp-eH-1ty" secondAttribute="bottom" constant="30" id="d4l-T5-TFL"/>
+                            <constraint firstItem="6Wi-vl-EIv" firstAttribute="top" secondItem="AEp-eH-1ty" secondAttribute="bottom" constant="30" id="d4l-T5-TFL">
+                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                            </constraint>
                             <constraint firstItem="HNI-jn-dgJ" firstAttribute="centerX" secondItem="DGu-Bj-fH6" secondAttribute="centerX" id="o13-s7-PyL"/>
-                            <constraint firstItem="DGu-Bj-fH6" firstAttribute="top" secondItem="45V-Gl-ieh" secondAttribute="bottom" constant="10" id="u5L-Eb-aSV"/>
+                            <constraint firstItem="DGu-Bj-fH6" firstAttribute="top" secondItem="45V-Gl-ieh" secondAttribute="bottom" constant="10" id="u5L-Eb-aSV">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-16"/>
+                            </constraint>
                             <constraint firstItem="AEp-eH-1ty" firstAttribute="top" secondItem="ODQ-Sv-cjH" secondAttribute="bottom" constant="8" id="zEx-FU-am9"/>
                         </constraints>
                         <variation key="default">
@@ -361,7 +375,7 @@
                         </variation>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="560" height="300"/>
+                    <size key="freeformSize" width="400" height="330"/>
                     <connections>
                         <outlet property="chartContainerView" destination="DGu-Bj-fH6" id="WM1-zj-hqG"/>
                         <outlet property="noColorMarkView" destination="c0O-SR-hVj" id="dk6-D6-N54"/>
