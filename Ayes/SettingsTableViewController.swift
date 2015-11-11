@@ -21,6 +21,7 @@ class SettingsTableViewController: UITableViewController {
   @IBOutlet weak var newQuestionsnotificationLabel: UILabel!
   @IBOutlet weak var favoriteQuestionsLabel: UILabel!
   @IBOutlet var notificationsCells: [UITableViewCell]!
+  @IBOutlet weak var mainNotificationCell: UITableViewCell!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,6 +36,25 @@ class SettingsTableViewController: UITableViewController {
     reloadContent()
     
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
+    
+    let registered = UIApplication.sharedApplication().isRegisteredForRemoteNotifications()
+    
+    if let sw = mainNotificationCell.viewWithTag(2) as? UISwitch {
+      sw.on = registered
+    }
+    
+    for cell in notificationsCells {
+      //set up switch
+      let sw = cell.viewWithTag(2) as! UISwitch
+      sw.setOn(registered, animated: true)
+      sw.enabled = registered
+      
+      //set up label
+      let label = cell.viewWithTag(1) as! UILabel
+      label.enabled = registered
+      
+      cell.userInteractionEnabled = registered
+    }
   }
   
   @IBAction func notificationsSwitch(sender: AnyObject) {
