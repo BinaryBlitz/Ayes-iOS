@@ -40,23 +40,37 @@ class FinalViewController: UIViewController {
     
     indicator.startAnimating()
     
+    // get api token
     ServerManager.sharedInstance.createUser { (success) -> Void in
-      indicator.stopAnimating()
       if success {
         NSUserDefaults.standardUserDefaults().setObject(ServerManager.sharedInstance.apiToken!, forKey: "apiToken")
-        NSNotificationCenter.defaultCenter().postNotificationName(QuestionsUpdateNotification, object: nil)
-        self.parentViewController?.dismissViewControllerAnimated(true, completion: nil)
-      } else {
-        let alert = UIAlertController(
-            title: "Ошибка",
-            message: "Не удалось! Проверьте ваше интернет соединение.",
-            preferredStyle: .Alert
-        )
         
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        // Get questions
+        ServerManager.sharedInstance.getQuestions { (questions) -> Void in
+          indicator.stopAnimating()
+          if questions != nil {
+            NSUserDefaults.standardUserDefaults().setObject("stuff", forKey: "onboarding")
+            NSNotificationCenter.defaultCenter().postNotificationName(QuestionsUpdateNotification, object: nil)
+            self.parentViewController?.dismissViewControllerAnimated(true, completion: nil)
+          } else {
+            self.presentErrorAlert()
+          }
+        }
+      } else {
+        self.presentErrorAlert()
       }
     }
+  }
+  
+  func presentErrorAlert() {
+    let alert = UIAlertController(
+        title: "Ошибка",
+        message: "Не удалось! Проверьте ваше интернет соединение.",
+        preferredStyle: .Alert
+    )
+    
+    alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+    self.presentViewController(alert, animated: true, completion: nil)
   }
 }
 

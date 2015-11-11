@@ -22,12 +22,10 @@ class HomeTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
    
-    if ServerManager.sharedInstance.apiToken == nil {
-      if let token = NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String {
-        ServerManager.sharedInstance.apiToken = token
-      } else if let onboarding = UIStoryboard(name: "Onboarding", bundle: nil).instantiateInitialViewController() {
-          navigationController?.presentViewController(onboarding, animated: false, completion: nil)
-      }
+    let onboardingMark = NSUserDefaults.standardUserDefaults().objectForKey("onboarding") as? String
+    if let onboarding = UIStoryboard(name: "Onboarding", bundle: nil).instantiateInitialViewController()
+        where onboardingMark == nil {
+        navigationController?.presentViewController(onboarding, animated: false, completion: nil)
     }
     
     if let revealViewController = revealViewController() {

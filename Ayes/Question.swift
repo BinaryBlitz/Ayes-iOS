@@ -21,9 +21,7 @@ class Question: NSManagedObject {
         return nil
     }
     
-    let questions = Question.findAllSortedBy("id", ascending: true) as! [Question]
-    for q in questions {
-      if q.id?.integerValue == id {
+    if let q = Question.MR_findFirstByAttribute("id", withValue: id) {
         q.epigraph = epigraph
         q.content = content
         q.dateCreated = NSDate(dateString: createdAtString) ?? NSDate()
@@ -32,7 +30,6 @@ class Question: NSManagedObject {
         }
 
         return q
-      }
     }
     
     let question = Question.MR_createEntity()

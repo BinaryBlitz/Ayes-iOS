@@ -25,7 +25,7 @@ class OnboardingViewController: UIViewController {
   
   let content = [
     PageContent(imageName: "tutorial1", text: "Вы можете отвечать на интересные вопросы и видеть, как ответили другие люди, похожие на вас и не очень."),
-    PageContent(imageName: "tutorial2", text: "Один вопрос - один клик «да» или «нет». 5 секунд - и вы знаете то, о чем и не думали раньше."),
+    PageContent(imageName: "tutorial2", text: "Один вопрос - один клик \"да\" или \"нет\". Ответы людей могут удивить вас"),
     PageContent(imageName: "tutorial3", text: "Что думают люди? Много ли у вас единомышленников? Один клик и вы получите ответ.")
   ]
 

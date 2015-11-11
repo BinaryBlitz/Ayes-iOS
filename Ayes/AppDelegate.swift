@@ -11,7 +11,7 @@ import MagicalRecord
 import Fabric
 import Crashlytics
 
-let sideBarWidth: CGFloat = 100
+let sideBarWidth: CGFloat = 101
 var sideBarButtonsWidth: CGFloat = 100
 let QuestionsUpdateNotification = "QuestionsUpdateNotification"
 
@@ -80,12 +80,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       ServerManager.sharedInstance.apiToken = token
       loadDeviceToken()
     } else {
-      ServerManager.sharedInstance.createUser { (success) -> Void in
-        if success {
-          NSUserDefaults.standardUserDefaults().setObject(ServerManager.sharedInstance.apiToken!, forKey: "apiToken")
-          NSNotificationCenter.defaultCenter().postNotificationName(QuestionsUpdateNotification, object: nil)
-        }
-      }
+      NSNotificationCenter.defaultCenter().postNotificationName(QuestionsUpdateNotification, object: nil)
+//      ServerManager.sharedInstance.createUser { (success) -> Void in
+//        if success {
+//          NSUserDefaults.standardUserDefaults().setObject(ServerManager.sharedInstance.apiToken!, forKey: "apiToken")
+//          NSNotificationCenter.defaultCenter().postNotificationName(QuestionsUpdateNotification, object: nil)
+//        }
+//      }
     }
   }
   

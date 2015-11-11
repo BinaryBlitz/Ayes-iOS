@@ -164,11 +164,25 @@ class ServerManager {
         if let jsonData = result.value {
           let json = JSON(jsonData)
           var questions = [Question]()
+          var questions_ids = [Int]()
+          
           for (_, subJson) in json {
+            if let id = subJson["id"].int {
+              questions_ids.append(id)
+            }
+            
             if let question = Question.createFromJSON(subJson) {
               questions.append(question)
             }
           }
+          
+          let allQuestions = Question.findAll() as! [Question]
+          for q in allQuestions {
+            if let id = q.id?.integerValue where !questions_ids.contains(id) {
+              q.MR_deleteEntity()
+            }
+          }
+          
           NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreWithCompletion(nil)
           complition?(questions: questions)
         }

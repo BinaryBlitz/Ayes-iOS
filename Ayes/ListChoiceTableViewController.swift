@@ -10,18 +10,17 @@ import UIKit
 
 class ListChoiceTableViewController: UITableViewController {
   
-//  @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
   var item: String!
   var selectedIndex: Int?
   weak var delegate: QuestionnaireDataDisplay?
+  
   var options: [String] {
-    return UserManager.sharedManager.optionsForKey(item).sort(<)
+    return UserManager.sharedManager.optionsForKey(item)
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
-//    saveBarButtonItem.title = LocalizeHelper.localizeStringForKey("Save")
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 50
@@ -38,6 +37,7 @@ class ListChoiceTableViewController: UITableViewController {
       UserManager.sharedManager.updateKey(item, withValue: selectedOption)
       delegate?.didUpdateValues()
     }
+    
     navigationController?.popToRootViewControllerAnimated(true)
   }
 
@@ -78,5 +78,4 @@ class ListChoiceTableViewController: UITableViewController {
     
     saveAction(self)
   }
-  
 }
