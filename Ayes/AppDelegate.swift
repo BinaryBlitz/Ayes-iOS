@@ -155,6 +155,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     NSUserDefaults.standardUserDefaults().setObject(token, forKey: "deviceToken")
     
     ServerManager.sharedInstance.updateDeviceToken(token)
+    NSNotificationCenter.defaultCenter().postNotificationName(OnboardingGoToFinalPageNotification, object: nil)
+  }
+  
+  func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+    NSNotificationCenter.defaultCenter().postNotificationName(OnboardingGoToFinalPageNotification, object: nil)
   }
 }
 

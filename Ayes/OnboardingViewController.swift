@@ -8,11 +8,15 @@
 
 import UIKit
 
+let OnboardingGoToFinalPageNotification = "OnboardingGoToNextPage"
+
 class OnboardingViewController: UIViewController {
   
   @IBOutlet weak var pageViewControllerContainer: UIView!
+  var pageViewController: UIPageViewController!
   
   private let numberOfPages = 4
+  var isPresentingFinal = false
   
   struct PageContent {
     var imageName: String
@@ -32,6 +36,17 @@ class OnboardingViewController: UIViewController {
     super.viewDidLoad()
     
     view.backgroundColor = UIColor.darkVioletPrimaryColor()
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "scrollToFinal", name: OnboardingGoToFinalPageNotification, object: nil)
+  }
+  
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
+  
+  func scrollToFinal() {
+    let finalViewController = storyboard?.instantiateViewControllerWithIdentifier("FinalViewController") as! FinalViewController
+    navigationController?.pushViewController(finalViewController, animated: true)
   }
   
   //MARK: - Navigation
@@ -41,7 +56,8 @@ class OnboardingViewController: UIViewController {
         where segue.identifier == "embedSegue" {
           
       destination.dataSource = self
-      destination.delegate = self
+      pageViewController = destination
+      
       
       if let initialViewController = viewControllerAtIndex(0) {
         destination.setViewControllers([initialViewController],
@@ -62,9 +78,12 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
     }
     
     if index == numberOfPages - 1 {
-      let finalViewController = storyboard?.instantiateViewControllerWithIdentifier("FinalViewController") as! FinalViewController
-      finalViewController.index = index
-      return finalViewController
+      let notificationsViewController =
+          storyboard?.instantiateViewControllerWithIdentifier("NotificationsViewController")
+          as! NotificationsViewController
+        notificationsViewController.index = index
+        
+        return notificationsViewController
     }
     
     let viewContoller = storyboard?.instantiateViewControllerWithIdentifier("PageContentViewController") as! PageContentViewController
@@ -103,7 +122,8 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
   }
 }
 
-//MARK: - UIPageViewControllerDelegate
-
-extension OnboardingViewController: UIPageViewControllerDelegate {
-}
+//
+////MARK: - UIPageViewControllerDelegate
+//
+//extension OnboardingViewController: UIPageViewControllerDelegate {
+//}

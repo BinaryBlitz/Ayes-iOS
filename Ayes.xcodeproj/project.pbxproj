@@ -34,6 +34,7 @@
 		3745EFC21BDC2DFA008E12DC /* User+EnumFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3745EFC11BDC2DFA008E12DC /* User+EnumFields.swift */; };
 		3745EFC41BDC2E3E008E12DC /* QuestionnaireItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3745EFC31BDC2E3E008E12DC /* QuestionnaireItem.swift */; };
 		375423B01BCEBAA1001CA639 /* QuestionControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375423AF1BCEBAA1001CA639 /* QuestionControlsViewController.swift */; };
+		375BFC631BF355B50057B396 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375BFC621BF355B50057B396 /* NotificationsViewController.swift */; };
 		376D13A91BCD117000F3EABC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 376D13AB1BCD117000F3EABC /* Localizable.strings */; };
 		376D13AD1BCD11F000F3EABC /* LocalizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */; };
 		376D13B01BCD19F100F3EABC /* ChooseLanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D13AF1BCD19F100F3EABC /* ChooseLanguageTableViewController.swift */; };
@@ -115,6 +116,7 @@
 		3745EFC11BDC2DFA008E12DC /* User+EnumFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+EnumFields.swift"; sourceTree = "<group>"; };
 		3745EFC31BDC2E3E008E12DC /* QuestionnaireItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireItem.swift; sourceTree = "<group>"; };
 		375423AF1BCEBAA1001CA639 /* QuestionControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionControlsViewController.swift; sourceTree = "<group>"; };
+		375BFC621BF355B50057B396 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		376D13AA1BCD117000F3EABC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizeHelper.swift; sourceTree = "<group>"; };
 		376D13AE1BCD187B00F3EABC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				37771D891BEEA4F3005B9398 /* Protocols */,
 				378170BC1BEA50F700EF39D9 /* OnboardingViewController.swift */,
 				378170BA1BEA4EFA00EF39D9 /* PageContentViewController.swift */,
+				375BFC621BF355B50057B396 /* NotificationsViewController.swift */,
 				370D7B771BEAB13900B70D50 /* FinalViewController.swift */,
 			);
 			name = Onboarding;
@@ -637,6 +640,7 @@
 				371AAE571BCEA84F007AC0F4 /* QuestionViewController.swift in Sources */,
 				37BB0F651BC3D8BB00DFFDED /* HomeTableViewController.swift in Sources */,
 				370415021BDD03360036A5F5 /* UserManger.swift in Sources */,
+				375BFC631BF355B50057B396 /* NotificationsViewController.swift in Sources */,
 				378170B61BEA3B6E00EF39D9 /* UIView+ImageWithView.swift in Sources */,
 				375423B01BCEBAA1001CA639 /* QuestionControlsViewController.swift in Sources */,
 				370D7B781BEAB13900B70D50 /* FinalViewController.swift in Sources */,

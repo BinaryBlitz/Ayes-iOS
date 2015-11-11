@@ -10,7 +10,6 @@ import UIKit
 
 class FinalViewController: UIViewController {
 
-  private var _index = 0
   @IBOutlet weak var startButton: UIButton!
   
   override func viewDidLoad() {
@@ -24,12 +23,6 @@ class FinalViewController: UIViewController {
   
   @IBAction func startButtonAction(sender: AnyObject) {
     
-    UIApplication.sharedApplication()
-        .registerUserNotificationSettings(
-            UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-        )
-    UIApplication.sharedApplication().registerForRemoteNotifications()
-
     let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
     indicator.frame = CGRect(x: 0.0, y: 0.0, width: 70.0, height: 70.0)
     indicator.layer.cornerRadius = 3
@@ -71,17 +64,5 @@ class FinalViewController: UIViewController {
     
     alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
     self.presentViewController(alert, animated: true, completion: nil)
-  }
-}
-
-extension FinalViewController: OnboardingPageContent {
-  
-  var index: Int {
-    get {
-      return _index
-    }
-    set {
-      _index = newValue
-    }
   }
 }
