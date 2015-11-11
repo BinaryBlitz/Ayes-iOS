@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionTableViewCell: UITableViewCell {
+class QuestionTableViewCell: MCSwipeTableViewCell {
 
   @IBOutlet weak var questionIndicatorIcon: UIImageView!
   @IBOutlet weak var contentTextView: UITextView!
@@ -31,9 +31,6 @@ class QuestionTableViewCell: UITableViewCell {
     
     contentView.backgroundColor = UIColor.lightGreenBackgroundColor()
   }
-
-  override func setSelected(selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-
-  }
+  
+  
 }

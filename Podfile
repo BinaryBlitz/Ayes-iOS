@@ -1,14 +1,13 @@
 platform :ios, '8.4'
 use_frameworks!
 
-pod 'Alamofire'
+pod 'Alamofire', '~> 2.0.0'
 pod 'SwiftyJSON'
 pod 'SWRevealViewController'
 pod 'MagicalRecord' 
-pod 'ActionSheetPicker-3.0'
 pod 'Fabric'
 pod 'Crashlytics'
 pod 'PNChart'
 pod 'UICountingLabel'
-pod 'YamlSwift'
 pod 'CountryPicker'
+pod 'MCSwipeTableViewCell'

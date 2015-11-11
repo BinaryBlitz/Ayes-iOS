@@ -89,6 +89,32 @@ extension FavoritesViewController: UITableViewDataSource {
     cell.questionStateIndicator.backgroundColor = question.state.getAccentColor()
     cell.questionIndicatorIcon.image = UIImage(named: "FavoriteBlack")
     
+    let bucketView = UIImageView(image: UIImage(named: "Trash"))
+    bucketView.contentMode = .Center
+    
+    cell.selectionStyle = .None
+    cell.defaultColor = UIColor.lightGreenBackgroundColor()
+    
+    cell.setSwipeGestureWithView(bucketView, color: UIColor.lightGreenBackgroundColor(),
+      mode: .Exit, state: .State3)
+      { (swipeCell, _, _) -> Void in
+        self.tableView.beginUpdates()
+        if let indexPath = self.tableView.indexPathForCell(swipeCell) {
+          let question = self.questions[indexPath.row]
+          question.isFavorite = nil
+          self.questions.removeAtIndex(indexPath.row)
+          if let id = question.id?.integerValue {
+            if let favorite = Favorite.MR_findFirstByAttribute("question_id", withValue: id) {
+              favorite.MR_deleteEntity()
+              NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
+            }
+          }
+          
+          self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+        self.tableView.endUpdates()
+    }
+    
     switch question.state {
     case .Skip:
       cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("Skipped")

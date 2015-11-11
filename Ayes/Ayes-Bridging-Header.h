@@ -8,4 +8,5 @@
 @import UICountingLabel;
 @import SWRevealViewController;
 @import CountryPicker;
+@import MCSwipeTableViewCell;
 #import "Reachability.h"
