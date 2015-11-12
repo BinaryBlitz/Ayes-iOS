@@ -19,6 +19,8 @@
 		371A0E231BEDE73100B9E955 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A0E1F1BEDE73100B9E955 /* Favorite.swift */; };
 		371AAE571BCEA84F007AC0F4 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371AAE561BCEA84F007AC0F4 /* QuestionViewController.swift */; };
 		371FB48E1BF40131009C8DD3 /* String+Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FB48D1BF40131009C8DD3 /* String+Localize.swift */; };
+		371FB4901BF4B472009C8DD3 /* ComplexUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FB48F1BF4B472009C8DD3 /* ComplexUser.swift */; };
+		371FB4921BF4BBB7009C8DD3 /* ComplexUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371FB4911BF4BBB7009C8DD3 /* ComplexUserManager.swift */; };
 		37202B561BD6C0AF00FCD1DB /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37202B551BD6C0AF00FCD1DB /* ServerManager.swift */; };
 		37202B581BD6CE6B00FCD1DB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37202B571BD6CE6B00FCD1DB /* User.swift */; };
 		37202B5C1BD6F90900FCD1DB /* NSDate+CreatedAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37202B5B1BD6F90900FCD1DB /* NSDate+CreatedAt.swift */; };
@@ -67,6 +69,7 @@
 		37E2A0ED1BC7E7E700FA7A6B /* Ayes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EB1BC7E7E700FA7A6B /* Ayes.xcdatamodeld */; };
 		37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EF1BC7EBA800FA7A6B /* Question.swift */; };
 		37E9D1DC1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E9D1DB1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift */; };
+		37EA41591BF518830007614A /* ComplexBirthDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EA41581BF518830007614A /* ComplexBirthDate.swift */; };
 		37EF0C1C1BCAC66800BA88EA /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */; };
 		37FF386C1BEF78A200DB485C /* Stat+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FF386A1BEF78A200DB485C /* Stat+CoreDataProperties.swift */; };
 		37FF386D1BEF78A200DB485C /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FF386B1BEF78A200DB485C /* Stat.swift */; };
@@ -98,6 +101,8 @@
 		371A0E1F1BEDE73100B9E955 /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		371AAE561BCEA84F007AC0F4 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		371FB48D1BF40131009C8DD3 /* String+Localize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localize.swift"; sourceTree = "<group>"; };
+		371FB48F1BF4B472009C8DD3 /* ComplexUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexUser.swift; sourceTree = "<group>"; };
+		371FB4911BF4BBB7009C8DD3 /* ComplexUserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexUserManager.swift; sourceTree = "<group>"; };
 		37202B551BD6C0AF00FCD1DB /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		37202B571BD6CE6B00FCD1DB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		37202B5B1BD6F90900FCD1DB /* NSDate+CreatedAt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+CreatedAt.swift"; sourceTree = "<group>"; };
@@ -152,6 +157,7 @@
 		37E2A0EF1BC7EBA800FA7A6B /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		37E2A0F21BC8033300FA7A6B /* Ayes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ayes-Bridging-Header.h"; sourceTree = "<group>"; };
 		37E9D1DB1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PNPieChartDataItem+Float.swift"; sourceTree = "<group>"; };
+		37EA41581BF518830007614A /* ComplexBirthDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexBirthDate.swift; sourceTree = "<group>"; };
 		37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		37FF386A1BEF78A200DB485C /* Stat+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stat+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		37FF386B1BEF78A200DB485C /* Stat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
@@ -203,10 +209,9 @@
 		371A0E1B1BEDE6E100B9E955 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				37202B571BD6CE6B00FCD1DB /* User.swift */,
-				3745EFC11BDC2DFA008E12DC /* User+EnumFields.swift */,
+				371FB4931BF4BBC1009C8DD3 /* ComplexUser */,
+				371FB4941BF4BBDE009C8DD3 /* User */,
 				3745EFC31BDC2E3E008E12DC /* QuestionnaireItem.swift */,
-				370415011BDD03360036A5F5 /* UserManger.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -227,6 +232,26 @@
 				371A0E1F1BEDE73100B9E955 /* Favorite.swift */,
 			);
 			name = Favorite;
+			sourceTree = "<group>";
+		};
+		371FB4931BF4BBC1009C8DD3 /* ComplexUser */ = {
+			isa = PBXGroup;
+			children = (
+				371FB48F1BF4B472009C8DD3 /* ComplexUser.swift */,
+				371FB4911BF4BBB7009C8DD3 /* ComplexUserManager.swift */,
+				37EA41581BF518830007614A /* ComplexBirthDate.swift */,
+			);
+			name = ComplexUser;
+			sourceTree = "<group>";
+		};
+		371FB4941BF4BBDE009C8DD3 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				37202B571BD6CE6B00FCD1DB /* User.swift */,
+				3745EFC11BDC2DFA008E12DC /* User+EnumFields.swift */,
+				370415011BDD03360036A5F5 /* UserManger.swift */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		372657CA1BC27520003383D1 = {
@@ -652,6 +677,7 @@
 				371FB48E1BF40131009C8DD3 /* String+Localize.swift in Sources */,
 				372657D91BC27520003383D1 /* QuestionnaireTableViewController.swift in Sources */,
 				37BB0F621BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */,
+				37EA41591BF518830007614A /* ComplexBirthDate.swift in Sources */,
 				376D13AD1BCD11F000F3EABC /* LocalizeHelper.swift in Sources */,
 				371A0E201BEDE73100B9E955 /* Answer+CoreDataProperties.swift in Sources */,
 				37E2A0ED1BC7E7E700FA7A6B /* Ayes.xcdatamodeld in Sources */,
@@ -667,6 +693,7 @@
 				3745EFBE1BDBE9D3008E12DC /* ListChoiceTableViewController.swift in Sources */,
 				37C578491BCA966A005B4723 /* QuestionState.swift in Sources */,
 				370D7B7A1BEAB23800B70D50 /* OnboardingPageContent.swift in Sources */,
+				371FB4921BF4BBB7009C8DD3 /* ComplexUserManager.swift in Sources */,
 				37FF38701BEF809500DB485C /* StatDataDisplay.swift in Sources */,
 				37E9D1DC1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift in Sources */,
 				37C02DAF1BD2E25A004AD482 /* QuestionChangesDelegate.swift in Sources */,
@@ -684,6 +711,7 @@
 				37BB0F691BC3DE8400DFFDED /* QuestionTableViewCell.swift in Sources */,
 				3745EFC41BDC2E3E008E12DC /* QuestionnaireItem.swift in Sources */,
 				3745EFC21BDC2DFA008E12DC /* User+EnumFields.swift in Sources */,
+				371FB4901BF4B472009C8DD3 /* ComplexUser.swift in Sources */,
 				378170BB1BEA4EFA00EF39D9 /* PageContentViewController.swift in Sources */,
 				37202B561BD6C0AF00FCD1DB /* ServerManager.swift in Sources */,
 				3745EFC01BDBE9E1008E12DC /* DateChoiceTableViewController.swift in Sources */,

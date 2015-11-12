@@ -14,11 +14,13 @@ class QuestionnaireTableViewController: UITableViewController {
   enum QuestionnaireControllerStyle {
     case Modal
     case Normal
+    case OtherUsers
   }
 
   var closeBarButtonItem: UIBarButtonItem?
   var menuBarButtonItem: UIBarButtonItem?
   var saveBarButtonItem: UIBarButtonItem?
+  var doneBarButtonItem: UIBarButtonItem?
   var items = UserManager.sharedManager.avalableKeys
   var style: QuestionnaireControllerStyle = .Normal
   let gesturesView = UIView()
@@ -27,6 +29,13 @@ class QuestionnaireTableViewController: UITableViewController {
     super.viewDidLoad()
     
     switch style {
+    case .OtherUsers:
+      //same button as close
+      doneBarButtonItem = UIBarButtonItem(title: "Done".localize(), style: .Done, target: self, action: "closeButtonAction:")
+      if let doneButton = doneBarButtonItem {
+        navigationItem.leftBarButtonItem = nil
+        navigationItem.rightBarButtonItem = doneButton
+      }
     case .Modal:
       closeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: "closeButtonAction:")
       if let closeButton = closeBarButtonItem {
@@ -109,8 +118,8 @@ class QuestionnaireTableViewController: UITableViewController {
     
     let key = items[indexPath.row]
     let item = UserManager.sharedManager.valueForKey(key)
-    cell.textLabel?.text = LocalizeHelper.localizeStringForKey(items[indexPath.row])
-    cell.detailTextLabel?.text = LocalizeHelper.localizeStringForKey(item ?? "")
+    cell.textLabel?.text = items[indexPath.row].localize()
+    cell.detailTextLabel?.text = (item ?? "").localize()
     
     return cell
   }
@@ -151,16 +160,22 @@ class QuestionnaireTableViewController: UITableViewController {
 
 extension QuestionnaireTableViewController: QuestionnaireDataDisplay {
   func didUpdateValues() {
-    if let region = UserManager.sharedManager.valueForKey(kRegion),
-        localityIndex = items.indexOf(kLocality)
-        where region == "MOW" || region == "SPE" {
-      
-      items.removeAtIndex(localityIndex)
-      UserManager.sharedManager.updateKey(kLocality, withValue: "")
-    } else if let regionIndex = items.indexOf(kRegion)
-        where Settings.sharedInstance.country == Settings.Country.Russia &&
-        items.indexOf(kLocality) == nil {
-      items.insert(kLocality, atIndex: regionIndex + 1)
+    if Settings.sharedInstance.country == Settings.Country.Russia {
+      if let region = UserManager.sharedManager.valueForKey(kRegion) {
+        if region == "MOW" || region == "SPE" {
+          if let localityIndex = items.indexOf(kLocality) {
+            items.removeAtIndex(localityIndex)
+          }
+        } else if items.indexOf(kLocality) == nil {
+          if let regionIndex = items.indexOf(kRegion) {
+            items.insert(kLocality, atIndex: regionIndex + 1)
+          }
+        }
+      }
+    } else {
+      if let localityIndex = items.indexOf(kLocality) {
+        items.removeAtIndex(localityIndex)
+      }
     }
     
     UserManager.sharedManager.saveToUserDefaults()

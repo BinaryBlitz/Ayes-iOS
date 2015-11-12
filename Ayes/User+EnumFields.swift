@@ -104,15 +104,4 @@ extension User {
             City.rawValue, MillionCity.rawValue]
     }
   }
-  
-//  //MARK: - City
-//  
-//  enum City: String, QuestionnaireItem {
-//    case Moscow
-//    case SPB
-//    
-//    static var optionsList: [String] {
-//      return [Moscow.rawValue, SPB.rawValue]
-//    }
-//  }
 }
