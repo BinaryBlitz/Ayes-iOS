@@ -26,6 +26,7 @@
 "relationship" = "Relationship";
 "locality" = "Locality";
 
+"saveQuestionnaireWarning" = "You can update your questionnaire only once a week.";
 "notFilledAlert" = "To use 'same as me' faeture you have to fill all fields in your Questionnaire.";
 
 "male" = "Male";

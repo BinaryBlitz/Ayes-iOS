@@ -22,13 +22,13 @@ class QuestionControlsViewController: UIViewController {
     
     view.backgroundColor = UIColor.violetPrimaryColor()
     
-    yesButton.setTitle(LocalizeHelper.localizeStringForKey("Yes"), forState: .Normal)
+    yesButton.setTitle("Yes".localize(), forState: .Normal)
     yesButton.tintColor = UIColor.whiteColor()
     yesButton.layer.cornerRadius = 45
     yesButton.backgroundColor = nil
     yesButton.layer.borderWidth = 2
     yesButton.layer.borderColor = UIColor.greenAccentColor().CGColor
-    noButton.setTitle(LocalizeHelper.localizeStringForKey("No"), forState: .Normal)
+    noButton.setTitle("No".localize(), forState: .Normal)
     noButton.layer.cornerRadius = 45
     noButton.backgroundColor = nil
     noButton.layer.borderWidth = 2
@@ -36,7 +36,7 @@ class QuestionControlsViewController: UIViewController {
     noButton.layer.borderColor = UIColor.redAccentColor().CGColor
     
     skipButton.tintColor = UIColor.whiteColor()
-    skipButton.setTitle(LocalizeHelper.localizeStringForKey("Skip"), forState: .Normal)
+    skipButton.setTitle("Skip".localize(), forState: .Normal)
   }
   
   func updateQuestionState(state: QuestionState) {

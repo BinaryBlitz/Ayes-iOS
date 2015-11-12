@@ -10,6 +10,7 @@ import UIKit
 
 class QuestionTableViewCell: MCSwipeTableViewCell {
 
+  @IBOutlet weak var cardView: UIView!
   @IBOutlet weak var questionIndicatorIcon: UIImageView!
   @IBOutlet weak var contentTextView: UITextView!
   @IBOutlet weak var questionStatusLabel: UILabel!
@@ -20,6 +21,9 @@ class QuestionTableViewCell: MCSwipeTableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    
+    cardView.layer.borderWidth = 1 / UIScreen.mainScreen().scale
+    cardView.layer.borderColor = UIColor.lightGrayColor().CGColor
     
     separatorLineHeightConstraint.constant = 1 / UIScreen.mainScreen().scale
     let indicatorWidth = questionStateIndicator.frame.width

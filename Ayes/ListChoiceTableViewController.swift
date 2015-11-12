@@ -54,7 +54,7 @@ class ListChoiceTableViewController: UITableViewController {
     
     let row = indexPath.row
     cell.accessoryType = row == selectedIndex ? .Checkmark : .None
-    cell.textLabel?.text = LocalizeHelper.localizeStringForKey(options[row])
+    cell.textLabel?.text = options[row].localize()
 
     return cell
   }

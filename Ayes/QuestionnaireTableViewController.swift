@@ -44,7 +44,7 @@ class QuestionnaireTableViewController: UITableViewController {
       }
     case .Normal:
       menuBarButtonItem = UIBarButtonItem(image: UIImage(named: "Menu"), style: .Plain, target: nil, action: "")
-      saveBarButtonItem = UIBarButtonItem(title: LocalizeHelper.localizeStringForKey("Save"),
+      saveBarButtonItem = UIBarButtonItem(title: "Save".localize(),
           style: .Done, target: self, action: "saveButtonAction:")
       if let menuButton = menuBarButtonItem {
         navigationItem.leftBarButtonItem = menuButton
@@ -63,14 +63,17 @@ class QuestionnaireTableViewController: UITableViewController {
       }
     }
     
-    navigationItem.title = LocalizeHelper.localizeStringForKey("Questionnaire")
-    let backItem = UIBarButtonItem(title: LocalizeHelper.localizeStringForKey("Back"), style: .Plain, target: nil, action: nil)
+    navigationItem.title = "Questionnaire".localize()
+    let backItem = UIBarButtonItem(title: "Back".localize(), style: .Plain, target: nil, action: nil)
     navigationItem.backBarButtonItem = backItem
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     
-    if let localityIndex = items.indexOf(kLocality)
-        where Settings.sharedInstance.country == Settings.Country.World {
-      items.removeAtIndex(localityIndex)
+    if let localityIndex = items.indexOf(kLocality), user = UserManager.sharedManager.user {
+      if Settings.sharedInstance.country == Settings.Country.World
+            || user.region == "MOW" || user.region == "SPE" {
+      
+         items.removeAtIndex(localityIndex)
+      }
     }
   }
   
@@ -83,7 +86,7 @@ class QuestionnaireTableViewController: UITableViewController {
   func saveButtonAction(sender: AnyObject) {
     let alert = UIAlertController(title: "Questionnaire".localize(),
         message: "saveQuestionnaireWarning".localize(), preferredStyle: .Alert)
-    alert.addAction(UIAlertAction(title: "Save".localize(), style: UIAlertActionStyle.Default, handler: { (_) -> Void in
+    alert.addAction(UIAlertAction(title: "Save".localize(), style: .Default, handler: { (_) -> Void in
       ServerManager.sharedInstance.updateUser { (success) -> Void in
         print("user updated with success: \(success)")
         

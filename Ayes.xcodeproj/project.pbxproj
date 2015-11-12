@@ -41,6 +41,10 @@
 		376D13A91BCD117000F3EABC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 376D13AB1BCD117000F3EABC /* Localizable.strings */; };
 		376D13AD1BCD11F000F3EABC /* LocalizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */; };
 		376D13B01BCD19F100F3EABC /* ChooseLanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D13AF1BCD19F100F3EABC /* ChooseLanguageTableViewController.swift */; };
+		376F84A51BF531500046D706 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 376F84921BF531500046D706 /* Roboto-Bold.ttf */; };
+		376F84A71BF531500046D706 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 376F84941BF531500046D706 /* Roboto-Italic.ttf */; };
+		376F84A81BF531500046D706 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 376F84951BF531500046D706 /* Roboto-Light.ttf */; };
+		376F84AC1BF531500046D706 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 376F84991BF531500046D706 /* Roboto-Regular.ttf */; };
 		37771D861BEEA4A4005B9398 /* Regions.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 37771D851BEEA4A4005B9398 /* Regions.yaml */; };
 		37771D8E1BEF5753005B9398 /* CountryPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37771D8D1BEF5753005B9398 /* CountryPickerTableViewController.swift */; };
 		377A0F5B1BD96CF500EDAF02 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 377A0F5A1BD96CF500EDAF02 /* Reachability.m */; };
@@ -128,6 +132,10 @@
 		376D13AC1BCD11F000F3EABC /* LocalizeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizeHelper.swift; sourceTree = "<group>"; };
 		376D13AE1BCD187B00F3EABC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		376D13AF1BCD19F100F3EABC /* ChooseLanguageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseLanguageTableViewController.swift; sourceTree = "<group>"; };
+		376F84921BF531500046D706 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		376F84941BF531500046D706 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		376F84951BF531500046D706 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		376F84991BF531500046D706 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		37771D851BEEA4A4005B9398 /* Regions.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Regions.yaml; sourceTree = "<group>"; };
 		37771D8D1BEF5753005B9398 /* CountryPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPickerTableViewController.swift; sourceTree = "<group>"; };
 		377A0F591BD96CF500EDAF02 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -335,6 +343,17 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		376F848E1BF5313E0046D706 /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				376F84921BF531500046D706 /* Roboto-Bold.ttf */,
+				376F84941BF531500046D706 /* Roboto-Italic.ttf */,
+				376F84951BF531500046D706 /* Roboto-Light.ttf */,
+				376F84991BF531500046D706 /* Roboto-Regular.ttf */,
+			);
+			path = Roboto;
+			sourceTree = "<group>";
+		};
 		37771D871BEEA4D3005B9398 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,6 +464,7 @@
 		37C44A641BC31ECA001A6340 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				376F848E1BF5313E0046D706 /* Roboto */,
 				372657D61BC27520003383D1 /* AppDelegate.swift */,
 				372657E21BC27520003383D1 /* Info.plist */,
 				37E2A0F21BC8033300FA7A6B /* Ayes-Bridging-Header.h */,
@@ -573,17 +593,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				376F84A71BF531500046D706 /* Roboto-Italic.ttf in Resources */,
 				378170B81BEA4C3F00EF39D9 /* Onboarding.storyboard in Resources */,
 				372657E11BC27520003383D1 /* LaunchScreen.storyboard in Resources */,
 				37D4F5361BD06549003516A7 /* Home.storyboard in Resources */,
 				37771D861BEEA4A4005B9398 /* Regions.yaml in Resources */,
 				372657DE1BC27520003383D1 /* Assets.xcassets in Resources */,
 				37C44A541BC31861001A6340 /* Questionnaire.storyboard in Resources */,
+				376F84A81BF531500046D706 /* Roboto-Light.ttf in Resources */,
 				37C44A5A1BC31AD2001A6340 /* Settings.storyboard in Resources */,
 				376D13A91BCD117000F3EABC /* Localizable.strings in Resources */,
 				372657DC1BC27520003383D1 /* Main.storyboard in Resources */,
 				37BB0F6A1BC3DE8400DFFDED /* QuestionTableViewCell.xib in Resources */,
+				376F84AC1BF531500046D706 /* Roboto-Regular.ttf in Resources */,
 				37C44A5D1BC31C17001A6340 /* Pro.storyboard in Resources */,
+				376F84A51BF531500046D706 /* Roboto-Bold.ttf in Resources */,
 				37C44A571BC319E8001A6340 /* Favorites.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

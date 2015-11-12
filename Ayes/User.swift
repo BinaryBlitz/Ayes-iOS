@@ -24,8 +24,10 @@ class User: NSObject, NSCoding {
   }
   
   func isAllFieldsFilled() -> Bool {
-    return birthDate != nil && sex != nil && region != nil && occupation != nil &&
-      income != nil && education != nil && relationship != nil
+    return birthDate != nil && sex != nil && region != nil &&
+      occupation != nil &&
+      income != nil && education != nil && relationship != nil &&
+      (locality != nil || region == "MOW" || region == "SPE")
   }
   
   //MARK: - Regions

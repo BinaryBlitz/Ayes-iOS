@@ -43,9 +43,9 @@ class SideBarViewController: UIViewController {
     for button in buttons {
       button.tintColor = UIColor.whiteColor()
       if sideBarButtonsWidth < 100 {
-        button.titleLabel?.font  = UIFont.systemFontOfSize(12)
+        button.titleLabel?.font  = UIFont(name: "Roboto-Light", size: 12)
       } else {
-        button.titleLabel?.font  = UIFont.systemFontOfSize(14)
+        button.titleLabel?.font  = UIFont(name: "Roboto-Light", size: 14)
       }
       button.titleEdgeInsets = UIEdgeInsets(top: 35, left: 0, bottom: 0, right: 0)
     }

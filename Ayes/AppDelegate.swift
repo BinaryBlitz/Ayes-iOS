@@ -40,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     reachability = Reachability.reachabilityForInternetConnection()
     reachability.startNotifier()
     
+    UIBarButtonItem.appearance().setTitleTextAttributes( [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 18)!], forState: .Normal)
+    
     return true
   }
   
@@ -108,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UINavigationBar.appearance().barTintColor = UIColor.darkVioletPrimaryColor()
     UINavigationBar.appearance().translucent = false
     UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 18)!]
     UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
   }
   

@@ -32,7 +32,7 @@ class ProViewController: UIViewController {
     view.backgroundColor = UIColor.darkVioletPrimaryColor()
     backgroundImageView.alpha = 0.3
     
-    navigationItem.title = LocalizeHelper.localizeStringForKey("Pro Version")
+    navigationItem.title = "Pro Version".localize()
   }
 }
 

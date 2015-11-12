@@ -18,7 +18,7 @@ class DateChoiceTableViewController: UITableViewController {
     super.viewDidLoad()
     
     datePicker.locale = NSLocale(localeIdentifier: LocalizeHelper.sharedHelper.currentLanguage)
-    saveBarButtonItem.title = LocalizeHelper.localizeStringForKey("Save")
+    saveBarButtonItem.title = "Save".localize()
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     if let birthDate = UserManager.sharedManager.user?.birthDate {
       datePicker.date = birthDate

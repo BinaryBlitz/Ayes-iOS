@@ -43,7 +43,7 @@ class HomeTableViewController: UITableViewController {
       revealViewController.delegate = self
     }
     
-    navigationItem.title = LocalizeHelper.localizeStringForKey("Questions")
+    navigationItem.title = "Questions".localize()
     
     // TableView
     
@@ -59,7 +59,7 @@ class HomeTableViewController: UITableViewController {
     
     // Navigation bar
     
-    let backItem = UIBarButtonItem(title: LocalizeHelper.localizeStringForKey("Back"),
+    let backItem = UIBarButtonItem(title: "Back".localize(),
         style: .Plain, target: nil, action: nil)
     navigationItem.backBarButtonItem = backItem
     if let navBarSubviews = navigationController?.navigationBar.subviews {
@@ -120,17 +120,17 @@ class HomeTableViewController: UITableViewController {
     dateFormatter.dateFormat = "dd.MM.yyyy"
     cell.dateLabel.text = dateFormatter.stringFromDate(question.dateCreated ?? NSDate())
     cell.contentTextView.text = question.content
-    cell.contentTextView.font = UIFont.systemFontOfSize(19)
+    cell.contentTextView.font = UIFont(name: "Roboto-Regular", size: 19)
     cell.questionStateIndicator.backgroundColor = question.state.getAccentColor()
     switch question.state {
     case .Skip:
-      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("Skipped")
+      cell.questionStatusLabel.text = "Skipped".localize()
       cell.questionStatusLabel.textColor = UIColor.blackColor()
     case .NoAnswer:
-      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("New")
+      cell.questionStatusLabel.text = "New".localize()
       cell.questionStatusLabel.textColor = UIColor.blueAccentColor()
     default:
-      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("Answered")
+      cell.questionStatusLabel.text = "Answered".localize()
       cell.questionStatusLabel.textColor = UIColor.blackColor()
     }
     

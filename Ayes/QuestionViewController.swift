@@ -42,7 +42,7 @@ class QuestionViewController: UIViewController {
         let format = "%@\n\n%@"
         let formattedString = String(format: format, epigraph, content)
         let attributedString = NSMutableAttributedString(string: formattedString)
-        attributedString.addAttribute(NSFontAttributeName, value: UIFont.italicSystemFontOfSize(25), range: (formattedString as NSString).rangeOfString(epigraph))
+        attributedString.addAttribute(NSFontAttributeName, value: UIFont(name: "Roboto-Light", size: 25)!, range: (formattedString as NSString).rangeOfString(epigraph))
         
         questionContentLabel.attributedText = attributedString
       } else {
@@ -56,15 +56,15 @@ class QuestionViewController: UIViewController {
     questionDateLabel.text = formatter.stringFromDate(question.dateCreated ?? NSDate())
     
     questionIdLabel.text = "\(question.id ?? 0)"
-    warningLabel.text = LocalizeHelper.localizeStringForKey("SkipWarning")
+    warningLabel.text = "SkipWarning".localize()
     
     otherUsersButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-    otherUsersButton.setTitle(LocalizeHelper.localizeStringForKey("Other users"), forState: .Normal)
+    otherUsersButton.setTitle("Other users".localize(), forState: .Normal)
     
     otherUsersButton.hidden = true
     
     sameAsMeButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-    sameAsMeButton.setTitle(LocalizeHelper.localizeStringForKey("Same as me"), forState: .Normal)
+    sameAsMeButton.setTitle("Same as me".localize(), forState: .Normal)
     sameAsMeButton.hidden = true
     
     if question.state != .NoAnswer {
@@ -123,7 +123,7 @@ class QuestionViewController: UIViewController {
     }
     
     if statType == .Similar {
-      sameAsMeButton.setTitle(LocalizeHelper.localizeStringForKey("Same as me"), forState: .Normal)
+      sameAsMeButton.setTitle("Same as me".localize(), forState: .Normal)
       statType = .Normal
       statDelegate?.didChangeStatType(StatType.Normal)
       return
@@ -146,23 +146,23 @@ class QuestionViewController: UIViewController {
           self.question.similarStat = stat
           NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
           self.statType = .Similar
-          self.sameAsMeButton.setTitle(LocalizeHelper.localizeStringForKey("All"), forState: .Normal)
+          self.sameAsMeButton.setTitle("All".localize(), forState: .Normal)
           self.statDelegate?.didChangeStatType(StatType.Similar)
         } else {
-          let alert = UIAlertController(title: nil, message: LocalizeHelper.localizeStringForKey("No internet connection"), preferredStyle: .Alert)
+          let alert = UIAlertController(title: nil, message: "No internet connection".localize(), preferredStyle: .Alert)
           alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
           self.presentViewController(alert, animated: true, completion: nil)
         }
       }
       
     } else {
-      let alert = UIAlertController(title: LocalizeHelper.localizeStringForKey("Questionnaire"), message: LocalizeHelper.localizeStringForKey("notFilledAlert"), preferredStyle: .Alert)
+      let alert = UIAlertController(title: "Questionnaire".localize(), message: "notFilledAlert".localize(), preferredStyle: .Alert)
       alert.addAction(
-        UIAlertAction(title: LocalizeHelper.localizeStringForKey("Cancel"), style: .Default, handler: nil)
+        UIAlertAction(title: "Cancel".localize(), style: .Default, handler: nil)
       )
       
       alert.addAction(
-        UIAlertAction(title: LocalizeHelper.localizeStringForKey("Fix now"),
+        UIAlertAction(title: "Fix now".localize(),
           style: .Cancel,
           handler: { (_) -> Void in
             let storyboard = UIStoryboard(name: "Questionnaire", bundle: nil)
@@ -178,7 +178,7 @@ class QuestionViewController: UIViewController {
   }
   
   @IBAction func otherUsersButtonAction(sender: AnyObject) {
-   let alert = UIAlertController(title: nil, message: LocalizeHelper.localizeStringForKey("This function will be paid soon!"), preferredStyle: .Alert)
+   let alert = UIAlertController(title: nil, message: "This function will be paid soon!".localize(), preferredStyle: .Alert)
     alert.addAction(UIAlertAction(title: "ОК", style: .Default, handler: nil))
     presentViewController(alert, animated: true, completion: nil)
   }
