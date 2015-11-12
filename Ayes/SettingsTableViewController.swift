@@ -93,18 +93,18 @@ class SettingsTableViewController: UITableViewController {
   }
   
   func reloadContent() {
-    navigationItem.title = LocalizeHelper.localizeStringForKey("Settings")
-    languageLabel.text = LocalizeHelper.localizeStringForKey("Language")
-    languageValueLabel.text = LocalizeHelper.localizeStringForKey(LocalizeHelper.getCurrentLanguage())
-    regionLabel.text = LocalizeHelper.localizeStringForKey("Region")
-    regionValueLabel.text = LocalizeHelper.localizeStringForKey(Settings.sharedInstance.country?.rawValue ?? "")
-    questionTimeLabel.text = LocalizeHelper.localizeStringForKey("Question Time")
+    navigationItem.title = "Settings".localize()
+    languageLabel.text = "Language".localize()
+    languageValueLabel.text = LocalizeHelper.getCurrentLanguage().localize()
+    regionLabel.text = "region".localize()
+    regionValueLabel.text = (Settings.sharedInstance.country?.rawValue ?? "").localize()
+    questionTimeLabel.text = "Question Time".localize()
     let formatter = NSDateFormatter()
     formatter.dateFormat = "HH:mm"
     questionTimeValueLabel.text = formatter.stringFromDate(Settings.sharedInstance.questionTime)
-    notificationsLabel.text = LocalizeHelper.localizeStringForKey("Notifications")
-    newQuestionsnotificationLabel.text = LocalizeHelper.localizeStringForKey("New question notifications")
-    favoriteQuestionsLabel.text = LocalizeHelper.localizeStringForKey("Favorite questions notifications")
+    notificationsLabel.text = "Notifications".localize()
+    newQuestionsnotificationLabel.text = "New question notifications".localize()
+    favoriteQuestionsLabel.text = "Favorite questions notifications".localize()
   }
   
   //MARK: - UITableViewDelegate

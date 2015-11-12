@@ -19,9 +19,9 @@ class SetQuestionTimeTableViewController: UITableViewController {
     super.viewDidLoad()
     
     timePicker.date = Settings.sharedInstance.questionTime
-    doneBarButton.title = LocalizeHelper.localizeStringForKey("Done")
-    cancelBarButton.title = LocalizeHelper.localizeStringForKey("Cancel")
-    navigationItem.title = LocalizeHelper.localizeStringForKey("Question Time")
+    doneBarButton.title = "Done".localize()
+    cancelBarButton.title = "Cancel".localize()
+    navigationItem.title = "Question Time".localize()
   }
   
   override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {

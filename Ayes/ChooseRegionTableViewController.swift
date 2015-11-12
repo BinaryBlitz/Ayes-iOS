@@ -19,9 +19,9 @@ class ChooseRegionTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    doneBarButton.title = LocalizeHelper.localizeStringForKey("Done")
-    cancelBarButton.title = LocalizeHelper.localizeStringForKey("Cancel")
-    navigationItem.title = LocalizeHelper.localizeStringForKey("Your Region")
+    doneBarButton.title = "Done".localize()
+    cancelBarButton.title = "Cancel".localize()
+    navigationItem.title = "Your Region".localize()
     selectedCell = avaliableRegions.indexOf(Settings.sharedInstance.country?.rawValue ?? "Russia") ?? 0
     tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "regionCell")
   }
@@ -33,7 +33,7 @@ class ChooseRegionTableViewController: UITableViewController {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("regionCell", forIndexPath: indexPath)
     
-    cell.textLabel?.text = LocalizeHelper.localizeStringForKey(avaliableRegions[indexPath.row])
+    cell.textLabel?.text = avaliableRegions[indexPath.row].localize()
     if indexPath.row == selectedCell {
       cell.accessoryType = .Checkmark
     } else {

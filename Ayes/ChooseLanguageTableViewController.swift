@@ -23,9 +23,9 @@ class ChooseLanguageTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    doneBarButton.title = LocalizeHelper.localizeStringForKey("Done")
-    cancelBarButton.title = LocalizeHelper.localizeStringForKey("Cancel")
-    navigationItem.title = LocalizeHelper.localizeStringForKey("App Language")
+    doneBarButton.title = "Done".localize()
+    cancelBarButton.title = "Cancel".localize()
+    navigationItem.title = "App Language".localize()
     selectedCell = avaliableLanguages.indexOf(LocalizeHelper.getCurrentLanguage())!
     tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "languageCell")
   }
@@ -37,7 +37,7 @@ class ChooseLanguageTableViewController: UITableViewController {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("languageCell", forIndexPath: indexPath)
     
-    cell.textLabel?.text = LocalizeHelper.localizeStringForKey(avaliableLanguages[indexPath.row])
+    cell.textLabel?.text = avaliableLanguages[indexPath.row].localize()
     if indexPath.row == selectedCell {
       cell.accessoryType = .Checkmark
     } else {
