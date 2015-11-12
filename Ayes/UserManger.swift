@@ -9,7 +9,7 @@
 internal let kBirthDate = "birthdate"
 internal let kSex = "gender"
 internal let kRegion = "region"
-internal let kLocality = "locality"
+internal let kLocality = "settlement"
 internal let kCity = "city"
 internal let kOccupation = "occupation"
 internal let kIncome = "income"
