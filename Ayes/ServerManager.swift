@@ -80,8 +80,14 @@ class ServerManager {
   func updateUser(complition: ((success: Bool) -> Void)? = nil) -> Request? {
     var fields = [String: String]()
     for item in UserManager.sharedManager.avalableKeys {
+      if item == kRegion && Settings.sharedInstance.country == Settings.Country.World {
+        fields["country"] = UserManager.sharedManager.valueForKey(item)
+        continue
+      }
+      
       fields[item] = UserManager.sharedManager.valueForKey(item)
     }
+    
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
     if let birthDate = UserManager.sharedManager.user?.birthDate {
