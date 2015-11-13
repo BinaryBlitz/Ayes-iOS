@@ -38,6 +38,9 @@ class FinalViewController: UIViewController {
       if success {
         NSUserDefaults.standardUserDefaults().setObject(ServerManager.sharedInstance.apiToken!, forKey: "apiToken")
         
+        // Upload device token
+        ServerManager.sharedInstance.updateDeviceToken()
+        
         // Get questions
         ServerManager.sharedInstance.getQuestions { (questions) -> Void in
           indicator.stopAnimating()

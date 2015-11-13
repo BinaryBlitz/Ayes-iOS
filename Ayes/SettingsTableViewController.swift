@@ -79,10 +79,11 @@ class SettingsTableViewController: UITableViewController {
       label.enabled = switcher.on
     }
     
-    if let token = ServerManager.sharedInstance.deviceToken where switcher.on {
-      ServerManager.sharedInstance.updateDeviceToken(token)
+    if switcher.on {
+      ServerManager.sharedInstance.updateDeviceToken()
     } else {
-      ServerManager.sharedInstance.updateDeviceToken("")
+      ServerManager.sharedInstance.deviceToken = nil
+      ServerManager.sharedInstance.updateDeviceToken()
     }
   }
   

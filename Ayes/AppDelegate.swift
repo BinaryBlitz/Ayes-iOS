@@ -103,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     ServerManager.sharedInstance.deviceToken = token
     
-    ServerManager.sharedInstance.updateDeviceToken(token)
+    ServerManager.sharedInstance.updateDeviceToken()
   }
   
   private func setUpNavigationBar() {
@@ -152,11 +152,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       token += String(format: "%02.2hhx", arguments: [tokenChars[i]])
     }
     
-    print(token)
-    
     NSUserDefaults.standardUserDefaults().setObject(token, forKey: "deviceToken")
-    
-    ServerManager.sharedInstance.updateDeviceToken(token)
+    ServerManager.sharedInstance.deviceToken = token
     NSNotificationCenter.defaultCenter().postNotificationName(OnboardingGoToFinalPageNotification, object: nil)
   }
   

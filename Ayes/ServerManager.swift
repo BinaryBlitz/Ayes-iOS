@@ -299,8 +299,8 @@ class ServerManager {
   
   //MARK: - Push notifications
   
-  func updateDeviceToken(token: String, complition: ((_:Bool) -> Void)? = nil) -> Request? {
-    let parameters = ["user" : ["device_token": token]]
+  func updateDeviceToken(complition: ((_:Bool) -> Void)? = nil) -> Request? {
+    let parameters = ["user" : ["device_token": deviceToken ?? NSNull()]]
     
     do {
       let request = try self.patch("user/", params: parameters)
