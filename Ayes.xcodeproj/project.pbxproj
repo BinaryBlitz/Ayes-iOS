@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		370415021BDD03360036A5F5 /* UserManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370415011BDD03360036A5F5 /* UserManger.swift */; };
 		370415041BDD208C0036A5F5 /* QuestionnaireDataDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370415031BDD208C0036A5F5 /* QuestionnaireDataDisplay.swift */; };
-		370D7B781BEAB13900B70D50 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370D7B771BEAB13900B70D50 /* FinalViewController.swift */; };
 		370D7B7A1BEAB23800B70D50 /* OnboardingPageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370D7B791BEAB23800B70D50 /* OnboardingPageContent.swift */; };
 		37154B881BCFC3A900639A8D /* QuestionResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37154B871BCFC3A900639A8D /* QuestionResultsViewController.swift */; };
 		37154B8C1BCFF23800639A8D /* ResultsPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37154B8B1BCFF23800639A8D /* ResultsPieChart.swift */; };
@@ -95,7 +94,6 @@
 		2D5A5610BF6A85A5D1D0B98A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		370415011BDD03360036A5F5 /* UserManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManger.swift; sourceTree = "<group>"; };
 		370415031BDD208C0036A5F5 /* QuestionnaireDataDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireDataDisplay.swift; sourceTree = "<group>"; };
-		370D7B771BEAB13900B70D50 /* FinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		370D7B791BEAB23800B70D50 /* OnboardingPageContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageContent.swift; sourceTree = "<group>"; };
 		37154B871BCFC3A900639A8D /* QuestionResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionResultsViewController.swift; sourceTree = "<group>"; };
 		37154B8B1BCFF23800639A8D /* ResultsPieChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsPieChart.swift; sourceTree = "<group>"; };
@@ -404,7 +402,6 @@
 				378170BC1BEA50F700EF39D9 /* OnboardingViewController.swift */,
 				378170BA1BEA4EFA00EF39D9 /* PageContentViewController.swift */,
 				375BFC621BF355B50057B396 /* NotificationsViewController.swift */,
-				370D7B771BEAB13900B70D50 /* FinalViewController.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -695,7 +692,6 @@
 				375BFC631BF355B50057B396 /* NotificationsViewController.swift in Sources */,
 				378170B61BEA3B6E00EF39D9 /* UIView+ImageWithView.swift in Sources */,
 				375423B01BCEBAA1001CA639 /* QuestionControlsViewController.swift in Sources */,
-				370D7B781BEAB13900B70D50 /* FinalViewController.swift in Sources */,
 				37BF1C061BCD742A0040B8E1 /* ChooseRegionTableViewController.swift in Sources */,
 				377A0F5B1BD96CF500EDAF02 /* Reachability.m in Sources */,
 				371FB48E1BF40131009C8DD3 /* String+Localize.swift in Sources */,

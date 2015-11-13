@@ -9,10 +9,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Roboto-Light.ttf">
-            <string>Roboto-Light</string>
+        <mutableArray key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
         </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
         </mutableArray>
@@ -243,96 +244,6 @@
             </objects>
             <point key="canvasLocation" x="1806" y="519"/>
         </scene>
-        <!--Final View Controller-->
-        <scene sceneID="JFP-kn-QEQ">
-            <objects>
-                <viewController storyboardIdentifier="FinalViewController" id="SCx-5C-2DX" customClass="FinalViewController" customModule="Ayes" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8oF-vd-ytk"/>
-                        <viewControllerLayoutGuide type="bottom" id="cY1-yl-3MP"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8QZ-SJ-fiq">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ayes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dnd-3t-1vO">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="56"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypL-eK-pQf">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Aq6-H2-D60"/>
-                                    <constraint firstAttribute="width" constant="120" id="yBR-15-TBu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Начать!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Aq6-H2-D60"/>
-                                        <exclude reference="yBR-15-TBu"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="Aq6-H2-D60"/>
-                                        <include reference="yBR-15-TBu"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="startButtonAction:" destination="SCx-5C-2DX" eventType="touchUpInside" id="Yem-oK-S97"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" red="0.52494088770000003" green="0.32751164579999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="ypL-eK-pQf" firstAttribute="centerY" secondItem="8QZ-SJ-fiq" secondAttribute="centerY" id="elw-xu-vYp"/>
-                            <constraint firstItem="Dnd-3t-1vO" firstAttribute="centerX" secondItem="8QZ-SJ-fiq" secondAttribute="centerX" id="kYc-X1-zJs"/>
-                            <constraint firstItem="ypL-eK-pQf" firstAttribute="top" secondItem="Dnd-3t-1vO" secondAttribute="bottom" constant="137" id="nkS-Ud-iuV">
-                                <variation key="heightClass=regular-widthClass=compact" constant="80"/>
-                            </constraint>
-                            <constraint firstItem="ypL-eK-pQf" firstAttribute="centerX" secondItem="8QZ-SJ-fiq" secondAttribute="centerX" id="zAe-4c-w4M"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Dnd-3t-1vO"/>
-                                <exclude reference="ypL-eK-pQf"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="elw-xu-vYp"/>
-                                <exclude reference="nkS-Ud-iuV"/>
-                                <exclude reference="zAe-4c-w4M"/>
-                                <exclude reference="kYc-X1-zJs"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="Dnd-3t-1vO"/>
-                                <include reference="ypL-eK-pQf"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="elw-xu-vYp"/>
-                                <include reference="nkS-Ud-iuV"/>
-                                <include reference="zAe-4c-w4M"/>
-                                <include reference="kYc-X1-zJs"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <connections>
-                        <outlet property="startButton" destination="ypL-eK-pQf" id="3tZ-2p-f0d"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0wD-lP-GVn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3271.5" y="519"/>
-        </scene>
         <!--Notifications View Controller-->
         <scene sceneID="MNc-8U-mof">
             <objects>
@@ -352,8 +263,8 @@
                                     <constraint firstAttribute="height" constant="60" id="05h-Hc-PKZ"/>
                                     <constraint firstAttribute="width" constant="120" id="rjM-eZ-NGQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Получать!">
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                                <state key="normal" title="Начать!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -362,8 +273,7 @@
                                         <exclude reference="rjM-eZ-NGQ"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="140" y="490" width="120" height="60"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="05h-Hc-PKZ"/>
                                         <include reference="rjM-eZ-NGQ"/>
@@ -383,38 +293,22 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTf-l6-WYb">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
-                                <string key="text">Друзья! Уведомления подскажут вам о новых интересных вопросах и о том как меняется мнение остальных пользователей. Хотите получать push-уведомления?</string>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                <string key="text">Друзья! Уведомления подскажут вам о новых интересных вопросах и о том как меняется мнение остальных пользователей, поэтому просим вас включить их на следующем экране. Спасибо!</string>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLu-eG-Zbf">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Пропустить">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="160" y="576.5" width="80" height="29"/>
-                                </variation>
-                                <connections>
-                                    <action selector="skipButtonAction:" destination="anm-99-Tyg" eventType="touchUpInside" id="ryv-1a-i94"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.52494088770000003" green="0.32751164579999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="hjT-Ki-6Ot" firstAttribute="centerX" secondItem="z2B-ex-eog" secondAttribute="centerX" id="7WW-75-FHi"/>
                             <constraint firstItem="iTf-l6-WYb" firstAttribute="leading" secondItem="z2B-ex-eog" secondAttribute="leadingMargin" constant="35" id="FFB-uI-sIJ">
-                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
                             </constraint>
-                            <constraint firstItem="sLu-eG-Zbf" firstAttribute="centerX" secondItem="hjT-Ki-6Ot" secondAttribute="centerX" id="H9k-nZ-XNn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iTf-l6-WYb" secondAttribute="trailing" constant="25" id="LLT-Co-Wto">
-                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
                             </constraint>
-                            <constraint firstItem="sLu-eG-Zbf" firstAttribute="top" secondItem="hjT-Ki-6Ot" secondAttribute="bottom" constant="26.5" id="NQq-2V-A5r"/>
                             <constraint firstItem="KX9-Mh-qYv" firstAttribute="centerX" secondItem="z2B-ex-eog" secondAttribute="centerX" id="SQe-57-i58"/>
                             <constraint firstItem="hjT-Ki-6Ot" firstAttribute="centerX" secondItem="iTf-l6-WYb" secondAttribute="centerX" id="Y5w-eQ-aPX"/>
                             <constraint firstItem="iTf-l6-WYb" firstAttribute="centerY" secondItem="z2B-ex-eog" secondAttribute="centerY" id="YWk-1W-PHc"/>
@@ -429,15 +323,12 @@
                                 <exclude reference="hjT-Ki-6Ot"/>
                                 <exclude reference="KX9-Mh-qYv"/>
                                 <exclude reference="iTf-l6-WYb"/>
-                                <exclude reference="sLu-eG-Zbf"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="7WW-75-FHi"/>
                                 <exclude reference="Y5w-eQ-aPX"/>
                                 <exclude reference="hc5-yT-jBk"/>
                                 <exclude reference="kgi-kx-B9W"/>
-                                <exclude reference="H9k-nZ-XNn"/>
-                                <exclude reference="NQq-2V-A5r"/>
                                 <exclude reference="SQe-57-i58"/>
                                 <exclude reference="FFB-uI-sIJ"/>
                                 <exclude reference="LLT-Co-Wto"/>
@@ -450,15 +341,12 @@
                                 <include reference="hjT-Ki-6Ot"/>
                                 <include reference="KX9-Mh-qYv"/>
                                 <include reference="iTf-l6-WYb"/>
-                                <include reference="sLu-eG-Zbf"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="7WW-75-FHi"/>
                                 <include reference="Y5w-eQ-aPX"/>
                                 <exclude reference="hc5-yT-jBk"/>
                                 <include reference="kgi-kx-B9W"/>
-                                <include reference="H9k-nZ-XNn"/>
-                                <include reference="NQq-2V-A5r"/>
                                 <include reference="SQe-57-i58"/>
                                 <include reference="FFB-uI-sIJ"/>
                                 <include reference="LLT-Co-Wto"/>
@@ -469,7 +357,6 @@
                     </view>
                     <connections>
                         <outlet property="allowButton" destination="hjT-Ki-6Ot" id="45V-Oo-ukQ"/>
-                        <outlet property="skipButton" destination="sLu-eG-Zbf" id="xtl-Ec-FTq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAj-0c-jMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
