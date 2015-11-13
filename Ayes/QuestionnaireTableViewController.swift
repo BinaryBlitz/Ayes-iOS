@@ -68,6 +68,8 @@ class QuestionnaireTableViewController: UITableViewController {
     navigationItem.backBarButtonItem = backItem
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     
+    UserManager.sharedManager.dropTempUser()
+    
     if let localityIndex = items.indexOf(kLocality), user = UserManager.sharedManager.user {
       if Settings.sharedInstance.country == Settings.Country.World
             || user.region == "MOW" || user.region == "SPE" {
@@ -80,10 +82,34 @@ class QuestionnaireTableViewController: UITableViewController {
   //MARK: - Actions
   
   @IBAction func closeButtonAction(sender: AnyObject) {
+    UserManager.sharedManager.updateUserIfPossible()
     dismissViewControllerAnimated(true, completion: nil)
   }
   
+  func presentCannotUpdateAlert() {
+    if let lastUpdate = UserManager.sharedManager.lastUpdate {
+      let timeInterval = -lastUpdate.timeIntervalSinceNow
+      let days = round(timeInterval / (24 * 60 * 60))
+      
+      let updateAlert = UIAlertController(title: "Error".localize(), message: "You can update your form only after \(Int(7 - days)) days".localize(), preferredStyle: .Alert)
+      updateAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+      presentViewController(updateAlert, animated: true, completion: nil)
+    }
+  }
+  
   func saveButtonAction(sender: AnyObject) {
+    if !UserManager.sharedManager.canUpdateUser() {
+      presentCannotUpdateAlert()
+      
+      return
+    } else if let user = UserManager.sharedManager.tmpUser where !user.isAllFieldsFilled() {
+      let fillFieldAlert = UIAlertController(title: "Error".localize(), message: "You have to fill all the fields before.".localize(), preferredStyle: .Alert)
+      fillFieldAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+      
+      presentViewController(fillFieldAlert, animated: true, completion: nil)
+      return
+    }
+    
     let alert = UIAlertController(title: "Questionnaire".localize(),
         message: "saveQuestionnaireWarning".localize(), preferredStyle: .Alert)
     alert.addAction(UIAlertAction(title: "Save".localize(), style: .Default, handler: { (_) -> Void in
@@ -93,6 +119,7 @@ class QuestionnaireTableViewController: UITableViewController {
         var message: String?
         if success {
           message = "Success!".localize()
+          UserManager.sharedManager.updateUserIfPossible()
         } else {
           message = "Error! Try again later.".localize()
         }
@@ -130,6 +157,14 @@ class QuestionnaireTableViewController: UITableViewController {
   //MARK: - TableView delegate
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+    defer { tableView.deselectRowAtIndexPath(indexPath, animated: true) }
+    
+    guard UserManager.sharedManager.canUpdateUser() else {
+      presentCannotUpdateAlert()
+      return
+    }
+    
     if items[indexPath.row] ==  kBirthDate {
       performSegueWithIdentifier("dateChoice", sender: nil)
     } else if items[indexPath.row] == kRegion && Settings.sharedInstance.country == Settings.Country.World {
@@ -137,8 +172,6 @@ class QuestionnaireTableViewController: UITableViewController {
     } else {
       performSegueWithIdentifier("listChoice", sender: items[indexPath.row])
     }
-    
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
   
   //MARK: - Navigation
@@ -181,7 +214,7 @@ extension QuestionnaireTableViewController: QuestionnaireDataDisplay {
       }
     }
     
-    UserManager.sharedManager.saveToUserDefaults()
+//    UserManager.sharedManager.saveToUserDefaults()
     tableView.reloadData()
   }
 }

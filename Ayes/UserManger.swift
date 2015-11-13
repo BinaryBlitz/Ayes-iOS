@@ -28,7 +28,14 @@ class UserManager {
     }
   }
   
-  private var lastUpdate: NSDate?
+  var lastUpdate: NSDate? {
+    get {
+      return user?.lastUpdate
+    }
+    set {
+      user?.lastUpdate = newValue
+    }
+  }
   var tmpUser: User?
   
   var avalableKeys: [String] {
@@ -43,10 +50,14 @@ class UserManager {
     dateFormatter.dateFormat = "dd.MM.yyyy"
   }
   
+  func dropTempUser() {
+    tmpUser = nil
+  }
+  
   func canUpdateUser() -> Bool {
     if let lastUpdate = lastUpdate {
       let interval = lastUpdate.timeIntervalSinceNow
-      return interval >= 36288000
+      return interval >= 7 * 24 * 60 * 60
     }
     
     if let tmp = tmpUser {
@@ -58,36 +69,46 @@ class UserManager {
     return false
   }
   
-  func updateUserIfPossible() -> ((success: Bool) -> Void) {
+  func updateUserIfPossible() -> Bool {
     if canUpdateUser() {
       user = tmpUser
-      
-//      let complition = { (success: Bool) -> Void in
-//        if success
-//      }
+      tmpUser = nil
+      let currentDate = NSDate()
+      let interval = currentDate.timeIntervalSince1970 / 10000 * 10000
+      lastUpdate = NSDate(timeIntervalSince1970: interval)
+      saveToUserDefaults()
+      return true
     }
     
-    return { _ in return false }
+    return false
   }
   
   func updateKey(key: String, withValue value: String) {
+    guard let user = user else {
+      return
+    }
+    
+    if tmpUser == nil {
+      tmpUser = user.copy() as! User
+    }
+    
     switch key {
     case kBirthDate:
-      user?.birthDate = dateFormatter.dateFromString(value)
+      tmpUser?.birthDate = dateFormatter.dateFromString(value)
     case kSex:
-      user?.sex = User.Sex(rawValue: value)
+      tmpUser?.sex = User.Sex(rawValue: value)
     case kRegion:
-      user?.region = value
+      tmpUser?.region = value
     case kLocality:
-      user?.locality = User.Locality(rawValue: value)
+      tmpUser?.locality = User.Locality(rawValue: value)
     case kOccupation:
-      user?.occupation = User.Occupation(rawValue: value)
+      tmpUser?.occupation = User.Occupation(rawValue: value)
     case kIncome:
-      user?.income = User.Income(rawValue: value)
+      tmpUser?.income = User.Income(rawValue: value)
     case kEducation:
-      user?.education = User.Education(rawValue: value)
+      tmpUser?.education = User.Education(rawValue: value)
     case kRelationship:
-      user?.relationship = User.Relationship(rawValue: value)
+      tmpUser?.relationship = User.Relationship(rawValue: value)
     default:
       break
     }
@@ -117,26 +138,34 @@ class UserManager {
   }
   
   func valueForKey(key: String) -> String? {
+    guard let user = user else {
+      return nil
+    }
+    
+    if tmpUser == nil {
+      tmpUser = user.copy() as! User
+    }
+    
     switch key {
     case kBirthDate:
-      guard let birthDate = user?.birthDate else {
+      guard let birthDate = tmpUser?.birthDate else {
         return nil
       }
       return dateFormatter.stringFromDate(birthDate)
     case kSex:
-      return user?.sex?.rawValue
+      return tmpUser?.sex?.rawValue
     case kRegion:
-      return user?.region
+      return tmpUser?.region
     case kLocality:
-      return user?.locality?.rawValue
+      return tmpUser?.locality?.rawValue
     case kOccupation:
-      return user?.occupation?.rawValue
+      return tmpUser?.occupation?.rawValue
     case kIncome:
-      return user?.income?.rawValue
+      return tmpUser?.income?.rawValue
     case kEducation:
-      return user?.education?.rawValue
+      return tmpUser?.education?.rawValue
     case kRelationship:
-      return user?.relationship?.rawValue
+      return tmpUser?.relationship?.rawValue
     default:
       return nil
     }

@@ -7,11 +7,10 @@
 //
 import SwiftyJSON
 
-class User: NSObject, NSCoding {
+class User: NSObject, NSCoding, NSCopying {
   
   var birthDate: NSDate?
   var sex: Sex?
-  
   var region: String?
   var locality: Locality?
   var occupation: Occupation?
@@ -19,8 +18,24 @@ class User: NSObject, NSCoding {
   var education: Education?
   var relationship: Relationship?
   
-  override init() {
+  var lastUpdate: NSDate?
+  
+  required override init() {
     super.init()
+  }
+  
+  func copyWithZone(zone: NSZone) -> AnyObject {
+    let userCopy = self.dynamicType.init()
+    userCopy.birthDate = birthDate
+    userCopy.sex = sex
+    userCopy.region = region
+    userCopy.locality = locality
+    userCopy.occupation = occupation
+    userCopy.income = income
+    userCopy.education = education
+    userCopy.relationship = relationship
+    
+    return userCopy
   }
   
   func isAllFieldsFilled() -> Bool {
@@ -157,6 +172,10 @@ class User: NSObject, NSCoding {
     if let rawRelationship = aDecoder.decodeObjectForKey(kRelationship) as? String {
       relationship = Relationship(rawValue: rawRelationship)
     }
+    
+    if let lastUpdate = aDecoder.decodeObjectForKey("lastUpdate") as? NSDate {
+      self.lastUpdate = lastUpdate
+    }
   }
   
   @objc func encodeWithCoder(aCoder: NSCoder) {
@@ -168,5 +187,6 @@ class User: NSObject, NSCoding {
     aCoder.encodeObject(income?.rawValue, forKey: kIncome)
     aCoder.encodeObject(education?.rawValue, forKey: kEducation)
     aCoder.encodeObject(relationship?.rawValue, forKey: kRelationship)
+    aCoder.encodeObject(lastUpdate, forKey: "lastUpdate")
   }
 }

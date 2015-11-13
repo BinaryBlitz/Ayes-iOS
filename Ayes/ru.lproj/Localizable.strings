@@ -57,6 +57,15 @@
 "Fix now" = "Заполнить";
 "Success!" = "Успешно!";
 "Error! Try again later." = "Ошибка. Попробуйте позже!";
+"Error" = "Ошибка";
+"You can update your form only after 7 days" = "Вы сможете обновить свою анкету только через 7 дней";
+"You can update your form only after 6 days" = "Вы сможете обновить свою анкету только через 6 дней";
+"You can update your form only after 5 days" = "Вы сможете обновить свою анкету только через 5 дней";
+"You can update your form only after 4 days" = "Вы сможете обновить свою анкету только через 4 дня";
+"You can update your form only after 3 days" = "Вы сможете обновить свою анкету только через 3 дня";
+"You can update your form only after 2 days" = "Вы сможете обновить свою анкету только через 2 дня";
+"You can update your form only after 1 days" = "Вы сможете обновить свою анкету только через 1 день";
+"You have to fill all the fields before." = "Необходимо заполнить все поля перед сохранением.";
 
 "male" = "Мужской";
 "female" = "Женский";
