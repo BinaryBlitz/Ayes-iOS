@@ -35,6 +35,7 @@
 		3745EFC01BDBE9E1008E12DC /* DateChoiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3745EFBF1BDBE9E1008E12DC /* DateChoiceTableViewController.swift */; };
 		3745EFC21BDC2DFA008E12DC /* User+EnumFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3745EFC11BDC2DFA008E12DC /* User+EnumFields.swift */; };
 		3745EFC41BDC2E3E008E12DC /* QuestionnaireItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3745EFC31BDC2E3E008E12DC /* QuestionnaireItem.swift */; };
+		37477A6E1BF62D49002B7E71 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37477A6D1BF62D49002B7E71 /* Roboto-LightItalic.ttf */; };
 		375423B01BCEBAA1001CA639 /* QuestionControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375423AF1BCEBAA1001CA639 /* QuestionControlsViewController.swift */; };
 		375BFC631BF355B50057B396 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375BFC621BF355B50057B396 /* NotificationsViewController.swift */; };
 		376D13A91BCD117000F3EABC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 376D13AB1BCD117000F3EABC /* Localizable.strings */; };
@@ -124,6 +125,7 @@
 		3745EFBF1BDBE9E1008E12DC /* DateChoiceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateChoiceTableViewController.swift; sourceTree = "<group>"; };
 		3745EFC11BDC2DFA008E12DC /* User+EnumFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+EnumFields.swift"; sourceTree = "<group>"; };
 		3745EFC31BDC2E3E008E12DC /* QuestionnaireItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireItem.swift; sourceTree = "<group>"; };
+		37477A6D1BF62D49002B7E71 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
 		375423AF1BCEBAA1001CA639 /* QuestionControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionControlsViewController.swift; sourceTree = "<group>"; };
 		375BFC621BF355B50057B396 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		376D13AA1BCD117000F3EABC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 		376F848E1BF5313E0046D706 /* Roboto */ = {
 			isa = PBXGroup;
 			children = (
+				37477A6D1BF62D49002B7E71 /* Roboto-LightItalic.ttf */,
 				376F84921BF531500046D706 /* Roboto-Bold.ttf */,
 				376F84941BF531500046D706 /* Roboto-Italic.ttf */,
 				376F84951BF531500046D706 /* Roboto-Light.ttf */,
@@ -601,6 +604,7 @@
 				37C44A5A1BC31AD2001A6340 /* Settings.storyboard in Resources */,
 				376D13A91BCD117000F3EABC /* Localizable.strings in Resources */,
 				372657DC1BC27520003383D1 /* Main.storyboard in Resources */,
+				37477A6E1BF62D49002B7E71 /* Roboto-LightItalic.ttf in Resources */,
 				37BB0F6A1BC3DE8400DFFDED /* QuestionTableViewCell.xib in Resources */,
 				376F84AC1BF531500046D706 /* Roboto-Regular.ttf in Resources */,
 				37C44A5D1BC31C17001A6340 /* Pro.storyboard in Resources */,

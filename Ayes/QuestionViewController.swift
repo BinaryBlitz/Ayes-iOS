@@ -42,7 +42,7 @@ class QuestionViewController: UIViewController {
         let format = "%@\n\n%@"
         let formattedString = String(format: format, epigraph, content)
         let attributedString = NSMutableAttributedString(string: formattedString)
-        attributedString.addAttribute(NSFontAttributeName, value: UIFont(name: "Roboto-Light", size: 25)!, range: (formattedString as NSString).rangeOfString(epigraph))
+        attributedString.addAttribute(NSFontAttributeName, value: UIFont(name: "Roboto-LightItalic", size: 25)!, range: (formattedString as NSString).rangeOfString(epigraph))
         
         questionContentLabel.attributedText = attributedString
       } else {
