@@ -10,6 +10,7 @@ import UIKit
 
 class QuestionViewController: UIViewController {
   
+  @IBOutlet weak var proVersionLabel: UILabel!
   @IBOutlet weak var sameAsMeButton: UIButton!
   @IBOutlet weak var otherUsersButton: UIButton!
   @IBOutlet weak var controlsContainer: UIView!
@@ -66,6 +67,9 @@ class QuestionViewController: UIViewController {
     sameAsMeButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
     sameAsMeButton.setTitle("Same as me".localize(), forState: .Normal)
     sameAsMeButton.hidden = true
+    
+    proVersionLabel.text = "(Pro version)".localize()
+    proVersionLabel.hidden = true
     
     if question.state != .NoAnswer {
       showResults(false)
@@ -189,6 +193,7 @@ class QuestionViewController: UIViewController {
       self.warningLabel.hidden = true
       self.sameAsMeButton.hidden = false
       self.otherUsersButton.hidden = false
+      self.proVersionLabel.hidden = false
     }
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Share"),
         style: .Plain, target: self, action: "shareButtonAction:")

@@ -27,25 +27,25 @@ class QuestionnaireTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+  
+    doneBarButtonItem = UIBarButtonItem(title: "Done".localize(), style: .Done, target: self, action: "closeButtonAction:")
+    closeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: "closeButtonAction:")
+    menuBarButtonItem = UIBarButtonItem(image: UIImage(named: "Menu"), style: .Plain, target: nil, action: "")
+    saveBarButtonItem = UIBarButtonItem(title: "Save".localize(),
+        style: .Done, target: self, action: "saveButtonAction:")
     switch style {
     case .OtherUsers:
       //same button as close
-      doneBarButtonItem = UIBarButtonItem(title: "Done".localize(), style: .Done, target: self, action: "closeButtonAction:")
       if let doneButton = doneBarButtonItem {
         navigationItem.leftBarButtonItem = nil
         navigationItem.rightBarButtonItem = doneButton
       }
     case .Modal:
-      closeBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: "closeButtonAction:")
       if let closeButton = closeBarButtonItem {
-        navigationItem.leftBarButtonItem = nil
+        navigationItem.leftBarButtonItem = saveBarButtonItem
         navigationItem.rightBarButtonItem = closeButton
       }
     case .Normal:
-      menuBarButtonItem = UIBarButtonItem(image: UIImage(named: "Menu"), style: .Plain, target: nil, action: "")
-      saveBarButtonItem = UIBarButtonItem(title: "Save".localize(),
-          style: .Done, target: self, action: "saveButtonAction:")
       if let menuButton = menuBarButtonItem {
         navigationItem.leftBarButtonItem = menuButton
         navigationItem.rightBarButtonItem = saveBarButtonItem
@@ -68,8 +68,6 @@ class QuestionnaireTableViewController: UITableViewController {
     navigationItem.backBarButtonItem = backItem
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     
-    UserManager.sharedManager.dropTempUser()
-    
     if let localityIndex = items.indexOf(kLocality), user = UserManager.sharedManager.user {
       if Settings.sharedInstance.country == Settings.Country.World
             || user.region == "MOW" || user.region == "SPE" {
@@ -82,7 +80,7 @@ class QuestionnaireTableViewController: UITableViewController {
   //MARK: - Actions
   
   @IBAction func closeButtonAction(sender: AnyObject) {
-    UserManager.sharedManager.updateUserIfPossible()
+//    UserManager.sharedManager.updateUserIfPossible()
     dismissViewControllerAnimated(true, completion: nil)
   }
   
@@ -120,6 +118,7 @@ class QuestionnaireTableViewController: UITableViewController {
         if success {
           message = "Success!".localize()
           UserManager.sharedManager.updateUserIfPossible()
+          self.closeButtonAction(self)
         } else {
           message = "Error! Try again later.".localize()
         }

@@ -110,7 +110,7 @@ class HomeTableViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCellWithIdentifier("questionCell", forIndexPath: indexPath) as? QuestionTableViewCell else {
+    guard let cell = tableView.dequeueReusableCellWithIdentifier("questionCell") as? QuestionTableViewCell else {
       return UITableViewCell()
     }
     
