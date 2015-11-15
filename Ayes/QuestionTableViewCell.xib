@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,7 +31,7 @@
                                 <rect key="frame" x="21" y="61" width="355" height="97.5"/>
                                 <animations/>
                                 <string key="text">Внутридискретное арпеджио, это удалось установить по характеру спектра, вызывает межпланетный терминатор, потому что современная музыка не запоминается...</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K3r-ah-pu8">
@@ -42,29 +50,29 @@
                                     <constraint firstAttribute="height" constant="1" id="fiZ-XM-5jb"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.11.2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Em-iD-gjs">
-                                <rect key="frame" x="291" y="20" width="76.5" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="22.11.2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Em-iD-gjs">
+                                <rect key="frame" x="287" y="27" width="81" height="21.5"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4242" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p03-hS-zp3">
-                                <rect key="frame" x="26" y="8" width="60.5" height="44"/>
+                                <rect key="frame" x="26" y="16" width="61" height="36"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="27"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы ответили" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8P2-mi-Aur">
-                                <rect key="frame" x="96.5" y="21" width="84.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Вы ответили" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8P2-mi-Aur">
+                                <rect key="frame" x="97" y="30" width="85" height="18.5"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clock" translatesAutoresizingMaskIntoConstraints="NO" id="KLo-FE-WUw">
-                                <rect key="frame" x="268" y="22" width="15" height="15"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Clock" translatesAutoresizingMaskIntoConstraints="NO" id="KLo-FE-WUw">
+                                <rect key="frame" x="263.5" y="29.5" width="15" height="15"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KLo-FE-WUw" secondAttribute="height" multiplier="1:1" id="VXh-XA-k6G"/>
@@ -80,12 +88,14 @@
                             <constraint firstItem="p03-hS-zp3" firstAttribute="leading" secondItem="K3r-ah-pu8" secondAttribute="trailing" constant="16" id="5VF-vs-Xuc"/>
                             <constraint firstItem="7dI-vv-27B" firstAttribute="top" secondItem="612-se-AgC" secondAttribute="bottom" id="6cf-ga-SJr"/>
                             <constraint firstItem="7dI-vv-27B" firstAttribute="leading" secondItem="K3r-ah-pu8" secondAttribute="trailing" constant="11" id="7vf-XU-9OE"/>
+                            <constraint firstItem="8Em-iD-gjs" firstAttribute="baseline" secondItem="8P2-mi-Aur" secondAttribute="baseline" id="ADA-fk-LRJ"/>
                             <constraint firstItem="8Em-iD-gjs" firstAttribute="top" secondItem="jBc-ga-pvN" secondAttribute="top" constant="7" id="EcJ-10-X46"/>
-                            <constraint firstItem="p03-hS-zp3" firstAttribute="top" secondItem="jBc-ga-pvN" secondAttribute="top" constant="8" id="FBR-tM-chj"/>
+                            <constraint firstItem="p03-hS-zp3" firstAttribute="top" secondItem="jBc-ga-pvN" secondAttribute="top" constant="16" id="FBR-tM-chj"/>
                             <constraint firstAttribute="bottom" secondItem="K3r-ah-pu8" secondAttribute="bottom" constant="8" id="FlT-JV-yca"/>
                             <constraint firstItem="K3r-ah-pu8" firstAttribute="top" secondItem="jBc-ga-pvN" secondAttribute="top" constant="8" id="Ry0-Ib-Vht"/>
                             <constraint firstAttribute="trailing" secondItem="612-se-AgC" secondAttribute="trailing" constant="16" id="WsI-WF-eof"/>
                             <constraint firstItem="612-se-AgC" firstAttribute="top" secondItem="p03-hS-zp3" secondAttribute="bottom" constant="8" id="c2G-ug-keQ"/>
+                            <constraint firstItem="KLo-FE-WUw" firstAttribute="baseline" secondItem="8P2-mi-Aur" secondAttribute="baseline" id="dnp-40-4jK"/>
                             <constraint firstAttribute="bottom" secondItem="7dI-vv-27B" secondAttribute="bottom" constant="16.5" id="dpC-3B-9So"/>
                             <constraint firstAttribute="trailing" secondItem="7dI-vv-27B" secondAttribute="trailing" constant="8" id="eKf-Kp-eDE"/>
                             <constraint firstItem="612-se-AgC" firstAttribute="top" secondItem="jBc-ga-pvN" secondAttribute="top" constant="60" id="eqV-bB-ugD"/>
@@ -95,10 +105,14 @@
                             <constraint firstItem="8Em-iD-gjs" firstAttribute="centerY" secondItem="8P2-mi-Aur" secondAttribute="centerY" id="qZb-O7-0Xn"/>
                             <constraint firstItem="KLo-FE-WUw" firstAttribute="centerY" secondItem="8Em-iD-gjs" secondAttribute="centerY" id="sKl-9p-nO7"/>
                             <constraint firstItem="612-se-AgC" firstAttribute="leading" secondItem="K3r-ah-pu8" secondAttribute="trailing" constant="16" id="tjh-mS-Czj"/>
+                            <constraint firstItem="8P2-mi-Aur" firstAttribute="baseline" secondItem="p03-hS-zp3" secondAttribute="baseline" id="xD4-7k-G1m"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="5Kj-4F-sJn"/>
+                                <exclude reference="sKl-9p-nO7"/>
                                 <exclude reference="EcJ-10-X46"/>
+                                <exclude reference="qZb-O7-0Xn"/>
                             </mask>
                         </variation>
                     </view>
@@ -114,6 +128,7 @@
             </tableViewCellContentView>
             <animations/>
             <connections>
+                <outlet property="cardView" destination="jBc-ga-pvN" id="V75-hw-ncF"/>
                 <outlet property="contentTextView" destination="7dI-vv-27B" id="spz-XK-HR5"/>
                 <outlet property="dateLabel" destination="8Em-iD-gjs" id="fsh-VU-q50"/>
                 <outlet property="idLabel" destination="p03-hS-zp3" id="ps9-6V-iMY"/>

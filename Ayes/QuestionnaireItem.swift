@@ -8,4 +8,5 @@
 
 protocol QuestionnaireItem {
   static var optionsList: [String] { get }
+  var rawValue: String { get }
 }

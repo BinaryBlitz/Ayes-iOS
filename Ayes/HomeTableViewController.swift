@@ -19,6 +19,8 @@ class HomeTableViewController: UITableViewController {
     }
   }
   
+  var gesturesView = UIView()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
    
@@ -28,15 +30,22 @@ class HomeTableViewController: UITableViewController {
         navigationController?.presentViewController(onboarding, animated: false, completion: nil)
     }
     
+    // Side Bar Gestures
+    
+    gesturesView.frame = tableView.frame
+    
     if let revealViewController = revealViewController() {
       menuBarButtonItem.target = revealViewController
       menuBarButtonItem.action = "revealToggle:"
+      gesturesView.addGestureRecognizer(revealViewController.tapGestureRecognizer())
+      gesturesView.addGestureRecognizer(revealViewController.panGestureRecognizer())
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
-      view.addGestureRecognizer(revealViewController.tapGestureRecognizer())
       revealViewController.delegate = self
     }
     
-    navigationItem.title = LocalizeHelper.localizeStringForKey("Questions")
+    navigationItem.title = "Questions".localize()
+    
+    // TableView
     
     tableView.registerNib(UINib(nibName: "QuestionTableViewCell", bundle: nil),
         forCellReuseIdentifier: "questionCell")
@@ -44,23 +53,33 @@ class HomeTableViewController: UITableViewController {
     tableView.estimatedRowHeight = CGFloat(100)
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     tableView.separatorStyle =  .None
-    tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 8))
-    let backItem = UIBarButtonItem(title: LocalizeHelper.localizeStringForKey("Back"), style: .Plain, target: nil, action: nil)
+    tableView.tableHeaderView = UIView(frame:
+      CGRect(x: 0, y: 0, width: tableView.frame.width, height: 8)
+    )
+    
+    // Navigation bar
+    
+    let backItem = UIBarButtonItem(title: "Back".localize(),
+        style: .Plain, target: nil, action: nil)
     navigationItem.backBarButtonItem = backItem
-   
-    refreshControl = UIRefreshControl()
-    refreshControl?.addTarget(self, action: "refresh:",
-        forControlEvents: .ValueChanged)
-
-    questions = Question.findAll() as! [Question]
-    
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh:", name: QuestionsUpdateNotification, object: nil)
-    
     if let navBarSubviews = navigationController?.navigationBar.subviews {
       for v in navBarSubviews {
         v.exclusiveTouch = true
       }
     }
+    
+    // Refresh
+    
+    refreshControl = UIRefreshControl()
+    refreshControl?.addTarget(self, action: "refresh:",
+        forControlEvents: .ValueChanged)
+
+    // Load questions
+    
+    questions = Question.findAll() as! [Question]
+
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh:",
+        name: QuestionsUpdateNotification, object: nil)
   }
   
   deinit {
@@ -91,7 +110,7 @@ class HomeTableViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCellWithIdentifier("questionCell", forIndexPath: indexPath) as? QuestionTableViewCell else {
+    guard let cell = tableView.dequeueReusableCellWithIdentifier("questionCell") as? QuestionTableViewCell else {
       return UITableViewCell()
     }
     
@@ -101,17 +120,17 @@ class HomeTableViewController: UITableViewController {
     dateFormatter.dateFormat = "dd.MM.yyyy"
     cell.dateLabel.text = dateFormatter.stringFromDate(question.dateCreated ?? NSDate())
     cell.contentTextView.text = question.content
-    cell.contentTextView.font = UIFont.systemFontOfSize(19)
+    cell.contentTextView.font = UIFont(name: "Roboto-Regular", size: 19)
     cell.questionStateIndicator.backgroundColor = question.state.getAccentColor()
     switch question.state {
     case .Skip:
-      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("Skipped")
+      cell.questionStatusLabel.text = "Skipped".localize()
       cell.questionStatusLabel.textColor = UIColor.blackColor()
     case .NoAnswer:
-      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("New")
+      cell.questionStatusLabel.text = "New".localize()
       cell.questionStatusLabel.textColor = UIColor.blueAccentColor()
     default:
-      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("Answered")
+      cell.questionStatusLabel.text = "Answered".localize()
       cell.questionStatusLabel.textColor = UIColor.blackColor()
     }
     
@@ -145,14 +164,15 @@ extension HomeTableViewController: QuestionChangesDelegate {
   }
 }
 
-//MARK: - SWRevealViewControllerDelegate
-
 extension HomeTableViewController: SWRevealViewControllerDelegate {
-  func revealController(revealController: SWRevealViewController!, didMoveToPosition position: FrontViewPosition) {
-    tableView.userInteractionEnabled = position == .Left
-  }
   
-  func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
-    tableView.userInteractionEnabled = position == .Left
+  func revealController(revealController: SWRevealViewController!, didMoveToPosition position: FrontViewPosition) {
+    if position == .Left {
+      gesturesView.removeFromSuperview()
+      tableView.scrollEnabled = true
+    } else {
+      view.addSubview(gesturesView)
+      tableView.scrollEnabled = false
+    }
   }
 }

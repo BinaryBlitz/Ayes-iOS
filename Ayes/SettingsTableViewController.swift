@@ -21,13 +21,22 @@ class SettingsTableViewController: UITableViewController {
   @IBOutlet weak var newQuestionsnotificationLabel: UILabel!
   @IBOutlet weak var favoriteQuestionsLabel: UILabel!
   @IBOutlet var notificationsCells: [UITableViewCell]!
+  @IBOutlet weak var mainNotificationCell: UITableViewCell!
+  
+  let gesturesView = UIView()
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    // Side Bar Gestures
+    
+    gesturesView.frame = tableView.frame
+    
     if let revealViewController = revealViewController() {
       menuBarButtonItem.target = revealViewController
       menuBarButtonItem.action = "revealToggle:"
+      gesturesView.addGestureRecognizer(revealViewController.panGestureRecognizer())
+      gesturesView.addGestureRecognizer(revealViewController.tapGestureRecognizer())
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
       revealViewController.delegate = self
     }
@@ -35,6 +44,25 @@ class SettingsTableViewController: UITableViewController {
     reloadContent()
     
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
+    
+    let registered = UIApplication.sharedApplication().isRegisteredForRemoteNotifications()
+    
+    if let sw = mainNotificationCell.viewWithTag(2) as? UISwitch {
+      sw.on = registered
+    }
+    
+    for cell in notificationsCells {
+      //set up switch
+      let sw = cell.viewWithTag(2) as! UISwitch
+      sw.setOn(registered, animated: true)
+      sw.enabled = registered
+      
+      //set up label
+      let label = cell.viewWithTag(1) as! UILabel
+      label.enabled = registered
+      
+      cell.userInteractionEnabled = registered
+    }
   }
   
   @IBAction func notificationsSwitch(sender: AnyObject) {
@@ -51,10 +79,11 @@ class SettingsTableViewController: UITableViewController {
       label.enabled = switcher.on
     }
     
-    if let token = ServerManager.sharedInstance.deviceToken where switcher.on {
-      ServerManager.sharedInstance.updateDeviceToken(token)
+    if switcher.on {
+      ServerManager.sharedInstance.updateDeviceToken()
     } else {
-      ServerManager.sharedInstance.updateDeviceToken("")
+      ServerManager.sharedInstance.deviceToken = nil
+      ServerManager.sharedInstance.updateDeviceToken()
     }
   }
   
@@ -65,18 +94,18 @@ class SettingsTableViewController: UITableViewController {
   }
   
   func reloadContent() {
-    navigationItem.title = LocalizeHelper.localizeStringForKey("Settings")
-    languageLabel.text = LocalizeHelper.localizeStringForKey("Language")
-    languageValueLabel.text = LocalizeHelper.localizeStringForKey(LocalizeHelper.getCurrentLanguage())
-    regionLabel.text = LocalizeHelper.localizeStringForKey("Region")
-    regionValueLabel.text = LocalizeHelper.localizeStringForKey(Settings.sharedInstance.country?.rawValue ?? "")
-    questionTimeLabel.text = LocalizeHelper.localizeStringForKey("Question Time")
+    navigationItem.title = "Settings".localize()
+    languageLabel.text = "Language".localize()
+    languageValueLabel.text = LocalizeHelper.getCurrentLanguage().localize()
+    regionLabel.text = "region".localize()
+    regionValueLabel.text = (Settings.sharedInstance.country?.rawValue ?? "").localize()
+    questionTimeLabel.text = "Question Time".localize()
     let formatter = NSDateFormatter()
     formatter.dateFormat = "HH:mm"
     questionTimeValueLabel.text = formatter.stringFromDate(Settings.sharedInstance.questionTime)
-    notificationsLabel.text = LocalizeHelper.localizeStringForKey("Notifications")
-    newQuestionsnotificationLabel.text = LocalizeHelper.localizeStringForKey("New question notifications")
-    favoriteQuestionsLabel.text = LocalizeHelper.localizeStringForKey("Favorite questions notifications")
+    notificationsLabel.text = "Notifications".localize()
+    newQuestionsnotificationLabel.text = "New question notifications".localize()
+    favoriteQuestionsLabel.text = "Favorite questions notifications".localize()
   }
   
   //MARK: - UITableViewDelegate
@@ -134,14 +163,15 @@ extension SettingsTableViewController: MultipleChoiceControllerDelegate {
   }
 }
 
-//MARK: - SWRevealViewControllerDelegate
-
 extension SettingsTableViewController: SWRevealViewControllerDelegate {
-  func revealController(revealController: SWRevealViewController!, didMoveToPosition position: FrontViewPosition) {
-    tableView.userInteractionEnabled = position == .Left
-  }
   
-  func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
-    tableView.userInteractionEnabled = position == .Left
+  func revealController(revealController: SWRevealViewController!, didMoveToPosition position: FrontViewPosition) {
+    if position == .Left {
+      gesturesView.removeFromSuperview()
+      tableView.scrollEnabled = true
+    } else {
+      view.addSubview(gesturesView)
+      tableView.scrollEnabled = false
+    }
   }
 }

@@ -18,15 +18,15 @@ class DateChoiceTableViewController: UITableViewController {
     super.viewDidLoad()
     
     datePicker.locale = NSLocale(localeIdentifier: LocalizeHelper.sharedHelper.currentLanguage)
-    saveBarButtonItem.title = LocalizeHelper.localizeStringForKey("Save")
+    saveBarButtonItem.title = "Save".localize()
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
-    if let birthDate = UserManager.sharedManager.user?.birthDate {
+    if let birthDate = UserManager.sharedManager.tmpUser?.birthDate {
       datePicker.date = birthDate
     }
   }
   
   @IBAction func saveButtonAction(sender: AnyObject) {
-    UserManager.sharedManager.user?.birthDate = datePicker.date
+    UserManager.sharedManager.tmpUser?.birthDate = datePicker.date
     delegate?.didUpdateValues()
     navigationController?.popViewControllerAnimated(true)
   }

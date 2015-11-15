@@ -25,9 +25,9 @@ class QuestionResultsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    yesLegendLabel.text = LocalizeHelper.localizeStringForKey("Yes")
+    yesLegendLabel.text = "Yes".localize()
     yesLegendLabel.textColor = UIColor.whiteColor()
-    noLegendLabel.text = LocalizeHelper.localizeStringForKey("No")
+    noLegendLabel.text = "No".localize()
     noLegendLabel.textColor = UIColor.whiteColor()
     yesColorMarkView.backgroundColor = UIColor.greenAccentColor()
     noColorMarkView.backgroundColor = UIColor.redAccentColor()
@@ -39,7 +39,7 @@ class QuestionResultsViewController: UIViewController {
     pieChart.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
     addContent(pieChart, toView: chartContainerView)
     pieChart.descriptionTextColor = UIColor.whiteColor()
-    pieChart.descriptionTextFont = UIFont.systemFontOfSize(14)
+    pieChart.descriptionTextFont = UIFont(name: "Roboto-Light", size: 14)
     pieChart.duration = 1.5
     pieChart.circleThickness = 10
     pieChart.shouldHighlightSectorOnTouch = false
@@ -54,7 +54,7 @@ class QuestionResultsViewController: UIViewController {
       skipStatLabel.hidden = true
     } else {
       skipStatLabel.hidden = false
-      skipStatLabel.text = LocalizeHelper.localizeStringForKey("Abstain")! + " \(stat.abstainPercent)%"
+      skipStatLabel.text = "Abstain".localize()! + " \(stat.abstainPercent)%"
     }
     
     setUpPieChartWithYesAnswers(stat.yes, noAnswers: stat.no)
@@ -87,10 +87,15 @@ class QuestionResultsViewController: UIViewController {
 
 extension QuestionResultsViewController: StatDataDisplay {
   func didChangeStatType(type: StatType) {
-    if let similarStat = question.similarStat as? Stat where type == .Similar {
-      update(similarStat)
-    } else {
+    switch type {
+    case .Similar:
+      if let similarStat = question.similarStat as? Stat {
+        update(similarStat)
+      }
+    case .Normal:
       let stat = question.stat as! Stat
+      update(stat)
+    case let .Other(stat):
       update(stat)
     }
   }

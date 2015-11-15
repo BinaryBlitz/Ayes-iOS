@@ -12,13 +12,19 @@ class ProViewController: UIViewController {
 
   @IBOutlet weak var menuBarButtonItem: UIBarButtonItem!
   @IBOutlet weak var backgroundImageView: UIImageView!
+  
+  let gesturesView = UIView()
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
+    gesturesView.frame = view.frame
+    
     if let revealViewController = revealViewController() {
       menuBarButtonItem.target = revealViewController
       menuBarButtonItem.action = "revealToggle:"
+      gesturesView.addGestureRecognizer(revealViewController.panGestureRecognizer())
+      gesturesView.addGestureRecognizer(revealViewController.tapGestureRecognizer())
       view.addGestureRecognizer(revealViewController.panGestureRecognizer())
       revealViewController.delegate = self
     }
@@ -26,18 +32,16 @@ class ProViewController: UIViewController {
     view.backgroundColor = UIColor.darkVioletPrimaryColor()
     backgroundImageView.alpha = 0.3
     
-    navigationItem.title = LocalizeHelper.localizeStringForKey("Pro Version")
+    navigationItem.title = "Pro Version".localize()
   }
 }
 
-//MARK: - SWRevealViewControllerDelegate
-
 extension ProViewController: SWRevealViewControllerDelegate {
   func revealController(revealController: SWRevealViewController!, didMoveToPosition position: FrontViewPosition) {
-    view.userInteractionEnabled = position == .Left
-  }
-  
-  func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
-    view.userInteractionEnabled = position == .Left
+    if position == .Left {
+      gesturesView.removeFromSuperview()
+    } else {
+      view.addSubview(gesturesView)
+    }
   }
 }

@@ -17,6 +17,8 @@ class FavoritesViewController: UIViewController {
   
   var questions = [Question]()
   
+  var isDeletingCell = false
+  
   override func viewDidLoad() {
     
     if let revealViewController = revealViewController() {
@@ -27,7 +29,7 @@ class FavoritesViewController: UIViewController {
       revealViewController.delegate = self
     }
     
-    navigationItem.title = LocalizeHelper.localizeStringForKey("Favorites")
+    navigationItem.title = "Favorites".localize()
     updateData()
     
     tableView.registerNib(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "questionCell")
@@ -37,7 +39,7 @@ class FavoritesViewController: UIViewController {
     tableView.tableFooterView = nil
     tableView.separatorStyle = .None
     
-    noContentLabel.text = LocalizeHelper.localizeStringForKey("Your favorite questions will appear right here.")
+    noContentLabel.text = "Your favorite questions will appear right here.".localize()
     noContentView.backgroundColor = UIColor.lightGreenBackgroundColor()
   }
   
@@ -66,7 +68,7 @@ extension FavoritesViewController: QuestionChangesDelegate {
 
 //MARK: - UITableViewDataSource
 extension FavoritesViewController: UITableViewDataSource {
-  
+
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if questions.count == 0 {
       tableView.hidden = true
@@ -85,19 +87,49 @@ extension FavoritesViewController: UITableViewDataSource {
     cell.idLabel.text = "\(question.id ?? 0)"
     cell.dateLabel.text = ""
     cell.contentTextView.text = question.content
-    cell.contentTextView.font = UIFont.systemFontOfSize(18)
+    cell.contentTextView.font = UIFont(name: "Roboto-Regular", size: 18)
     cell.questionStateIndicator.backgroundColor = question.state.getAccentColor()
     cell.questionIndicatorIcon.image = UIImage(named: "FavoriteBlack")
     
+//    let bucketView = UIImageView(image: UIImage(named: "Trash"))
+//    bucketView.contentMode = .Center
+    
+    let deleteButton = UIButton(type: .Custom)
+    deleteButton.backgroundColor = UIColor.lightGreenBackgroundColor()
+    deleteButton.setImage(UIImage(named: "Trash"), forState: .Normal)
+    deleteButton.imageView?.contentMode = .Center
+    
+    cell.addFirstButton(deleteButton, withWidth: 70) { (cellToDelete) -> Void in
+      self.tableView.beginUpdates()
+      if let indexPath = self.tableView.indexPathForCell(cellToDelete) {
+        let question = self.questions[indexPath.row]
+        question.isFavorite = nil
+        self.questions.removeAtIndex(indexPath.row)
+        if let id = question.id?.integerValue {
+          if let favorite = Favorite.MR_findFirstByAttribute("question_id", withValue: id) {
+            favorite.MR_deleteEntity()
+            NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
+          }
+        }
+        
+        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+      }
+      self.tableView.endUpdates()
+    }
+    
+    cell.delegate = self
+    
+    cell.selectionStyle = .None
+    
     switch question.state {
     case .Skip:
-      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("Skipped")
+      cell.questionStatusLabel.text = "Skipped".localize()
       cell.questionStatusLabel.textColor = UIColor.blackColor()
     case .NoAnswer:
-      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("New")
+      cell.questionStatusLabel.text = "New".localize()
       cell.questionStatusLabel.textColor = UIColor.blueAccentColor()
     default:
-      cell.questionStatusLabel.text = LocalizeHelper.localizeStringForKey("Answered")
+      cell.questionStatusLabel.text = "Answered".localize()
       cell.questionStatusLabel.textColor = UIColor.blackColor()
     }
     
@@ -122,5 +154,19 @@ extension FavoritesViewController: SWRevealViewControllerDelegate {
   
   func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
     tableView.userInteractionEnabled = position == .Left
+  }
+}
+
+extension FavoritesViewController: AFMSlidingCellDelegate {
+  func shouldAllowShowingButtonsForCell(cell: AFMSlidingCell!) -> Bool {
+   return !isDeletingCell
+  }
+  
+  func buttonsDidShowForCell(cell: AFMSlidingCell!) {
+    isDeletingCell = true
+  }
+  
+  func buttonsDidHideForCell(cell: AFMSlidingCell!) {
+    isDeletingCell = false
   }
 }

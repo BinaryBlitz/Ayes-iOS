@@ -27,7 +27,7 @@ class CountryPickerTableViewController: UITableViewController {
       }
     }
 
-    saveBarButtonItem.title = LocalizeHelper.localizeStringForKey("Save")
+    saveBarButtonItem.title = "Save".localize()
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     
     countryPicker.selectedLocale = NSLocale(localeIdentifier: LocalizeHelper.sharedHelper.currentLanguage)

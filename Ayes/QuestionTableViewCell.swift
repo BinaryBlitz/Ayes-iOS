@@ -8,8 +8,10 @@
 
 import UIKit
 
-class QuestionTableViewCell: UITableViewCell {
+//class QuestionTableViewCell: MCSwipeTableViewCell {
+class QuestionTableViewCell: AFMSlidingCell {
 
+  @IBOutlet weak var cardView: UIView!
   @IBOutlet weak var questionIndicatorIcon: UIImageView!
   @IBOutlet weak var contentTextView: UITextView!
   @IBOutlet weak var questionStatusLabel: UILabel!
@@ -21,6 +23,9 @@ class QuestionTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     
+    cardView.layer.borderWidth = 1 / UIScreen.mainScreen().scale
+    cardView.layer.borderColor = UIColor.lightGrayColor().CGColor
+    
     separatorLineHeightConstraint.constant = 1 / UIScreen.mainScreen().scale
     let indicatorWidth = questionStateIndicator.frame.width
     questionStateIndicator.layer.cornerRadius = indicatorWidth / 2
@@ -30,10 +35,5 @@ class QuestionTableViewCell: UITableViewCell {
     contentTextView.userInteractionEnabled = false
     
     contentView.backgroundColor = UIColor.lightGreenBackgroundColor()
-  }
-
-  override func setSelected(selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-
   }
 }

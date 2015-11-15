@@ -10,6 +10,7 @@ import UIKit
 
 class QuestionViewController: UIViewController {
   
+  @IBOutlet weak var proVersionLabel: UILabel!
   @IBOutlet weak var sameAsMeButton: UIButton!
   @IBOutlet weak var otherUsersButton: UIButton!
   @IBOutlet weak var controlsContainer: UIView!
@@ -20,6 +21,8 @@ class QuestionViewController: UIViewController {
   @IBOutlet weak var questionIdLabel: UILabel!
   @IBOutlet weak var questionWithResultsView: UIView!
   
+  @IBOutlet var separationLineHeightConstraints: [NSLayoutConstraint]!
+  
   var question: Question!
   weak var delegate: QuestionChangesDelegate?
   var statDelegate: StatDataDisplay?
@@ -29,6 +32,10 @@ class QuestionViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    separationLineHeightConstraints.forEach { (heightConstraint) in
+       heightConstraint.constant = 1 / UIScreen.mainScreen().scale
+    }
+    
     view.backgroundColor = UIColor.violetPrimaryColor()
     
     if let content = question.content {
@@ -36,7 +43,7 @@ class QuestionViewController: UIViewController {
         let format = "%@\n\n%@"
         let formattedString = String(format: format, epigraph, content)
         let attributedString = NSMutableAttributedString(string: formattedString)
-        attributedString.addAttribute(NSFontAttributeName, value: UIFont.italicSystemFontOfSize(25), range: (formattedString as NSString).rangeOfString(epigraph))
+        attributedString.addAttribute(NSFontAttributeName, value: UIFont(name: "Roboto-LightItalic", size: 25)!, range: (formattedString as NSString).rangeOfString(epigraph))
         
         questionContentLabel.attributedText = attributedString
       } else {
@@ -50,16 +57,19 @@ class QuestionViewController: UIViewController {
     questionDateLabel.text = formatter.stringFromDate(question.dateCreated ?? NSDate())
     
     questionIdLabel.text = "\(question.id ?? 0)"
-    warningLabel.text = LocalizeHelper.localizeStringForKey("SkipWarning")
+    warningLabel.text = "SkipWarning".localize()
     
     otherUsersButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-    otherUsersButton.setTitle(LocalizeHelper.localizeStringForKey("Other users"), forState: .Normal)
+    otherUsersButton.setTitle("Other users".localize(), forState: .Normal)
     
     otherUsersButton.hidden = true
     
     sameAsMeButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-    sameAsMeButton.setTitle(LocalizeHelper.localizeStringForKey("Same as me"), forState: .Normal)
+    sameAsMeButton.setTitle("Same as me".localize(), forState: .Normal)
     sameAsMeButton.hidden = true
+    
+    proVersionLabel.text = "(Pro version)".localize()
+    proVersionLabel.hidden = true
     
     if question.state != .NoAnswer {
       showResults(false)
@@ -77,6 +87,11 @@ class QuestionViewController: UIViewController {
       let destination = segue.destinationViewController as! QuestionControlsViewController
       destination.delegate = self
       destination.question = question
+    } else if let destinationNavController = segue.destinationViewController as? UINavigationController,
+        destination = destinationNavController.viewControllers.first as? CreateFormsTableViewController {
+      destination.question = question
+      destination.statDelegate = statDelegate
+      destination.delegate = self
     }
   }
   
@@ -111,16 +126,23 @@ class QuestionViewController: UIViewController {
     }
   }
   
+  @IBAction func otherUsersButtonAction(sender: AnyObject) {
+    performSegueWithIdentifier("createForms", sender: nil)
+  }
+  
   @IBAction func sameAsMeButtonAction(sender: AnyObject) {
     guard let user = UserManager.sharedManager.user else {
       return
     }
     
-    if statType == .Similar {
-      sameAsMeButton.setTitle(LocalizeHelper.localizeStringForKey("Same as me"), forState: .Normal)
+    switch statType {
+    case .Similar:
+      sameAsMeButton.setTitle("Same as me".localize(), forState: .Normal)
       statType = .Normal
       statDelegate?.didChangeStatType(StatType.Normal)
       return
+    default:
+      break
     }
     
     if user.isAllFieldsFilled() {
@@ -140,23 +162,23 @@ class QuestionViewController: UIViewController {
           self.question.similarStat = stat
           NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
           self.statType = .Similar
-          self.sameAsMeButton.setTitle(LocalizeHelper.localizeStringForKey("All"), forState: .Normal)
+          self.sameAsMeButton.setTitle("All".localize(), forState: .Normal)
           self.statDelegate?.didChangeStatType(StatType.Similar)
         } else {
-          let alert = UIAlertController(title: nil, message: LocalizeHelper.localizeStringForKey("No internet connection"), preferredStyle: .Alert)
+          let alert = UIAlertController(title: nil, message: "No internet connection".localize(), preferredStyle: .Alert)
           alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
           self.presentViewController(alert, animated: true, completion: nil)
         }
       }
       
     } else {
-      let alert = UIAlertController(title: LocalizeHelper.localizeStringForKey("Questionnaire"), message: LocalizeHelper.localizeStringForKey("notFilledAlert"), preferredStyle: .Alert)
+      let alert = UIAlertController(title: "Questionnaire".localize(), message: "notFilledAlert".localize(), preferredStyle: .Alert)
       alert.addAction(
-        UIAlertAction(title: LocalizeHelper.localizeStringForKey("Cancel"), style: .Default, handler: nil)
+        UIAlertAction(title: "Cancel".localize(), style: .Default, handler: nil)
       )
       
       alert.addAction(
-        UIAlertAction(title: LocalizeHelper.localizeStringForKey("Fix now"),
+        UIAlertAction(title: "Fix now".localize(),
           style: .Cancel,
           handler: { (_) -> Void in
             let storyboard = UIStoryboard(name: "Questionnaire", bundle: nil)
@@ -171,18 +193,13 @@ class QuestionViewController: UIViewController {
     }
   }
   
-  @IBAction func otherUsersButtonAction(sender: AnyObject) {
-   let alert = UIAlertController(title: nil, message: LocalizeHelper.localizeStringForKey("This function will be paid soon!"), preferredStyle: .Alert)
-    alert.addAction(UIAlertAction(title: "ОК", style: .Default, handler: nil))
-    presentViewController(alert, animated: true, completion: nil)
-  }
-  
   func showResults(animated: Bool) {
     UIView.animateWithDuration(animated ? 0.7 : 0) { () -> Void in
       self.warningIcon.hidden = true
       self.warningLabel.hidden = true
       self.sameAsMeButton.hidden = false
       self.otherUsersButton.hidden = false
+      self.proVersionLabel.hidden = false
     }
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Share"),
         style: .Plain, target: self, action: "shareButtonAction:")
@@ -230,5 +247,12 @@ extension QuestionViewController: QuestionChangesDelegate {
     NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
     delegate?.didAnswerTheQuestion?(question)
     showResults(true)
+  }
+}
+
+extension  QuestionViewController: CreateFormsDelegate {
+  func didUpdateStat() {
+    statType = .Similar
+    sameAsMeButton.setTitle("All".localize(), forState: .Normal)
   }
 }

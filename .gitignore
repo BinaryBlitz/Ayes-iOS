@@ -16,9 +16,12 @@ DerivedData
 *.ipa
 *.xcuserstate
 
-#OS X Stuff
+# OS X Stuff
 .localized
 .DS_Store
+
+# IDE
+.idea
 
 # Pods
 Pods/

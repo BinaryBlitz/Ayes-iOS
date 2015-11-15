@@ -8,8 +8,6 @@
 
 import UIKit
 
-let OnboardingGoToFinalPageNotification = "OnboardingGoToNextPage"
-
 class OnboardingViewController: UIViewController {
   
   @IBOutlet weak var pageViewControllerContainer: UIView!
@@ -36,17 +34,6 @@ class OnboardingViewController: UIViewController {
     super.viewDidLoad()
     
     view.backgroundColor = UIColor.darkVioletPrimaryColor()
-    
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "scrollToFinal", name: OnboardingGoToFinalPageNotification, object: nil)
-  }
-  
-  deinit {
-    NSNotificationCenter.defaultCenter().removeObserver(self)
-  }
-  
-  func scrollToFinal() {
-    let finalViewController = storyboard?.instantiateViewControllerWithIdentifier("FinalViewController") as! FinalViewController
-    navigationController?.pushViewController(finalViewController, animated: true)
   }
   
   //MARK: - Navigation
@@ -121,9 +108,3 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
     return 0
   }
 }
-
-//
-////MARK: - UIPageViewControllerDelegate
-//
-//extension OnboardingViewController: UIPageViewControllerDelegate {
-//}

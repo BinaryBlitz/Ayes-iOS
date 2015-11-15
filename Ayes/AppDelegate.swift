@@ -40,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     reachability = Reachability.reachabilityForInternetConnection()
     reachability.startNotifier()
     
+    UIBarButtonItem.appearance().setTitleTextAttributes( [NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 18)!], forState: .Normal)
+    
     return true
   }
   
@@ -101,14 +103,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     ServerManager.sharedInstance.deviceToken = token
     
-    ServerManager.sharedInstance.updateDeviceToken(token)
+    ServerManager.sharedInstance.updateDeviceToken()
   }
   
   private func setUpNavigationBar() {
     UINavigationBar.appearance().barTintColor = UIColor.darkVioletPrimaryColor()
     UINavigationBar.appearance().translucent = false
     UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 18)!]
     UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
   }
   
@@ -150,16 +152,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       token += String(format: "%02.2hhx", arguments: [tokenChars[i]])
     }
     
-    print(token)
-    
     NSUserDefaults.standardUserDefaults().setObject(token, forKey: "deviceToken")
-    
-    ServerManager.sharedInstance.updateDeviceToken(token)
-    NSNotificationCenter.defaultCenter().postNotificationName(OnboardingGoToFinalPageNotification, object: nil)
+    ServerManager.sharedInstance.deviceToken = token
   }
   
   func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-    NSNotificationCenter.defaultCenter().postNotificationName(OnboardingGoToFinalPageNotification, object: nil)
+    // develper.layOnTheFloor()
+    // try developer.notToCry()
   }
 }
 
