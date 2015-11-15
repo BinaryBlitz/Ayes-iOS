@@ -17,6 +17,8 @@ class FavoritesViewController: UIViewController {
   
   var questions = [Question]()
   
+  var isDeletingCell = false
+  
   override func viewDidLoad() {
     
     if let revealViewController = revealViewController() {
@@ -66,7 +68,7 @@ extension FavoritesViewController: QuestionChangesDelegate {
 
 //MARK: - UITableViewDataSource
 extension FavoritesViewController: UITableViewDataSource {
-  
+
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if questions.count == 0 {
       tableView.hidden = true
@@ -89,31 +91,35 @@ extension FavoritesViewController: UITableViewDataSource {
     cell.questionStateIndicator.backgroundColor = question.state.getAccentColor()
     cell.questionIndicatorIcon.image = UIImage(named: "FavoriteBlack")
     
-    let bucketView = UIImageView(image: UIImage(named: "Trash"))
-    bucketView.contentMode = .Center
+//    let bucketView = UIImageView(image: UIImage(named: "Trash"))
+//    bucketView.contentMode = .Center
+    
+    let deleteButton = UIButton(type: .Custom)
+    deleteButton.backgroundColor = UIColor.lightGreenBackgroundColor()
+    deleteButton.setImage(UIImage(named: "Trash"), forState: .Normal)
+    deleteButton.imageView?.contentMode = .Center
+    
+    cell.addFirstButton(deleteButton, withWidth: 70) { (cellToDelete) -> Void in
+      self.tableView.beginUpdates()
+      if let indexPath = self.tableView.indexPathForCell(cellToDelete) {
+        let question = self.questions[indexPath.row]
+        question.isFavorite = nil
+        self.questions.removeAtIndex(indexPath.row)
+        if let id = question.id?.integerValue {
+          if let favorite = Favorite.MR_findFirstByAttribute("question_id", withValue: id) {
+            favorite.MR_deleteEntity()
+            NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
+          }
+        }
+        
+        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+      }
+      self.tableView.endUpdates()
+    }
+    
+    cell.delegate = self
     
     cell.selectionStyle = .None
-    cell.defaultColor = UIColor.lightGreenBackgroundColor()
-    
-    cell.setSwipeGestureWithView(bucketView, color: UIColor.lightGreenBackgroundColor(),
-      mode: .Exit, state: .State3)
-      { (swipeCell, _, _) -> Void in
-        self.tableView.beginUpdates()
-        if let indexPath = self.tableView.indexPathForCell(swipeCell) {
-          let question = self.questions[indexPath.row]
-          question.isFavorite = nil
-          self.questions.removeAtIndex(indexPath.row)
-          if let id = question.id?.integerValue {
-            if let favorite = Favorite.MR_findFirstByAttribute("question_id", withValue: id) {
-              favorite.MR_deleteEntity()
-              NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
-            }
-          }
-          
-          self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        }
-        self.tableView.endUpdates()
-    }
     
     switch question.state {
     case .Skip:
@@ -148,5 +154,19 @@ extension FavoritesViewController: SWRevealViewControllerDelegate {
   
   func revealController(revealController: SWRevealViewController!, willMoveToPosition position: FrontViewPosition) {
     tableView.userInteractionEnabled = position == .Left
+  }
+}
+
+extension FavoritesViewController: AFMSlidingCellDelegate {
+  func shouldAllowShowingButtonsForCell(cell: AFMSlidingCell!) -> Bool {
+   return !isDeletingCell
+  }
+  
+  func buttonsDidShowForCell(cell: AFMSlidingCell!) {
+    isDeletingCell = true
+  }
+  
+  func buttonsDidHideForCell(cell: AFMSlidingCell!) {
+    isDeletingCell = false
   }
 }

@@ -76,18 +76,25 @@ class ServerManager {
       }
     }
   }
-  
+
   func updateUser(complition: ((success: Bool) -> Void)? = nil) -> Request? {
+
     var fields = [String: String]()
-    for item in UserManager.sharedManager.avalableKeys {
+    let avaliableKeys = UserManager.sharedManager.avalableKeys
+
+    avaliableKeys.forEach { item in
       if item == kRegion && Settings.sharedInstance.country == Settings.Country.World {
         fields["country"] = UserManager.sharedManager.valueForKey(item)
-        continue
+      } else {
+        fields[item] = UserManager.sharedManager.valueForKey(item)
       }
-      
-      fields[item] = UserManager.sharedManager.valueForKey(item)
     }
-    
+
+//    let region = UserManager.sharedManager.valueForKey(kRegion)
+//    if region == "MOW" || region == "SPE" {
+//        fields[kLocality] = region
+//    }
+
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
     if let birthDate = UserManager.sharedManager.user?.birthDate {
@@ -95,7 +102,7 @@ class ServerManager {
     }
     
     let parameters = ["user" : fields]
-    
+
     do {
       let request = try self.patch("user/", params: parameters)
       request.validate()

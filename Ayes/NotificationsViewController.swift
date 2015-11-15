@@ -58,7 +58,7 @@ class NotificationsViewController: UIViewController {
     let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
     indicator.frame = CGRect(x: 0.0, y: 0.0, width: 70.0, height: 70.0)
     indicator.layer.cornerRadius = 3
-    indicator.backgroundColor = UIColor.darkVioletPrimaryColor()
+    indicator.backgroundColor = UIColor.violetPrimaryColor()
     indicator.center = view.center
     
     return indicator

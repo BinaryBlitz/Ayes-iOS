@@ -1,4 +1,5 @@
 PODS:
+  - AFMSlidingCell (1.0.0)
   - Alamofire (2.0.2)
   - CountryPicker (1.2.3)
   - Crashlytics (3.3.4)
@@ -14,6 +15,7 @@ PODS:
   - UICountingLabel (1.2.0)
 
 DEPENDENCIES:
+  - AFMSlidingCell
   - Alamofire (~> 2.0.0)
   - CountryPicker
   - Crashlytics
@@ -26,6 +28,7 @@ DEPENDENCIES:
   - UICountingLabel
 
 SPEC CHECKSUMS:
+  AFMSlidingCell: 73da814bceb2786a0f92a0d6f44db404c915782a
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   CountryPicker: 6f166e2f1cc250f07eba4c587fbe1c0efc21049b
   Crashlytics: 41c082440d2e14da444186fff65e79c0b4b35d4c

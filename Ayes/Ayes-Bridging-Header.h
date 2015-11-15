@@ -9,4 +9,5 @@
 @import SWRevealViewController;
 @import CountryPicker;
 @import MCSwipeTableViewCell;
+@import AFMSlidingCell;
 #import "Reachability.h"

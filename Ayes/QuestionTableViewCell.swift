@@ -8,7 +8,8 @@
 
 import UIKit
 
-class QuestionTableViewCell: MCSwipeTableViewCell {
+//class QuestionTableViewCell: MCSwipeTableViewCell {
+class QuestionTableViewCell: AFMSlidingCell {
 
   @IBOutlet weak var cardView: UIView!
   @IBOutlet weak var questionIndicatorIcon: UIImageView!
@@ -35,6 +36,4 @@ class QuestionTableViewCell: MCSwipeTableViewCell {
     
     contentView.backgroundColor = UIColor.lightGreenBackgroundColor()
   }
-  
-  
 }
