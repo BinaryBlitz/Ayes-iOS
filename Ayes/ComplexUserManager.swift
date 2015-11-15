@@ -19,6 +19,7 @@ class ComplexUserManager {
   let dateFormatter: NSDateFormatter
   
   init() {
+    user = ComplexUser()
     dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = "dd.MM.yyyy"
   }

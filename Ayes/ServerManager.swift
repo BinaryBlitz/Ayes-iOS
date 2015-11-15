@@ -225,7 +225,7 @@ class ServerManager {
     }
     
     do {
-      let request = try get("/questions/\(questionID)/answers/similar")
+      let request = try get("questions/\(questionID)/answers/similar")
       request.validate()
       request.responseJSON { (_, _, result) in
         if result.isFailure {
@@ -239,6 +239,56 @@ class ServerManager {
           question.similarStat = similarStat
           complition?(similarStat)
 //          NSManagedObjectContext.defaultContext().saveToPersistentStoreWithCompletion(nil)
+        }
+      }
+      
+      return request
+    } catch(Errors.Unauthorized) {
+      print("Unauthorized")
+      complition?(nil)
+      return nil
+    } catch {
+      complition?(nil)
+      return nil
+    }
+  }
+  
+  func getSimilarAnswersWithForms(user: ComplexUser, forQuestion question: Question, complition: ((_: Stat?) -> Void)? = nil) -> Request? {
+    guard let questionID = question.id else {
+      return nil
+    }
+    
+    do {
+      var fields = [String: [String]]()
+      let avaliableKeys = ComplexUserManager.sharedManager.avalableKeys
+
+      avaliableKeys.forEach { item in
+        guard let values = ComplexUserManager.sharedManager.valuesForKey(item) else {
+          return
+        }
+
+        if values.count != 0 {
+          fields[item] = ComplexUserManager.sharedManager.valuesForKey(item)
+        }
+      }
+      
+      let parameters = ["form" : fields]
+      print(parameters)
+      
+      let request = try post("questions/\(questionID)/answers/forms", params: parameters)
+      request.validate()
+      request.responseJSON { (_, resp, result) in
+        print(resp)
+        if result.isFailure {
+          complition?(nil)
+          return
+        }
+        
+        if let jsonData = result.value {
+          let json = JSON(jsonData)
+          let similarStat = Stat.createFromJSON(json)
+          question.similarStat = similarStat
+          complition?(similarStat)
         }
       }
       

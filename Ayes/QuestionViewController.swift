@@ -87,6 +87,11 @@ class QuestionViewController: UIViewController {
       let destination = segue.destinationViewController as! QuestionControlsViewController
       destination.delegate = self
       destination.question = question
+    } else if let destinationNavController = segue.destinationViewController as? UINavigationController,
+        destination = destinationNavController.viewControllers.first as? CreateFormsTableViewController {
+      destination.question = question
+      destination.statDelegate = statDelegate
+      destination.delegate = self
     }
   }
   
@@ -121,16 +126,23 @@ class QuestionViewController: UIViewController {
     }
   }
   
+  @IBAction func otherUsersButtonAction(sender: AnyObject) {
+    performSegueWithIdentifier("createForms", sender: nil)
+  }
+  
   @IBAction func sameAsMeButtonAction(sender: AnyObject) {
     guard let user = UserManager.sharedManager.user else {
       return
     }
     
-    if statType == .Similar {
+    switch statType {
+    case .Similar:
       sameAsMeButton.setTitle("Same as me".localize(), forState: .Normal)
       statType = .Normal
       statDelegate?.didChangeStatType(StatType.Normal)
       return
+    default:
+      break
     }
     
     if user.isAllFieldsFilled() {
@@ -179,12 +191,6 @@ class QuestionViewController: UIViewController {
       
       presentViewController(alert, animated: true, completion: nil)
     }
-  }
-  
-  @IBAction func otherUsersButtonAction(sender: AnyObject) {
-   let alert = UIAlertController(title: nil, message: "This function will be paid soon!".localize(), preferredStyle: .Alert)
-    alert.addAction(UIAlertAction(title: "ОК", style: .Default, handler: nil))
-    presentViewController(alert, animated: true, completion: nil)
   }
   
   func showResults(animated: Bool) {
@@ -241,5 +247,12 @@ extension QuestionViewController: QuestionChangesDelegate {
     NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
     delegate?.didAnswerTheQuestion?(question)
     showResults(true)
+  }
+}
+
+extension  QuestionViewController: CreateFormsDelegate {
+  func didUpdateStat() {
+    statType = .Similar
+    sameAsMeButton.setTitle("All".localize(), forState: .Normal)
   }
 }

@@ -9,6 +9,7 @@
 enum StatType {
   case Normal
   case Similar
+  case Other(stat: Stat)
 }
 
 protocol StatDataDisplay: class {

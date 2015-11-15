@@ -69,7 +69,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="292.5" y="82.5" width="90.5" height="21"/>
+                                    <rect key="frame" x="292" y="82" width="90.5" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2301" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECh-8n-orb">
@@ -109,7 +109,7 @@
                                     <constraint firstAttribute="height" constant="15" id="rBX-37-tAx"/>
                                 </constraints>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="269.5" y="85" width="15" height="15"/>
+                                    <rect key="frame" x="269" y="85" width="15" height="15"/>
                                 </variation>
                             </imageView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xoN-hP-64R">
@@ -213,7 +213,7 @@
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="otherUsersButtonAction:" destination="Wuj-zH-GND" eventType="touchUpInside" id="ovi-eg-3Uj"/>
+                                    <action selector="otherUsersButtonAction:" destination="Wuj-zH-GND" eventType="touchUpInside" id="zdE-6I-msw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Pro версия)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfD-xw-jb2">
@@ -316,6 +316,7 @@
                         <outlet property="warningLabel" destination="NkO-mx-T4M" id="LBF-I5-uRU"/>
                         <outletCollection property="separationLineHeightConstraints" destination="ifs-Va-3Fh" collectionClass="NSMutableArray" id="b1S-nj-1Rz"/>
                         <outletCollection property="separationLineHeightConstraints" destination="eli-mz-fW3" collectionClass="NSMutableArray" id="zAI-Sh-qsT"/>
+                        <segue destination="IIU-s2-K73" kind="showDetail" identifier="createForms" id="4oP-4O-4dS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ekr-w2-dfv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -360,7 +361,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="40" y="296.5" width="19" height="17.5"/>
+                                    <rect key="frame" x="40" y="296" width="19" height="17.5"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Воздержались 10%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNI-jn-dgJ">
@@ -370,7 +371,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="129.5" y="296.5" width="141" height="17.5"/>
+                                    <rect key="frame" x="129" y="296" width="141" height="17.5"/>
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODQ-Sv-cjH">
@@ -382,7 +383,7 @@
                                     <constraint firstAttribute="height" constant="6" id="uYv-Jv-z5S"/>
                                 </constraints>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="36" y="282.5" width="27" height="6"/>
+                                    <rect key="frame" x="36" y="282" width="27" height="6"/>
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0O-SR-hVj">
@@ -394,7 +395,7 @@
                                     <constraint firstAttribute="width" constant="27" id="oBt-y6-p4i"/>
                                 </constraints>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="333.5" y="282.5" width="27" height="6"/>
+                                    <rect key="frame" x="333" y="282" width="27" height="6"/>
                                 </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Нет" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTv-GV-D0i">
@@ -404,7 +405,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="334" y="296.5" width="26" height="17.5"/>
+                                    <rect key="frame" x="334" y="296" width="26" height="17.5"/>
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DGu-Bj-fH6">
@@ -694,6 +695,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYa-f9-hye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3594" y="1200.5625"/>
+        </scene>
+        <!--CreateForms-->
+        <scene sceneID="1Fj-bu-Ov4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateForms" id="IIU-s2-K73" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bVD-m7-uvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3279.75" y="1389.75"/>
         </scene>
     </scenes>
     <resources>

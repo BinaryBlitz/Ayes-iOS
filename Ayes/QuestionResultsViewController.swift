@@ -87,10 +87,15 @@ class QuestionResultsViewController: UIViewController {
 
 extension QuestionResultsViewController: StatDataDisplay {
   func didChangeStatType(type: StatType) {
-    if let similarStat = question.similarStat as? Stat where type == .Similar {
-      update(similarStat)
-    } else {
+    switch type {
+    case .Similar:
+      if let similarStat = question.similarStat as? Stat {
+        update(similarStat)
+      }
+    case .Normal:
       let stat = question.stat as! Stat
+      update(stat)
+    case let .Other(stat):
       update(stat)
     }
   }
