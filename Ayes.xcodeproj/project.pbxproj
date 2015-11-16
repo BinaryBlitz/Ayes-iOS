@@ -70,7 +70,6 @@
 		37C44A5F1BC31D95001A6340 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */; };
 		37C44A671BC31FDD001A6340 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C44A661BC31FDD001A6340 /* FavoritesViewController.swift */; };
 		37C578491BCA966A005B4723 /* QuestionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C578481BCA966A005B4723 /* QuestionState.swift */; };
-		37D4F5331BD044BE003516A7 /* QuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D4F5321BD044BE003516A7 /* QuestionTests.swift */; };
 		37D4F5361BD06549003516A7 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D4F5341BD06549003516A7 /* Home.storyboard */; };
 		37E2A0ED1BC7E7E700FA7A6B /* Ayes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EB1BC7E7E700FA7A6B /* Ayes.xcdatamodeld */; };
 		37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EF1BC7EBA800FA7A6B /* Question.swift */; };
@@ -164,7 +163,6 @@
 		37C44A5E1BC31D95001A6340 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		37C44A661BC31FDD001A6340 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		37C578481BCA966A005B4723 /* QuestionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionState.swift; sourceTree = "<group>"; };
-		37D4F5321BD044BE003516A7 /* QuestionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTests.swift; sourceTree = "<group>"; };
 		37D4F5351BD06549003516A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		37E2A0EC1BC7E7E700FA7A6B /* Ayes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ayes.xcdatamodel; sourceTree = "<group>"; };
 		37E2A0EF1BC7EBA800FA7A6B /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -307,7 +305,6 @@
 			isa = PBXGroup;
 			children = (
 				372657ED1BC27520003383D1 /* Info.plist */,
-				37D4F5321BD044BE003516A7 /* QuestionTests.swift */,
 			);
 			path = AyesTests;
 			sourceTree = "<group>";
@@ -768,7 +765,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				37BB0F631BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */,
-				37D4F5331BD044BE003516A7 /* QuestionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
