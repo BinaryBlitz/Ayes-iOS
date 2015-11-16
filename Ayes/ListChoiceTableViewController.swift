@@ -9,18 +9,18 @@
 import UIKit
 
 class ListChoiceTableViewController: UITableViewController {
-  
+
   var item: String!
   var selectedIndex: Int?
   weak var delegate: QuestionnaireDataDisplay?
-  
+
   var options: [String] {
     return UserManager.sharedManager.optionsForKey(item)
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 50
@@ -28,16 +28,16 @@ class ListChoiceTableViewController: UITableViewController {
       selectedIndex = options.indexOf(value)
     }
   }
-  
+
   //MARK: - Actions
-  
+
   func saveAction(sender: AnyObject) {
     if let selectedIndex = selectedIndex {
       let selectedOption = options[selectedIndex]
       UserManager.sharedManager.updateKey(item, withValue: selectedOption)
       delegate?.didUpdateValues()
     }
-    
+
     navigationController?.popToRootViewControllerAnimated(true)
   }
 
@@ -51,23 +51,25 @@ class ListChoiceTableViewController: UITableViewController {
     guard let cell = tableView.dequeueReusableCellWithIdentifier("listItemCell") else {
       return UITableViewCell()
     }
-    
+
     let row = indexPath.row
     cell.accessoryType = row == selectedIndex ? .Checkmark : .None
     cell.textLabel?.text = options[row].localize()
 
     return cell
   }
-  
+
   // MARK: - Table view delegate
-  
+
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    defer { tableView.deselectRowAtIndexPath(indexPath, animated: true) }
-    
+    defer {
+      tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+
     if selectedIndex == indexPath.row {
       return
     }
-    
+
     let cell = tableView.cellForRowAtIndexPath(indexPath)
     if let selectedIndex = selectedIndex {
       let selectedCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: selectedIndex, inSection: 0))
@@ -75,7 +77,7 @@ class ListChoiceTableViewController: UITableViewController {
     }
     cell?.accessoryType = .Checkmark
     self.selectedIndex = indexPath.row
-    
+
     saveAction(self)
   }
 }
