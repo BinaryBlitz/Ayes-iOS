@@ -126,7 +126,17 @@
                             <outlet property="delegate" destination="jRV-dc-ezb" id="sHZ-4L-mdS"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ANC-Kb-lrr">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="ebj-aL-fsM">
+                            <connections>
+                                <action selector="clearAction:" destination="jRV-dc-ezb" id="CvR-UV-Hce"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="clearBarButtonItem" destination="ebj-aL-fsM" id="aw8-HF-gLr"/>
                         <outlet property="pickerView" destination="Fgo-Cr-bCD" id="HLu-8l-Ub0"/>
                     </connections>
                 </tableViewController>
@@ -151,7 +161,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="65.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LYJ-IN-Q3m">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LYJ-IN-Q3m">
                                             <rect key="frame" x="15" y="0.0" width="570" height="65.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
@@ -170,6 +180,16 @@
                             <outlet property="delegate" destination="yhj-Tu-Npw" id="DBJ-ok-RC2"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="gL1-lv-c0m">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="QJ2-mu-1ty">
+                            <connections>
+                                <action selector="clearAction:" destination="yhj-Tu-Npw" id="d1f-w9-fdw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="clearBarButtonItem" destination="QJ2-mu-1ty" id="6pa-8Y-qBW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRi-mb-UGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

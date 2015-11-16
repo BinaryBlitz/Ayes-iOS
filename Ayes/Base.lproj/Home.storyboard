@@ -68,9 +68,6 @@
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="292" y="82" width="90.5" height="21"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2301" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECh-8n-orb">
                                 <rect key="frame" x="18" y="72" width="56.5" height="30"/>
@@ -78,9 +75,6 @@
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="25" y="69" width="71.5" height="37.5"/>
-                                </variation>
                             </label>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c7m-TE-fDQ">
                                 <rect key="frame" x="0.0" y="111" width="600" height="1"/>
@@ -89,9 +83,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ifs-Va-3Fh"/>
                                 </constraints>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="108" width="400" height="1"/>
-                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5K-oE-QNs">
                                 <rect key="frame" x="0.0" y="534" width="600" height="1"/>
@@ -108,9 +99,6 @@
                                     <constraint firstAttribute="width" constant="15" id="Nwf-Dc-rdc"/>
                                     <constraint firstAttribute="height" constant="15" id="rBX-37-tAx"/>
                                 </constraints>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="269" y="85" width="15" height="15"/>
-                                </variation>
                             </imageView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xoN-hP-64R">
                                 <rect key="frame" x="0.0" y="112" width="600" height="422"/>
@@ -121,16 +109,10 @@
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="29"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="20" y="4" width="360" height="101.5"/>
-                                        </variation>
                                     </label>
                                     <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0w3-m3-sdW">
                                         <rect key="frame" x="0.0" y="210" width="600" height="204"/>
                                         <animations/>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="293" width="400" height="331"/>
-                                        </variation>
                                         <connections>
                                             <segue destination="Ovu-dp-yN0" kind="embed" identifier="controlsSetUp" id="82b-AT-Noe"/>
                                         </connections>
@@ -169,8 +151,7 @@
                                         <exclude reference="neA-A7-Bvp"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="109" width="400" height="625"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="YJi-O0-MMU"/>
                                     </mask>
@@ -360,9 +341,6 @@
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="40" y="296" width="19" height="17.5"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Воздержались 10%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNI-jn-dgJ">
                                 <rect key="frame" x="124" y="302" width="153" height="20.5"/>
@@ -370,9 +348,6 @@
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="129" y="296" width="141" height="17.5"/>
-                                </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODQ-Sv-cjH">
                                 <rect key="frame" x="36" y="268" width="27" height="6"/>
@@ -382,9 +357,6 @@
                                     <constraint firstAttribute="width" constant="27" id="pOs-dy-vsG"/>
                                     <constraint firstAttribute="height" constant="6" id="uYv-Jv-z5S"/>
                                 </constraints>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="36" y="282" width="27" height="6"/>
-                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0O-SR-hVj">
                                 <rect key="frame" x="333" y="268" width="27" height="6"/>
@@ -394,9 +366,6 @@
                                     <constraint firstAttribute="height" constant="6" id="5bh-Mj-Qt3"/>
                                     <constraint firstAttribute="width" constant="27" id="oBt-y6-p4i"/>
                                 </constraints>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="333" y="282" width="27" height="6"/>
-                                </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Нет" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTv-GV-D0i">
                                 <rect key="frame" x="333" y="282" width="27" height="18"/>
@@ -404,9 +373,6 @@
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="334" y="296" width="26" height="17.5"/>
-                                </variation>
                             </label>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DGu-Bj-fH6">
                                 <rect key="frame" x="168" y="30" width="225" height="225"/>
@@ -597,9 +563,6 @@
                                         <animations/>
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
                                         <state key="normal" title="Button"/>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="25" width="252" height="32"/>
-                                        </variation>
                                         <connections>
                                             <action selector="skipButtonAction:" destination="Ovu-dp-yN0" eventType="touchUpInside" id="2dy-Uf-1g0"/>
                                         </connections>

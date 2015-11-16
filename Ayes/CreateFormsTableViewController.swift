@@ -74,7 +74,7 @@ class CreateFormsTableViewController: UITableViewController {
 
     let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
     indicator.frame = CGRect(x: 0.0, y: 0.0, width: 70.0, height: 70.0)
-    indicator.layer.cornerRadius = 3
+    indicator.layer.cornerRadius = 10
     indicator.backgroundColor = UIColor.darkVioletPrimaryColor()
     indicator.center = view.center
     indicator.center.y -= 120

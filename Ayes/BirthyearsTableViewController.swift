@@ -15,6 +15,7 @@ class BirthyearsTableViewController: UITableViewController {
   let minYear = 1940
   let maxYear = 2009
   
+  @IBOutlet weak var clearBarButtonItem: UIBarButtonItem!
   @IBOutlet weak var pickerView: UIPickerView!
   
   override func viewDidLoad() {
@@ -25,6 +26,8 @@ class BirthyearsTableViewController: UITableViewController {
       pickerView.selectRow(years[0] - minYear, inComponent: 0, animated: false)
       pickerView.selectRow(years[1] - minYear, inComponent: 1, animated: false)
     }
+  }
+  @IBAction func clearAction(sender: AnyObject) {
   }
 }
 

@@ -89,7 +89,7 @@ class UserManager {
     }
     
     if tmpUser == nil {
-      tmpUser = user.copy() as! User
+      tmpUser = user.copy() as? User
     }
     
     switch key {
@@ -143,7 +143,7 @@ class UserManager {
     }
     
     if tmpUser == nil {
-      tmpUser = user.copy() as! User
+      tmpUser = user.copy() as? User
     }
     
     switch key {
