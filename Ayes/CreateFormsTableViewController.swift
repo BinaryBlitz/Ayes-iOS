@@ -23,6 +23,10 @@ class CreateFormsTableViewController: UITableViewController {
 
     cancelBarButtonItem.title = "Cancel".localize()
     doneBarButtonItem.title = "Done".localize()
+
+    // Back button
+    let backItem = UIBarButtonItem(title: "Back".localize(), style: .Plain, target: nil, action: nil)
+    navigationItem.backBarButtonItem = backItem
   }
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,7 +58,7 @@ class CreateFormsTableViewController: UITableViewController {
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
     let key = items[indexPath.row]
-    if key == kBirthDate {
+    if key == kAge {
       performSegueWithIdentifier("birthdateChoice", sender: key)
     } else {
       performSegueWithIdentifier("listChoice", sender: key)
@@ -70,6 +74,15 @@ class CreateFormsTableViewController: UITableViewController {
   @IBAction func doneButtonAction(sender: AnyObject) {
 
     guard let user = ComplexUserManager.sharedManager.user else {
+      return
+    }
+
+    if !ComplexUserManager.sharedManager.atLeastOneFilled() {
+      let fillFieldAlert = UIAlertController(title: "Error".localize(),
+              message: "You have to fill at least one field.".localize(), preferredStyle: .Alert)
+      fillFieldAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+
+      presentViewController(fillFieldAlert, animated: true, completion: nil)
       return
     }
 

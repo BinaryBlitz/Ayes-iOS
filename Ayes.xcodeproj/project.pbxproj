@@ -78,7 +78,6 @@
 		37E2A0ED1BC7E7E700FA7A6B /* Ayes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EB1BC7E7E700FA7A6B /* Ayes.xcdatamodeld */; };
 		37E2A0F11BC7EBA800FA7A6B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E2A0EF1BC7EBA800FA7A6B /* Question.swift */; };
 		37E9D1DC1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E9D1DB1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift */; };
-		37EA41591BF518830007614A /* ComplexBirthDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EA41581BF518830007614A /* ComplexBirthDate.swift */; };
 		37EF0C1C1BCAC66800BA88EA /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */; };
 		37FF386C1BEF78A200DB485C /* Stat+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FF386A1BEF78A200DB485C /* Stat+CoreDataProperties.swift */; };
 		37FF386D1BEF78A200DB485C /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FF386B1BEF78A200DB485C /* Stat.swift */; };
@@ -175,7 +174,6 @@
 		37E2A0EF1BC7EBA800FA7A6B /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		37E2A0F21BC8033300FA7A6B /* Ayes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ayes-Bridging-Header.h"; sourceTree = "<group>"; };
 		37E9D1DB1BD02DFE003B6A17 /* PNPieChartDataItem+Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PNPieChartDataItem+Float.swift"; sourceTree = "<group>"; };
-		37EA41581BF518830007614A /* ComplexBirthDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexBirthDate.swift; sourceTree = "<group>"; };
 		37EF0C1B1BCAC66800BA88EA /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		37FF386A1BEF78A200DB485C /* Stat+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stat+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		37FF386B1BEF78A200DB485C /* Stat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
@@ -257,7 +255,6 @@
 			children = (
 				371FB48F1BF4B472009C8DD3 /* ComplexUser.swift */,
 				371FB4911BF4BBB7009C8DD3 /* ComplexUserManager.swift */,
-				37EA41581BF518830007614A /* ComplexBirthDate.swift */,
 			);
 			name = ComplexUser;
 			sourceTree = "<group>";
@@ -725,7 +722,6 @@
 				371FB48E1BF40131009C8DD3 /* String+Localize.swift in Sources */,
 				372657D91BC27520003383D1 /* QuestionnaireTableViewController.swift in Sources */,
 				37BB0F621BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */,
-				37EA41591BF518830007614A /* ComplexBirthDate.swift in Sources */,
 				376D13AD1BCD11F000F3EABC /* LocalizeHelper.swift in Sources */,
 				371A0E201BEDE73100B9E955 /* Answer+CoreDataProperties.swift in Sources */,
 				37E2A0ED1BC7E7E700FA7A6B /* Ayes.xcdatamodeld in Sources */,

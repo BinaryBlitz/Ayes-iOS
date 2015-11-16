@@ -7,8 +7,8 @@
 //
 
 class ComplexUser {
-  
-  var birthDate: ComplexBirthDate?
+
+  var age = [Int]()
   var sex: [User.Sex] = []
   var region = [String]()
   var locality: [User.Locality] = []
@@ -16,5 +16,5 @@ class ComplexUser {
   var income: [User.Income] = []
   var education: [User.Education] = []
   var relationship: [User.Relationship] = []
-  
+
 }

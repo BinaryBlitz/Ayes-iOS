@@ -12,42 +12,55 @@ class BirthyearsTableViewController: UITableViewController {
 
   var key: String!
   weak var delegate: QuestionnaireDataDisplay?
-  let minYear = 1940
-  let maxYear = 2009
-  
+  let minAge = 10
+  let maxAge = 100
+
   @IBOutlet weak var clearBarButtonItem: UIBarButtonItem!
   @IBOutlet weak var pickerView: UIPickerView!
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    if let complexDate = ComplexUserManager.sharedManager.user?.birthDate {
-      let years = complexDate.getYearsArray()
-      pickerView.selectRow(years[0] - minYear, inComponent: 0, animated: false)
-      pickerView.selectRow(years[1] - minYear, inComponent: 1, animated: false)
+
+    clearBarButtonItem.title = "Clear".localize()
+
+    if let ages = ComplexUserManager.sharedManager.user?.age where ages.count != 0 {
+      pickerView.selectRow(ages[0] - minAge, inComponent: 0, animated: false)
+      pickerView.selectRow(ages[1] - minAge, inComponent: 1, animated: false)
+    } else {
+      pickerView.selectRow(0, inComponent: 0, animated: false)
+      pickerView.selectRow(maxAge - minAge - 1, inComponent: 1, animated: false)
     }
   }
+
   @IBAction func clearAction(sender: AnyObject) {
+    ComplexUserManager.sharedManager.updateKey(kAge, withValues: [])
+    pickerView.selectRow(0, inComponent: 0, animated: false)
+    pickerView.selectRow(maxAge - minAge - 1, inComponent: 1, animated: false)
+    delegate?.didUpdateValues()
+  }
+
+  override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return "from - to".localize()
   }
 }
 
 extension BirthyearsTableViewController: UIPickerViewDataSource {
-  
+
   func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
     return 2
   }
-  
+
   func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    return maxYear - minYear
+    return maxAge - minAge
   }
 }
 
 extension BirthyearsTableViewController: UIPickerViewDelegate {
-  
+
   func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    return "\(minYear + row)"
+    return "\(minAge + row)"
   }
-  
+
   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     if component == 0 {
       let selected = pickerView.selectedRowInComponent(0)
@@ -62,12 +75,12 @@ extension BirthyearsTableViewController: UIPickerViewDelegate {
         pickerView.selectRow(selected, inComponent: 0, animated: true)
       }
     }
-    
+
     let values = [
-      "\(pickerView.selectedRowInComponent(0) + minYear)",
-      "\(pickerView.selectedRowInComponent(1) + minYear)"
+            "\(pickerView.selectedRowInComponent(0) + minAge)",
+            "\(pickerView.selectedRowInComponent(1) + minAge)"
     ]
-    
+
     ComplexUserManager.sharedManager.updateKey(key, withValues: values)
     delegate?.didUpdateValues()
   }

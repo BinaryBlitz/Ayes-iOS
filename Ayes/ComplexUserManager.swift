@@ -6,13 +6,15 @@
 //  Copyright © 2015 BinaryBlitz. All rights reserved.
 //
 
+let kAge = "age"
+
 class ComplexUserManager {
   
   static let sharedManager = ComplexUserManager()
   
   var user: ComplexUser?
   var avalableKeys: [String] {
-    return [kBirthDate, kSex, kRegion, kLocality,
+    return [kAge, kSex, kRegion, kLocality,
       kOccupation, kIncome, kEducation, kRelationship]
   }
   
@@ -23,6 +25,16 @@ class ComplexUserManager {
     dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = "dd.MM.yyyy"
   }
+
+  func atLeastOneFilled() -> Bool {
+    for key in avalableKeys {
+      if valuesForKey(key)?.count != 0 {
+        return true
+      }
+    }
+
+    return false
+  }
   
   func updateKey(key: String, withValues values: [String]) {
     guard let user = user else {
@@ -30,12 +42,10 @@ class ComplexUserManager {
     }
     
     switch key {
-    case kBirthDate:
-      let years = values.flatMap { (string) -> Int? in
+    case kAge:
+      user.age = values.flatMap { (string) -> Int? in
         return Int(string)
       }
-      
-      user.birthDate = ComplexBirthDate(years: years)
     case kSex:
       user.sex = values.flatMap { (value) -> User.Sex? in
         return User.Sex(rawValue: value)
@@ -69,7 +79,7 @@ class ComplexUserManager {
   
   func optionsForKey(key: String) -> [String] {
     switch key {
-    case kBirthDate:
+    case kAge:
       return []
     case kSex:
       return User.Sex.optionsList
@@ -96,9 +106,9 @@ class ComplexUserManager {
     }
     
     switch key {
-    case kBirthDate:
-      return user.birthDate?.getYearsArray().map { (year) -> String in
-        return String(year)
+    case kAge:
+      return user.age.map { (age) -> String in
+        return String(age)
       }
     case kSex:
       return user.sex.map { (sex) -> String in

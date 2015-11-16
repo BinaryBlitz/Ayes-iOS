@@ -6,6 +6,9 @@
   Copyright © 2015 BinaryBlitz. All rights reserved.
 */
 
+"from - to" = "от - до";
+"You have to fill at least one field." = "Необходимо заполнить хотя бы одно поле.";
+"age" = "Возраст";
 "Clear" = "Очистить";
 "No internet connection" = "Нет соединения с интенетом!";
 "(Pro version)" = "(Pro версия)";
