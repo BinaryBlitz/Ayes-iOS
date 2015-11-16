@@ -59,7 +59,7 @@ class ServerManager {
   //MARK: - User
   
   func createUser(complition: ((success: Bool) -> Void)? = nil) {
-    let parameters = ["user" : ["gender": ""]]
+    let parameters = ["user" : ["gender": "", "country": "RU"]]
     manager.request(.POST, baseURL + "user/", parameters: parameters, encoding: .JSON)
     .validate()
     .responseJSON { (request, response, result) -> Void in
@@ -89,7 +89,7 @@ class ServerManager {
         fields[item] = UserManager.sharedManager.valueForKey(item)
       }
     }
-
+//
 //    let region = UserManager.sharedManager.valueForKey(kRegion)
 //    if region == "MOW" || region == "SPE" {
 //        fields[kLocality] = region
@@ -138,7 +138,7 @@ class ServerManager {
       if country == Settings.Country.Russia {
         userFields["country"] = "RU"
       } else {
-        userFields["country"] = UserManager.sharedManager.user?.region ?? NSNull()
+        userFields["country"] = UserManager.sharedManager.user?.region ?? "WORLD"
       }
     }
     
