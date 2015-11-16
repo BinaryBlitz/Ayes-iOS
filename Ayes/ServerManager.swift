@@ -148,6 +148,7 @@ class ServerManager {
       let request = try self.patch("user/", params: parameters)
       request.validate()
       request.response { (_, resp, _, error) -> Void in
+        print(resp)
         complition?(success: error == nil)
       }
       
@@ -193,12 +194,12 @@ class ServerManager {
           for q in allQuestions {
             if let id = q.id?.integerValue where !questions_ids.contains(id) {
               q.MR_deleteEntity()
-              if let answers = Answer.findByAttribute("question_id", withValue: id) as? [Answer] {
-                answers.forEach { q in q.MR_deleteEntity() }
-              }
-              if let favorites = Favorite.findByAttribute("question_id", withValue: id) as? [Favorite] {
-                favorites.forEach { fav in fav.MR_deleteEntity() }
-              }
+//              if let answers = Answer.findByAttribute("question_id", withValue: id) as? [Answer] {
+//                answers.forEach { q in q.MR_deleteEntity() }
+//              }
+//              if let favorites = Favorite.findByAttribute("question_id", withValue: id) as? [Favorite] {
+//                favorites.forEach { fav in fav.MR_deleteEntity() }
+//              }
             }
           }
           

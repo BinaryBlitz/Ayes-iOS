@@ -19,6 +19,7 @@ class Favorite: NSManagedObject {
     
     let favorite = Favorite.MR_createEntity()
     favorite.question_id = question_id
+    favorite.sentToServer = false
     
     return favorite
   }

@@ -2,7 +2,7 @@
 //  Favorite+CoreDataProperties.swift
 //  Ayes
 //
-//  Created by Dan Shevlyuk on 07/11/15.
+//  Created by Dan Shevlyuk on 16/11/15.
 //  Copyright © 2015 BinaryBlitz. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,5 +15,6 @@ import CoreData
 extension Favorite {
 
     @NSManaged var question_id: NSNumber?
+    @NSManaged var sentToServer: NSNumber?
 
 }

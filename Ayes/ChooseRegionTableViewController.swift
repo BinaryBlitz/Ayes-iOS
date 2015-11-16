@@ -55,10 +55,8 @@ class ChooseRegionTableViewController: UITableViewController {
   
   @IBAction func doneAction(sender: AnyObject) {
     Settings.sharedInstance.country = Settings.Country(rawValue: avaliableRegions[selectedCell])
-    if let delegate = delegate {
-      delegate.didChoseItem?()
-    }
-    
+    delegate?.didUpdateCountry?()
+
     dismissViewControllerAnimated(true, completion: nil)
   }
 }

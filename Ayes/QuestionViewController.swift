@@ -117,13 +117,14 @@ class QuestionViewController: UIViewController {
         ServerManager.sharedInstance.submitFavorite(favoriteObject) {
           (success) -> Void in
           if success {
-            favoriteObject.MR_deleteEntity()
+            favoriteObject.sentToServer = true
+            print(favoriteObject.question_id)
             NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
           }
         }
+        NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
       }
 
-      NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
       delegate?.didFavoriteTheQuestion?(question)
     }
   }

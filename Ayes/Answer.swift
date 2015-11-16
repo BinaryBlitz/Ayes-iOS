@@ -27,6 +27,8 @@ class Answer: NSManagedObject {
       answer.value = nil
     }
     
+    answer.sentToServer = false
+    
     return answer
   }
 }

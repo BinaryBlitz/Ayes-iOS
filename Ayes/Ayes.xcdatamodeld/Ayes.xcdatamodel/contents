@@ -2,10 +2,12 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
     <entity name="Answer" representedClassName=".Answer" syncable="YES">
         <attribute name="question_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="sentToServer" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <entity name="Favorite" representedClassName=".Favorite" syncable="YES">
         <attribute name="question_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="sentToServer" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <entity name="Question" representedClassName=".Question" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
@@ -23,8 +25,8 @@
         <attribute name="positive" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Answer" positionX="-63" positionY="54" width="128" height="75"/>
-        <element name="Favorite" positionX="-54" positionY="63" width="128" height="60"/>
+        <element name="Answer" positionX="-63" positionY="54" width="128" height="90"/>
+        <element name="Favorite" positionX="-54" positionY="63" width="128" height="75"/>
         <element name="Question" positionX="-63" positionY="-18" width="128" height="165"/>
         <element name="Stat" positionX="-54" positionY="72" width="128" height="90"/>
     </elements>

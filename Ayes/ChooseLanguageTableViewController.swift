@@ -10,6 +10,7 @@ import UIKit
 
 @objc protocol MultipleChoiceControllerDelegate {
   optional func didChoseItem()
+  optional func didUpdateCountry()
 }
 
 class ChooseLanguageTableViewController: UITableViewController {
