@@ -37,11 +37,28 @@ class Question: NSManagedObject {
     question.content = content
     question.epigraph = epigraph
     question.stat = Stat.createFromJSON(json["answers"])
+
+    if let _ = Favorite.findFirstByAttribute("question_id", withValue: NSNumber(integer: id)) {
+      question.isFavorite = true
+    } else {
+      question.isFavorite = false
+    }
+    
+    if let answer = Answer.findFirstByAttribute("question_id", withValue: NSNumber(integer: id)) {
+      if let value = answer.value {
+        if value.boolValue {
+          question.updateState(.Yes)
+        } else {
+          question.updateState(.No)
+        }
+      } else {
+        question.updateState(.Skip)
+      }
+    }
     
     if let createdAt = NSDate(dateString: createdAtString) {
       question.dateCreated = createdAt
     }
-    
     
     return question
   }

@@ -59,7 +59,7 @@ class ServerManager {
   //MARK: - User
   
   func createUser(complition: ((success: Bool) -> Void)? = nil) {
-    let parameters = ["user" : ["gender": ""]]
+    let parameters = ["user" : ["gender": "", "country": "RU"]]
     manager.request(.POST, baseURL + "user/", parameters: parameters, encoding: .JSON)
     .validate()
     .responseJSON { (request, response, result) -> Void in
@@ -89,7 +89,7 @@ class ServerManager {
         fields[item] = UserManager.sharedManager.valueForKey(item)
       }
     }
-
+//
 //    let region = UserManager.sharedManager.valueForKey(kRegion)
 //    if region == "MOW" || region == "SPE" {
 //        fields[kLocality] = region
@@ -138,7 +138,7 @@ class ServerManager {
       if country == Settings.Country.Russia {
         userFields["country"] = "RU"
       } else {
-        userFields["country"] = UserManager.sharedManager.user?.region ?? NSNull()
+        userFields["country"] = UserManager.sharedManager.user?.region ?? "WORLD"
       }
     }
     
@@ -148,6 +148,7 @@ class ServerManager {
       let request = try self.patch("user/", params: parameters)
       request.validate()
       request.response { (_, resp, _, error) -> Void in
+        print(resp)
         complition?(success: error == nil)
       }
       
@@ -193,12 +194,12 @@ class ServerManager {
           for q in allQuestions {
             if let id = q.id?.integerValue where !questions_ids.contains(id) {
               q.MR_deleteEntity()
-              if let answers = Answer.findByAttribute("question_id", withValue: id) as? [Answer] {
-                answers.forEach { q in q.MR_deleteEntity() }
-              }
-              if let favorites = Favorite.findByAttribute("question_id", withValue: id) as? [Favorite] {
-                favorites.forEach { fav in fav.MR_deleteEntity() }
-              }
+//              if let answers = Answer.findByAttribute("question_id", withValue: id) as? [Answer] {
+//                answers.forEach { q in q.MR_deleteEntity() }
+//              }
+//              if let favorites = Favorite.findByAttribute("question_id", withValue: id) as? [Favorite] {
+//                favorites.forEach { fav in fav.MR_deleteEntity() }
+//              }
             }
           }
           

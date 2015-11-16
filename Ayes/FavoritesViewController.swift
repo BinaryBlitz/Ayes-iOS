@@ -90,10 +90,7 @@ extension FavoritesViewController: UITableViewDataSource {
     cell.contentTextView.font = UIFont(name: "Roboto-Regular", size: 18)
     cell.questionStateIndicator.backgroundColor = question.state.getAccentColor()
     cell.questionIndicatorIcon.image = UIImage(named: "FavoriteBlack")
-    
-//    let bucketView = UIImageView(image: UIImage(named: "Trash"))
-//    bucketView.contentMode = .Center
-    
+
     let deleteButton = UIButton(type: .Custom)
     deleteButton.backgroundColor = UIColor.lightGreenBackgroundColor()
     deleteButton.setImage(UIImage(named: "Trash"), forState: .Normal)
@@ -117,7 +114,7 @@ extension FavoritesViewController: UITableViewDataSource {
       self.tableView.endUpdates()
     }
     
-    cell.delegate = self
+//    cell.delegate = self
     
     cell.selectionStyle = .None
     
@@ -157,16 +154,16 @@ extension FavoritesViewController: SWRevealViewControllerDelegate {
   }
 }
 
-extension FavoritesViewController: AFMSlidingCellDelegate {
-  func shouldAllowShowingButtonsForCell(cell: AFMSlidingCell!) -> Bool {
-   return !isDeletingCell
-  }
-  
-  func buttonsDidShowForCell(cell: AFMSlidingCell!) {
-    isDeletingCell = true
-  }
-  
-  func buttonsDidHideForCell(cell: AFMSlidingCell!) {
-    isDeletingCell = false
-  }
-}
+//extension FavoritesViewController: AFMSlidingCellDelegate {
+//  func shouldAllowShowingButtonsForCell(cell: AFMSlidingCell!) -> Bool {
+//   return !isDeletingCell
+//  }
+//
+//  func buttonsDidShowForCell(cell: AFMSlidingCell!) {
+//    isDeletingCell = true
+//  }
+//
+//  func buttonsDidHideForCell(cell: AFMSlidingCell!) {
+//    isDeletingCell = false
+//  }
+//}

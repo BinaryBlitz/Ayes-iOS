@@ -161,6 +161,20 @@ extension SettingsTableViewController: MultipleChoiceControllerDelegate {
       print("settings uploaded: \(success)")
     }
   }
+
+  func didUpdateCountry() {
+    reloadContent()
+    Settings.saveToUserDefaults()
+    ServerManager.sharedInstance.updateSettings { (success) -> Void in
+      print("settings uploaded: \(success)")
+      if success {
+        ServerManager.sharedInstance.getQuestions {
+          (questions) in
+          NSNotificationCenter.defaultCenter().postNotificationName(QuestionsUpdateNotification, object: nil)
+        }
+      }
+    }
+  }
 }
 
 extension SettingsTableViewController: SWRevealViewControllerDelegate {

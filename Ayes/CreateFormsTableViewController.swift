@@ -17,64 +17,78 @@ class CreateFormsTableViewController: UITableViewController {
   var question: Question!
   weak var statDelegate: StatDataDisplay?
   var delegate: CreateFormsDelegate?
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     cancelBarButtonItem.title = "Cancel".localize()
     doneBarButtonItem.title = "Done".localize()
+
+    // Back button
+    let backItem = UIBarButtonItem(title: "Back".localize(), style: .Plain, target: nil, action: nil)
+    navigationItem.backBarButtonItem = backItem
   }
-  
+
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return items.count
   }
-  
+
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCellWithIdentifier("itemCell") else {
       return UITableViewCell()
     }
-    
+
     let key = items[indexPath.row]
     cell.textLabel?.text = key.localize()
     if let selectedValues = ComplexUserManager.sharedManager.valuesForKey(key) {
-      let localizedSelectedValues = selectedValues.flatMap { (element) -> String? in
+      let localizedSelectedValues = selectedValues.flatMap {
+        (element) -> String? in
         return element.localize()
       }
-      
+
       let detailString = localizedSelectedValues.joinWithSeparator(", ")
       cell.detailTextLabel?.text = detailString
     } else {
       cell.detailTextLabel?.text = ""
     }
-    
+
     return cell
   }
-  
+
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    
+
     let key = items[indexPath.row]
-    if key == kBirthDate {
+    if key == kAge {
       performSegueWithIdentifier("birthdateChoice", sender: key)
     } else {
       performSegueWithIdentifier("listChoice", sender: key)
     }
-    
+
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
-  
+
   @IBAction func cancelButtonAction(sender: AnyObject) {
     dismissViewControllerAnimated(true, completion: nil)
   }
-  
+
   @IBAction func doneButtonAction(sender: AnyObject) {
 
     guard let user = ComplexUserManager.sharedManager.user else {
       return
     }
 
+    if !ComplexUserManager.sharedManager.atLeastOneFilled() {
+      let fillFieldAlert = UIAlertController(title: "Error".localize(),
+              message: "You have to fill at least one field.".localize(), preferredStyle: .Alert)
+      fillFieldAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+
+      presentViewController(fillFieldAlert, animated: true, completion: nil)
+      return
+    }
+
     let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
     indicator.frame = CGRect(x: 0.0, y: 0.0, width: 70.0, height: 70.0)
-    indicator.layer.cornerRadius = 3
+    indicator.layer.cornerRadius = 10
     indicator.backgroundColor = UIColor.darkVioletPrimaryColor()
     indicator.center = view.center
     indicator.center.y -= 120
@@ -85,33 +99,34 @@ class CreateFormsTableViewController: UITableViewController {
 
 
     ServerManager.sharedInstance
-      .getSimilarAnswersWithForms(user, forQuestion: question) { (stat) in
-          indicator.stopAnimating()
-          if let stat = stat {
-            self.statDelegate?.didChangeStatType(.Other(stat: stat))
-            self.delegate?.didUpdateStat()
-            self.dismissViewControllerAnimated(true, completion: nil)
-          } else {
-            self.presentErrorAlert()
-          }
+    .getSimilarAnswersWithForms(user, forQuestion: question) {
+      (stat) in
+      indicator.stopAnimating()
+      if let stat = stat {
+        self.statDelegate?.didChangeStatType(.Other(stat: stat))
+        self.delegate?.didUpdateStat()
+        self.dismissViewControllerAnimated(true, completion: nil)
+      } else {
+        self.presentErrorAlert()
+      }
     }
   }
-  
+
   func presentErrorAlert() {
     let alert = UIAlertController(title: nil, message: "Error! Try again later.".localize(), preferredStyle: .Alert)
     alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-    presentViewController(alert, animated:  true, completion: nil)
+    presentViewController(alert, animated: true, completion: nil)
   }
-  
+
   //MARK: - Navigation
-  
+
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let destination = segue.destinationViewController as? MultipleListChoiceTableViewController,
-          key = sender as? String where segue.identifier == "listChoice" {
+    key = sender as? String where segue.identifier == "listChoice" {
       destination.key = key
       destination.delegate = self
     } else if let destionation = segue.destinationViewController as? BirthyearsTableViewController,
-        key = sender as? String where segue.identifier == "birthdateChoice" {
+    key = sender as? String where segue.identifier == "birthdateChoice" {
       destionation.key = key
       destionation.delegate = self
     }

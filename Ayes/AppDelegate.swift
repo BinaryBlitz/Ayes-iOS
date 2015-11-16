@@ -55,21 +55,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     case ReachableViaWWAN, ReachableViaWiFi:
       
       // Favorites
-      let favorites = Favorite.MR_findAll() as! [Favorite]
+      let favorites = Favorite.findByAttribute("sentToServer", withValue: false) as! [Favorite]
       print(favorites)
       for fav in favorites {
         ServerManager.sharedInstance.submitFavorite(fav) { (success) -> Void in
           if success {
-            fav.MR_deleteEntity()
+            fav.sentToServer = true
           }
         }
       }
       
       // Answers 
-      let answers = Answer.findAll() as! [Answer]
+      let answers = Answer.findByAttribute("sentToServer", withValue: false) as! [Answer]
       answers.forEach { (answer) -> () in
         ServerManager.sharedInstance.submitAnswer(answer) { (success) -> Void in
-          if success { answer.MR_deleteEntity() }
+          if success {
+            answer.sentToServer = true
+          }
         }
       }
     default:

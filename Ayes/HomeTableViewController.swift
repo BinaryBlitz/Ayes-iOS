@@ -122,6 +122,8 @@ class HomeTableViewController: UITableViewController {
     cell.contentTextView.text = question.content
     cell.contentTextView.font = UIFont(name: "Roboto-Regular", size: 19)
     cell.questionStateIndicator.backgroundColor = question.state.getAccentColor()
+    cell.delegate = self
+    
     switch question.state {
     case .Skip:
       cell.questionStatusLabel.text = "Skipped".localize()
@@ -174,5 +176,11 @@ extension HomeTableViewController: SWRevealViewControllerDelegate {
       view.addSubview(gesturesView)
       tableView.scrollEnabled = false
     }
+  }
+}
+
+extension HomeTableViewController: AFMSlidingCellDelegate {
+  func shouldAllowShowingButtonsForCell(cell: AFMSlidingCell!) -> Bool {
+    return false
   }
 }

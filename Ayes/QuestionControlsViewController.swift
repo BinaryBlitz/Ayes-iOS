@@ -49,7 +49,7 @@ class QuestionControlsViewController: UIViewController {
     if let answer = Answer.createWithQuestion(question) {
       ServerManager.sharedInstance.submitAnswer(id, answer: state) { (success) -> Void in
         if success {
-          answer.MR_deleteEntity()
+          answer.sentToServer = true
         }
       }
     }
