@@ -185,7 +185,7 @@
                                             <constraint firstAttribute="bottom" secondItem="4Vb-21-ojw" secondAttribute="bottom" id="lMb-hz-kH1"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5U-wD-50M">
+                                    <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5U-wD-50M">
                                         <rect key="frame" x="0.0" y="347" width="100" height="67"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pro" translatesAutoresizingMaskIntoConstraints="NO" id="MBN-8z-ko9">
