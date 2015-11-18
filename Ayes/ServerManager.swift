@@ -89,11 +89,11 @@ class ServerManager {
         fields[item] = UserManager.sharedManager.valueForKey(item)
       }
     }
-//
-//    let region = UserManager.sharedManager.valueForKey(kRegion)
-//    if region == "MOW" || region == "SPE" {
-//        fields[kLocality] = region
-//    }
+
+    let region = UserManager.sharedManager.valueForKey(kRegion)
+    if region == "MOW" || region == "SPE" {
+        fields[kLocality] = region
+    }
 
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -194,12 +194,6 @@ class ServerManager {
           for q in allQuestions {
             if let id = q.id?.integerValue where !questions_ids.contains(id) {
               q.MR_deleteEntity()
-//              if let answers = Answer.findByAttribute("question_id", withValue: id) as? [Answer] {
-//                answers.forEach { q in q.MR_deleteEntity() }
-//              }
-//              if let favorites = Favorite.findByAttribute("question_id", withValue: id) as? [Favorite] {
-//                favorites.forEach { fav in fav.MR_deleteEntity() }
-//              }
             }
           }
           
