@@ -35,9 +35,15 @@ class ServerManager {
       throw Errors.Unauthorized
     }
     
+    let shouldUpdaloadDeviceToken = Settings.sharedInstance.favoriteQuestionsNotifications ||
+        Settings.sharedInstance.newQuestionNotifications
+    
+//    let deviceTokenDict = ["device_token": shouldUpdaloadDeviceToken ? (deviceToken ?? NSNull()) : NSNull()]
     if parameters != nil {
       parameters!["api_token"] = token
+//      parameters!["user"] = deviceTokenDict
     } else {
+//      parameters = ["api_token": token, "user": deviceTokenDict]
       parameters = ["api_token": token]
     }
     
@@ -89,11 +95,11 @@ class ServerManager {
         fields[item] = UserManager.sharedManager.valueForKey(item)
       }
     }
-//
-//    let region = UserManager.sharedManager.valueForKey(kRegion)
-//    if region == "MOW" || region == "SPE" {
-//        fields[kLocality] = region
-//    }
+
+    let region = UserManager.sharedManager.valueForKey(kRegion)
+    if region == "MOW" || region == "SPE" {
+        fields[kLocality] = region
+    }
 
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -141,14 +147,16 @@ class ServerManager {
         userFields["country"] = UserManager.sharedManager.user?.region ?? "WORLD"
       }
     }
-    
+
+    userFields["new_question_notifications"] = Settings.sharedInstance.newQuestionNotifications
+    userFields["favorite_questions_notifications"] = Settings.sharedInstance.favoriteQuestionsNotifications
+
     let parameters: [String: AnyObject] = ["user" : userFields]
     
     do {
       let request = try self.patch("user/", params: parameters)
       request.validate()
       request.response { (_, resp, _, error) -> Void in
-        print(resp)
         complition?(success: error == nil)
       }
       
@@ -194,12 +202,6 @@ class ServerManager {
           for q in allQuestions {
             if let id = q.id?.integerValue where !questions_ids.contains(id) {
               q.MR_deleteEntity()
-//              if let answers = Answer.findByAttribute("question_id", withValue: id) as? [Answer] {
-//                answers.forEach { q in q.MR_deleteEntity() }
-//              }
-//              if let favorites = Favorite.findByAttribute("question_id", withValue: id) as? [Favorite] {
-//                favorites.forEach { fav in fav.MR_deleteEntity() }
-//              }
             }
           }
           
@@ -279,7 +281,6 @@ class ServerManager {
       let request = try post("questions/\(questionID)/answers/forms", params: parameters)
       request.validate()
       request.responseJSON { (_, resp, result) in
-        print(resp)
         if result.isFailure {
           complition?(nil)
           return
@@ -363,13 +364,15 @@ class ServerManager {
   
   //MARK: - Push notifications
   
-  func updateDeviceToken(complition: ((_:Bool) -> Void)? = nil) -> Request? {
-    let parameters = ["user" : ["device_token": deviceToken ?? NSNull()]]
+  func updateDeviceToken(token: String? = nil, complition: ((_:Bool) -> Void)? = nil) -> Request? {
+    let parameters = ["user" : ["device_token": token ?? NSNull()]]
     
     do {
       let request = try self.patch("user/", params: parameters)
       request.validate()
       request.response { (_, _, _, error) -> Void in
+        print("updated device token with error: \(error)")
+        print("token: \(token)")
         complition?(error == nil)
       }
       

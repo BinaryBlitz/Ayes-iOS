@@ -105,7 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     ServerManager.sharedInstance.deviceToken = token
     
-    ServerManager.sharedInstance.updateDeviceToken()
+    ServerManager.sharedInstance.updateDeviceToken(token)
   }
   
   private func setUpNavigationBar() {
@@ -160,7 +160,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
     // develper.layOnTheFloor()
-    // try developer.notToCry()
+    // do {
+    //    try developer.notToCry()
+    // catch {
+    //    developer.cryALot()
+    // }
   }
 }
 

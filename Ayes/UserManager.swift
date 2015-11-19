@@ -1,5 +1,5 @@
 //
-//  UserManger.swift
+//  UserManager.swift
 //  Ayes
 //
 //  Created by Dan Shevlyuk on 25/10/15.
@@ -55,9 +55,11 @@ class UserManager {
   }
   
   func canUpdateUser() -> Bool {
+    print(lastUpdate)
     if let lastUpdate = lastUpdate {
       let interval = lastUpdate.timeIntervalSinceNow
-      return interval >= 7 * 24 * 60 * 60
+      print(interval)
+      return -interval > 7 * 24 * 60 * 60
     }
     
     if let tmp = tmpUser {
@@ -74,7 +76,7 @@ class UserManager {
       user = tmpUser
       tmpUser = nil
       let currentDate = NSDate()
-      let interval = currentDate.timeIntervalSince1970 / 10000 * 10000
+      let interval = (currentDate.timeIntervalSince1970 / 10000) * 10000
       lastUpdate = NSDate(timeIntervalSince1970: interval)
       saveToUserDefaults()
       return true

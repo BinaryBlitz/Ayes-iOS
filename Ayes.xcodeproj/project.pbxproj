@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1839172646524339CADDBE5E /* CreateFormsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183914541E9CFA8A2E215D2C /* CreateFormsDelegate.swift */; };
-		370415021BDD03360036A5F5 /* UserManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370415011BDD03360036A5F5 /* UserManger.swift */; };
+		370415021BDD03360036A5F5 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370415011BDD03360036A5F5 /* UserManager.swift */; };
 		370415041BDD208C0036A5F5 /* QuestionnaireDataDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370415031BDD208C0036A5F5 /* QuestionnaireDataDisplay.swift */; };
 		370D7B7A1BEAB23800B70D50 /* OnboardingPageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370D7B791BEAB23800B70D50 /* OnboardingPageContent.swift */; };
 		37154B881BCFC3A900639A8D /* QuestionResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37154B871BCFC3A900639A8D /* QuestionResultsViewController.swift */; };
@@ -96,7 +96,7 @@
 /* Begin PBXFileReference section */
 		183914541E9CFA8A2E215D2C /* CreateFormsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFormsDelegate.swift; sourceTree = "<group>"; };
 		2D5A5610BF6A85A5D1D0B98A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		370415011BDD03360036A5F5 /* UserManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManger.swift; sourceTree = "<group>"; };
+		370415011BDD03360036A5F5 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		370415031BDD208C0036A5F5 /* QuestionnaireDataDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireDataDisplay.swift; sourceTree = "<group>"; };
 		370D7B791BEAB23800B70D50 /* OnboardingPageContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageContent.swift; sourceTree = "<group>"; };
 		37154B871BCFC3A900639A8D /* QuestionResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionResultsViewController.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 			children = (
 				37202B571BD6CE6B00FCD1DB /* User.swift */,
 				3745EFC11BDC2DFA008E12DC /* User+EnumFields.swift */,
-				370415011BDD03360036A5F5 /* UserManger.swift */,
+				370415011BDD03360036A5F5 /* UserManager.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -706,7 +706,7 @@
 				37F1F92B1BFA64B1005B0A75 /* Favorite+CoreDataProperties.swift in Sources */,
 				371AAE571BCEA84F007AC0F4 /* QuestionViewController.swift in Sources */,
 				37BB0F651BC3D8BB00DFFDED /* HomeTableViewController.swift in Sources */,
-				370415021BDD03360036A5F5 /* UserManger.swift in Sources */,
+				370415021BDD03360036A5F5 /* UserManager.swift in Sources */,
 				375BFC631BF355B50057B396 /* NotificationsViewController.swift in Sources */,
 				378170B61BEA3B6E00EF39D9 /* UIView+ImageWithView.swift in Sources */,
 				375423B01BCEBAA1001CA639 /* QuestionControlsViewController.swift in Sources */,

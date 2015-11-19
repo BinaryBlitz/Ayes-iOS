@@ -16,7 +16,8 @@ class Question: NSManagedObject {
     guard let id = json["id"].int,
       content = json["content"].string,
       createdAtString = json["created_at"].string,
-      epigraph = json["epigraph"].string
+      epigraph = json["epigraph"].string,
+      publishedAtString = json["published_at"].string
       else {
         return nil
     }
@@ -25,7 +26,8 @@ class Question: NSManagedObject {
         q.epigraph = epigraph
         q.content = content
         q.dateCreated = NSDate(dateString: createdAtString) ?? NSDate()
-        if let stat = q.stat as? Stat {
+        q.publishedAt = NSDate(dateString: publishedAtString) ?? NSDate()
+        if let stat = q.stat {
           stat.updateWithJSON(json["answers"])
         }
 
@@ -60,6 +62,10 @@ class Question: NSManagedObject {
       question.dateCreated = createdAt
     }
     
+    if let publishedAt = NSDate(dateString: publishedAtString) {
+      question.publishedAt = publishedAt
+    }
+    
     return question
   }
   
@@ -90,7 +96,7 @@ class Question: NSManagedObject {
   
   func updateState(state: QuestionState) {
     self.state = state
-    guard let stat = stat as? Stat else {
+    guard let stat = stat else {
       return
     }
     
