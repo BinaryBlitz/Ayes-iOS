@@ -15,6 +15,7 @@
         <attribute name="epigraph" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="publishedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="rawState" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="similarStat" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stat" syncable="YES"/>
         <relationship name="stat" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stat" syncable="YES"/>
@@ -27,7 +28,7 @@
     <elements>
         <element name="Answer" positionX="-63" positionY="54" width="128" height="90"/>
         <element name="Favorite" positionX="-54" positionY="63" width="128" height="75"/>
-        <element name="Question" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Question" positionX="-63" positionY="-18" width="128" height="180"/>
         <element name="Stat" positionX="-54" positionY="72" width="128" height="90"/>
     </elements>
 </model>

@@ -24,6 +24,8 @@ import Foundation
     }
   }
   var questionTime: NSDate
+  var newQuestionNotifications: Bool
+  var favoriteQuestionsNotifications: Bool
   
   override init() {
     
@@ -44,6 +46,9 @@ import Foundation
     dateComponents.hour = 19
     dateComponents.minute = 0
     questionTime = NSCalendar.currentCalendar().dateFromComponents(dateComponents) ?? NSDate()
+    newQuestionNotifications = false
+    favoriteQuestionsNotifications = false
+
     super.init()
   }
   
@@ -52,12 +57,25 @@ import Foundation
     LocalizeHelper.setLanguage(language ?? "ru")
     country = Country(rawValue: (aDecoder.decodeObjectForKey("ayesCountry") as? String) ?? "Russia")
     questionTime = aDecoder.decodeObjectForKey("ayesQuestionTime") as! NSDate
+    if let newQuestion = aDecoder.decodeObjectForKey("ayesNewQuestionNotifications") as? Bool {
+      newQuestionNotifications = newQuestion
+    } else {
+      newQuestionNotifications = UIApplication.sharedApplication().isRegisteredForRemoteNotifications()
+    }
+    if let fav = aDecoder.decodeObjectForKey("ayesFavoriteQuestionsNotifications") as? Bool {
+      favoriteQuestionsNotifications = fav
+    } else {
+      favoriteQuestionsNotifications = UIApplication.sharedApplication().isRegisteredForRemoteNotifications()
+    }
+
   }
   
   func encodeWithCoder(aCoder: NSCoder) {
     aCoder.encodeObject(language, forKey: "ayesLanguage")
     aCoder.encodeObject(country?.rawValue, forKey: "ayesCountry")
     aCoder.encodeObject(questionTime, forKey: "ayesQuestionTime")
+    aCoder.encodeObject(newQuestionNotifications, forKey: "ayesNewQuestionNotifications")
+    aCoder.encodeObject(favoriteQuestionsNotifications, forKey: "ayesFavoriteQuestionsNotifications")
   }
   
   static func saveToUserDefaults() {

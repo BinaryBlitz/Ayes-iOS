@@ -319,11 +319,13 @@
                         <barButtonItem key="leftBarButtonItem" image="Menu" id="mYI-9c-bj3"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="favoriteQuestionNotificationCell" destination="A9J-Q4-2hY" id="upb-yh-AYq"/>
                         <outlet property="favoriteQuestionsLabel" destination="6hA-qw-nRq" id="BQg-6k-5j2"/>
                         <outlet property="languageLabel" destination="f22-Dj-JQv" id="YMv-oE-3DM"/>
                         <outlet property="languageValueLabel" destination="vSh-Su-n2q" id="Xgd-Sj-A9Z"/>
                         <outlet property="mainNotificationCell" destination="k5N-2I-EcZ" id="lfG-NQ-30M"/>
                         <outlet property="menuBarButtonItem" destination="mYI-9c-bj3" id="CFj-bt-oee"/>
+                        <outlet property="newQuestionNotificationCell" destination="SqV-PH-8WJ" id="2Jy-kU-9gM"/>
                         <outlet property="newQuestionsnotificationLabel" destination="X9u-6k-PfP" id="fIC-Mf-n1e"/>
                         <outlet property="notificationsLabel" destination="gZJ-EW-siJ" id="hb1-mg-NGL"/>
                         <outlet property="questionTimeLabel" destination="94k-M8-Wpx" id="csn-Lv-p7I"/>

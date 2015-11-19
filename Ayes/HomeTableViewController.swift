@@ -14,7 +14,7 @@ class HomeTableViewController: UITableViewController {
   var questions = [Question]() {
     didSet {
       questions.sortInPlace { (q1, q2) -> Bool in
-        return q1.dateCreated?.compare(q2.dateCreated ?? NSDate()) == .OrderedDescending && (q1.id ?? 0) > (q2.id ?? 0)
+        return q1.publishedAt?.compare(q2.publishedAt ?? NSDate()) == .OrderedDescending
       }
     }
   }
@@ -80,6 +80,8 @@ class HomeTableViewController: UITableViewController {
 
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh:",
         name: QuestionsUpdateNotification, object: nil)
+
+    refresh(self)
   }
   
   deinit {

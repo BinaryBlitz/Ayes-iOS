@@ -22,6 +22,8 @@ class SettingsTableViewController: UITableViewController {
   @IBOutlet weak var favoriteQuestionsLabel: UILabel!
   @IBOutlet var notificationsCells: [UITableViewCell]!
   @IBOutlet weak var mainNotificationCell: UITableViewCell!
+  @IBOutlet weak var newQuestionNotificationCell: UITableViewCell!
+  @IBOutlet weak var favoriteQuestionNotificationCell: UITableViewCell!
   
   let gesturesView = UIView()
 
@@ -45,23 +47,35 @@ class SettingsTableViewController: UITableViewController {
     
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     
-    let registered = UIApplication.sharedApplication().isRegisteredForRemoteNotifications()
-    
-    if let sw = mainNotificationCell.viewWithTag(2) as? UISwitch {
-      sw.on = registered
+    let registered =
+        Settings.sharedInstance.favoriteQuestionsNotifications ||
+                Settings.sharedInstance.newQuestionNotifications
+
+
+    if let sw = newQuestionNotificationCell.viewWithTag(2) as? UISwitch {
+      sw.on = Settings.sharedInstance.newQuestionNotifications
     }
-    
-    for cell in notificationsCells {
-      //set up switch
-      let sw = cell.viewWithTag(2) as! UISwitch
-      sw.setOn(registered, animated: true)
-      sw.enabled = registered
-      
-      //set up label
-      let label = cell.viewWithTag(1) as! UILabel
-      label.enabled = registered
-      
-      cell.userInteractionEnabled = registered
+
+    if let sw = favoriteQuestionNotificationCell.viewWithTag(2) as? UISwitch {
+      sw.on = Settings.sharedInstance.favoriteQuestionsNotifications
+    }
+
+    if !registered {
+      if let sw = mainNotificationCell.viewWithTag(2) as? UISwitch {
+        sw.on = registered
+      }
+
+      for cell in notificationsCells {
+        //set up switch
+        let sw = cell.viewWithTag(2) as! UISwitch
+        sw.setOn(registered, animated: true)
+        sw.enabled = registered
+
+        //set up label
+        let label = cell.viewWithTag(1) as! UILabel
+        label.enabled = registered
+        cell.userInteractionEnabled = registered
+      }
     }
   }
   
@@ -69,7 +83,12 @@ class SettingsTableViewController: UITableViewController {
     guard let switcher = sender as? UISwitch else {
       return
     }
-    
+
+    Settings.sharedInstance.newQuestionNotifications = switcher.on
+    Settings.sharedInstance.favoriteQuestionsNotifications = switcher.on
+    Settings.saveToUserDefaults()
+    ServerManager.sharedInstance.updateSettings()
+
     for cell in notificationsCells {
       let sw = cell.viewWithTag(2) as! UISwitch
       sw.setOn(switcher.on, animated: true)
@@ -78,19 +97,50 @@ class SettingsTableViewController: UITableViewController {
       let label = cell.viewWithTag(1) as! UILabel
       label.enabled = switcher.on
     }
-    
+
     if switcher.on {
-      ServerManager.sharedInstance.updateDeviceToken()
+      ServerManager.sharedInstance.updateDeviceToken(ServerManager.sharedInstance.deviceToken)
     } else {
-      ServerManager.sharedInstance.deviceToken = nil
       ServerManager.sharedInstance.updateDeviceToken()
     }
+
+    ServerManager.sharedInstance.updateSettings()
   }
   
   @IBAction func newQuestionsSwitch(sender: AnyObject) {
+    guard let switcher = sender as? UISwitch else {
+      return
+    }
+
+    Settings.sharedInstance.newQuestionNotifications = switcher.on
+
+    if !(Settings.sharedInstance.favoriteQuestionsNotifications || switcher.on) {
+      if let sw = mainNotificationCell.viewWithTag(2) as? UISwitch {
+        sw.setOn(false, animated: true)
+        notificationsSwitch(sw)
+        return
+      }
+    }
+    Settings.saveToUserDefaults()
+    ServerManager.sharedInstance.updateSettings()
   }
   
   @IBAction func favoriteQuestionsSwitch(sender: AnyObject) {
+    guard let switcher = sender as? UISwitch else {
+      return
+    }
+
+    Settings.sharedInstance.favoriteQuestionsNotifications = switcher.on
+
+    if !(Settings.sharedInstance.newQuestionNotifications || switcher.on) {
+      if let sw = mainNotificationCell.viewWithTag(2) as? UISwitch {
+        sw.setOn(false, animated: true)
+        notificationsSwitch(sw)
+        return
+      }
+    }
+    Settings.saveToUserDefaults()
+    ServerManager.sharedInstance.updateSettings()
   }
   
   func reloadContent() {

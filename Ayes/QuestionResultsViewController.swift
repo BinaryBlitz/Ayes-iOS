@@ -45,7 +45,7 @@ class QuestionResultsViewController: UIViewController {
     pieChart.shouldHighlightSectorOnTouch = false
     pieChart.labelPercentageCutoff = 100
     pieChart.strokeChart()
-    let stat = question.stat as! Stat
+    let stat = question.stat!
     update(stat)
   }
   
@@ -89,11 +89,11 @@ extension QuestionResultsViewController: StatDataDisplay {
   func didChangeStatType(type: StatType) {
     switch type {
     case .Similar:
-      if let similarStat = question.similarStat as? Stat {
+      if let similarStat = question.similarStat {
         update(similarStat)
       }
     case .Normal:
-      let stat = question.stat as! Stat
+      let stat = question.stat!
       update(stat)
     case let .Other(stat):
       update(stat)
