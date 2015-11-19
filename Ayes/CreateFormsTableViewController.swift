@@ -45,9 +45,14 @@ class CreateFormsTableViewController: UITableViewController {
         (element) -> String? in
         return element.localize()
       }
-
-      let detailString = localizedSelectedValues.joinWithSeparator(", ")
-      cell.detailTextLabel?.text = detailString
+      
+      if key == kAge {
+        let detailString = localizedSelectedValues.joinWithSeparator(" - ")
+        cell.detailTextLabel?.text = detailString
+      } else {
+        let detailString = localizedSelectedValues.joinWithSeparator(", ")
+        cell.detailTextLabel?.text = detailString
+      }
     } else {
       cell.detailTextLabel?.text = ""
     }

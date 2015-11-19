@@ -262,7 +262,7 @@ class ServerManager {
     }
     
     do {
-      var fields = [String: [String]]()
+      var fields = [String: [AnyObject]]()
       let avaliableKeys = ComplexUserManager.sharedManager.avalableKeys
 
       avaliableKeys.forEach { item in
@@ -271,7 +271,19 @@ class ServerManager {
         }
 
         if values.count != 0 {
-          fields[item] = ComplexUserManager.sharedManager.valuesForKey(item)
+          if item == kAge {
+            guard let agesRange = ComplexUserManager.sharedManager.user?.age else {
+              return
+            }
+            var ages = [Int]()
+            for var i = agesRange[0]; i <= agesRange[1]; i++ {
+              ages.append(i)
+            }
+            
+            fields[item] = ages
+          } else {
+            fields[item] = ComplexUserManager.sharedManager.valuesForKey(item)
+          }
         }
       }
       
