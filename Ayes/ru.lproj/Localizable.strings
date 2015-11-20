@@ -46,7 +46,7 @@
 "VK" = "ВКонтакте";
 "Other users" = "Другие пользователи";
 "Same as me" = "Такие же как я";
-"This function will be paid soon!" = "Эта функция в дальнейшем станет платной";
+"This function will become paid soon!" = "Эта функция в дальнейшем станет платной!";
 "Your favorite questions will appear right here." = "Здесь вы всегда сможете найти свои избранные вопросы.";
 "birthdate" = "День рождения";
 "gender" = "Пол";
@@ -63,14 +63,15 @@
 "Success!" = "Успешно!";
 "Error! Try again later." = "Ошибка. Попробуйте позже!";
 "Error" = "Ошибка";
-"You can update your form only after 7 days" = "Вы сможете обновить свою анкету только через 7 дней";
-"You can update your form only after 6 days" = "Вы сможете обновить свою анкету только через 6 дней";
-"You can update your form only after 5 days" = "Вы сможете обновить свою анкету только через 5 дней";
-"You can update your form only after 4 days" = "Вы сможете обновить свою анкету только через 4 дня";
-"You can update your form only after 3 days" = "Вы сможете обновить свою анкету только через 3 дня";
-"You can update your form only after 2 days" = "Вы сможете обновить свою анкету только через 2 дня";
-"You can update your form only after 1 days" = "Вы сможете обновить свою анкету только через 1 день";
-"You have to fill all the fields before." = "Необходимо заполнить все поля перед сохранением.";
+
+"You can update your questionnaire only after 7 days" = "Вы сможете обновить свою анкету только через 7 дней";
+"You can update your questionnaire only after 6 days" = "Вы сможете обновить свою анкету только через 6 дней";
+"You can update your questionnaire only after 5 days" = "Вы сможете обновить свою анкету только через 5 дней";
+"You can update your questionnaire only after 4 days" = "Вы сможете обновить свою анкету только через 4 дня";
+"You can update your questionnaire only after 3 days" = "Вы сможете обновить свою анкету только через 3 дня";
+"You can update your questionnaire only after 2 days" = "Вы сможете обновить свою анкету только через 2 дня";
+"You can update your questionnaire only after 1 days" = "Вы сможете обновить свою анкету только через 1 день";
+"You have to fill all the fields before saving" = "Необходимо заполнить все поля перед сохранением";
 
 "male" = "Мужской";
 "female" = "Женский";
@@ -114,8 +115,8 @@
 "village" = "Село";
 "urban_village" = "Поселок городского типа";
 "town" = "Город";
-"city" = "Город свыше 100тыс";
-"million_city" = "Милионник";
+"city" = "Город свыше 100 тыс. чел.";
+"million_city" = "Город-миллионник";
 
 "AD" = "Республика Адыгея";
 "AL" = "Республика Алтай";

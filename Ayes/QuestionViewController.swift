@@ -169,7 +169,7 @@ class QuestionViewController: UIViewController {
           self.sameAsMeButton.setTitle("All".localize(), forState: .Normal)
           self.statDelegate?.didChangeStatType(StatType.Similar)
         } else {
-          let alert = UIAlertController(title: nil, message: "No internet connection".localize(), preferredStyle: .Alert)
+          let alert = UIAlertController(title: nil, message: "Error! Try again later.".localize(), preferredStyle: .Alert)
           alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
           self.presentViewController(alert, animated: true, completion: nil)
         }

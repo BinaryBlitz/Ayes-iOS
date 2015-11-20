@@ -230,7 +230,8 @@ class ServerManager {
     do {
       let request = try get("questions/\(questionID)/answers/similar")
       request.validate()
-      request.responseJSON { (_, _, result) in
+      request.responseJSON { (_, resp, result) in
+        print(resp)
         if result.isFailure {
           complition?(nil)
           return
@@ -238,6 +239,7 @@ class ServerManager {
         
         if let jsonData = result.value {
           let json = JSON(jsonData)
+          print(json)
           let similarStat = Stat.createFromJSON(json)
           question.similarStat = similarStat
           complition?(similarStat)

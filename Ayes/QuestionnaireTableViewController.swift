@@ -89,7 +89,7 @@ class QuestionnaireTableViewController: UITableViewController {
       let timeInterval = -lastUpdate.timeIntervalSinceNow
       let days = round(timeInterval / (24 * 60 * 60))
       
-      let updateAlert = UIAlertController(title: "Error".localize(), message: "You can update your form only after \(Int(7 - days)) days".localize(), preferredStyle: .Alert)
+      let updateAlert = UIAlertController(title: "Error".localize(), message: "You can update your questionnaire only after \(Int(7 - days)) days".localize(), preferredStyle: .Alert)
       updateAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
       presentViewController(updateAlert, animated: true, completion: nil)
     }
@@ -101,7 +101,7 @@ class QuestionnaireTableViewController: UITableViewController {
       
       return
     } else if let user = UserManager.sharedManager.tmpUser where !user.isAllFieldsFilled() {
-      let fillFieldAlert = UIAlertController(title: "Error".localize(), message: "You have to fill all the fields before.".localize(), preferredStyle: .Alert)
+      let fillFieldAlert = UIAlertController(title: "Error".localize(), message: "You have to fill all the fields before saving".localize(), preferredStyle: .Alert)
       fillFieldAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
       
       presentViewController(fillFieldAlert, animated: true, completion: nil)

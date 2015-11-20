@@ -19,16 +19,16 @@
 "Question Time" = "Question Time";
 "SkipWarning" = "You will not be able to answer this question if you'll skip it.";
 "birthdate" = "Birthdate";
-"gender" = "Sex";
+"gender" = "Gender";
 "city" = "City";
 "occupation" = "Occupation";
 "income" = "Income";
 "education" = "Education";
-"relationship" = "Relationship";
-"settlement" = "Locality";
+"relationship" = "Marital status";
+"settlement" = "Place of living type";
 
 "saveQuestionnaireWarning" = "You can update your questionnaire only once a week.";
-"notFilledAlert" = "To use 'same as me' faeture you have to fill all fields in your Questionnaire.";
+"notFilledAlert" = "To use 'same as me' feature you have to fill all fields in your Questionnaire.";
 
 "male" = "Male";
 "female" = "Female";
@@ -44,14 +44,14 @@
 "unemployed" = "Unemployed";
 
 "none" = "No permanent income";
-"over0" = "Less than 10k";
-"over10000" = "10к-30к";
-"over30000" = "30к-60к";
-"over60000" = "60к-80к";
-"over80000" = "80к-100к";
-"over100000" = "100к-130к";
-"over130000" = "130к-160к";
-"over160000" = "More than 160к";
+"over0" = "Less than 10k RUR";
+"over10000" = "10к-30к RUR";
+"over30000" = "30к-60к RUR";
+"over60000" = "60к-80к RUR";
+"over80000" = "80к-100к RUR";
+"over100000" = "100к-130к RUR";
+"over130000" = "130к-160к RUR";
+"over160000" = "More than 160к RUR";
 
 "lower_secondary" = "Middle school";
 "incomplete_higher" = "University (unfinished)";
@@ -66,11 +66,11 @@
 "civil_union" = "Domestic partnership";
 "widow" = "Widower";
 
-"village" = "Village";
+"village" = "Countryside";
 "urban_village" = "Urban village";
 "town" = "Town";
 "city" = "City";
-"million_city" = "Million city";
+"million_city" = "City above 1 mln. population";
 
 "AD" = "Adygeya, Respublika";
 "AL" = "Altay, Respublika";
