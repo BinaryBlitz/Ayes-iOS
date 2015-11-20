@@ -47,6 +47,13 @@ class SettingsTableViewController: UITableViewController {
     
     tableView.backgroundColor = UIColor.lightGreenBackgroundColor()
     
+    if UIApplication.sharedApplication().isRegisteredForRemoteNotifications() {
+      Settings.sharedInstance.favoriteQuestionsNotifications = true
+      Settings.sharedInstance.newQuestionNotifications = true
+      Settings.saveToUserDefaults()
+    }
+    
+    
     let registered =
         Settings.sharedInstance.favoriteQuestionsNotifications ||
                 Settings.sharedInstance.newQuestionNotifications
