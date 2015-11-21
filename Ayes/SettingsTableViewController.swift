@@ -178,7 +178,6 @@ class SettingsTableViewController: UITableViewController {
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    print(indexPath.row)
 
     guard UserManager.sharedManager.canUpdateUser() else {
       presentCannotUpdateAlert()

@@ -118,7 +118,6 @@ class QuestionViewController: UIViewController {
           (success) -> Void in
           if success {
             favoriteObject.sentToServer = true
-            print(favoriteObject.question_id)
             NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
           }
         }
@@ -263,7 +262,6 @@ class QuestionViewController: UIViewController {
 extension QuestionViewController: QuestionChangesDelegate {
 
   func didAnswerTheQuestion(question: Question) {
-    print(question.state)
     NSManagedObjectContext.defaultContext().MR_saveToPersistentStoreAndWait()
     delegate?.didAnswerTheQuestion?(question)
     showResults(true)

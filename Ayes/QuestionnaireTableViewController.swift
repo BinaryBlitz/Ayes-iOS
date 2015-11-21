@@ -112,7 +112,6 @@ class QuestionnaireTableViewController: UITableViewController {
         message: "saveQuestionnaireWarning".localize(), preferredStyle: .Alert)
     alert.addAction(UIAlertAction(title: "Save".localize(), style: .Default, handler: { (_) -> Void in
       ServerManager.sharedInstance.updateUser { (success) -> Void in
-        print("user updated with success: \(success)")
         
         var message: String?
         if success {

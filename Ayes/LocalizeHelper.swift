@@ -26,7 +26,6 @@ class LocalizeHelper {
   }
   
   static func setLanguage(lang: String) {
-    print("Change to \(lang)")
     if !sharedHelper.availableLanguages.contains(lang) {
       fatalError("Language with identifire \(lang) is not available.")
     }

@@ -42,7 +42,6 @@ class QuestionControlsViewController: UIViewController {
   func updateQuestionState(state: QuestionState) {
     question.updateState(state)
     guard let id = question.id?.integerValue else {
-      print("Question have no id!?!")
       return
     }
     

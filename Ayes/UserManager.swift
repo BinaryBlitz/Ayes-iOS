@@ -55,10 +55,8 @@ class UserManager {
   }
   
   func canUpdateUser() -> Bool {
-    print(lastUpdate)
     if let lastUpdate = lastUpdate {
       let interval = lastUpdate.timeIntervalSinceNow
-      print(interval)
       return -interval > 7 * 24 * 60 * 60
     }
     

@@ -56,7 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
       // Favorites
       let favorites = Favorite.findByAttribute("sentToServer", withValue: false) as! [Favorite]
-      print(favorites)
       for fav in favorites {
         ServerManager.sharedInstance.submitFavorite(fav) { (success) -> Void in
           if success {

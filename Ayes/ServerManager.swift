@@ -15,12 +15,12 @@ class ServerManager {
   private let manager = Manager.sharedInstance
   var apiToken: String? {
     didSet {
-      NSLog("api token updated: \(apiToken ?? "")")
+//      print("api token updated: \(apiToken ?? "")")
     }
   }
   var deviceToken: String? {
     didSet {
-      NSLog("device token updated: \(deviceToken ?? "")")
+//      print("device token updated: \(deviceToken ?? "")")
     }
   }
   
@@ -231,7 +231,6 @@ class ServerManager {
       let request = try get("questions/\(questionID)/answers/similar")
       request.validate()
       request.responseJSON { (_, resp, result) in
-        print(resp)
         if result.isFailure {
           complition?(nil)
           return
@@ -239,7 +238,6 @@ class ServerManager {
         
         if let jsonData = result.value {
           let json = JSON(jsonData)
-          print(json)
           let similarStat = Stat.createFromJSON(json)
           question.similarStat = similarStat
           complition?(similarStat)
@@ -385,9 +383,6 @@ class ServerManager {
       let request = try self.patch("user/", params: parameters)
       request.validate()
       request.response { (_, resp, _, error) -> Void in
-        print(resp)
-        print("updated device token with error: \(error)")
-        print("token: \(token)")
         complition?(error == nil)
       }
       
