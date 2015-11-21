@@ -11,7 +11,6 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
-            <string>Roboto-Regular</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -50,33 +49,33 @@
                                     <constraint firstAttribute="height" constant="1" id="fiZ-XM-5jb"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="22.11.2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Em-iD-gjs">
-                                <rect key="frame" x="287" y="27" width="81" height="21.5"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4242" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p03-hS-zp3">
-                                <rect key="frame" x="26" y="16" width="61" height="36"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="27"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Вы ответили" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8P2-mi-Aur">
-                                <rect key="frame" x="97" y="30" width="85" height="18.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.11.2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Em-iD-gjs">
+                                <rect key="frame" x="297" y="29" width="71" height="18.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Clock" translatesAutoresizingMaskIntoConstraints="NO" id="KLo-FE-WUw">
-                                <rect key="frame" x="263.5" y="29.5" width="15" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4242" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p03-hS-zp3">
+                                <rect key="frame" x="24" y="16" width="59" height="36"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="26"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы ответили" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="8P2-mi-Aur">
+                                <rect key="frame" x="93" y="31" width="77.5" height="15.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clock" translatesAutoresizingMaskIntoConstraints="NO" id="KLo-FE-WUw">
+                                <rect key="frame" x="280" y="30" width="13" height="13"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KLo-FE-WUw" secondAttribute="height" multiplier="1:1" id="VXh-XA-k6G"/>
-                                    <constraint firstAttribute="width" constant="15" id="vg4-f5-qJG"/>
+                                    <constraint firstAttribute="width" constant="13" id="vg4-f5-qJG"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -85,7 +84,7 @@
                         <constraints>
                             <constraint firstItem="K3r-ah-pu8" firstAttribute="leading" secondItem="jBc-ga-pvN" secondAttribute="leading" constant="5" id="3Qw-Ub-h6t"/>
                             <constraint firstItem="8P2-mi-Aur" firstAttribute="centerY" secondItem="p03-hS-zp3" secondAttribute="centerY" id="5Kj-4F-sJn"/>
-                            <constraint firstItem="p03-hS-zp3" firstAttribute="leading" secondItem="K3r-ah-pu8" secondAttribute="trailing" constant="16" id="5VF-vs-Xuc"/>
+                            <constraint firstItem="p03-hS-zp3" firstAttribute="leading" secondItem="K3r-ah-pu8" secondAttribute="trailing" constant="14" id="5VF-vs-Xuc"/>
                             <constraint firstItem="7dI-vv-27B" firstAttribute="top" secondItem="612-se-AgC" secondAttribute="bottom" id="6cf-ga-SJr"/>
                             <constraint firstItem="7dI-vv-27B" firstAttribute="leading" secondItem="K3r-ah-pu8" secondAttribute="trailing" constant="11" id="7vf-XU-9OE"/>
                             <constraint firstItem="8Em-iD-gjs" firstAttribute="baseline" secondItem="8P2-mi-Aur" secondAttribute="baseline" id="ADA-fk-LRJ"/>
@@ -95,17 +94,18 @@
                             <constraint firstItem="K3r-ah-pu8" firstAttribute="top" secondItem="jBc-ga-pvN" secondAttribute="top" constant="8" id="Ry0-Ib-Vht"/>
                             <constraint firstAttribute="trailing" secondItem="612-se-AgC" secondAttribute="trailing" constant="16" id="WsI-WF-eof"/>
                             <constraint firstItem="612-se-AgC" firstAttribute="top" secondItem="p03-hS-zp3" secondAttribute="bottom" constant="8" id="c2G-ug-keQ"/>
+                            <constraint firstItem="KLo-FE-WUw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8P2-mi-Aur" secondAttribute="trailing" constant="5" id="dBv-EN-69z"/>
                             <constraint firstItem="KLo-FE-WUw" firstAttribute="baseline" secondItem="8P2-mi-Aur" secondAttribute="baseline" id="dnp-40-4jK"/>
                             <constraint firstAttribute="bottom" secondItem="7dI-vv-27B" secondAttribute="bottom" constant="16.5" id="dpC-3B-9So"/>
                             <constraint firstAttribute="trailing" secondItem="7dI-vv-27B" secondAttribute="trailing" constant="8" id="eKf-Kp-eDE"/>
                             <constraint firstItem="612-se-AgC" firstAttribute="top" secondItem="jBc-ga-pvN" secondAttribute="top" constant="60" id="eqV-bB-ugD"/>
                             <constraint firstAttribute="trailing" secondItem="8Em-iD-gjs" secondAttribute="trailing" constant="16" id="lyp-Ii-buh"/>
-                            <constraint firstItem="8Em-iD-gjs" firstAttribute="leading" secondItem="KLo-FE-WUw" secondAttribute="trailing" constant="8" id="mfQ-rE-FzD"/>
+                            <constraint firstItem="8Em-iD-gjs" firstAttribute="leading" secondItem="KLo-FE-WUw" secondAttribute="trailing" constant="4" id="mfQ-rE-FzD"/>
                             <constraint firstItem="8P2-mi-Aur" firstAttribute="leading" secondItem="p03-hS-zp3" secondAttribute="trailing" constant="10" id="n7N-LQ-5Mz"/>
                             <constraint firstItem="8Em-iD-gjs" firstAttribute="centerY" secondItem="8P2-mi-Aur" secondAttribute="centerY" id="qZb-O7-0Xn"/>
                             <constraint firstItem="KLo-FE-WUw" firstAttribute="centerY" secondItem="8Em-iD-gjs" secondAttribute="centerY" id="sKl-9p-nO7"/>
                             <constraint firstItem="612-se-AgC" firstAttribute="leading" secondItem="K3r-ah-pu8" secondAttribute="trailing" constant="16" id="tjh-mS-Czj"/>
-                            <constraint firstItem="8P2-mi-Aur" firstAttribute="baseline" secondItem="p03-hS-zp3" secondAttribute="baseline" id="xD4-7k-G1m"/>
+                            <constraint firstItem="8P2-mi-Aur" firstAttribute="baseline" secondItem="p03-hS-zp3" secondAttribute="baseline" constant="-1" id="xD4-7k-G1m"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

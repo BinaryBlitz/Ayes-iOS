@@ -125,9 +125,6 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <connections>
-                                            <segue destination="UgS-yk-fZ3" kind="showDetail" identifier="chooseRegion" id="i4Y-1C-P25"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="44" id="Xc3-MI-lxn">
                                         <rect key="frame" x="0.0" y="187" width="600" height="44"/>
@@ -334,6 +331,7 @@
                         <outlet property="regionValueLabel" destination="4i4-4p-pZF" id="4hu-Oe-fCz"/>
                         <outletCollection property="notificationsCells" destination="SqV-PH-8WJ" collectionClass="NSMutableArray" id="RTt-OT-FU4"/>
                         <outletCollection property="notificationsCells" destination="A9J-Q4-2hY" collectionClass="NSMutableArray" id="NML-p8-CNd"/>
+                        <segue destination="UgS-yk-fZ3" kind="showDetail" identifier="chooseRegion" id="wKN-hB-fqa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5n-3b-V61" userLabel="First Responder" sceneMemberID="firstResponder"/>

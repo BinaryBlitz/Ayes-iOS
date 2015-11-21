@@ -178,8 +178,31 @@ class SettingsTableViewController: UITableViewController {
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
+
+    guard UserManager.sharedManager.canUpdateUser() else {
+      presentCannotUpdateAlert()
+      return
+    }
+
+    if indexPath.row == 1 {
+      performSegueWithIdentifier("chooseRegion", sender: nil)
+    }
+
   }
-  
+
+  func presentCannotUpdateAlert() {
+    if let lastUpdate = UserManager.sharedManager.lastUpdate {
+      let timeInterval = -lastUpdate.timeIntervalSinceNow
+      let days = round(timeInterval / (24 * 60 * 60))
+
+      let updateAlert = UIAlertController(title: "Error".localize(), message: "You can update your questionnaire only after \(Int(7 - days)) days".localize(), preferredStyle: .Alert)
+      updateAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+      presentViewController(updateAlert, animated: true, completion: nil)
+    }
+  }
+
+  //MARK: - Navigation
+
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "chooseLanguage" {
       guard let navController = segue.destinationViewController as? UINavigationController else {
@@ -206,7 +229,6 @@ class SettingsTableViewController: UITableViewController {
             
       destination.delegate = self
     }
-    
   }
 }
 
