@@ -105,7 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     ServerManager.sharedInstance.deviceToken = token
     
-    ServerManager.sharedInstance.updateDeviceToken(token)
+//    ServerManager.sharedInstance.updateDeviceToken(token)
   }
   
   private func setUpNavigationBar() {
@@ -156,6 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     NSUserDefaults.standardUserDefaults().setObject(token, forKey: "deviceToken")
     ServerManager.sharedInstance.deviceToken = token
+    ServerManager.sharedInstance.updateDeviceToken(token)
   }
   
   func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {

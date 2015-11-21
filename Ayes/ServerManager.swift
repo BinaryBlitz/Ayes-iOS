@@ -384,7 +384,8 @@ class ServerManager {
     do {
       let request = try self.patch("user/", params: parameters)
       request.validate()
-      request.response { (_, _, _, error) -> Void in
+      request.response { (_, resp, _, error) -> Void in
+        print(resp)
         print("updated device token with error: \(error)")
         print("token: \(token)")
         complition?(error == nil)

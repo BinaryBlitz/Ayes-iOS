@@ -130,7 +130,21 @@ class QuestionViewController: UIViewController {
   }
 
   @IBAction func otherUsersButtonAction(sender: AnyObject) {
-    performSegueWithIdentifier("createForms", sender: nil)
+    struct AlertSettings {
+      static var shouldShow = true
+    }
+
+    if AlertSettings.shouldShow {
+      let alert = UIAlertController(title: nil, message: "This function will become paid soon!".localize(), preferredStyle: .Alert)
+//      let alert = UIAlertController(
+      alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (_) in
+        self.performSegueWithIdentifier("createForms", sender: nil)
+      }))
+      AlertSettings.shouldShow = false
+      presentViewController(alert, animated: true, completion: nil)
+    } else {
+      performSegueWithIdentifier("createForms", sender: nil)
+    }
   }
 
   @IBAction func sameAsMeButtonAction(sender: AnyObject) {
