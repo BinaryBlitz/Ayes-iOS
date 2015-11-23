@@ -63,15 +63,15 @@ extension User {
   
   enum Education: String, QuestionnaireItem {
     case LowerSecondary = "lower_secondary"
-    case IncompleteHigher = "upper_secondary"
-    case UpperSecondary = "incomplete_higher"
+    case UpperSecondary = "upper_secondary"
+    case IncompleteHigher = "incomplete_higher"
     case Higher = "higher"
     case College = "vocational"
     case Academic = "academic"
     
     static var optionsList: [String] {
-      return [LowerSecondary.rawValue, IncompleteHigher.rawValue,
-        UpperSecondary.rawValue, Higher.rawValue, College.rawValue, Academic.rawValue]
+      return [LowerSecondary.rawValue, UpperSecondary.rawValue, College.rawValue,
+        IncompleteHigher.rawValue, Higher.rawValue, Academic.rawValue]
     }
   }
   
