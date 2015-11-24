@@ -103,10 +103,24 @@ class QuestionViewController: UIViewController {
 
     let viewToShare = questionWithResultsView
     viewToShare.backgroundColor = UIColor.violetPrimaryColor()
-    let image = UIView.imageWithView(viewToShare)
+
+
+    //load special controller for image
+    let questionResultController = storyboard!.instantiateViewControllerWithIdentifier("ShareCardViewController") as! ShareCardViewController
+    questionResultController.question = question
+    questionResultController.view.frame = CGRect(x: 0, y: 0, width: 360, height: 400)
+    questionResultController.view.layer.frame = CGRect(x: 0, y: 0, width: 360, height: 400)
+    
+    questionResultController.view.backgroundColor = UIColor.violetPrimaryColor()
+//    questionResultController.configureWithQuestion(question)
+    addChildViewController(questionResultController)
+    questionResultController.didMoveToParentViewController(self)
+    //create image and content
+    let image = UIView.imageWithView(questionResultController.view)
     let post = "\(content) #ayes"
     let activityController = UIActivityViewController(activityItems: [post, image], applicationActivities: nil)
     presentViewController(activityController, animated: true, completion: nil)
+    questionResultController.removeFromParentViewController()
   }
 
   func favoriteButtonAction(sender: AnyObject) {
