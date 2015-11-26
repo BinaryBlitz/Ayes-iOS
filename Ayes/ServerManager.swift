@@ -35,8 +35,8 @@ class ServerManager {
       throw Errors.Unauthorized
     }
     
-    let shouldUpdaloadDeviceToken = Settings.sharedInstance.favoriteQuestionsNotifications ||
-        Settings.sharedInstance.newQuestionNotifications
+//    let shouldUpdaloadDeviceToken = Settings.sharedInstance.favoriteQuestionsNotifications ||
+//        Settings.sharedInstance.newQuestionNotifications
     
 //    let deviceTokenDict = ["device_token": shouldUpdaloadDeviceToken ? (deviceToken ?? NSNull()) : NSNull()]
     if parameters != nil {
