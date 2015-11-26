@@ -10,7 +10,6 @@ import UIKit
 
 class QuestionViewController: UIViewController {
 
-  @IBOutlet weak var proVersionLabel: UILabel!
   @IBOutlet weak var sameAsMeButton: UIButton!
   @IBOutlet weak var otherUsersButton: UIButton!
   @IBOutlet weak var controlsContainer: UIView!
@@ -69,9 +68,6 @@ class QuestionViewController: UIViewController {
     sameAsMeButton.setTitle("Same as me".localize(), forState: .Normal)
     sameAsMeButton.hidden = true
 
-    proVersionLabel.text = "(Pro version)".localize()
-    proVersionLabel.hidden = true
-
     if question.state != .NoAnswer {
       showResults(false)
     }
@@ -105,16 +101,18 @@ class QuestionViewController: UIViewController {
     viewToShare.backgroundColor = UIColor.violetPrimaryColor()
 
 
-    //load special controller for image
+    // load special controller for image
     let questionResultController = storyboard!.instantiateViewControllerWithIdentifier("ShareCardViewController") as! ShareCardViewController
     questionResultController.question = question
+
+    // magic is happening here
     questionResultController.view.frame = CGRect(x: 0, y: 0, width: 360, height: 400)
     questionResultController.view.layer.frame = CGRect(x: 0, y: 0, width: 360, height: 400)
     
     questionResultController.view.backgroundColor = UIColor.violetPrimaryColor()
-//    questionResultController.configureWithQuestion(question)
     addChildViewController(questionResultController)
     questionResultController.didMoveToParentViewController(self)
+
     //create image and content
     let image = UIView.imageWithView(questionResultController.view)
     let post = "\(content) #ayes"
@@ -143,21 +141,7 @@ class QuestionViewController: UIViewController {
   }
 
   @IBAction func otherUsersButtonAction(sender: AnyObject) {
-    struct AlertSettings {
-      static var shouldShow = true
-    }
-
-    if AlertSettings.shouldShow {
-      let alert = UIAlertController(title: nil, message: "This function will become paid soon!".localize(), preferredStyle: .Alert)
-//      let alert = UIAlertController(
-      alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (_) in
-        self.performSegueWithIdentifier("createForms", sender: nil)
-      }))
-      AlertSettings.shouldShow = false
-      presentViewController(alert, animated: true, completion: nil)
-    } else {
-      performSegueWithIdentifier("createForms", sender: nil)
-    }
+    performSegueWithIdentifier("createForms", sender: nil)
   }
 
   @IBAction func sameAsMeButtonAction(sender: AnyObject) {
@@ -232,7 +216,6 @@ class QuestionViewController: UIViewController {
       self.warningLabel.hidden = true
       self.sameAsMeButton.hidden = false
       self.otherUsersButton.hidden = false
-      self.proVersionLabel.hidden = false
     }
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Share"),
             style: .Plain, target: self, action: "shareButtonAction:")
