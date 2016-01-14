@@ -51,6 +51,17 @@
 				<key>NSTemporaryExceptionRequiresForwardSecrecy</key>
 				<false/>
 			</dict>
+			<key>188.166.37.49.xip.io</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionMinimumTLSVersion</key>
+				<string>1.0</string>
+				<key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
 		</dict>
 	</dict>
 	<key>UIAppFonts</key>

@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class ServerManager {
   static let sharedInstance = ServerManager()
-  private let baseURL = "http://ayes.binaryblitz.ru/"
+  private let baseURL = "http://188.166.37.49.xip.io/"
   private let manager = Manager.sharedInstance
   var apiToken: String? {
     didSet {
