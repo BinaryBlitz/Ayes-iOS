@@ -54,7 +54,7 @@ class QuestionViewController: UIViewController {
 
     let formatter = NSDateFormatter()
     formatter.dateFormat = "dd.MM.yyyy"
-    questionDateLabel.text = formatter.stringFromDate(question.dateCreated ?? NSDate())
+    questionDateLabel.text = formatter.stringFromDate(question.publishedAt ?? NSDate())
 
     questionIdLabel.text = "\(question.id ?? 0)"
     warningLabel.text = "SkipWarning".localize()

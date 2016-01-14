@@ -120,7 +120,7 @@ class HomeTableViewController: UITableViewController {
     cell.idLabel.text = "\(question.id ?? 0)"
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = "dd.MM.yyyy"
-    cell.dateLabel.text = dateFormatter.stringFromDate(question.dateCreated ?? NSDate())
+    cell.dateLabel.text = dateFormatter.stringFromDate(question.publishedAt ?? NSDate())
     cell.contentTextView.text = question.content
     cell.contentTextView.font = UIFont(name: "Roboto-Regular", size: 19)
     cell.questionStateIndicator.backgroundColor = question.state.getAccentColor()
