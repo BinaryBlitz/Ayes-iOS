@@ -19,7 +19,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>22</string>
+	<string>23</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -40,7 +40,7 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>ayes.binaryblitz.ru</key>
+			<key>188.166.37.49.xip.io</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
@@ -51,7 +51,7 @@
 				<key>NSTemporaryExceptionRequiresForwardSecrecy</key>
 				<false/>
 			</dict>
-			<key>188.166.37.49.xip.io</key>
+			<key>ayes.binaryblitz.ru</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
