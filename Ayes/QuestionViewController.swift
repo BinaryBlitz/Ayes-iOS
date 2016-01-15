@@ -27,6 +27,7 @@ class QuestionViewController: UIViewController {
   var statDelegate: StatDataDisplay?
 
   var statType: StatType = .Normal
+//  var displayingStat: Stat?
 
   override func viewDidLoad() {
     super.viewDidLoad()

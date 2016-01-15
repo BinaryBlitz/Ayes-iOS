@@ -55,6 +55,7 @@
 		37B1985E1BF90660006DDB88 /* CreateFormsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B1985D1BF90660006DDB88 /* CreateFormsTableViewController.swift */; };
 		37B198601BF9072D006DDB88 /* MultipleListChoiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B1985F1BF9072D006DDB88 /* MultipleListChoiceTableViewController.swift */; };
 		37B198621BF90757006DDB88 /* BirthyearsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B198611BF90757006DDB88 /* BirthyearsTableViewController.swift */; };
+		37B65C4C1C491E440026E36E /* UIView+AddContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B65C4B1C491E440026E36E /* UIView+AddContent.swift */; };
 		37BB0F621BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */; };
 		37BB0F631BC3AC9800DFFDED /* UIColor+Ayes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */; };
 		37BB0F651BC3D8BB00DFFDED /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */; };
@@ -150,6 +151,7 @@
 		37B1985D1BF90660006DDB88 /* CreateFormsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFormsTableViewController.swift; sourceTree = "<group>"; };
 		37B1985F1BF9072D006DDB88 /* MultipleListChoiceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleListChoiceTableViewController.swift; sourceTree = "<group>"; };
 		37B198611BF90757006DDB88 /* BirthyearsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthyearsTableViewController.swift; sourceTree = "<group>"; };
+		37B65C4B1C491E440026E36E /* UIView+AddContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AddContent.swift"; sourceTree = "<group>"; };
 		37BB0F611BC3AC9800DFFDED /* UIColor+Ayes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ayes.swift"; sourceTree = "<group>"; };
 		37BB0F641BC3D8BB00DFFDED /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		37BB0F671BC3DE8400DFFDED /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				37202B5B1BD6F90900FCD1DB /* NSDate+CreatedAt.swift */,
 				378170B51BEA3B6E00EF39D9 /* UIView+ImageWithView.swift */,
 				371FB48D1BF40131009C8DD3 /* String+Localize.swift */,
+				37B65C4B1C491E440026E36E /* UIView+AddContent.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				376D13B01BCD19F100F3EABC /* ChooseLanguageTableViewController.swift in Sources */,
 				37BB0F691BC3DE8400DFFDED /* QuestionTableViewCell.swift in Sources */,
 				3745EFC41BDC2E3E008E12DC /* QuestionnaireItem.swift in Sources */,
+				37B65C4C1C491E440026E36E /* UIView+AddContent.swift in Sources */,
 				3745EFC21BDC2DFA008E12DC /* User+EnumFields.swift in Sources */,
 				371FB4901BF4B472009C8DD3 /* ComplexUser.swift in Sources */,
 				378170BB1BEA4EFA00EF39D9 /* PageContentViewController.swift in Sources */,
