@@ -27,7 +27,6 @@ class QuestionViewController: UIViewController {
   var statDelegate: StatDataDisplay?
 
   var statType: StatType = .Normal
-//  var displayingStat: Stat?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -104,7 +103,6 @@ class QuestionViewController: UIViewController {
 
     // load special controller for image
     let questionResultController = storyboard!.instantiateViewControllerWithIdentifier("ShareCardViewController") as! ShareCardViewController
-    questionResultController.question = question
 
     // magic is happening here
     questionResultController.view.frame = CGRect(x: 0, y: 0, width: 360, height: 400)
@@ -113,6 +111,7 @@ class QuestionViewController: UIViewController {
     questionResultController.view.backgroundColor = UIColor.violetPrimaryColor()
     addChildViewController(questionResultController)
     questionResultController.didMoveToParentViewController(self)
+    questionResultController.configureWithQuestion(question, andStatType: statType)
 
     //create image and content
     let image = UIView.imageWithView(questionResultController.view)
